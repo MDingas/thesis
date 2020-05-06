@@ -1,0 +1,535 @@
+%!TEX root = dissertation.tex
+
+% Color setup
+\usepackage{color}
+\usepackage[dvipsnames,rgb,table]{xcolor}
+\usepackage[linedheaders,parts,pdfspacing]{classicthesis}
+\usepackage{amsmath}
+\usepackage{pgfgantt}
+\usepackage{a4wide} % Setup for fullpage
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{pdfcomment}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{rotating}
+\usepackage{pifont}
+%\usepackage[acronym, nonumberlist, nopostdot, style=super]{glossaries}
+\usepackage{makeidx}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{textcomp} % for upquote
+\usepackage{indentfirst}
+\usepackage[]{todonotes}
+%\usepackage{subfigure}
+%\usepackage[marginparwidth=150pt]{geometry}
+\usepackage{subfig}
+\usepackage{hyperref}
+%\usepackage{lipsum}
+%\usepackage{amsthm}
+%\usepackage{scrpage2}
+%\usepackage{times}
+%\usepackage{etex}
+%\usepackage{moresize}
+%\usepackage{imakeidx}
+%\usepackage{datatool}
+%\usepackage{glossaries}
+%\usepackage{nomencl}
+%\usepackage{etoolbox}
+%\usepackage{dtklogos}
+
+
+
+%------------- encoding ---------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%--------------------------------------
+ 
+%---- English-specific commands ----
+\usepackage[english]{babel}
+%--------------------------------------
+
+
+%---- Portuguese-specific names ----
+% \renewcommand*{\equationautorefname}{Equação}%
+% \renewcommand*{\footnoteautorefname}{nota de rodapé}%
+% \renewcommand*{\itemautorefname}{item}%
+% \renewcommand*{\figureautorefname}{Figura}%
+% \renewcommand*{\tableautorefname}{Tabela}%
+% \renewcommand*{\partautorefname}{Parte}%
+% \renewcommand*{\appendixautorefname}{Anexo}%
+% \renewcommand*{\chapterautorefname}{capítulo}%
+% \renewcommand*{\sectionautorefname}{secção}%
+% \renewcommand*{\subsectionautorefname}{subsecção}%
+% \renewcommand*{\subsubsectionautorefname}{subsubsecção}%
+% \renewcommand*{\paragraphautorefname}{parágrafo}%
+% \renewcommand*{\subparagraphautorefname}{subparágrafo}%
+% \renewcommand*{\FancyVerbLineautorefname}{linha}%
+% \renewcommand*{\theoremautorefname}{Teorema}%  
+% \renewcommand*{\pageautorefname}{página}%
+
+
+%----------------- Using makeidx ----------------------------------------------%
+
+% own macro commands
+\newcommand{\uminho}[1]{
+     \href{http://www.uminho.pt}{#1}
+     \index{UM!University of Minho}}
+\newcommand{\UM}{
+	\uminho{\textsc{u.m.}}}
+\def\Bibtex{
+	\href{http://www.bibtex.org/}{Bib\TeX}
+	\index{\LaTeX!Tool!\texttt{bibtex}}}
+\def\LNCS{
+	\href{http://www.springer.com/computer/lncs?SGWID=0-164-0-0-0}{LNCS}
+	\index{LNCS!\uk{Lecture Notes in Computer Science}}}
+\def\Latex{
+	\href{http://www.latex-project.org/}{\LaTeX}
+	\index{\LaTeX}}
+\def\Makeindex{
+	\href{http://www.ctan.org/pkg/makeindex}{\texttt{makeindex}}
+	\index{\LaTeX!Tool!\texttt{makeindex}}}
+\newcommand{\tug}[1]{
+	\href{http://tug.org/}{#1}
+	\index{TeX!TeX Users Group (TUG)}}
+\newcommand{\TUG}{
+	\tug{TUG}}
+\newcommand{\conexp}[1]{
+	\href{http://sourceforge.net/projects/conexp}{#1}
+	\index{FCA!Tools!Conexp}}
+\newcommand{\mei}[1]{
+	\href{http://mei.di.uminho.pt}{#1}
+	\index{UM!Master courses!MEI}}
+\newcommand{\MEI}{
+	\mei{\includegraphics[width=0.05\textwidth]{img/mei-logo-03.jpg}}}
+%------------------------------------------------------------------------------%
+
+% Margin Setup
+% prev was 0.3 -0.3 15 30
+\setlength\oddsidemargin{0.3in}
+\setlength\evensidemargin{-0.3in}
+\setlength\headsep{15pt}
+\setlength\footskip{30pt}
+
+%Line Spacing
+\usepackage{setspace}
+\onehalfspacing
+
+% layout settings
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\renewcommand{\headfont}{\bfseries\fontsize{9}{11}\selectfont}
+\renewcommand{\pnumfont}{\bfseries\fontsize{9}{11}\selectfont}
+
+% Redefine section and description fonts to the normal font
+\renewcommand{\sectfont}{\normalfont\bfseries}
+\renewcommand{\descfont}{\normalfont\bfseries}
+
+% GraphicX package
+\usepackage{graphicx}
+
+% Defining extra colors
+\definecolor{dark-blue}{cmyk}{1.0,1.0,0.0,0.1}
+\definecolor{dark-green}{cmyk}{1.0,0,1.0,0.65}
+\definecolor{dark-red}{cmyk}{0,1.0,1.0,0.3}
+\definecolor{navy-blue}{cmyk}{1.0,1.0,0.0,0.5}
+\definecolor{grey}{rgb}{0.6,0.6,0.6}
+\definecolor{eng}{cmyk}{0.14,0.71,1,0.03}
+\definecolor{um}{cmyk}{0.25,1.00,1.00,0.22}
+\definecolor{lightGray}{gray}{0.92}
+\definecolor{verylightgray}{cmyk}{0,0,0,0.05}
+
+% Default UM logo colors
+\gdef\umc{um}
+\gdef\engc{eng}
+
+% UM_ENg Logo
+\def\UMEng[#1]#2{\begin{tikzpicture}[
+	% bars styling,
+	bar/.style={rectangle,fill=white,rounded corners=0.08cm,minimum width=0.16cm,inner sep=0pt},
+	umBig/.style={minimum height=0.74cm},
+	umSmall/.style={minimum height=0.48cm},
+	engBar/.style={minimum height=0.86cm},
+	umLogoPosition/.style={xshift=1.3cm,yshift=1.3cm},
+	engLogoPosition/.style={xshift=3.9cm,yshift=1.3cm}]
+	
+	% Uminho logo
+	\fill[fill=#1] (0,0) -- (2.6,0) -- (2.6,2.6) -- (0,2.6) -- cycle;
+	\foreach \i in {1,...,3}{
+		\node at (\i*120+30:0.45)[bar,umBig,umLogoPosition,rotate=\i*120-60]{};
+		\node at (\i*120+90:0.60)[bar,umSmall,umLogoPosition,rotate=\i*120]{};
+	}
+	% EngUminho logo
+	\fill[fill=#2] (2.6,0) -- (5.2,0) -- (5.2,2.6) -- (2.6,2.6) -- cycle;
+	\foreach \i in {1,...,5}
+		\node at (\i*72-90:0.74)[bar,engBar,engLogoPosition,rotate=\i*72-90]{};
+\end{tikzpicture}}
+
+% Wrap text around figures
+\usepackage{wrapfig}
+
+% Professional looking tables
+\usepackage{booktabs}
+
+%Caption formatting
+\usepackage{caption}
+
+% Source code inputing
+\renewcommand{\lstlistlistingname}{List of Listings}
+
+% Settings for Listings
+%
+% ECMAScript 2015 (ES6) definition by Gary Hammock
+%
+
+\lstdefinelanguage[ECMAScript2015]{JavaScript}[]{JavaScript}{
+  morekeywords=[1]{await, async, case, catch, class, const, default, do,
+    enum, export, extends, finally, from, implements, import, instanceof,
+    let, static, super, switch, throw, try},
+  morestring=[b]` % Interpolation strings.
+}
+
+
+%
+% JavaScript version 1.1 by Gary Hammock
+%
+% Reference:
+%   B. Eich and C. Rand Mckinney, "JavaScript Language Specification
+%     (Preliminary Draft)", JavaScript 1.1.  1996-11-18.  [Online]
+%     http://hepunx.rl.ac.uk/~adye/jsspec11/titlepg2.htm
+%
+
+\lstdefinelanguage{JavaScript}{
+  morekeywords=[1]{break, continue, delete, else, for, function, if, in,
+    new, return, this, typeof, var, void, while, with},
+  % Literals, primitive types, and reference types.
+  morekeywords=[2]{false, null, true, boolean, number, undefined,
+    Array, Boolean, Date, Math, Number, String, Object},
+  % Built-ins.
+  morekeywords=[3]{eval, parseInt, parseFloat, escape, unescape},
+  sensitive,
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morecomment=[s]{/**}{*/}, % JavaDoc style comments
+  morestring=[b]',
+  morestring=[b]"
+}[keywords, comments, strings]
+
+
+\lstalias[]{ES6}[ECMAScript2015]{JavaScript}
+
+% Requires package: color.
+\definecolor{mediumgray}{rgb}{0.3, 0.4, 0.4}
+\definecolor{mediumblue}{rgb}{0.0, 0.0, 0.8}
+\definecolor{forestgreen}{rgb}{0.13, 0.55, 0.13}
+\definecolor{darkviolet}{rgb}{0.58, 0.0, 0.83}
+\definecolor{royalblue}{rgb}{0.25, 0.41, 0.88}
+\definecolor{crimson}{rgb}{0.86, 0.8, 0.24}
+
+\lstdefinestyle{JSES6Base}{
+  backgroundcolor=\color{white},
+  basicstyle=\ttfamily,
+  breakatwhitespace=false,
+  breaklines=false,
+  captionpos=b,
+  columns=fullflexible,
+  commentstyle=\color{mediumgray}\upshape,
+  emph={},
+  emphstyle=\color{crimson},
+  extendedchars=true,  % requires inputenc
+  fontadjust=true,
+  frame=single,
+  identifierstyle=\color{black},
+  keepspaces=true,
+  keywordstyle=\color{mediumblue},
+  keywordstyle={[2]\color{darkviolet}},
+  keywordstyle={[3]\color{royalblue}},
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\tiny\color{black},
+  rulecolor=\color{black},
+  showlines=true,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  stringstyle=\color{forestgreen},
+  tabsize=2,
+  title=\lstname,
+  upquote=true  % requires textcomp
+}
+
+\lstdefinestyle{JavaScript}{
+  language=JavaScript,
+  style=JSES6Base
+}
+\lstdefinestyle{ES6}{
+  language=ES6,
+  style=JSES6Base
+}
+
+
+% Arrow diagrams
+%\usepackage[all]{xy}  % de-comment if you need diagrams
+
+% Use dot within TeX
+%\usepackage{dot2texi}
+%\setoutputdir{dot/}
+%\usetikzlibrary{shapes,arrows}
+
+% Better looking bibliography references
+\usepackage[square,numbers]{natbib}
+\bibliographystyle{abbrvnat}
+
+% Better list handling
+\usepackage{enumitem}
+
+% Hyperlinks and Bookmarks setup
+\usepackage{bookmark}
+
+
+% Format table of contents
+\usepackage{tocloft}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftnodots}} % for parts
+\renewcommand{\cftchapleader}{\cftdotfill{\cftnodots}} % for chapters
+\renewcommand{\cftsecleader}{\cftdotfill{\cftnodots}} % for sections
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftnodots}} % for subsections
+\renewcommand{\cftfigleader}{\cftdotfill{\cftnodots}} % for figures
+\renewcommand{\cfttableader}{\cftdotfill{\cftnodots}} % for tables
+
+
+% Create better looking section cross-reference links
+\usepackage[capitalise]{cleveref}
+
+\newcommand\fancyref[1]{ %
+  \hyperref[#1]{\cref*{#1}: \nameref*{#1}}
+}
+
+
+% Index of terms and acronyms
+%%\renewcommand{\glossarymark}[1]{\markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+%%\renewcommand{\glsclearpage}{\cleardoublepage}
+%%\setlength{\glspagelistwidth}{\textwidth}
+%%\setlength{\glslistdottedwidth}{.75\hsize}
+%%\let\glsdoifexists\glsdoifexistsorwarn
+%%
+%%\newglossarystyle{dottedlocations}{%
+%%  \glossarystyle{list}%
+%%  \renewcommand*{\glossaryentryfield}[5]{%
+%%    \item[\glsentryitem{##1}\glstarget{##1}{##2}] \emph{##3}%
+%%      \unskip\leaders\hbox to 2.9mm{\hss.}\hfill##5}%
+%%  \renewcommand*{\glsgroupskip}{}%
+%%}
+%%
+%%\newglossarystyle{mylist}{%
+%%  \setglossarystyle{list}% base this style on the list style
+%%  \renewcommand*{\glossentry}[2]{%
+%%    \item[\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}}]
+%%  \glossentrydesc{##1}\glspostdescription\space see p.\space ##2}%
+%%}
+%%
+%%%\renewcommand{\glossentry}[1]{{\item#1}}
+%%%\renewcommand{\glsgroupskip}[1]{{#1}}
+%%%\renewcommand{\glsgroupheading}{}
+%%%\renewcommand{\glossarypostamble}{}
+%%
+\newcommand{\reminder}[1]{\fbox{{\color{blue} #1}}}
+
+\def\myear{\ifcase\month\or
+ Janeiro\or Fevereiro\or Março\or Abril\or Maio\or Junho\or
+ Julho\or Agosto\or Setembro\or Outubro\or Novembro\or Dezembro\fi
+ \space\number\year}
+
+\newenvironment{backcover}{\begin{titlepage}}{\end{titlepage}}
+
+\newenvironment{frontcover}{\begin{titlepage}}{\end{titlepage}}
+
+% Default Hyperlink and Bookmark settings
+\hypersetup{
+	bookmarksnumbered=true,
+	plainpages=false,					 	
+	%bookmarks=true,			% show bookmarks bar?
+	%pdfstartview={FitW},		% fits the width of the page to the window
+	unicode=true,				% non-Latin characters in Acrobat’s bookmarks
+	pdffitwindow=true,			% window fit to page when opened
+	pdfnewwindow=true,			% links in new window
+	colorlinks=true,				% false: boxed links; true: colored links
+	linkcolor=navy-blue,			% color of internal links
+	citecolor=blue,		% color of links to bibliography
+	filecolor=dark-red,			% color of file links
+	urlcolor=navy-blue			% color of external links
+	%pdfkeywords={\@keywords},	% list of keywords
+}
+
+
+\makeatletter
+
+% Override Metadata Settings
+\newcommand{\ummetadata}{
+\def\@producer{\@author\ @ \@department\ - \@school\ - \@university}
+\def\@documenttitle{\@titleA \@titleB \@titleC}
+
+\hypersetup{
+	pdftitle={\@documenttitle},				% title
+	pdfauthor={\@author},					% author
+	pdfsubject={\@documentsubject},			% subject of the document
+	pdfcreator={\@author},					% creator of the document
+	pdfproducer={\@producer}   		    	% producer of the document
+}
+}
+
+% Extra commands
+\newcommand\ackname{Acknowledgements}
+\if@titlepage
+  \newenvironment{acknowledgements}{%
+      \titlepage
+      \null\vfil
+      \@beginparpenalty\@lowpenalty
+      \begin{center}%
+        \bfseries \ackname
+        \@endparpenalty\@M
+      \end{center}}%
+     {\par\vfil\null\endtitlepage}
+\else
+  \newenvironment{acknowledgements}{ %
+      \if@twocolumn
+        \section*{\ackname}%
+      \else
+        \small
+        \begin{center}%
+          {\bfseries \ackname\vspace{-.5em}\vspace{\z@}}%
+        \end{center}%
+        \quotation
+      \fi}
+      {\if@twocolumn\else\endquotation\fi}
+\fi
+\renewenvironment{description}% Taken from article.cls
+               {\list{}{\labelwidth\z@ \itemindent-\leftmargin\let\makelabel\descriptionlabel}}{\endlist}
+\renewcommand*\descriptionlabel[1]{
+	\hspace\labelsep\normalfont{\scriptsize\bfseries\uppercase{#1}\enspace}}
+\setlength{\labelsep}{.5em}% Also taken from article.cls
+
+
+% Thesis authoring
+\gdef\@supervisor{}
+\gdef\@titleA{}
+\gdef\@titleB{}
+\gdef\@titleC{}
+
+% Default Department
+\gdef\@department{Departamento de Inform\'{a}tica}
+\gdef\@school{Escola de Engenharia}
+\gdef\@university{Universidade do Minho}
+
+% Authoring Macros
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\titleA#1{\gdef\@titleA{#1}}
+\def\titleB#1{\gdef\@titleB{#1}}
+\def\titleC#1{\gdef\@titleC{#1}}
+\def\school#1{\gdef\@school{#1}}
+\def\department#1{\gdef\@department{#1}}
+\def\university#1{\gdef\@university{#1}}
+\def\masterdegree#1{\gdef\@masterdegree{#1}}
+
+% cover layout
+\newcommand{\printcover}{
+\def\withnewsgott##1{\fontfamily{phv}\fontseries{mc}\selectfont ##1}
+\def\optionalwithnewsgott##1{\ifnum\hide=1\relax\else\withnewsgott{##1}\fi}
+\def\withboldnewsgott##1{\fontfamily{phv}\fontseries{mc}\fontseries{b}\selectfont ##1}
+\def\optionalwithboldnewsgott##1{\ifnum\hide=1\relax\else\withboldnewsgott{##1}\fi}
+~\vskip-2cm\rule{4cm}{0pt}\begin{tabular}{l}
+\UMEng[\umc]{\engc}
+\\\withboldnewsgott{\@university}\rule{0pt}{1cm}
+\\\withnewsgott{\@school}
+\\\withnewsgott{\@department}
+\\\rule{0pt}{4cm}
+\\\withnewsgott{\Large\@author}
+\\\rule{0pt}{1em}
+\\\withboldnewsgott{\Large\@titleA}
+\\\withboldnewsgott{\Large\@titleB}
+\\\withboldnewsgott{\Large\@titleC}
+\\\rule{0pt}{0.3cm}
+\\\rule{0pt}{4.2cm}
+\\\optionalwithnewsgott{\large Masters dissertation}
+\\\optionalwithnewsgott{\large Masters degree in Informatics Engineering}
+\\\rule{0pt}{6mm}
+\\\optionalwithnewsgott{\large Dissertation supervised by}
+\\\optionalwithboldnewsgott{\@supervisor}\rule{0pt}{4mm}
+\\\rule{0pt}{2cm}
+\\\withnewsgott{{\small October 2020}}
+\end{tabular}
+}
+
+% Dissertation  commands
+\newcommand{\@coverstyle}[2]{ \thispagestyle{empty} \pagecolor{#1} \textcolor{#2}}
+
+\newcommand{\umtitlepage}{
+	\begin{titlepage}
+		\gdef\umc{grey}\gdef\engc{lightgray}\gdef\hide{0}
+	 	\@coverstyle{white}{grey}\printcover
+		\end{titlepage}
+	\normalfont \rmfamily \cleardoublepage \pagenumbering{roman}
+}
+
+\newcommand{\umfrontcover}{
+	\begin{frontcover}
+		\gdef\hide{1} \@coverstyle{white}{black} \printcover
+	\end{frontcover}
+}
+
+\newcommand{\umbackcover}[1]{
+	\begin{backcover}
+		\if@twoside \@coverstyle{white}{black} \cleardoubleevenemptypage \fi
+		\@coverstyle{white}{black}
+		{\fontfamily{phv}\fontseries{mc}\selectfont ~\vfill \noindent #1 \vfill ~}
+	\end{backcover}
+}
+
+\newcommand{\listofabbreviations}{
+	\printglossary[type=\acronymtype,title={Siglas}]
+	\cleardoublepage
+}
+
+\newcommand{\umappendix}[1]{\appendix\renewcommand\chaptername{#1}}
+
+
+% Implicit commands whenever possible
+\let \original@tableofcontents \tableofcontents
+\renewcommand{\tableofcontents}{\original@tableofcontents \cleardoublepage}
+
+\let \original@listoffigures \listoffigures
+\renewcommand{\listoffigures}{\original@listoffigures \cleardoublepage}
+
+\let \original@listoftables \listoftables
+\renewcommand{\listoftables}{\original@listoftables\cleardoublepage}
+
+\let \original@lstlistoflistings \lstlistoflistings
+\renewcommand{\lstlistoflistings}{\original@lstlistoflistings\cleardoublepage}
+
+\newenvironment{abstracten}{\chapter*{Abstract}}{\cleardoublepage}
+\newenvironment{abstractpt}{\chapter*{Resumo}}{\cleardoublepage}
+
+\let\originalbibliography\bibliography
+\renewcommand{\bibliography}[1]{
+	\bookmarksetup{startatroot} % Ends last part.
+	\addtocontents{toc}{\bigskip} % Making the table of contents look good.
+	\cleardoublepage
+	\originalbibliography{#1}
+}
+
+\graphicspath{{img/}}
+
+%Tirar isto depois
+
+\usepackage[a4paper,
+            inner=20mm,
+            outer=50mm, = marginparsep + marginparwidth 
+                          + 5mm (between marginpar and page border)
+            top=20mm,
+            bottom=25mm,
+            marginparsep=5mm,
+            marginparwidth=40mm,
+            showframe% for show your page design, normaly not used
+           ]{geometry}
+
+\makeatother
