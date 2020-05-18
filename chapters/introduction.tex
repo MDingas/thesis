@@ -1,0 +1,62 @@
+\chapter{Introduction}
+
+\section{Context and motivation}
+
+    As society as a whole advances, so does seem to increase the individual's quality of life, which in turn increases the standard to be expected from the society he lives in.
+    As such, technology itself must quickly adapt to the needs of the people it serves, whichever they may be - educational, medical, logistical, just to name a few - and consistently create or improve upon solutions that inevitably change the day-to-day living of the many that use or reap the benefits of such solutions.
+    A particular example that is still fresh in this generation is in the relationship between people and computers - where they may have been nonexistent a century ago, reserved for industries fifty years ago and valuable household commodity a few decades ago, it is now common to see a family home with more than a dozen computers, with a variety fitting for the many needs they can solve.
+    The increased number of computers and their expected functionalities has made it so computer networking as a whole has to be improved upon.
+
+    The internet allows computers to connect to one another in a worldwide network that applications can use to further increase their possibilities.
+However, when applications go unchecked they can be very difficult to manage by creating traffic that is either impossible, unviable, or too costly for Internet Service Providers (ISPs).
+    This issue is further increased when considering the scale of the next decade, where Cisco predicts that by 2022 global internet users will make up 60 percent of the world’s population, and global IP traffic will reach 396 exabytes per month \cite{cisco}.
+
+    Peer-to-peer (P2P) applications are an infamous example of creating an overlay network with little information or regards to the underlying network it operates on.
+    Historically, P2P traffic was always not preferable by ISPs due to its unpredictable and hard to manage nature.
+    Even worse, the fact that the overlay is network agnostic made it frequent that overlay traffic was inefficient, and thus costly and usually prone to creating network congestion \cite{dan-Commag10}.
+    Indeed, if P2P applications simply keep an overlay connection between peers that does not span more than a couple of hops, whilst ignorant to them being either direct network links or spanning multiple Autonomous Systems (ASs), the generated traffic is always at risk of being inefficient and taxing on the supporting infrastructure.
+    As file-sharing traffic currently uses around 7 exabytes per month (including P2P based file-sharing) \cite{cisco}, and BitTorrent alone makes up 22 percent of total upstream volume of traffic \cite{sandvine} it's in the best interest of both ISPs and P2P applications a way for the overlay and underlay levels to operate in synergy.
+
+    Current consumer trends suggest that media consumption will make up a considerable part of global internet traffic.
+    In fact, Cisco predicts that, by 2022, more than 82 percent of all consumer internet traffic will be dedicated to Internet video streaming and downloads and Content Distribution Networks (CDNs) will carry 72 percent of all internet traffic \cite{cisco} \todo{perguntar professor se whitepaper editado faz mal}.
+    Thus, it will be a challenge for both ISPs and media applications to properly adapt to an increasing audience with ever higher quality of service (QoS) demands.
+    Much like P2P applications, media-oriented applications and ISPs could also greatly benefit from a cooperative interaction - more specifically, in tasks of client redirection, whether that be to a CDN edge server or a server mirror.
+    These optimizations should be made by the parties which have a monetary interest in guaranteeing good performance of the overall ecosystem, i.e. those acting on the over and underlay.
+
+    In short, the issue that motivates this thesis is the lack of proper cooperation between the overlay and underlay levels in the task of traffic optimization that originates at the application level, e.g., peer selection for file retrieval in file-sharing P2P applications, neighbour selection for P2P network creation, CDN provider server or cache redirection, etc.
+    This problem is not new to the Internet engineering task force (IETF) who, as it realized that P2P applications that select peers based on exclusive network information provided by ISPs could reduce ISP costs as well as increase application download rates, devised a working group to explore possible IETF standardization on traffic localization \cite{seedorf2009}.
+    The result was a request-response protocol by the same name, ALTO, where clients could query authoritative and trustworthy servers on information that regards to the underlay structure where the client operates.
+    While P2P applications were the motivation for the ALTO working group to be created, the benefits of a standardized, stable, and well provided system for network information querying could help create the vision of ISPs and applications cooperating for mutual benefit, being thus advantageous for more than P2P applications - in essence, it would be a helpful system for any situation where a decision could be optimized with the addition of proper network insight.
+
+\section{Objectives}
+
+    The main objective of this thesis is to develop a working system that adheres and expands upon the ALTO working group's protocol and architecture.
+    The starting point will be a preexisting software project that served as a proof of concept to the strategy of traffic optimization at the application layer, and which will now be extended in two ways: firstly, by restructuring and documenting the existing code in order to, through the compliance with the standards of object oriented programming and software development guidelines, present a solution that could be continuously maintained and modified; secondly, by further expanding on the software's functionality, e.g., adding more types of cost metrics, specifying meta-data which give data a time-specific applicability, specifying means of synchronizing data among servers, limiting user interaction to data via access control methods, etc). While expanding upon the ALTO working group's devised solution is a goal, it is also important that the developed work complies with the specifications it is based on.
+
+    With the intent of completing its main goal, this work's partial objectives were devised as follows:
+
+\begin{itemize}
+    \item Literature review in regards to application traffic optimization and the cooperation (or lack thereof) between overlay networks and the underlay they operate on. More specifically, an understanding on the current consensus in regards to the existing issues, and an overview on currently suggested solutions.
+    \item Complete overview of the ALTO working group's proposed solution. More specifically, an overview of both their existing RFC documents and the currently active internet drafts being developed by them at the time of writing.
+    \item Familiarization with the existing system to be worked on and definition of both a new system architecture which complies with and extends the ALTO solution, as well as the new function modules to be added and how they should operate.
+    \item Implementation of both the devised solution as well as a bare-bones P2P file-sharing application for testing purposes.
+    \item Construction of a realistic network simulation scenario where the P2P file-sharing application will operate in.
+    \item Test of the implemented solution on the simulated scenario, and its analysis in comparison to preexisting strategies.
+\end{itemize}
+\section{Contributions}
+
+\todo{this}
+
+\section{Thesis organization}
+
+    This dissertation will be organized in six chapters, as follows:
+
+\begin{itemize}
+    \item \textbf{Introduction}: Provides context to the problem to be attempted to solve, as well as motivation to attempt to do so. Coupled to this, the dissertation's main goal is presented.
+    \item \textbf{State of the Art}: Display of the theory related to existing and popular technologies or overall concepts that could be targeted consumers of the ALTO protocol; Discussion of existing attempts to optimize application traffic using network information with and without close underlay cooperation; Overview of the ALTO working group's proposed protocol and architecture.
+    \item \textbf{Specification}: Presentation of the devised system's functional and non-functional requirements, as well as an overview of the planned architecture.
+    \item \textbf{Implementation}: Details to the decisions made and steps taken in the task of implementing the specified project.
+    \item \textbf{Testing and result analysis}: Overviews the planned simulation scenario, how it was materialized, and how the tests were run. Additionally, provides the retrieved results from such simulations.
+    \item \textbf{Conclusion}: Presents the results of this thesis in regards to what objectives were completed. Additionally, a critical analysis on the simulation results is made and argued against the initial hypothesis, arguments are made for the product's usefulness, and future work is suggested.
+\end{itemize}{}
+

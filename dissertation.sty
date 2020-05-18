@@ -21,9 +21,9 @@
 \usepackage{listings}
 \usepackage{textcomp} % for upquote
 \usepackage{indentfirst}
-\usepackage[]{todonotes}
+\usepackage[disable]{todonotes}
 %\usepackage{subfigure}
-%\usepackage[marginparwidth=150pt]{geometry}
+\usepackage[marginparwidth=150pt]{geometry}
 \usepackage{subfig}
 \usepackage{hyperref}
 %\usepackage{lipsum}
@@ -45,7 +45,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 %--------------------------------------
- 
+
 %---- English-specific commands ----
 \usepackage[english]{babel}
 %--------------------------------------
@@ -66,7 +66,7 @@
 % \renewcommand*{\paragraphautorefname}{parágrafo}%
 % \renewcommand*{\subparagraphautorefname}{subparágrafo}%
 % \renewcommand*{\FancyVerbLineautorefname}{linha}%
-% \renewcommand*{\theoremautorefname}{Teorema}%  
+% \renewcommand*{\theoremautorefname}{Teorema}%
 % \renewcommand*{\pageautorefname}{página}%
 
 
@@ -153,7 +153,7 @@
 	engBar/.style={minimum height=0.86cm},
 	umLogoPosition/.style={xshift=1.3cm,yshift=1.3cm},
 	engLogoPosition/.style={xshift=3.9cm,yshift=1.3cm}]
-	
+
 	% Uminho logo
 	\fill[fill=#1] (0,0) -- (2.6,0) -- (2.6,2.6) -- (0,2.6) -- cycle;
 	\foreach \i in {1,...,3}{
@@ -347,7 +347,7 @@
 % Default Hyperlink and Bookmark settings
 \hypersetup{
 	bookmarksnumbered=true,
-	plainpages=false,					 	
+	plainpages=false,
 	%bookmarks=true,			% show bookmarks bar?
 	%pdfstartview={FitW},		% fits the width of the page to the window
 	unicode=true,				% non-Latin characters in Acrobat’s bookmarks
@@ -521,15 +521,15 @@
 
 %Tirar isto depois
 
-\usepackage[a4paper,
-            inner=20mm,
-            outer=50mm, = marginparsep + marginparwidth 
-                          + 5mm (between marginpar and page border)
-            top=20mm,
-            bottom=25mm,
-            marginparsep=5mm,
-            marginparwidth=40mm,
-            showframe% for show your page design, normaly not used
-           ]{geometry}
+%\usepackage[a4paper,
+%            inner=20mm,
+%            outer=50mm, = marginparsep + marginparwidth
+%                          + 5mm (between marginpar and page border)
+%            top=20mm,
+%            bottom=25mm,
+%            marginparsep=5mm,
+%            marginparwidth=40mm,
+%            showframe% for show your page design, normaly not used
+%           ]{geometry}
 
 \makeatother
