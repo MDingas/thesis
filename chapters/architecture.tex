@@ -8,7 +8,17 @@ Initial attention is given to the general architecture on the first section, wit
 
 Figure \ref{fig:architecture-network} presents a high-level conceptual model of how the network information flows in a given ISP. Network data originates in the topology itself, and is gathered into a network intelligence aggregator by any given means, means as direct as importing a file that contains all the needed data, or as complex as a cluster of nodes that inspect the network for routing protocol packet messages and query nodes for physical properties and inject the resulting data into a central aggregator. Such intelligence is then parsed and uploaded to the ALTO server.
 
-\textbf{NOTA: falta legendas, bolas brancas seriam nós físicos normais, bolas azuis seriam peers de uma aplicação P2P, triângulo azul seria um tracker, quadrado azul seria um cliente que precisa de escolher entre mirrors de dados, e poderia adicionar outro que precisa de escolher entre edge servers CDN. A ideia é mostrar que qualquer nó pode contactar o servidor ALTO para o seu propósito, e a agregação de dados ocorre na rede física toda.}
+\begin{table}[!h]
+\centering
+\caption{Network node entities in the conceptual ALTO system representation}
+\begin{tabular}{ | c | l |}
+\hline
+\textbf{Image} & \textbf{Description} \\ \hline
+\raisebox{-.30\height}{\includegraphics[width=8mm]{img/circle-white}} & Network node \\ \hline
+\raisebox{-.30\height}{\includegraphics[width=8mm]{img/circle-blue}} & Network node participating in a given overlay network \\
+\hline
+\end{tabular}
+\end{table}
 
 \begin{figure}[!h]
         \centering

@@ -107,7 +107,7 @@
 
     P2P networks who neither have structure nor a central point of control have to utilize content retrieval methods which are bound to be less efficient than their counterparts.
     However, architectures which fit in these categories mostly do so with a clear purpose - Gnutella's decentralized nature makes it very hard for individual nodes or external entities to regulate what can happen in the network (such as enforce legal actions), and its lack of structure simplifies the architecture and reduces the overall effort to bootstrap to the overlay, making it a good fit for applications with a high peer churn rate.
-    Similarly, FreeHaven's architectural decisions fit a very specific use case, as it "emphasizes distributed, reliable, and anonymous storage over efficient retrieval" \todo{cite}.
+    Similarly, FreeHaven's architectural decisions fit a very specific use case, as it "emphasizes distributed, reliable, and anonymous storage over efficient retrieval" \cite{freehaven}.
     The lack of systematic means to efficiently locate content by these P2P architectures means that more ad-hoc methods have to be used, which are less efficient and thus incur in bigger workloads for ISPs - the usage of query flooding by Gnutella and message broadcasting by FreeHaven are examples of this.
 
     The usage of structure by P2P networks can, as stated before, result in more efficient content and peer location algorithms.
@@ -276,7 +276,7 @@
         For example, \cite{locality-aware-p2p} proposes an oracle that receives as input from querying peers a list of candidate peers, and ranks them in order of proximity to the querying node; such method was tested in simulation and proven to decrease negotiation traffic and improve scalability of P2P networks.
         Another example of this is \cite{kim2011}, which devised a CDN-P2P hybrid where peers utilize RTT measurements to group themselves by separate orders of geographical proximity with the same intent of the previous example, which is to localize traffic whenever possible.
         This technique also proved itself to be advantageous, as the solution was more efficient in terms of total service disruption time when compared to a previous iteration of the hybrid architecture which used random peer selection to look up available target peers.
-        The functional intent is that the oracle possesses privileged network information and acts on it to provide guidance to querying applications, and thus has the liberty to impose policies and optimizations, e.g., pair peers which are the least number of network hops apart via a Dijkstra algorithm \todo{citar nosso?}.
+        The functional intent is that the oracle possesses privileged network information and acts on it to provide guidance to querying applications, and thus has the liberty to impose policies and optimizations, e.g., pair peers which are the least number of network hops apart via a Dijkstra algorithm.
         Another more complex approach that could be used by the oracle proposed by \cite{han2009}, which contains algorithms to dictate peer selection, task assignment and rate allocation.
         The method requires the full network topology as input - including link capacities and peer service costs - to minimize file downloading time and cost.
         The oracle would also be free to enforce ISP biases as it desires by modifying such algorithms as to, for example, minimize usage of costly links (such as inter-AS ones).
@@ -403,11 +403,7 @@
     This project is, at time of writing, still on-working, with many drafts being published and updated.
     These are, however, relating to service extension and deployment, as the main architecture, protocol design, implementation guidelines and security analysis are fully published into their respective RFC documents.
 
-\subsection{Issues and challenges}
-
-\todo{ALTO servers could be egotistical in how they steer peers}
-\todo{the voluntary nature of the system makes it risky}
-\todo{pg 8 de dan-commag}
+\subsection{Viability}
 
     Given the nature of this architecture - the trading of sensitive network structure information that can alter application behavior - it is quite apparent that its implementation is not without challenges from a security perspective.
     As such, \cite{alto-protocol}, besides over-viewing the protocol, also does a threat analysis of the ALTO architecture.
@@ -422,17 +418,17 @@
         On the other hand, data tampering that occurs between data providers and the ALTO server would give it, a seemingly trustworthy party, untrustworthy data.
         This would result in the same issues pointed previously.
     \item Repudiation of being the source of some network information, whether it be by a third party or the ALTO server itself, would make it difficult to neutralize and attribute culpability to incorrect or malicious sources.
-    \item Information disclosure in the form of ALTO resources to parties that were not in the circle of authorized parties, or via the invasion of privacy of a querying client in data such as usage patterns
-    \item Denial of service (DoS) of the ALTO server itself via many requests.
-        Additionally, another DoS threat exists via the manipulation of ALTO resources themselves - if a cost map is manipulated to highly favor a specific subset of servers, these could be favourably picked by clients in a disproportionate matter, and highly affect these servers' availability.
+    \item Information disclosure in the form of ALTO resources made available to entities that were not in the authorization circle.
+            These resources could give malicious parties insight on network topology status as well as the ability to derive clients' network usage patterns by observing what kinds of resources they attempted to retrieve in a given moment.
+    \item Denial of service (DoS) of the ALTO server itself via the creation of more requests than it can handle, as well as via the manipulation of ALTO resources themselves - if a cost map is manipulated to highly favor a specific subset of servers, these could be favourably picked by clients in a disproportionate matter, and highly affect these servers' availability.
     \item Elevation of privileges that lead to obtaining or modifying more information than initially permitted.
 \end{itemize}
 
     Many of these threats are standard and could be solved with state of the art solutions which are well proven and tested, as indeed states \cite{alto-protocol}.
-    However, threats of information disclosure - whilst it can be guaranteed in-transit via encryption, what is done with this information the moment it reaches the client is hard to control.
+    However, threats of information disclosure - whilst they can be negated with in-transit encryption, what is done with this information the moment it reaches the client is hard to control.
     Situations may arise when a privileged client shares, intentionally or not, sensitive network information it retrieved from an ALTO server to an unprivileged client.
-    Furthermore, another situation that could arise is one where many differently privileged clients share information amongst them to get a complete view of the network structure.
-    As such, it is firstly important for the ISP or third party that provides such information to carefully plan out the information it wishes to share.
+    Furthermore, many differently privileged clients could share information among themselves which they initially retrieved legitimately, to get a complete view of the network structure. Thus, individual clients could internally cooperate to bypass the access control measures applied by the server.
+    As such, it is firstly important for the ISP or third parties that provide such information to carefully plan out the network state it wishes to share, and how granular of a state is actually provided.
     Possible solutions to minimize these threats are as follows:
 
 \begin{itemize}
@@ -448,6 +444,16 @@
         This would work as a dissuasion method but could be infeasible and impractical if other threats are not neutralized (such as spoofing).
         Furthermore, such enforcement could be seen as unappealing by some users as it could violate user privacy.
 \end{itemize}
+
+    Privacy concerns are also very prevalent in the ALTO system.
+    When an ALTO client queries a server for one or more resources in the attempt to optimize the application traffic it will generate in the near future, certain parameters can be passed to the server that can make the response be more personalized and granular in the information it has.
+    For example, a P2P media-streaming application seeking ALTO guidance to help choose between candidate peering neighbors may wish to include in its query the list of candidate peers it is considering connecting to, the fact that the querying application prioritizes real-time communication, and the network position of the querying client itself.
+    Indeed, these and more patterns will help increase the effectiveness of the ALTO server's guidance in helping the client application achieve its goal, but such happens at the expense of use pattern statistics being induced by the server.
+    Even assuming that the previously discussed information disclosure threats are nonexistent in the ALTO system, privacy concerns can arrive from client applications as the resource queries themselves contain many information about what the client either will or wants to do.
+
+\todo{ALTO problem statement & pg 8 dan commag}
+\todo{ALTO servers could be egotistical in how they steer peers}
+\todo{the voluntary nature of the system makes it risky}
 
     As a conclusion, it is important to understand that the ALTO project, for better and for worse, attempts to achieve layer cooperation.
     Whilst it can be an advantageous partnership for both parties, it is to be expected that an ISP would be reluctant to share infrastructural detail to a pool of potentially malicious parties.
