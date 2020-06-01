@@ -315,6 +315,7 @@
 \subsection{Context and Motivation}
 
 \todo{alto for determining service edge (2x)}
+\todo{alto for locating caches}
 
     Following research indications that improved peer selection algorithms based on ISP-provided information could help reduce ISP costs and increase P2P application performance, the Internet Engineering Task Force (IETF) devised working groups to explore IETF standardization in the area of layer-cooperation \cite{seedorf2009}.
     Among them is the Application-Layer Traffic Optimization (ALTO) working group, whose domain is traffic localization.
@@ -405,6 +406,8 @@
 
 \subsection{Viability}
 
+\subsubsection{Security}
+
     Given the nature of this architecture - the trading of sensitive network structure information that can alter application behavior - it is quite apparent that its implementation is not without challenges from a security perspective.
     As such, \cite{alto-protocol}, besides over-viewing the protocol, also does a threat analysis of the ALTO architecture.
     Utilizing the "STRIDE" threat model, the main threats to the ALTO architecture are as follows:
@@ -445,17 +448,69 @@
         Furthermore, such enforcement could be seen as unappealing by some users as it could violate user privacy.
 \end{itemize}
 
-    Privacy concerns are also very prevalent in the ALTO system.
-    When an ALTO client queries a server for one or more resources in the attempt to optimize the application traffic it will generate in the near future, certain parameters can be passed to the server that can make the response be more personalized and granular in the information it has.
-    For example, a P2P media-streaming application seeking ALTO guidance to help choose between candidate peering neighbors may wish to include in its query the list of candidate peers it is considering connecting to, the fact that the querying application prioritizes real-time communication, and the network position of the querying client itself.
-    Indeed, these and more patterns will help increase the effectiveness of the ALTO server's guidance in helping the client application achieve its goal, but such happens at the expense of use pattern statistics being induced by the server.
-    Even assuming that the previously discussed information disclosure threats are nonexistent in the ALTO system, privacy concerns can arrive from client applications as the resource queries themselves contain many information about what the client either will or wants to do.
+\subsubsection{Privacy}%
 
-\todo{ALTO problem statement & pg 8 dan commag}
+    Privacy concerns are also very prevalent in the ALTO system.
+    When an ALTO client queries a server for one or more resources in the attempt to optimize the application traffic it will generate in the near future, certain parameters can be passed to the server that can make the response be more personalized and contain more granular information.
+    For example, a P2P media-streaming application seeking ALTO guidance to help choose between candidate peering neighbors may wish to include in its query the list of candidate peers it is considering connecting to, the fact that the querying application prioritizes real-time communication, and the network position of the querying client itself.
+    Indeed, these and more patterns will help increase the effectiveness of the ALTO server's guidance in helping the client application achieve its goal, but such happens at the expense of potentially allowing an ALTO server to infer on user pattern statistics.
+    Even assuming that the previously discussed information disclosure threats are nonexistent in the ALTO system, privacy concerns can arrive from client applications because the resource queries they need to produce can contain information about what the client either will or wants to do.
+    This is recognized by the ALTO working group as a possible concern \cite{alto-protocol} \cite{alto-problem-statement}.
+    In response, they state that the clients should firstly be cognizant about the potential tracking risk that is associated with the usage of the system and, as an attempt to make tracking harder, they could disable HTTP cookies and/or opt for more vague query information, e.g. by randomizing some bits on endpoint addresses or simply using more broad addresses, but being aware that the helpfulness of query results may change with increased parameter obfuscation.
+    Provider-Defined Identifiers (PIDs) were created as a means for ISPs to abstract network components as a collection of single network endpoints with similar properties, helping them not to disseminate network information that is too sensitive, and in turn also allows clients to make queries based on these identifiers and maintain a higher level of privacy.
+    Other solutions could also be considered depending on the needs of the clients and the direction of the project as a whole.
+    For example, the servers themselves could leverage a secure communication channel and maintain a clear agreement on what can and cannot be made with the collected information, or even if it is collected at all.
+    Alternatively, clients that wish not to impose much trust on server could make bulk queries (or use proxies to do so for them) and privately filter out the relevant information.
+
+\subsubsection{Incentivization}
+\todo{collaboration problem}
 \todo{ALTO servers could be egotistical in how they steer peers}
 \todo{the voluntary nature of the system makes it risky}
 
-    As a conclusion, it is important to understand that the ALTO project, for better and for worse, attempts to achieve layer cooperation.
-    Whilst it can be an advantageous partnership for both parties, it is to be expected that an ISP would be reluctant to share infrastructural detail to a pool of potentially malicious parties.
-    It is thus important that a compromise is reached that could allow for a mutually beneficial exchange.
+\subsubsection{Network Neutrality}
+
+%    \cite{dan-Commag10} raises important challenges related to the cooperation between ISPs and P2P systems, with some being applicable to the ALTO system as the ALTO server acts as an oracle in Class 4 of the interaction groupings made by the author.
+%    In particular, three of the concerns have yet to be stated here and are very relevant on the topic of the ALTO system's viability, and as such will now be brought up in the following topics.
+
+    Network neutrality has been a popular point of discussion as society grows around the Internet, sparking debates around the world on what the best course of action should be - for example, regulations were introduced by the FCC in the United States \cite{fcc} to police network neutrality, and the European Union has a framework for net neutrality laid down by article 3 \cite{article-3}.
+    However, potential violators of the spirit of a network neutrality exist, such as British Plusnet's usage of deep packet inspection (DPI) to implement limits and differential charges for different traffic \cite{arstechnica}, or Portuguese MEO's smartphone contracts which include zero rating programs for a given set of services \cite{meo-packages}, as displayed on Figure \ref{fig:meo-dataplan}.
+    Network neutrality advocates are concerned with guaranteeing that ISPs keep Internet communications free and do not discriminate based on the traffic's specifics, such as platforms, applications, or source or and destination.
+    As stated by \cite{qos-framework}: "According to most network neutrality proponents, network neutrality rules are intended to preserve the Internet's ability to serve as an open, general-purpose infrastructure that provides value to society over time in various economic and non-economic ways. In particular, network neutrality rules aim to foster innovation in applications, protect users' ability to choose how they want to use the network, without interference from network providers, and preserve the Internet's ability to improve democratic discourse, facilitate political organization and action and to provide a decentralized environment for social, cultural and political interaction in which anyone can participate.".
+    On the other hand, opponents of net neutrality, among them ISPs, broadband and telecom companies, and hardware manufactures, argue against net neutrality.
+    They claim that it would would reduce incentive to invest, as investments would be harder to insure without the ability to charge higher rates for better infrastructure capabilities.
+    Zero rating programs, such as Wikipedia Zero, which provides Wikipedia with no charge to a select group of low income regions \todo{cite} , would also not be possible.
+    Additionally, with net neutrality, the ISPs' ability to route traffic could itself be at jeopardy - as \cite{jerzy} states in their solution to compromise net neutrality with QoS demands via service differentiation, the Internet is growing at an astonishing rate, as are the QoS demands of applications, and operating the infrastructure on a purely best-effort basis will not be sufficient without a constant provisioning of such infrastructure to keep up with demand, and this may not be viable nor even possible.
+    Thus, discriminating traffic services may be needed to guarantee that, say, real-time medical information gets priority over real-time media streaming, which in turn gets priority over e-mail or file sharing.
+    Considering that the ALTO system behaves in an oracle pattern of cooperation where a single entity - the ISP - is able to heavily influence the traffic patterns of the applications it aids, on the promise of a symbiotic network underlay-overlay relationship, such system could violate the principles of net neutrality.
+    In particular, this could happen if the oracle intends to block or discriminate a given type of traffic, such as deliberately giving better guidance to certain types of applications.
+    A possible consequence of such a system guiding the Internet could be that given applications can consistently have better QoS measurements not on the basis of the application's implementation, but on the ISPs personal biases.
+    These biases could also be applied to the end-users where guidance requests originate, thus resulting in two clients in equally capable network areas getting different QoS measurements simply because the ISPs decided as such.
+    Oracle systems such as ALTO do not seem to be analogous to other traffic engineering strategies, such as the usage of MPLS, DiffServ, nor to other means of ISP intervention on overlays, such as the deployment of data caches and redirector proxies.
+    This is because the oracle system, in contrast to the previously mentioned strategies, is one of mutual voluntariness and cooperativeness between ISPs and applications.
+    However, it could be argued that if the ALTO system offered guidance to applications in such a way that consistently resulted in better application performance, such applications would be pressured to use such guidance as a means to remain competitively viable, and the ISPs would then have a platform to influence a considerable amount of traffic to their will, being in a position to, depending on how they treat guidance requests, break network neutrality.
+    This concern can be alleviated if application guidance operated on classes of traffic, e.g. real-time communication or file sharing, thus operating on traffic aggregates to insure QoS levels needed to given application types, but never discriminating beyond such given classes.
+    This is, in fact, what happens with ALTO cost maps, whose metrics include, for example, round-trip delay, loss-rate, hop-count, or throughput \cite{alto-cost-metrics}, thus allowing different types of applications to request whichever cost types seem most suitable for their use case, with insurance that guidance is agnostic to where the guidance request comes from, or what application requests it.
+
+\subsubsection{Multi-Domain orchestration}
+    The Internet as we know it today spans the entire globe and is rather complex in nature.
+    According to \cite{dan-Commag10}, the classic vision of the Internet consisting of a network of transit and stub ASs no longer seems accurate, as it now is much more complex - for starters, the role of network owner and service provider are separating, and Internet access is provided by numerous competing ISPs.
+    As a demonstration of such complexity, \ref{network-connectivity-globe} displays how the Internet is structured into many tiers of different service providers.
+    It can thus be seen that the act of layer cooperation can get harder when the cooperation domain increases and potentially spans many different ISP regions which will inevitably act differently when queried for council - for example, in regards to what network information they're comfortable with sharing, internal policies, what they aim to get out of the cooperation, etc.
+    These per-ISP biases can make it difficult to guarantee that traffic optimization spanning multiple administrative domains is actually useful and achieves the symbiotic nature in mind.
+    For example, an ISP may not be comfortable categorising end-point costs of a given metric, thus making path calculations that pass through that ISP domain not viable.
+    Even assuming that all ISPs are comfortable with sharing such information, ambiguity may arrive - considering a cost map with the generic "routingcost" metric considered in the main protocol, ISPs could internally calculate routing costs differently, and prioritizing different goals, e.g. reducing overall link usage versus reducing inter-AS traffic first and foremost.
+    The base ALTO protocol specification states that each network region can provide its ALTO services, which in turn convey network information from the perspective , with a network region consisting of, for example, an AS, an ISP, or a given set of ISPs \cite{alto-protocol}, thus implying that if multiple ISPs share an ALTO server they also share the perspectives they wish to share.
+    Furthermost, the ALTO working group's deployment considerations document states that an ALTO client can query a single server for one or many metrics, or he can additionally query multiple server instances on different network instances \cite{alto-deployment-considerations}. It is explicitly stated in the document that each server could give guidance for only a given network partition, and such guidance may wildly differ between them due to the fact that different algorithms and objectives may have been applied.
+    The document also states that, in regards to guidance synchronization, three different strategies could be applied:
+
+\begin{itemize}
+    \item \textbf{Authoritative Servers}: A given set of servers can provide guidance for all kinds of destinations to all ALTO clients.
+    \item \textbf{Cascaded Servers}: An ALTO server can possess an embedded ALTO client and query other ALTO servers if its own guidance ability is lacking some information, acting as a proxy for the guidance received by a third entity.
+    \item \textbf{Inter-server Synchronization}: Different ALTO Servers communicate among themselves to expand the knowledge space.
+\end{itemize}
+
+    The last strategy is still being subject to development and standardization by the working group as part of a bigger attempt to link different network regions and technologies into a single, homogeneous abstraction of the Internet.
+    Current efforts and relevant use case examples are summarized in \cite{ALTO-multi-domain-use-cases}.
+
+\todo{Falar da nossa tentativa, se lá surgirmos}
 
