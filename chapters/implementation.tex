@@ -1,5 +1,52 @@
 \chapter{Implementation}
-\subsection{Technologies used}
-\section{Optimizations}
 
+    Following the specification, the aim of this chapter is to overview aspects of the implementation stage of the proposed ALTO system.
+    Firstly, attention is given to the chosen technologies that were leveraged to get the system from its specification stage into a working product - this includes tools and frameworks in the development and deployment phases, and whose choice greatly delimits the system's properties.
+    Secondly, the server is put into spotlight by detailing how it is structured and how it behaves, taking special concern in how object oriented programming was leveraged to maximize modularity and reasoning of the system to facilitate future alterations and extensions.
+    Special attention is given to the system's security, where an overview is made what concrete steps were taken to nullify the previously detected potential threats that put into question the viability of the system.
+
+\section{Technologies used}
+
+    Starting the implementation stage of every project, attention must be given into what tools are selected to make it come to fruition.
+    These can greatly impact the success of the developed software, and has concrete consequence in its maintenance and future extension.
+
+    The specified system architecture is composed by key entities whose interactions among themselves is clearly defined by interfaces.
+    More so, considering the example deployment scenarios, its evident that each entity resides in different topological regions throughout the network, with then the ALTO server, clients, and status providers being scattered through an ISP domain.
+    Each entity can then be thought of as a self contained system in of itself who must abide by the proposed interfaces to properly work on the system.
+    A logical conclusion to this is that each entity implementation is independent from the next, needing to only assure a common communication channel that all entities within it can properly understand.
+    This gives great flexibility in the system implementation as a whole, because different tools can be leveraged to different entities if needed, and such entities that be worked on independently from the rest without impacting the function of the group.
+
+    Regarding the ALTO server, first attention is given to the ALTO resources that must be provided by it.
+    They all share some common properties - such as resource id, ACLs, owner, etc. - and functionality - such as the ability to be read and updated, or their permissions modified.
+    This similarity is further intensified within groups of resource types, more specifically cost maps - consider how the only concrete difference between and endpoint and a PID cost map is the type of entity the costs refer to, which are endpoint and PID addresses, respectively.
+    The sequence of steps that must be taken from the initial point where a client requests a resource up until that resource is provided can be abstracted as the sequential interaction between concrete modules that have a given, self contained, purpose, and communicate with a common interface - an architectural pattern that is a micro version of the one existing in the system, that shares all its properties that were discussed previously.
+    Some of these modules would include client request monitoring, its parsing, its validation, database retrieval, database storage, and serialization.
+    With all this in mind, an object-oriented programming seems like a proper fit to the complexity pertaining to the ALTO server, especially considering how future extensions would be likely, as very much will be in case of the ALTO working group.
+    Working with objects as the base programming entity, many of the highlighted similarities between resources will become easy to be put into evidence, and module encapsulation and interfacing are natural and thus arguably easier to develop and maintain.
+    The choice of a language that follows an object-oriented paradigm
+
+    \todo{dynamic vs static}
+    \todo{java as a mature programming language that is stable and has many mature libraries}
+    \todo{intellij idea}
+    \todo{rest api}
+    \todo{spring framework as versatile, efficient, http controller support for rest api, security support, dependency injection}
+    \todo{unit testing and integration testing}
+    \todo{database discussion}
+    \todo{mongodb as a scalar choice}
+    \todo{database schema}
+
+\section{Server architecture}
+
+    \todo{class diagram}
+    \todo{emphasis on single responsibility}
+    \todo{discuss packages}
+    \todo{code reutilization}
+    \todo{interface oriented with code injection}
+    \todo{code example}
+    \todo{MVC architecture}
+
+\section{Network information aggregator}
+
+\section{Security}
+    \todo{concrete protocols used - https, http digest declined over other one}
 

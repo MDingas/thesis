@@ -4,7 +4,8 @@
 \usepackage{array}
 \usepackage{color}
 \usepackage[dvipsnames,rgb,table]{xcolor}
-\usepackage[linedheaders,parts,pdfspacing]{classicthesis}
+\usepackage[linedheaders,parts,pdfspacing,dottedtoc]{classicthesis}
+\usepackage{arsclassica}
 \usepackage{amsmath}
 \usepackage{pgfgantt}
 \usepackage{a4wide} % Setup for fullpage
@@ -290,13 +291,13 @@
 
 
 % Format table of contents
-\usepackage{tocloft}
-\renewcommand{\cftpartleader}{\cftdotfill{\cftnodots}} % for parts
-\renewcommand{\cftchapleader}{\cftdotfill{\cftnodots}} % for chapters
-\renewcommand{\cftsecleader}{\cftdotfill{\cftnodots}} % for sections
-\renewcommand{\cftsubsecleader}{\cftdotfill{\cftnodots}} % for subsections
-\renewcommand{\cftfigleader}{\cftdotfill{\cftnodots}} % for figures
-\renewcommand{\cfttableader}{\cftdotfill{\cftnodots}} % for tables
+%\usepackage{tocloft}
+%\renewcommand{\cftpartleader}{\cftdotfill{\cftnodots}} % for parts
+%\renewcommand{\cftchapleader}{\cftdotfill{\cftnodots}} % for chapters
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftnodots}} % for sections
+%\renewcommand{\cftsubsecleader}{\cftdotfill{\cftnodots}} % for subsections
+%\renewcommand{\cftfigleader}{\cftdotfill{\cftnodots}} % for figures
+%\renewcommand{\cfttableader}{\cftdotfill{\cftnodots}} % for tables
 
 
 % Create better looking section cross-reference links
@@ -519,6 +520,8 @@
 }
 
 \graphicspath{{img/}}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{3}
 
 %Tirar isto depois
 

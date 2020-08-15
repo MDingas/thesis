@@ -1,5 +1,38 @@
 \chapter{Experiments}
+
+    The purpose of this chapter is to overview the experiments phase of the project, which consists of the work done to deploy and measure how the system performs in a simulated scenario.
+    Whereas the developed unit tests in the implementation stage aim to verify the correct functionality of separate units of code pertaining to the system, the execution of the entire system as a whole to serve a set of hypothetical use cases can help achieve a better grasp on how correct system functionality among all the tested units.
+    Adjacent to the goal of testing the system in deployed scenarios, the experiments phase also aims to embed in the simulated environment a list of application scenarios that could leverage the ALTO system to its advantage, and subsequently observe and measure if and how the ALTO server can help the client in the form of provided resources that guide the client in taking application decisions that constitute a win-win scenario between the overlay and underlay.
+    As comparison, other known application-network interaction strategies will also be observed and their results measured as a means to compare the impact that these strategies have on both layers.
+    Findings on the state of the art of existing interactions and the proposal of the ALTO protocol made on section \ref{sec:state-of-art}, together with the specified system extension on \ref{sec:specification} leads one to believe that a theoretical mutually beneficial scenario exists in an ALTO approach that cannot exist with more asymmetrical means of interaction.
+    This chapter, however, puts those theoretical scenarios into a practical environment that could be replicated by those reading this work, and exposing the created scenarios and collected data can corroborate the theoretical conclusions, as well as leaving an opportunity for future discussion on how the system behaved, including its performance, its success in aiding clients, other existing client options that could be a better route, system shortcomings, etc.
+    This discussion benefits the ALTO project and can give more maturity to the system as it was put through a simulated deployment against other common strategies.
+
+    The first section displays the chosen technologies for tasks pertaining to the experiments.
+    The next section focuses on the required steps taken to setup the testing environment.
+    This includes the design and deployment of a network topology in a simulated environment, the creation of mock applications to serve as clients for the system, and the design and deployment of application and network status measurement tools.
+    The following section individually overviews the devised scenarios to test in the simulation, and with it experiment specifics such as the initial problem, what strategies will be tested to solve it, how many runs will be made per strategy, and what metrics will be measured.
+    Finished the experiments, the following section will display the obtained results that were collected in the simulated environment, and the section after that will discuss these results and how they fare with the theoretical findings.
+
+\section{technologies used}
+
+    \todo{core}
+    \todo{docker}
+    \todo{python - client apps}
+    \todo{python - graphs}
+    \todo{vnstat?}
+
 \section{setup}
+
+    \todo{core topology - image, emphasis on diversity of properties and connections, as well as heterogeneity and interaction of multiple domains}
+    \todo{mock file sharing app with tracker}
+
+    \todo{client can be embedded on any existing protocol}
+    \todo{p2p mock application and tracker w/ embedded ALTO client}
+    \todo{media mock application w/ embedded ALTO client}
+    \todo{data center mock application w/ embedded ALTO client}
+
+\section{scenarios}
 \section{Results}
-\section{Summary}
+\section{Discussion}
 
