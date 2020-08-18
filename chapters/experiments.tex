@@ -16,15 +16,48 @@
 
 \section{technologies used}
 
-    \todo{core}
-    \todo{docker}
-    \todo{python - client apps}
-    \todo{python - graphs}
-    \todo{vnstat?}
+    The Common Open Research Emulator (CORE) \cite{core} was used as a network simulator and represents the backbone of the experiments as a whole, as it represents the network simulator where the experimental environment will be set.
+    This tool allows for the creation and emulation of network environments, and with it are included the abilities to construct network topologies and manipulate properties of the member nodes, which can include network routers, switches, and host machines, that will all be used for the designed experiment scenarios.
+    Additionally, link connection properties can themselves be customized, as parameters like max bandwidth, packet loss percentage, or packet delay can be meticulously customized, and in fact will be in the upcoming scenarios as a means to simulate a given scenario that may occur in a realistic environment, such as link inneficiency resulting of peak traffic hours.
+    Another property that was of great importance for its selection on this work is that, on top of the virtual network environment, arbitrary code can be run on behalf of a given entity and can be addressed to another, acting as if it were an actual network.
+    This will be leveraged to run software pre-packaged in the emulator, such as routing protocols that are essential for the correct expected behavior of a simulator network, but also to schedule software execution that was developed for this work, which includes the ALTO server, network state providers - e.g., probing daemons and application feedback collectors - and system clients for the P2P and HTTP mock applications that will be devised to play out a particular experiment scenario, and which will have embedded into it an ALTO client to interface with the server for council. 
+    As the simulation tool runs on Linux and builds a simulated network that behaves very much like a real one, well known real-application tools can be used on top of it in other needed areas, including the deployment and measuring phases, which gives plenty of flexibility on tool selection. 
+
+    Python \cite{python} will be utilized to implement all simple software prototypes whose purpose is uniquely to test the application in a real scenario.
+    This includes the P2P file-transfering applications, the HTTP servers and clients, and the throughput-intensive activities done by the data servers.
+    Appended to this will also be the task of application monitoring, which includes the retrieval of performance statistics - doing so in the application's code itself, instead of using external tools, because more fine grained access exists and individual tasks can be monitored for how long and how well they perform.
+    The choice of this programming language over others is simply that these software prototypes are not intended to be highly optimized, nor are they to be complex.
+    Instead, their mode of operation is supposed to be simple in nature, to remove complex variables that might make the experiment results harder to interpret, and to make reasoning and replication of experiment results easier. 
+    Python seems then like a good fit due to its easy syntax, its interpreted nature that skips work that would otherwise be needed for compilation that might increase peformance - but is not needed - and, finally, its massive collection of helpful libraries.
+    For these reasons will too Python be chosen to generate visual graphics reflective of the raw network and application statistics to be collected by other tools. 
+
+    Finally, a tool was selected for the task of network monitoring, to collect network data representative of the impact that a given application strategy had towards the infrastructure.
+    To this goal, vnStat \cite{vnstat} was chosen, a command line utility to measure network traffic on an interface basis, over given periods of time.
+    This application retrieves network interface statistics provided directly by the kernel, and thus performs no traffic sniffing.
+    This is not problematic as this level of detail is not needed for the designed experiments, and instead interface statistics that inform on data flow influx and outflux are sufficient. 
+    Finally, with vnStat being a command line utility, there is the additional bonus that deployment and orchestration are facilitated with scripting. 
 
 \section{setup}
 
-    \todo{core topology - image, emphasis on diversity of properties and connections, as well as heterogeneity and interaction of multiple domains}
+    Figure \ref{fig:topology-main} displays the topology that will act as the main environment for all the devised experiments.
+    It was designed with the intent of reflecting the nature of the Internet, in particular with it being an aggregation of multiple, heterogenous, domains, each with their own topological properties and internal policies, with them being administrated by different organizations.
+    As can there be seen, a single backbone network - AS 0 - provides connectivity between many ASs and, to do its job correctly, a high degree of path redundancy exists between its edge routers, and the links have better capabilities that those associated with stub networks.
+    AS 1 is a simple topological structure consisting of five PCs and and three dedicated servers, connected with the help of switches and routers, that eventually connect to a single edge router that connects to the backbone.
+    AS 2 is representative of a data center with two OSPF areas, both constructed with a hierarchical organization common for data center networks.
+    Links in these regions are also highly capable and high traffic peak times are expected to occur.
+    AS 3 is a slightly more complex stub network compared to AS 1, but has the same structure, with the adition of having three OSPF areas instead of one, and a variety of nodes and links with different properties - for example, the links in area A are generally better, whilst area C has wireless connections in it that are expected to have worse performance and be less reliable.
+    Finally, AS 4 connects directly with AS 3, meaning that the latter acts also as a transit AS, being the only access point towards the rest of the network.
+    Similarly to AS 3, it consists of a stub network accessed by many end users and some servers, and both node and link properties vary accordingly.
+
+    Each node on the network has a given purpose that is represented as a node label, and likewise are link labels used to specificy connection properties.
+    Unless stated otherwise with these labels, all other properties are equal throughout the network.
+    Some pre-packaged CORE services need to be enabled to assure network connectivity - mainly OSPFv3 and BGP - and scripting is used to, at the beggining of the simulation, bootstrap programs in specific nodes. 
+    This is done by leveraging the command line utility vcmd that runs specificed commands in control channels that are created at runtime by CORE - for example, the following command executes a ping command to address 10.0.0.1 with origins on node P2P-Cli-1 and on simulation session 12345:
+
+    \begin{lstlisting}[language=bash]
+        $ vcmd -c /tmp/pycore.12345/P2P-Client-1 -- ping 10.0.0.1
+    \end{lstlisting} 
+
     \todo{mock file sharing app with tracker}
 
     \todo{client can be embedded on any existing protocol}
