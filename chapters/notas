@@ -1,0 +1,122 @@
+= Scenarios
+
+== Scenario
+
+Mock application:
+
+    P2P file transfer
+
+Description:
+
+    A 1GB file is requested by one of the P2P clients.  The chunks exist randomly on the network, with chunk redundancy not being uncommon.  The file is transfered as a sequencial retrieval of all file chunks until they can be composed together into a single file.
+
+ALTO Server:
+
+    Shares a network map that groups IPv4 addresses into PIDs. ISP made this grouping in such a way that traffic localization is prioritized - meaning that endpoints within the same AS area share a PID, and in a higher matching area goes everything else in that AS, and a default matcher goes for everything outside the ISPs local domain
+
+Methods:
+
+    - The ALTO client is embedded in the P2P tracker that, upon every new request for "what peers contain the chunks for this file", first contacts the ALTO server on behalf of the P2P client and tries to figure out locality through the network map.
+    - Randomly giving out the response (as happens in the Bittorrent client)
+    - Selecting the least RTT average from client to candidate.
+
+Metrics:
+    - Time to transfer entire file
+    - Total traffic generated in the network
+
+
+== Scenario
+
+Mock application:
+
+    HTTP file transfer
+
+Description:
+
+    A 1GB file is required by a given client in the topology. Contacting a mirror list, he notices that N servers with given IP addresses are providing the same content. Client wants to request a file in full from one single server.
+
+ALTO Server:
+
+    Endpoint property maps initially serve to footprint servers, giving information on current status (available cpu, ram). Cost maps give every pair (X, Y) with X being the a local region and Y being a candidate server region, for metrics routingcost, tcp throughput and delay. The routing cost is specified manually by the ISP clients considering peering agreements, and throught and delay are achieved through historical/statistical data that has been voluntered by applications.
+
+Methods:
+    - The ALTO client is embedded in the HTTP client application. Upon requesting a file and receiving a mirror list, the client contacts an ALTO server to retrieve endpoint property maps and cost maps pertaining to those servers and the requesting client. Response favors not choosing overworked servers, favoring minimizing routing cost and better QoS metrics for file transfering.
+    - Choose randomly
+    - Using adaptive tcp throughput and delay calculation to collect data about servers and similarly act
+
+Metrics:
+    - Time to transfer entire file
+    - Total traffic generated in the network
+
+
+== Scenario
+
+Mock application:
+
+    FTP file transfer with scheduler
+
+Description:
+
+    Big data server wants to schedule big and bulky data transfer for backup redundancy. These will start and end at a specific time interval, and when done will massively clog up their path, potentially limiting the performance of some of the servers in that data center.
+
+ALTO server:
+
+    Calendar cost map is maintained by the data center administrator to schedule and orchestrate bulky server transfers.
+
+Methods:
+    - Whenever a new transfer is required, the data center backup application first consults the calendar cost map and schedules their transfer to low cost areas as to avoid peak traffic.
+    - Ad/hoc "when needed" backups
+    - Incremental backups spread out
+
+Metrics:
+    - Total time to perform backups
+    - Total time for HTTP client in another region to retrieve data
+    - Total traffic generated in the network
+
+
+== Scenario
+
+Mock application:
+
+    P2P file transfer
+
+Description:
+
+    Similar to the other P2P file transfer
+
+ALTO server:
+    OSPF cost map is synchronized between ALTO servers of multiple domains, a single Dijkstra least cost map is calculated.
+
+Methods:
+    - ALTO client embedded in tracker and personalized responses given
+    - Random
+    - Least RTT
+
+== Scenario
+
+Mock application:
+
+    Real-time P2P media-streaming application
+
+Description:
+
+    User clients wants to watch media content, and retrieved a list of candidate streaming peers to request files from.
+
+ALTO Server:
+    Multi ALTO domain routing cost map, throughput and packet loss that specifically does not favor paths that were historically bottlenecks
+
+Methods:
+    - ALTO client embedded in tracker and personalized responses given
+    - Random
+    - Least RTT
+    - Hop count
+
+
+
+= Applications
+
+== HTTP file transfer
+
+server : python -m SimpleHTTPServer 8080
+
+client : something that leverages curl

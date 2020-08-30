@@ -37,6 +37,103 @@
 
 \section{Server architecture}
 
+    The macro-level architectural diagram specified that the server's role is to serve incoming requests by clients and providers, and to interface with a database to persist resource storage.
+    The server will implement a Representational state transfer (REST) interface leveraging the Hypertext Transfer Protocol (HTTP) as this pair is widely accepted and ubiquitous on the Internet, but also due to the fact that its resource-oriented interface standards fit nicely into the specified interface for ALTO server interactions, which too revolve around resource manipulation, and by adhering to proper REST designs good scalability can be achieved due to its stateless nature and potential for resource caching.
+    The choice of HTTP as an application protocol fits nicely into a philosophy of leveraging existing and well proven protocols and technologies to increase the project's success, and indeed so was done to integrate authentication and encryption mechanisms.
+
+    To accomplish this interface implementation, the internal server architecture will be, at a macro level, as shown in Figure \cite{fig:alto-server-architecture-macro}.
+    This three-layered architecture consists firstly by a controller layer that intercepts communication requests, which after parsed and validated are redirected to the business layer, which in turn employs business logic to help satisfy the controller's requests, which may require a subsequent layer descent into the data layer via database queries.
+
+    Figure \cite{fig:controller-unversioned-architecture} displays a class diagram focusing on controller classes that deal with resources that are not susceptible to version control - this includes every resource except the network map.
+    As can be seen, all concrete controllers - such as an endpoint property map controller - are extensions to a generic controller class that is parametrized by its Data Transfer Object (DTO) , filter DTO, and service instances.
+    This design choice was made because all controller logic that regards to resources without version control are the same, and by creating generic classes with type parametrization code reutilization is increased.
+    The parametrization required by the controller is required to pass a concrete instance of the unversioned resource service generic class, which in of itself requires parametrization in resource DTO and resource filter DTO.
+    By reflecting on common controller and service behaviour between all version control lacking resources, the conclusion was that working around generic classes maximizes reutilization, facilitates reasoning and decreases potential error.
+    To help better visualize the result, refer to how the generic controller is implemented in \cite{lst:generic-controller}.
+    To retrieve a resource, simply call the service class with or without the proper filter, depending on which method was triggered, by calling the appropriate methods that must implement the resource service interface.
+    For example, an endpoint property map controller implementation simply extends the generic controller by providing the concrete DTO, filter DTO, and service implementations, as seen in \cite{lst:endpoint-property-map-controller}.
+
+    \begin{lstlisting}[label={lst:generic-controller}]
+    public class ParametrizedUnversionedResourceController<ResourceDTOType,
+                                                           ResourceFilterDTOType,
+                                                           ResourceServiceType extends ALTOUnversionedResourceService<ResourceDTOType, ResourceFilterDTOType>> {
+
+    private final ResourceServiceType resourceService;
+
+    @Autowired
+    public ParametrizedUnversionedResourceController(ResourceServiceType resourceService) {
+        this.resourceService = resourceService;
+    }
+
+    @PreAuthorize("@ResourceAuthorizationService.hasPermission(authentication, #resourceId, T(com.example.restservice.dto.security.PermissionDTO).READ)")
+    @RequestMapping(method = RequestMethod.GET, value = "{id}")
+    public ResourceDTOType getResource(@PathVariable(value = "id") String resourceId) {
+        return resourceService.getResource(resourceId);
+    }
+
+    @PreAuthorize("@ResourceAuthorizationService.hasPermission(authentication, #resourceId, T(com.example.restservice.dto.security.PermissionDTO).READ)")
+    @RequestMapping(method = RequestMethod.POST, value = "{id}")
+    public ResourceDTOType getCostMapWithFilter(@PathVariable(value = "id") String resourceId,
+                                                @Valid @RequestBody ResourceFilterDTOType costMapFilterDTO) {
+        return resourceService.getResource(resourceId, costMapFilterDTO);
+    }
+}
+
+    \end{lstlisting}
+
+    \begin{lstlisting}[label={lst:endpoint-property-map-controller}]
+    @RestController
+    @RequestMapping("endpointprops")
+    public class EndpointPropertyMapController
+        extends ParametrizedUnversionedResourceController<EndpointPropertyMapDTO, EndpointPropertyMapFilterDTO, EndpointPropertyMapService> {
+
+        @Autowired
+        public EndpointPropertyMapController(EndpointPropertyMapService resourceService) {
+            super(resourceService);
+        }
+    }
+
+    \end{lstlisting}
+
+    The same reasoning was used to implement the network map controller, but since this is the only resource that accepts versioning, the correspondent generic controller behavior does not contain similar behavior to the one above, and thus another was created, as seen in \cite{lst:versioned-controller}.
+    The service layer implementation must now let the controller retrieve either a specific version of a resource, or the most recent one if no version is specified by the client.
+
+
+    \begin{lstlisting}
+    public class ParametrizedVersionedResourceController<ResourceDTOType,
+                                                     ResourceFilterDTOType,
+                                                     ResourceServiceType extends ALTOVersionedResourceService<ResourceDTOType, ResourceFilterDTOType>> {
+
+    private final ResourceServiceType resourceService;
+
+    @Autowired
+    public ParametrizedVersionedResourceController(ResourceServiceType resourceService) {
+        this.resourceService = resourceService;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "{id}")
+    @PreAuthorize("@ResourceAuthorizationService.hasPermission(authentication, #resourceId, T(com.example.restservice.dto.security.PermissionDTO).READ)")
+    public ResourceDTOType getVersionedResource(@PathVariable(value = "id") String resourceId,
+                                                @RequestParam(value = "version", required = false) String resourceVersion) {
+        return resourceVersion != null
+                ? resourceService.getResourceVersion(resourceId, resourceVersion)
+                : resourceService.getLatestResourceVersion(resourceId);
+    }
+
+    @PreAuthorize("@ResourceAuthorizationService.hasPermission(authentication, #resourceId, T(com.example.restservice.dto.security.PermissionDTO).READ)")
+    @RequestMapping(method = RequestMethod.POST, value = "{id}")
+    public ResourceDTOType getVersionedResourceWithFilter(@PathVariable(value = "id") String resourceId,
+                                                          @RequestParam(value="version", required = false) String resourceVersion,
+                                                          @Valid @RequestBody ResourceFilterDTOType resourceFilter) {
+        return resourceVersion != null
+                ? resourceService.getResourceVersion(resourceId, resourceVersion, resourceFilter)
+                : resourceService.getLatestResourceVersion(resourceId, resourceFilter);
+        }
+    }
+
+    \end{lstlisting}
+
+
     \todo{class diagram}
     \todo{emphasis on single responsibility}
     \todo{discuss packages}
