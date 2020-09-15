@@ -14,11 +14,11 @@
     The following section individually overviews the devised scenarios to test in the simulation, and with it experiment specifics such as the initial problem, what strategies will be tested to solve it, how many runs will be made per strategy, and what metrics will be measured.
     Finished the experiments, the following section will display the obtained results that were collected in the simulated environment, and the section after that will discuss these results and how they fare with the theoretical findings.
 
-\section{technologies used}
+\section{Technologies Used}
 
     The Common Open Research Emulator (CORE) \cite{core} was used as a network simulator and represents the backbone of the experiments as a whole, as it represents the network simulator where the experimental environment will be set.
     This tool allows for the creation and emulation of network environments, and with it are included the abilities to construct network topologies and manipulate properties of the member nodes, which can include network routers, switches, and host machines, that will all be used for the designed experiment scenarios.
-    Additionally, link connection properties can themselves be customized, as parameters like max bandwidth, packet loss percentage, or packet delay can be meticulously customized, and in fact will be in the upcoming scenarios as a means to simulate a given scenario that may occur in a realistic environment, such as link inneficiency resulting of peak traffic hours.
+    Additionally, link connection properties can themselves be customized, as parameters like max bandwidth, packet loss percentage, or packet delay can be meticulously customized, and in fact will be in the upcoming scenarios as a means to simulate a given scenario that may occur in a realistic environment, such as link inefficiency resulting of peak traffic hours.
     Another property that was of great importance for its selection on this work is that, on top of the virtual network environment, arbitrary code can be run on behalf of a given entity and can be addressed to another, acting as if it were an actual network.
     This will be leveraged to run software pre-packaged in the emulator, such as routing protocols that are essential for the correct expected behavior of a simulator network, but also to schedule software execution that was developed for this work, which includes the ALTO server, network state providers - e.g., probing daemons and application feedback collectors - and system clients for the P2P and HTTP mock applications that will be devised to play out a particular experiment scenario, and which will have embedded into it an ALTO client to interface with the server for council.
     As the simulation tool runs on Linux and builds a simulated network that behaves very much like a real one, well known real-application tools can be used on top of it in other needed areas, including the deployment and measuring phases, which gives plenty of flexibility on tool selection.
@@ -37,9 +37,11 @@
     This is not problematic as this level of detail is not needed for the designed experiments, and instead interface statistics that inform on data flow influx and outflux are sufficient.
     Finally, with vnStat being a command line utility, there is the additional bonus that deployment and orchestration are facilitated with scripting.
 
-\section{setup}
+    \textbf{[python's SimpleHTTPServer module will be leveraged as an HTTP server, and a similar module will be used for FTP file transfers.]}
 
-    Figure \ref{fig:topology-main} displays the topology that will act as the main environment for all the devised experiments.
+\section{Setup}
+
+    Figure \ref{fig:test-topology} displays the topology that will act as the main environment for all the devised experiments.
     It was designed with the intent of reflecting the nature of the Internet, in particular with it being an aggregation of multiple, heterogenous, domains, each with their own topological properties and internal policies, with them being administrated by different organizations.
     As can there be seen, a single backbone network - AS 0 - provides connectivity between many ASs and, to do its job correctly, a high degree of path redundancy exists between its edge routers, and the links have better capabilities that those associated with stub networks.
     AS 1 is a simple topological structure consisting of five PCs and and three dedicated servers, connected with the help of switches and routers, that eventually connect to a single edge router that connects to the backbone.
@@ -49,23 +51,61 @@
     Finally, AS 4 connects directly with AS 3, meaning that the latter acts also as a transit AS, being the only access point towards the rest of the network.
     Similarly to AS 3, it consists of a stub network accessed by many end users and some servers, and both node and link properties vary accordingly.
 
+    \todo{Add labels to autonomous systems and link and node properties}
+
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{img/test-topology.png}
+    \label{fig:test-topology}
+    \caption{Simulated topology environment}
+    \end{figure}
+
+
+
     Each node on the network has a given purpose that is represented as a node label, and likewise are link labels used to specificy connection properties.
     Unless stated otherwise with these labels, all other properties are equal throughout the network.
-    Some pre-packaged CORE services need to be enabled to assure network connectivity - mainly OSPFv3 and BGP - and scripting is used to, at the beggining of the simulation, bootstrap programs in specific nodes.
+    Some pre-packaged CORE services need to be enabled to assure network connectivity - mainly OSPFv3 and BGP - and scripting is used to, at the beginning of the simulation, bootstrap programs in specific nodes.
     This is done by leveraging the command line utility vcmd that runs specificed commands in control channels that are created at runtime by CORE - for example, the following command executes a ping command to address 10.0.0.1 with origins on node P2P-Cli-1 and on simulation session 12345:
 
-    \begin{lstlisting}[language=bash]
+    \begin{center}
+    \begin{tabular}{c}
+    \begin{lstlisting}[caption=Execution of an example command through the control channel of a given node, language=bash]
         $ vcmd -c /tmp/pycore.12345/P2P-Client-1 -- ping 10.0.0.1
     \end{lstlisting}
+    \end{tabular}
+    \end{center}
 
-    \todo{mock file sharing app with tracker}
+\section{Scenarios}
 
-\section{scenarios}
+\subsection{Single ALTO administrative domain}
+\subsubsection{P2P file sharing}
+\textbf{[Description: A 1GB file is requested by one of the P2P clients. The chunks exist randomly on the network, with chunks existing redundantly on the network. The file is transfered by sequencially retrieving all the chunks until they can be composed together into a single file]}
+\textbf{[Methods: a) ALTO client embedded on the P2P tracker, upon receiving request from the client, queries the ALTO server for a network map and tries to match the client with other peers that reside in the same PID, as it is an indication of network proximity. b) The tracker randomly gives out pair responses (as does happen in the BitTorrent specification. c) The tracker gives out all the peer matches, and the client picks the one it can achieve the smallest RTT measurement to, with the heuristic that closer-by peers will allow for quicker chunk transfers. ]}
+\textbf{[Metrics: a) time to transfer entire file. b) Total traffic generated in the network, separated by intra and inter ISP]}
+\textbf{[Notes: The P2P client has no reasonable way to, without ISP cooperation, know that peers reside within network locality. A cited study used RTT heuristics that assumed that high RTT values exist in inter-ISP links, which may not always be the case. Randomly selecting is poor at optimal choice, but at the very least has potential for load balancing, something that the tracker itself can attempt to do on a per-locality basis, joining a best of both worlds. Leveraing only a network map to communicate peer locality is quick and takes little memory, and further experiments will add cost maps on top of it to mix both locality standards and QoS needs.]}
 
-    \todo{client can be embedded on any existing protocol}
-    \todo{p2p mock application and tracker w/ embedded ALTO client}
-    \todo{media mock application w/ embedded ALTO client}
-    \todo{data center mock application w/ embedded ALTO client}
+
+\subsubsection{HTTP file sharing}
+\textbf{[Description: A 1GB file is served redundantly by many HTTP servers in the network. A client wants to retrieve that file, and after retrieving a mirror list he must decide from whom to request the file.]}
+\textbf{[Methods: a) The ALTO client is embedded in the client application. Upoen requesting a file a receiving a mirror list, the client contacts and ALTO server and retrieves and enpoint property map and cost maps pertaining t those servers. The choice will favor the server whose property signals that he isn't under a lot of stress (cpu, memory), and whose cost minimizes ISP routing cost and delay and maximizes throughput]. b) Choose a host randomly. c) Use adaptive tcp throughput and delay measurements to, at that moment, probe for what server has better connection to it in regards to throughput and delay}
+\textbf{[Metrics: a) Time to transfer entire file. b) Total traffic generated in the network]}
+\textbf{[Notes: The ALTO method has better data on three fronts: it has a historical and statistical record of connection quality between clients and servers, which will probably be more mature than a ad-hoc probing of the network at that given time; it has server property information regarding status (cpu and memory load, for example) that the client can't retrieve otherwise; it has ISP routing costs that give ISP insight on what choice would be more economically sound for them. The assumption is that the ALTO approach will have better application performance and better network resource utilization because the information retrieved tells a bigger picture than a simple probing for tcp througput and delay. Additionally, if every client were to perform adhoc measurements to pick a client, considerable network traffic overhead will exist, specially with a bigger scale of clients. By centralizing this information as historical and statistical data, and adding into it routing costs that only the ISP could derive, a more mature choice can exist that favors both parties. The old way of manually choosing server mirrors, for example for linux distributions, that end up just being 'let me choose the first one i see that is on my country', can be argued to be objectively worse than adding a ISP cooperative module.]}
+
+
+\subsection{Multi ALTO administrative domains}
+
+\subsubsection{P2P file transfer}
+\textbf{[Description: Similar to the single domain file transfer, but this time there is an effort between all ALTO domains to synchronize data, that allows one to create a cost map between all candidate peers throughout the Internet]}
+
+\subsubsection{Bulk FTP transfers}
+\textbf{[Description: Big data server wants to schedule big a bulky data transfers as backups in another server. These happen routinely, and take a predictable amount of time. Performing these backups heavily impacts the the ability of all servers in that data center to serve clients, because that subnetwork will be utilizing a lot of its resources. Some servers residing in this subnetwork host files and serve them via HTTP. Routinely during backup, clients want to retrieve files from that HTTP service, and must choose among many servers residing on various subnetworks.The data center administrator maintains a cost map calendar where he schedules all the bulky transfers, and this has a multi purpose: to keep track of all schedules so to help schedule other bulky transfers on top of past ones in the most efficient manner, and to signal to ALTO clients when QoS connections to that subnetwork are expected to degrade.]}
+\textbf{[Methods: a) The client consults the cost maps between him and all candidate HTTP servers. He either chooses the single cost if no calendar cost exists, or the calendar cost at that current time if it does exist. The chosen server is the one that maximizes throughtput. b) Same as "a)", but only choose the single cost map c) Select server randomly d) Select based on tcp throughput measurement]}
+\textbf{[Metrics: a) Time to transfer entire file, b) Time to perform backups, c) Total traffic on the network - with emphasis in identifiying how often links were overloaded]}
+
+\subsubsection{P2P media streaming}
+\textbf{[Description: User client wants to watch a media stream that is redundantly served by many streaming peers. Routinely, during prime activitity, certain links become overloaded that consequentially increase link delay. ]}
+\textbf{[Methods: a) ALTO server maintains a multi-domain throughput, delay and packet loss calendared cost maps that were result of historical and statistical measurements from previous users of that media streaming application that volunteered performance statistics. Routingcost calendared cost map is also added by the ISPs to reflect preference in routing. b) Randomly select peer. c) Choose peer with least RTT, with the heuristic that smallest probe delay allows for better real-time streaming experience d) Randomly select peer and, whenever QoS measurements are degraded for too long, choose another ano - and continuously apply this adaptive peer selective mechanism that essentially "brute forces" the best peer]}
+\textbf{[Notes: Again, the ALTO approach is the only one that allows clients to make choices that are inline with ISP's economical and administrative needs. Moreso, the ALTO server has a centralized repository for historical and statistical performance results that occured in that media application, that show a trend in what subnetworks become more loaded over time. ISP probing by the network can also more quickly detect link bottlenecks and quickly upload that data as cost maps, whilst deducing that information without ISP aid would require more probing traffic, and would take considerably longer. Both probing attempts and "brute force" attempts are more harduous and considering the real-time QoS levels of the media streaming application, will considerably degrade application performance. A network-aware and statistical repository solution like ALTO allows one to make the better decision, more quickly, with a mutually beneficial outcome.]}
 
 \section{Results}
 \section{Discussion}

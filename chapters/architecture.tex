@@ -8,7 +8,7 @@
     Upon specified the way that network information is provided, the next section details how a given actor, such as an ISP administrator, can pre-process such information before it is forwarded to the server and available to clients.
     Finally, the task of multi-domain ALTO server synchronization and communication is specified in the form of required protocol extensions and needed mechanisms that allows the increase of a single ALTO server's knowledge space.
 
-    \todo{add this : which includes the insertion of static ISP preferences or the abstraction of network entities as a means to dilute concrete topology details without forfeiting the usefulness the clients can retrieve from the processed resources}
+    \todo{add this when it comes up: "which includes the insertion of static ISP preferences or the abstraction of network entities as a means to dilute concrete topology details without forfeiting the usefulness the clients can retrieve from the processed resources"}
 
 \subsection{System Architecture}
 
@@ -85,6 +85,8 @@
     This means that there are no guarantees that the resources are shared outside of the system's domain and consequentially there are no security guarantees after that point.
     Because of this, privilege attribution by the ISP administrators not only give credence to do a certain action, but also imply that trust exists that these users will not be improper with the given resources and they won't thus share it with other users with improper credence.
 
+    \textbf{[Add communication diagram that explains how access control lists are set/updated for given resources, and how the server acts everytime a user requests access to the resource, considering this ACL layer.]}
+
 
 \subsubsection{Resource Consumer}
 
@@ -115,13 +117,15 @@
     Physically, though, the resource provider layer could consist of many interlinked ALTO providers with an increased coverage area of network knowledge.
     Means through which this could occur are further specified in section \ref{ssec:multi-alto}.
 
-\subsubsection{Network Intelligence aggregation}
+\subsubsection{Network Information aggregation}
 
-    The network intelligence aggregation layer is the layer that enables the translation of raw topological information - such as the physical attributes of network devices and connections - into processed, query-eligible network knowledge.
+    The network information aggregation layer is the layer that enables the translation of raw topological information - such as the physical attributes of network devices and connections - into processed, query-eligible network knowledge.
     To do so, a very important entity, perhaps the heart of the system as a whole, is the network state provider, which is the supply of network information that is injected, through a network state provisioning protocol, into a network information aggregator.
     This latter entity is then responsible for providing the ALTO resource provider layer with valid information after the raw topological data has been processed - this includes the calculation of optimal paths, the abstraction of network entities, or the injection of static ISP preferences.
     This pre-processing stage requires input from an ISP administrator, responsible for acting on the best behavior or the ISP from which the raw topological data originates - by interacting with the network information aggregator the administrator acts on this network information hub to retrieve from the database a history of retrieved network information, and afterwards manipulate this information to create ALTO resources to its liking - this is where data is transformed utilizing the algorithms the admin deems fitting, and transforms the raw data to be publishing ready, meaning that it contains an acceptable amount of abstraction not to compromise topological privacy.
     Finally, the admin defines important meta data that identifies the resource, and defines the access control list to be enforced by the ALTO server.
+
+    \textbf{[Communication diagram of how the ISP admin interacts with the data in the network status database to create ALTO resources with appropriate access control levels, and uploads it to the server]}
 
 \subsubsection{Resources}
 \label{ssec:alto-resources}
@@ -181,7 +185,6 @@ PID3 & 0.0.0.0/0     & ::/0                  & 00-00-00-00-00-00/48 & 5
     In this particular case, an ISP could've preferred to use groupings as a means to increase topological abstraction and concluded that the groupings can achieve functionally similar results.
 
 
-\todo{remove link 2-5}
 \begin{figure}[!h]
         \centering
         \includegraphics[scale=0.75]{img/topology.png}
@@ -212,21 +215,40 @@ PID3 & 0.0.0.0/0     & ::/0                  & 00-00-00-00-00-00/48 & 5
     A protocol needs to exist to interface between the entities that collect and provide the raw topological data, and the Network Information Aggregator that processes it and provides it to the ALTO server.
 
 
-\todo{communication diagrams}
-\todo{resources - source name, origin measurement time, description, endpoint/pair of endpoints, measurement}
-\todo{interface}
+\begin{figure}[!h]
+        \centering
+        \includegraphics[scale=0.3]{img/info-provisioning-providers.png}
+        \caption{Communication diagram of how external network state providers upload information to the network information aggregator}
+        \label{fig:architecture-network}
+\end{figure}
 
-\subsection{Network intelligence preprocessing}
 
-\todo{communication diagram}
+    \textbf{[Network is provided raw, as is, without validation, but validation modules could be provided in the future if a need for it exists. The uploaded information firstly has meta data - which includes the source name (where the data came from, such as an OSPF collector daemon), the time where the measurements were collected, a description, an endpoint or group of endpoints, depending on what the measurement relates to - such as an endpoint property or a cost between two properties or a grouping between N properties, and the measurement itself.]}
+
+    \textbf{[Specificy interface]}
+    \textbf{[Communication diagram of how a data source entity - such as a daemon that collects OSPF data, uses the interface to upload data to the network information aggregator.]}
+
+\subsection{Network status processing}
+
+    \textbf{[Detail how the ISP uses the information gathered by the network state providers and pre-processes it. This includes, for example, calculating shortest path maps utilizing a Dijkstra algorithm, limiting/changing information to maintain security, adding static ISP policies, and attributing access control policies for that resource]}
+
+\begin{figure}[!h]
+        \centering
+        \includegraphics[scale=0.3]{img/info-provisioning-isp.png}
+        \caption{Communication diagram of how an ISP administrator pre-processes the gathered network state and uploads it to the ALTO server}
+        \label{fig:architecture-network}
+\end{figure}
 
 \subsection{Server discovery}
 
+    \textbf{[Entities contact a central server for domain name resolution.]}
+
 \subsection{Resource Filtering}
 
-\subsection{Inter-server communication}
+    \textbf{[Overview how the interface allows users to pass parameters that specify resource filters, as specified by the working group]}
 
-    \todo{add img/topolgy.png but more complex to showcase multi domain problem}
+\subsection{Inter-server communication}
+\label{ssec:multi-alto}
 
     A glaring gap in the working group's base ALTO protocol is its single administrative applicability domain.
     Meaning, an ALTO server is managed by a single administrative entity - likely an ISP - and its knowledge domain is limited by the network topology details that the entity wants to share.
@@ -237,6 +259,8 @@ PID3 & 0.0.0.0/0     & ::/0                  & 00-00-00-00-00-00/48 & 5
     However, it does not seem to fit this use case - for starters, if all data were to exist redundantly on all servers, that would defeat the purpose of having many administrative domains and thus a single server architecture would suffice; secondly, the architecture is inherently designed to work within a trust domain of selected clients, and because of it the servers may not even be comfortable with sharing all of its information within other domains to begin with, limiting replication strategies; thirdly, accounting for the amount of users acting on the ALTO system, better scalability could be achieved with a distributed solution that limits information within set boundaries.
     Accounting for these reasons, an inter-server synchronization protocol was designed for servers to negotiate information exchange among themselves.
 
-\todo{communication diagrams}
-
-\label{ssec:multi-alto}
+    \textbf{[Important to note that each server must maintain administrative control over itself, thus controling who has access to what and how long that resource is accessible. It it thus unwise to create a single database that all other servers have access to. Instead, every server has an interface for other servers to enquire about, and access is granted/blocked by the server itself at any moment.]}
+    \textbf{[Data resources can have a property, called "global", that dictate that a given resource is derived by sharing data from multiple ALTO servers]}
+    \textbf{[There is a single central server where all ALTO servers report to, and where they advertise what information they have. If a client requests a resource to a server that isn't global and he does not possess it, he can check on this global database and redirect the user to it if he so desires, analogous to a recursive DNS query. If the resource is of global type, the ALTO server will request data to help generate the resource, and it is the result of a global connection effort. A global endpoint property map is just the joint of know key-> value pairs, whereas a cost map must require a dijkstra algorithm, for example, to derive the best choices]}
+    \textbf{[Servers have an interface just for inter-server communication. ]}
+    \textbf{[Communication diagrams of how inter-server synchronization works]}

@@ -23,7 +23,7 @@
 \usepackage{listings}
 \usepackage{textcomp} % for upquote
 \usepackage{indentfirst}
-\usepackage[]{todonotes}
+%\usepackage[]{todonotes}
 %\usepackage{subfigure}
 \usepackage[marginparwidth=150pt]{geometry}
 \usepackage{subfig}
@@ -176,6 +176,37 @@
 
 %Caption formatting
 \usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+\lstset{language=Java,
+breaklines,
+basicstyle=\ttfamily,
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{javared},
+commentstyle=\color{javagreen},
+morecomment=[s][\color{javadocblue}]{/**}{*/},
+basicstyle = \tiny \ttfamily,
+numbers=none,
+numbersep=10pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false}
+
+\lstset{language=bash,
+breaklines,
+basicstyle=\ttfamily,
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{javared},
+commentstyle=\color{javagreen},
+morecomment=[s][\color{javadocblue}]{/**}{*/},
+basicstyle = \medium \ttfamily,
+numbers=none,
+numbersep=10pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false}
 
 % Source code inputing
 \renewcommand{\lstlistlistingname}{List of Listings}
@@ -535,5 +566,5 @@
 %            marginparwidth=40mm,
 %            showframe% for show your page design, normaly not used
 %           ]{geometry}
-
+%
 \makeatother

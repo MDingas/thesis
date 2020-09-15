@@ -24,7 +24,7 @@
     As file-sharing traffic currently uses around 7 exabytes per month (including P2P-based file-sharing) \cite{cisco2019}, and BitTorrent alone makes up 27\% percent of total upstream volume of traffic \cite{sandvine2019} it's in the best interest of both ISPs and P2P applications a way for the overlay and underlay levels to operate in synergy, i.e. how to combine efforts to guarantee that the needs of both layers are met.
 
     Current consumer trends suggest that media consumption will make up a considerable part of global internet traffic.
-    In fact, Cisco predicts that, by 2022, more than 82 percent of all consumer internet traffic will be dedicated to Internet video streaming and downloads, and Content Distribution Networks (CDNs) will carry 72 percent of all internet traffic \cite{cisco2019} \todo{perguntar professor se whitepaper editado faz mal}.
+    In fact, Cisco predicts that, by 2022, more than 82 percent of all consumer internet traffic will be dedicated to Internet video streaming and downloads, and Content Distribution Networks (CDNs) will carry 72 percent of all internet traffic \cite{cisco2019} \todo{perguntar professor se o facto de o whitepaper ter sido editado e a versão mais recente ter apagado este facto faz mal}.
     CDNs act by injecting content geographically nearby end users to increase availability and reduce total traffic usage, and are an example of how applications can better leverage the shared domain's resources to achieve their goal.
     The CDNs' management layer itself can optimize their application behaviour in ways that are advantageous to both applications using the CDNs and the shared network structure, and such ways could include whose edge server to cache data to, how to efficiently match end users to appropriate edge servers, or how to increase service reachability among other CDNs.
     Thus, much like P2P networks, content distribution networks could also greatly benefit from cooperative interactions with network providers.
@@ -54,14 +54,16 @@
     \item Complete overview of the ALTO working group's current work.
         More specifically, an overview of both their existing RFC documents and the currently active internet drafts being developed by them at the time of writing.
     \item Familiarization with the existing system to be worked on and definition of both a new system architecture which complies with and extends the ALTO solution, as well as the new function modules to be added and how they should operate.
-    \item Implementation of both the devised solution as well as a bare-bones P2P file-sharing application for testing purposes.
-    \item Construction of a realistic network simulation scenario where the P2P file-sharing application will operate in.
-    \item Test of the implemented solution on the simulated scenario, and its analysis in comparison to preexisting strategies.
+    \item Implementation of the devised solution.
+    \item Construction of a realistic network simulation scenario and prototype applications to base the experiments in - this includes a P2P file sharing and media streaming application, a server-client file sharing application , and a data center bulk transfer solution.
+    \item Testing of how the implemented solution helps facilitate layer cooperation with between the devised prototypes and the ISPs within simulated scenario, in comparison to traditional methods.
 \end{itemize}
 
 \section{Contributions}
 
-\todo{this}
+\textbf{[This thesis's contributions include a real implementation of the ALTO project that is compatible with the respective protocol, its extension by adding a data providal aspect, a access control layer and a domain syncronization system, and an empirical proof of its usefulness in simulated scenarios that display what is to be gained by using it instead of traditional methods, in terms of performance application and network resource usefulness. ]}
+
+\todo{finish this}
 
 \section{Thesis organization}
 
