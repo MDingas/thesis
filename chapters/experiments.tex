@@ -78,21 +78,82 @@
 \section{Scenarios}
 
 \subsection{Single ALTO administrative domain}
-\subsubsection{P2P file sharing}
-\textbf{[Description: A 1GB file is requested by one of the P2P clients. The chunks exist randomly on the network, with chunks existing redundantly on the network. The file is transfered by sequencially retrieving all the chunks until they can be composed together into a single file]}
-\textbf{[Methods: a) ALTO client embedded on the P2P tracker, upon receiving request from the client, queries the ALTO server for a network map and tries to match the client with other peers that reside in the same PID, as it is an indication of network proximity. b) The tracker randomly gives out pair responses (as does happen in the BitTorrent specification. c) The tracker gives out all the peer matches, and the client picks the one it can achieve the smallest RTT measurement to, with the heuristic that closer-by peers will allow for quicker chunk transfers. ]}
-\textbf{[Metrics: a) time to transfer entire file. b) Total traffic generated in the network, separated by intra and inter ISP]}
+
+    The following experiments will consider a single ALTO server that only has administrative control of the AS it resides.
+    It thus possesses no network topological details outside of his domain, working only with what it knows and what it can derive from the outside.
+
+\subsubsection{Scenario 1 - P2P file sharing}
+\textbf{Description:} All "Cli-N" nodes in the network, with N from 1 to N, actively serve all 10 equally sized fragments of a 1GB file to other peers in the form of, and the bootstrapping method includes informing the tracker about what file fragments they serve.
+    "CliN-1" wishes to retrieve that file, and to do so he firstly contacts "Tracker" for tracking information about that file, that contains a mapping between a fragment ID and suggested peer, alongside with the file's checksum.
+    After retreving this mapping, the client will sequencially request each fragment from the appointed peer, and afterwards merge all the fragments into a single file and validates that the calculated checksum matches the tracker's.
+    An ALTO server is in the same AS and maintains a network map resource that groups endpoint addresses within locality - per OSPF area in the most specific pids, inside that AS in another, and anything else in another.
+
+
+\textbf{Variables:} The variable actions to be tested are how the tracker selects a candidate peer to serve a fragment to the requesting peer.
+Table \ref{table:s1-tracker-methods} displays the different tracker algorithms that will be tested for the task of peer matching.
+
+\begin{table}[]
+\begin{tabular}{ll}
+Tracker Algorithm & Description                                                                                                                                                                                                \\
+Random            & Randomly select among all available peers                                                                                                                                                                  \\
+ALTO              & Retrieve a network map from its ALTO server and discover the attributed PID to both request and candidate clients, choosing randomly between the candidate peers that share the same PID as the candidate.
+\end{tabular}
+\label{table:s1-tracker-methods}
+\end{table}
+
+\textbf{Measurements:} Table \ref{table:s1-measurements} presents the measurements that will be collected during the experiment runs.
+
+\begin{table}[]
+\begin{tabular}{lll}
+Measurement     & Units     & Description                                                  \\
+Transfer Time   & Seconds   & Total amount of time required to transfer all file fragments \\
+Network Traffic & Megabytes & Total amount of traffic that passed through the network
+\end{tabular}
+\label{table:s1-measurements}
+\end{table}
+
 \textbf{[Notes: The P2P client has no reasonable way to, without ISP cooperation, know that peers reside within network locality. A cited study used RTT heuristics that assumed that high RTT values exist in inter-ISP links, which may not always be the case. Randomly selecting is poor at optimal choice, but at the very least has potential for load balancing, something that the tracker itself can attempt to do on a per-locality basis, joining a best of both worlds. Leveraing only a network map to communicate peer locality is quick and takes little memory, and further experiments will add cost maps on top of it to mix both locality standards and QoS needs.]}
 
 
 \subsubsection{HTTP file sharing}
-\textbf{[Description: A 1GB file is served redundantly by many HTTP servers in the network. A client wants to retrieve that file, and after retrieving a mirror list he must decide from whom to request the file.]}
-\textbf{[Methods: a) The ALTO client is embedded in the client application. Upoen requesting a file a receiving a mirror list, the client contacts and ALTO server and retrieves and enpoint property map and cost maps pertaining t those servers. The choice will favor the server whose property signals that he isn't under a lot of stress (cpu, memory), and whose cost minimizes ISP routing cost and delay and maximizes throughput]. b) Choose a host randomly. c) Use adaptive tcp throughput and delay measurements to, at that moment, probe for what server has better connection to it in regards to throughput and delay}
-\textbf{[Metrics: a) Time to transfer entire file. b) Total traffic generated in the network]}
+
+\textbf{Description: } All "HTTP-N" nodes, with N from 1 to N, are HTTP servers and serve a 1GB file to querying clients.
+Cli-N has a file that contains the address of all of these mirror servers on the network that can provide that given file to him.
+The HTTP servers reside in the same AS, and that ALTO server maintains a network map that groups server regions of similar properties, an endpoint property map that provides real-time status information that includes current cpu and memory load, as well as a cost map providing throughput and delay costs that are compiled from voluntarily provided application performance statistics, as well as a routing cost specifying ISP preference.
+
+\textbf{Variables: } The variable action to be tested is how the HTTP client selects between all known server mirrors that serve the desired file.
+Table \ref{table:s2-clients-methods} displays the different client algorithms that will be tested for the task of server selection.
+
+\begin{table}[]
+\begin{tabular}{ll}
+Client Algorithm & Description                                                                                                                                                                                                \\
+Random            & Randomly select among all available servers                                                                                                                                                                  \\
+Probe             & Probe for available TCP throughput and existing delay between all available servers, and select the one with most throughput with delay below 20 ms
+                                                             \\
+ALTO              & Retrieve a network map, endpoint property map, and cost map from the ALTO server in the HTTP servers AS, and choose, if possible, a server that is not overloaded - i.e., whose memory and cpu loads are not past 90\% - whose delay is below 20ms, and which has an historical throughtput of 30 Mbps. If multiple servers match these requirements, choose the one that has the least routing cost among them.
+\end{tabular}
+\label{table:s1-tracker-methods}
+\end{table}
+
+\textbf{Measurements:} Table \ref{table:s2-measurements} presents the measurements that will be collected during the experiment runs.
+
+\begin{table}[]
+\begin{tabular}{lll}
+Measurement         & Units      & Description                                                  \\
+Transfer Time       & Seconds    & Total amount of time required to transfer the requested file \\
+CPU Server Load     & Percentage & Average CPU load of all mirror servers \\
+Memory Server Load  & Percentage & Average Memory load of all mirror servers \\
+Network Traffic     & Megabytes  & Total amount of traffic that passed through the network
+\end{tabular}
+\label{table:s2-measurements}
+\end{table}
+
 \textbf{[Notes: The ALTO method has better data on three fronts: it has a historical and statistical record of connection quality between clients and servers, which will probably be more mature than a ad-hoc probing of the network at that given time; it has server property information regarding status (cpu and memory load, for example) that the client can't retrieve otherwise; it has ISP routing costs that give ISP insight on what choice would be more economically sound for them. The assumption is that the ALTO approach will have better application performance and better network resource utilization because the information retrieved tells a bigger picture than a simple probing for tcp througput and delay. Additionally, if every client were to perform adhoc measurements to pick a client, considerable network traffic overhead will exist, specially with a bigger scale of clients. By centralizing this information as historical and statistical data, and adding into it routing costs that only the ISP could derive, a more mature choice can exist that favors both parties. The old way of manually choosing server mirrors, for example for linux distributions, that end up just being 'let me choose the first one i see that is on my country', can be argued to be objectively worse than adding a ISP cooperative module.]}
 
 
 \subsection{Multi ALTO administrative domains}
+
+    The following experiments assume that the ALTO synchronization protocol is in place and allows multiple servers to maintain globally scoped resources that can be shared to clients.
 
 \subsubsection{P2P file transfer}
 \textbf{[Description: Similar to the single domain file transfer, but this time there is an effort between all ALTO domains to synchronize data, that allows one to create a cost map between all candidate peers throughout the Internet]}
