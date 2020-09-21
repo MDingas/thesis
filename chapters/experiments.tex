@@ -83,7 +83,7 @@
     It thus possesses no network topological details outside of his domain, working only with what it knows and what it can derive from the outside.
 
 \subsubsection{Scenario 1 - P2P file sharing}
-\textbf{Description:} All "Cli-N" nodes in the network, with N from 1 to N, actively serve all 10 equally sized fragments of a 1GB file to other peers in the form of, and the bootstrapping method includes informing the tracker about what file fragments they serve.
+\textbf{Description:} All "Cli-N" nodes in the network, with N from 1 to N, actively serve all 10 equally sized fragments of a 1GB file to other peers, and the bootstrapping method includes informing the tracker about what file fragments they serve.
     "CliN-1" wishes to retrieve that file, and to do so he firstly contacts "Tracker" for tracking information about that file, that contains a mapping between a fragment ID and suggested peer, alongside with the file's checksum.
     After retreving this mapping, the client will sequencially request each fragment from the appointed peer, and afterwards merge all the fragments into a single file and validates that the calculated checksum matches the tracker's.
     An ALTO server is in the same AS and maintains a network map resource that groups endpoint addresses within locality - per OSPF area in the most specific pids, inside that AS in another, and anything else in another.
@@ -130,7 +130,8 @@ Client Algorithm & Description                                                  
 Random            & Randomly select among all available servers                                                                                                                                                                  \\
 Probe             & Probe for available TCP throughput and existing delay between all available servers, and select the one with most throughput with delay below 20 ms
                                                              \\
-ALTO              & Retrieve a network map, endpoint property map, and cost map from the ALTO server in the HTTP servers AS, and choose, if possible, a server that is not overloaded - i.e., whose memory and cpu loads are not past 90\% - whose delay is below 20ms, and which has an historical throughtput of 30 Mbps. If multiple servers match these requirements, choose the one that has the least routing cost among them.
+ALTO              & Retrieve a network map, endpoint property map, and cost map from the ALTO server in the HTTP servers AS, and choose, if possible, a server that is not overloaded - i.e., whose memory and cpu loads are not past 90\% - whose delay is below 20ms, and which has an historical throughtput of 30 Mbps or more.
+If multiple servers match these requirements, choose the one that has the least routing cost among them.
 \end{tabular}
 \label{table:s1-tracker-methods}
 \end{table}
@@ -151,20 +152,82 @@ Network Traffic     & Megabytes  & Total amount of traffic that passed through t
 \textbf{[Notes: The ALTO method has better data on three fronts: it has a historical and statistical record of connection quality between clients and servers, which will probably be more mature than a ad-hoc probing of the network at that given time; it has server property information regarding status (cpu and memory load, for example) that the client can't retrieve otherwise; it has ISP routing costs that give ISP insight on what choice would be more economically sound for them. The assumption is that the ALTO approach will have better application performance and better network resource utilization because the information retrieved tells a bigger picture than a simple probing for tcp througput and delay. Additionally, if every client were to perform adhoc measurements to pick a client, considerable network traffic overhead will exist, specially with a bigger scale of clients. By centralizing this information as historical and statistical data, and adding into it routing costs that only the ISP could derive, a more mature choice can exist that favors both parties. The old way of manually choosing server mirrors, for example for linux distributions, that end up just being 'let me choose the first one i see that is on my country', can be argued to be objectively worse than adding a ISP cooperative module.]}
 
 
+\subsubsection{Bulk FTP transfers}
+
+\textbf{Description:} Servers in the Data server AS want to schedule big data transfers between themselves as a form of backup.
+These happen routinely, and take a predictable amount of time.
+Performing these backups heavily impacts the ability of all servers in that data center to serve clients, because that subnetwork will be utilizing a lot of its resources to achieve that goal.
+"Cli-N" wishes to retrieve a single 1GB file, and contains a file that lists all available mirrors and their address.
+The data center administrator maintains a cost map calendar where he registers all scheduled backup transfers with two purposes: to keep track of all scheduled transfers so further ones cna be schedules as to not clash with pre-reserved ones, and to signal to ALTO clients when QoS levels to those servers are expected to degrade.
+
+\textbf{Variables: } The variable action to be tested is how the HTTP client selects between all known server mirrors that serve the desired file.
+Table \ref{table:s4-clients-methods} displays the different client algorithms that will be tested for the task of server selection.
+
+\begin{table}[]
+\begin{tabular}{ll}
+Client Algorithm & Description                                                                                                                                                                                                \\
+Random            & Randomly select among all available servers                                                                                                                                                                  \\
+Probe             & Probe for available TCP throughput and existing delay between all available servers, and select the one with most throughput with delay below 20 ms
+                                                             \\
+ALTO              & Retrieve a network map and cost map from the ALTO server in the HTTP servers AS, and choose the one that maximizes throughput in the calendar entry where the transfer will occur.
+\end{tabular}
+\label{table:s5-tracker-methods}
+\end{table}
+
+\textbf{Measurements:} Table \ref{table:s1-measurements} presents the measurements that will be collected during the experiment runs.
+
+\begin{table}[]
+\begin{tabular}{lll}
+Measurement     & Units     & Description                                                  \\
+Transfer Time   & Seconds   & Total amount of time required to transfer all file fragments \\
+Network Traffic & Megabytes & Total amount of traffic that passed through the network
+\end{tabular}
+\label{table:s1-measurements}
+\end{table}
+
 \subsection{Multi ALTO administrative domains}
 
     The following experiments assume that the ALTO synchronization protocol is in place and allows multiple servers to maintain globally scoped resources that can be shared to clients.
 
 \subsubsection{P2P file transfer}
-\textbf{[Description: Similar to the single domain file transfer, but this time there is an effort between all ALTO domains to synchronize data, that allows one to create a cost map between all candidate peers throughout the Internet]}
 
-\subsubsection{Bulk FTP transfers}
-\textbf{[Description: Big data server wants to schedule big a bulky data transfers as backups in another server. These happen routinely, and take a predictable amount of time. Performing these backups heavily impacts the the ability of all servers in that data center to serve clients, because that subnetwork will be utilizing a lot of its resources. Some servers residing in this subnetwork host files and serve them via HTTP. Routinely during backup, clients want to retrieve files from that HTTP service, and must choose among many servers residing on various subnetworks.The data center administrator maintains a cost map calendar where he schedules all the bulky transfers, and this has a multi purpose: to keep track of all schedules so to help schedule other bulky transfers on top of past ones in the most efficient manner, and to signal to ALTO clients when QoS connections to that subnetwork are expected to degrade.]}
-\textbf{[Methods: a) The client consults the cost maps between him and all candidate HTTP servers. He either chooses the single cost if no calendar cost exists, or the calendar cost at that current time if it does exist. The chosen server is the one that maximizes throughtput. b) Same as "a)", but only choose the single cost map c) Select server randomly d) Select based on tcp throughput measurement]}
-\textbf{[Metrics: a) Time to transfer entire file, b) Time to perform backups, c) Total traffic on the network - with emphasis in identifiying how often links were overloaded]}
+\textbf{Description:} Similar to the single domain counterpart, all "Cli-n" nodes in the network, with N from 1 to N, actively serve all 10 equally sized fragments of a 1GB file to other peers, informing the tracker of their availability to do so.
+"CliN-1" wishes to retrieve that file, and to do so firstly contacts "Tracker" for tracking information about that file, that contains a mapping between fragment ID and suggested peer, alongside with the file's checksum.
+    After retreving this mapping, the client will sequencially request each fragment from the appointed peer, and afterwards merge all the fragments into a single file and validates that the calculated checksum matches the tracker's.
+    Each AS has an ALTO server operating with administrative control and topological insight of their own domain, and they together maintain a single cost map with global scope.
+
+\textbf{Variables: } The variable actions to be tested are how the tracker selects a candidate peer to serve a fragment to the requesting peer.
+Table \ref{table:s-tracker-methods} displays the different tracker algorithms that will be tested for the task of peer matching.
+
+\begin{table}[]
+\begin{tabular}{ll}
+Tracker Algorithm & Description                                                                                                                                                                                                \\
+Random            & Randomly select among all available peers                                                                                                                                                                  \\
+ALTO              & Retrieve an endpoint cost map from its ALTO server that displays cumulative delay, available throughput, and routing cost between peers as a combined synchronization effort between ALTO domains.
+Choose the candidate peer whose delay does is, if possible, below 20ms, with a throughput of 30 Mbps or more.
+If multiple candidate peers fulfill these requirements, choose the one with the least amount of routing cost.
+\end{tabular}
+\label{table:s1-tracker-methods}
+\end{table}
+
+\textbf{Measurements:} Table \ref{table:s1-measurements} presents the measurements that will be collected during the experiment runs.
+
+\begin{table}[]
+\begin{tabular}{lll}
+Measurement     & Units     & Description                                                  \\
+Transfer Time   & Seconds   & Total amount of time required to transfer all file fragments \\
+Network Traffic & Megabytes & Total amount of traffic that passed through the network
+\end{tabular}
+\label{table:s1-measurements}
+\end{table}
 
 \subsubsection{P2P media streaming}
-\textbf{[Description: User client wants to watch a media stream that is redundantly served by many streaming peers. Routinely, during prime activitity, certain links become overloaded that consequentially increase link delay. ]}
+
+\texbtf{Description: } All "Cli-N" nodes, with N from 1 to N, allow for real-time streaming of a given piece of media.
+"Cli-N" has a file containing a list of all available peer addresses that he can request a feed to.
+
+\textbf{Variables: } The variable actions to be tested are how the client selects a candidate peer to request a stream from.
+
 \textbf{[Methods: a) ALTO server maintains a multi-domain throughput, delay and packet loss calendared cost maps that were result of historical and statistical measurements from previous users of that media streaming application that volunteered performance statistics. Routingcost calendared cost map is also added by the ISPs to reflect preference in routing. b) Randomly select peer. c) Choose peer with least RTT, with the heuristic that smallest probe delay allows for better real-time streaming experience d) Randomly select peer and, whenever QoS measurements are degraded for too long, choose another ano - and continuously apply this adaptive peer selective mechanism that essentially "brute forces" the best peer]}
 \textbf{[Notes: Again, the ALTO approach is the only one that allows clients to make choices that are inline with ISP's economical and administrative needs. Moreso, the ALTO server has a centralized repository for historical and statistical performance results that occured in that media application, that show a trend in what subnetworks become more loaded over time. ISP probing by the network can also more quickly detect link bottlenecks and quickly upload that data as cost maps, whilst deducing that information without ISP aid would require more probing traffic, and would take considerably longer. Both probing attempts and "brute force" attempts are more harduous and considering the real-time QoS levels of the media streaming application, will considerably degrade application performance. A network-aware and statistical repository solution like ALTO allows one to make the better decision, more quickly, with a mutually beneficial outcome.]}
 

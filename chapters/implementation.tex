@@ -39,7 +39,7 @@
 
     As per security, the same philosophy of the ALTO working group will be used and pre-existing, mature technologies will be leveraged.
     Hypertext Transfer Protocol Secure (HTTPS) will be used over base HTTP as a communication protocol between entities as a means to resolve many of the identified threats - by using certificates with HTTPS, the server entity authentication can be assured, and through the usage of the Transport Layer Security (TLS) as a cryptographic security tool, both confidentiality and integrity are secured via data encryption and digest calculation, respectively.
-    As per client authentication, a deliberate choice was made to use HTTP basic, as opposed to HTTP digest that is demanded by the base ALTO working group's specification.
+    As per client authentication, a deliberate choice was made to use HTTP basic \cite{http-basic}, as opposed to HTTP digest \cite{http-digest} that is demanded by the base ALTO working group's specification.
     With basic authentication, user and password fields are sent in encoded - not encrypted - fashion, and such information is firstly validated by the server that, if the attempt successful, proceeds with its normal operation.
     Due to the lack of encryption, this method of client authentication will be complemented with the usage of HTTPS to provide a secure communication channel that would otherwise be open to credential exposure and tampering.
     The working group's suggested digest method hashes the credentials by using a nonce - a number to be used only once - that was provided by the server, thus also protecting against data exposure and tampering.

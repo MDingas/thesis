@@ -120,3 +120,21 @@ Methods:
 server : python -m SimpleHTTPServer 8080
 
 client : something that leverages curl
+
+
+
+
+
+server api
+
+/ -> directory
+resources/costmaps
+resources/endpointcostmaps
+resources/networkmaps
+resources/endpointpropmaps
+
+provider api
+
+measurements/endpointdata
+measurements/groupdata
+measurements/linkdata
