@@ -130,7 +130,7 @@
     The ISP could thus leverage the network map to define domains of locality, as well as defining two different external groups, as these two associated nodes are reachable through different peering parameters.
 
 \begin{table}[]
-\caption{Example network status information of a network map}
+\centering
 \begin{tabular}{|l|l|l|l|c|}
     \hline
 PID  & IPv4          & IPv6                  & MAC                  & priv:my-overlay                     \\ \hline
@@ -138,6 +138,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
 2    & 10.20.3.10/25 & -                     & D0-9F-BF-2A-FE-00/40 & 2                                   \\ \hline
 3    & 0.0.0.0/0     & ::/0                  & 00-00-00-00-00-00/48 & 5                                   \\ \hline
 \end{tabular}
+\caption{Example network map}
 \label{table:networkmap-example}
 \end{table}
 
@@ -163,7 +164,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
         4           & 2    & 3     & 1   & 0   & 1      \\ \hline
         5           & 3    & 4     & 2   & 1   & 0      \\ \hline
         \end{tabular}
-    \caption{1}
+    \caption{Routing cost cost matrix}
     \end{subtable}
     \begin{subtable}{.4\linewidth}
         \centering
@@ -178,10 +179,10 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
         4           & 5    & 7     & 3   & 0   & 1      \\ \hline
         5           & 6    & 8     & 4   & 1   & 0      \\ \hline
         \end{tabular}
-    \caption{2}
+    \caption{One way packet delay cost matrix}
     \end{subtable}
 
-    \caption{figure name}\label{fig:label}
+    \caption{Example cost map for a limited domain ALTO server}
     \label{table:costmap-example-boundary}
 \end{figure}
 
@@ -216,7 +217,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
         4           & 2    & 22    & 1   & 0   & 20     \\ \hline
         5           & -    & -     & -   & -   & -      \\ \hline
         \end{tabular}
-    \caption{1}
+    \caption{Routing cost cost matrix}
     \end{subtable}
     \begin{subtable}{.46\linewidth}
         \centering
@@ -231,8 +232,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
         4           & 7    & 27    & 2   & 2   & 36     \\ \hline
         5           & -    & -     & -   & -   & -      \\ \hline
         \end{tabular}
-
-    \caption{1}
+    \caption{One way packet delay cost matrix}
     \end{subtable}
     \begin{subtable}{.65\linewidth}
         \centering
@@ -248,7 +248,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
         4           & 256000    & 10000 & 256000   & 256000   & 5000   \\ \hline
         5           & -         & -     & -        & -        & -      \\ \hline
         \end{tabular}
-    \caption{1}
+    \caption{TCP throughput cost matrix}
     \end{subtable}
     \begin{subtable}{.30\linewidth}
         \centering
@@ -263,10 +263,30 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
         4           & 1         & 2     & 1        & 1        & 3      \\ \hline
         5           & -         & -     & -        & -        & -      \\ \hline
         \end{tabular}
-    \caption{1}
+    \caption{TCP throughput ranking cost matrix}
+    \end{subtable}
+    \begin{subtable}{1\linewidth}
+        \footnotesize
+        \centering
+        \hspace*{-2em}
+        \begin{tabular}{|l|l|l|l|l|l|}
+        \hline
+        Cost Mode                & \multicolumn{5}{|l|}{tput}                            \\ \hline
+        Cost Metric              & \multicolumn{5}{|l|}{numerical}                       \\ \hline
+        Calendar Start           & \multicolumn{5}{|l|}{Tue, 20 Sep 2020 17:00:00 GMT}   \\ \hline
+        Calendar Interval size   & \multicolumn{5}{|l|}{7200}                            \\ \hline
+        Calendar Interval number & \multicolumn{5}{|l|}{6}                               \\ \hline
+        From/To                  & 1                    & 2                     & 3                        & 4                   & 5                  \\ \hline
+        1                        & (1,[1,1,1,2,2,1])    & (2,[2,2,2,1,1,2])     & (1,[1,1,1,2,2,1])        & (1,[1,1,1,2,2,1])   & (3,[3,3,3,2,2,1])  \\ \hline
+        2                        & -                    & -                     & -                        & -                   & -                  \\ \hline
+        3                        & (1,[1,1,1,2,2,1])    & (2,[2,2,2,1,2,1])     & (1,[1,1,1,2,1,1])        & (2,[2,2,2,1,1,1])   & (1,[3,1,1,1,1,1])  \\ \hline
+        4                        & (1,[1,1,2,2,1,1])    & (1,[2,2,1,1,1,1])     & (1,[1,1,1,1,2,1])        & (2,[1,1,2,2,2,2])   & (3,[3,3,3,3,2,2])  \\ \hline
+        5                        & -                    & -                     & -                        & -                   & -                  \\ \hline
+        \end{tabular}
+    \caption{TCP throughput cost matrix with calendar values}
     \end{subtable}
 
-    \caption{figure name}\label{fig:label}
+    \caption{Example cost map for a limited domain ALTO server}
     \label{table:costmap-example-boundary}
 \end{figure}
 
@@ -283,6 +303,22 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
     Following the same design pattern used for the other specified resources, the endpoint property map will have a set of defined properties with associated semantics, and all other properties can be added with the "priv" prefix to designate private properties outside of the considered domain, and thus all semantics and validation rules don't apply.
     Much like the other resources, an endpoint can be identified by an IPv4, IPv6, MAC or private overlay address, and the pondered properties are PID value, geographical coordinates, connection type (fiber, adsl, etc), server footprint information (total ram, storage, and processing power), and server status information (what part of the footprint information is currently available).
     In practice, a given property could be promoted from a private type to one pondered in the protocol and have a resulting official semantic and validation rules.
+    Table \ref{table:example-endpoint-prop} display an example endpoint property map, which is used to store status information relating to servers, identified by their IPv4 address, which server the same content.
+
+    \begin{table}[]
+    \centering
+    \hspace*{-3.8em}
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+    Endpoint        & CPU \% & RAM \% & Geographic Coordinates & Connection type & priv:is-mirror \\ \hline
+    145.132.164.101 & 22     & 50     & (34.28278,-82.50490)   & Fiber           & False          \\ \hline
+    245.217.176.67  & 30     & 45     & (23.24178,-53.51290)   & Fiber           & True           \\ \hline
+    48.43.96.168    & 25     & 30     & (55.33218,-12.50490)   & Fiber           & True           \\ \hline
+    207.20.148.21   & 10     & 20     & (-23.28121,-22.55530)  & Fiber           & True           \\ \hline
+    89.140.253.77   & 5      & 0      & (12.231278,75.70890)   & Fiber           & True           \\ \hline
+    \end{tabular}
+    \caption{Example endpoint property map for server replicas}
+    \end{table}
 
     Finally, as a means to facilitate resource divulgence from servers to clients, there is also included the specification of an Information Resource Directory (IRD), that is based from the ALTO working group's protocol specification.
     An IRD can also be thought of as a resource, but instead of sharing network information it serves as an index of the available resources that a given server provides.
@@ -291,6 +327,58 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
     The capabilities identifies, if existing, the cost and property types that are used - being indexed by their unique name, this allows for these to be cross-referenced on further protocol exchanges without need to repeat information.
     Additionally, the resource's capabilities also serve to indicate what resource functionality extensions are enabled - currently applicable for cost maps only, it serves to signal if the cost map has calendared costs, if it accepts input filters, or if multiple cost matrices can be requested at once.
     Two additions are made to the working group's specification - firstly, a description field, which for each resource attribute gives a brief description of what it is about, as it could facilitate resource selection since such a description could go into detail about appropriate usage guidelines of that resource and suggested use cases; finally, the resource's ACL, letting a user know beforehand what credences he has in relation to the server's resources - being a crucial part of metadata of the resource, it seems fitting to go into the IRD, and has the added benefit of giving the user this crucial piece of information without him having to make resource requests just to, by server reaction, figuring out what he can and cannot do.
+
+\begin{figure}
+    \centering
+        \begin{subtable}{1\linewidth}
+        \centering
+        \scriptsize
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        \bf{Cost ID}     & \bf{Cost Mode}   & \bf{Cost Metric} & \bf{Description}                                                                \\ \hline
+        routing          & routingcost      & numerical        & Default routing preference                                                      \\ \hline
+        routing-rank     & routingcost      & ordinal          & Routing preference by ranking                                                   \\ \hline
+        owd              & delay-ow         & numerical        & Expected one way delay of a single packet. Based on application statistics      \\ \hline
+        tput-theoretical & tput             & numerical        & Theoretical maximum available TCP throughput. Based on topological knowledge    \\ \hline
+        tput-practical   & tput             & numerical        & Practical expected TCP throughput. Based on application statistics              \\ \hline
+        \end{tabular}
+        \caption{Routing cost cost matrix}
+        \end{subtable}
+        \begin{subtable}{1\linewidth}
+        \centering
+        \hspace*{-8em}
+        \tiny
+        \begin{tabular}{|l|l|l|l|l|l|l|}
+        \hline
+        Resource ID             & URI                                & Media Type        & Uses           & Accepts                 & Capabilities                                              & Description                                   \\ \hline
+        def-networkmap          & resources/networkmaps/default      & alto-networkmap   & -              & alto-networkmapfilter   & -                                                         & Default                           \\ \hline
+        cluster-costmap         & resources/costmaps/cluster         & alto-costmap      & def-networkmap & alto-costmapfilter      & Costs: {[}routing, routing-rank{]} & For main data center cluster         \\ \hline
+        cluster-endpoint-prop   & resources/endpointpropmaps/cluster & alto-endpointprop & -              & alto-endpointpropparams & Properties: {[}cpu, ram, coords{]} & For main data center cluster \\ \hline
+        client-endpoint-costmap & resources/endpointcostmaps/        & alto-endpointcost & -              & alto-endpointcostparams & Costs: {[}routing-rank, owd, tput-practical{]}            & For user application guidance       \\ \hline
+        \end{tabular}
+        \caption{Routing cost cost matrix}
+        \end{subtable}
+        \begin{subtable}{1\linewidth}
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        cost ID          & Cost Mode   & Cost Metric & Description                                                                  \\ \hline
+        routing          & routingcost & numerical   & Default routing preference                                                   \\ \hline
+        routing-rank     & routingcost & ordinal     & Routing preference by ranking                                                \\ \hline
+        owd              & delay-ow    & numerical   & Expected one way delay of a single packet. Based on application statistics   \\ \hline
+        tput-theoretical & tput        & numerical   & Theoretical maximum available TCP throughput. Based on topological knowledge \\ \hline
+        tput-practical   & tput        & numerical   & Practical expected TCP throughput. Based on application statistics           \\ \hline
+        \end{tabular}
+        \caption{Routing cost cost matrix}
+        \end{subtable}
+
+
+        \caption{Routing cost cost matrix}
+        \end{subtable}
+
+    \caption{Example cost map for a limited domain ALTO server}
+    \label{table:costmap-example-boundary}
+\end{figure}
 
     Further formal specification is not made as it has been extensively done in the ALTO protocol \cite{alto-protocol}, and the proposed system is compliant to it whilst extending upon the design.
 
@@ -330,7 +418,6 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
     Means through which this could occur are further specified in section \ref{ssec:multi-alto}.
 
 \begin{table}[]
-\centering
 \resizebox{\textwidth}{!}{\begin{tabular}{|l|l|l|}
     \hline
 HTTP Verb & Resource                           & Description                                                                                   \\ \hline
@@ -347,12 +434,12 @@ GET       & /resources/costmaps/\{id\}         & Get the Cost Map with the speci
 POST      & /resources/costmaps/\{id\}         & Get the Cost Map with the specified ID, with the applied filter provided in body              \\ \hline
 PUT       & /resources/costmaps/\{id\}         & Modify the contents of a Cost Map with the specified ID                                       \\ \hline
 DELETE    & /resources/costmaps/\{id\}         & Remove a Cost Map with the specified ID                                                       \\ \hline
-GET       & /resources/endpointprops           & Get summary overview of all available Endpoint Property Maps                                  \\ \hline
-POST      & /resources/endpointprops           & Add a new Endpoint Property map                                                               \\ \hline
-GET       & /resources/endpointprops/\{id\}    & Get the Endpoint Property Map with the specified ID                                           \\ \hline
-POST      & /resources/endpointprops/\{id\}    & Get the Endpoint Property Map with the specified ID, with the applied filter provided in body \\ \hline
-PUT       & /resources/endpointprops/\{id\}    & Modify the contents of an Endpoint Property Map with the specified ID                         \\ \hline
-DELETE    & /resources/endpointprops/\{id\}    & Remove an Endpoint Property Map with the specified ID                                         \\ \hline
+GET       & /resources/endpointpropmaps        & Get summary overview of all available Endpoint Property Maps                                  \\ \hline
+POST      & /resources/endpointpropmaps        & Add a new Endpoint Property map                                                               \\ \hline
+GET       & /resources/endpointpropmaps/\{id\} & Get the Endpoint Property Map with the specified ID                                           \\ \hline
+POST      & /resources/endpointpropmaps/\{id\} & Get the Endpoint Property Map with the specified ID, with the applied filter provided in body \\ \hline
+PUT       & /resources/endpointpropmaps/\{id\} & Modify the contents of an Endpoint Property Map with the specified ID                         \\ \hline
+DELETE    & /resources/endpointpropmaps/\{id\} & Remove an Endpoint Property Map with the specified ID                                         \\ \hline
 GET       & /resources/endpointcostmaps        & Get summary overview of all available Endpoint Cost Maps                                      \\ \hline
 POST      & /resources/endpointcostmaps        & Add a new Endpoint Cost Map                                                                   \\ \hline
 GET       & /resources/endpointcostmaps/\{id\} & Get the Endpoint Cost Map with the specified ID                                               \\ \hline
@@ -408,17 +495,17 @@ DELETE    & /resources/endpointcostmaps/\{id\} & Remove an Endpoint Cost Map wit
 
 \begin{table}[]
 \resizebox{\textwidth}{!}{\begin{tabular}{|l|l|l|}
-    \hline
-HTTP Verb & Resource                      & Description                                               \\ \hline
-POST      & /measurements/endpoint        & Add a measured endpoint property value                    \\ \hline
-PUT       & /measurements/endpoint/\{id\} & Modify the contents of a measured endpoint property value \\ \hline
-DELETE    & /measurements/endpoint/\{id\} & Remove a measured endpoint property value                 \\ \hline
-POST      & /measurements/links           & Add a measured link value                                 \\ \hline
-PUT       & /measurements/links/\{id\}    & Modify the contents of a measured link value              \\ \hline
-DELETE    & /measurements/links/\{id\}    & Remove a measured link value                              \\ \hline
-POST      & /measurements/group           & Add a measured endpoint grouping                          \\ \hline
-PUT       & /measurements/group/\{id\}    & Modify the contents a measured endpoint grouping          \\ \hline
-DELETE    & /measurements/group/\{id\}    & Remove a measured endpoint grouping                       \\ \hline
+\hline
+\bf{HTTP Verb}  & \bf{Resource}                      & \bf{Description}                                               \\ \hline
+POST            & /measurements/endpoint             & Add a measured endpoint property value                         \\ \hline
+PUT             & /measurements/endpoint/\{id\}      & Modify the contents of a measured endpoint property value      \\ \hline
+DELETE          & /measurements/endpoint/\{id\}      & Remove a measured endpoint property value                      \\ \hline
+POST            & /measurements/links                & Add a measured link value                                      \\ \hline
+PUT             & /measurements/links/\{id\}         & Modify the contents of a measured link value                   \\ \hline
+DELETE          & /measurements/links/\{id\}         & Remove a measured link value                                   \\ \hline
+POST            & /measurements/group                & Add a measured endpoint grouping                               \\ \hline
+PUT             & /measurements/group/\{id\}         & Modify the contents a measured endpoint grouping               \\ \hline
+DELETE          & /measurements/group/\{id\}         & Remove a measured endpoint grouping                            \\ \hline
 \end{tabular}}
 \end{table}
 
