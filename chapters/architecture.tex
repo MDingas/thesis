@@ -1,6 +1,6 @@
 \chapter{System Architecture and Developed Mechanisms}
 
-    As the main proposed goal of this work is the implementation of a system that complies with the ALTO working group's devised protocol, this chapter exhibits the planned software specifications needed to implement the system as a whole.
+    As the main proposed goal of this work is the implementation of a system that complies with the ALTO working group's devised protocol, this chapter exhibits the planned software specifications needed to implement the system as a whole, with the aforementioned protocol being a crucial part of client-server resource exchange..
 
     Initial attention is given to the general architecture on the first section, with the goal of identifying key entities, their purpose, and how they interact among themselves.
     The following section will target the specification of ALTO resources, which can be considered the driving force behind the system, as they are what the client entities seek, and likewise what the ISPs wish to provide.
@@ -12,16 +12,16 @@
 
     Figure \ref{fig:architecture-network} presents a high-level conceptual model of how the network information flows in a given ISP.
     Network data originates in the topology itself, and is gathered into a network information aggregator by the appropriate means - this aggregator defines an interface through which network data can be uploaded, and entities utilize it to provide the network data they have collected.
-    These entities will use different means to gather different information, as the Internet consist of many different protocols and standards for network and resource information querying.
+    These entities will use different means to gather different information, as the Internet consists of many different protocols and standards for network and resource information querying.
     For example, a node could deploy a daemon listening for Open Shortest Path First (OSPF) protocol packets to gather path cost information, and another using Simple Network Management Protocol (SNMP) to gather node property information.
-    Obviously, since the interface simply defines how raw data must be formated to be accepted by the network information aggregator, the network administrator could use previously collected information that resides in a database and upload it as is.
+    Obviously, since the interface simply defines how raw data must be formated to be accepted by the network information aggregator, means through which the data is uploaded are left to the source itself, and because of this static data uploads that were previously collected could be uploaded instead of dynamic retrievals - for example, the network administrator could use previously collected information that resides in a database and upload it as is.
     The network information aggregator serves as a hub for network administrators to process the raw network data that was collected by the previous tier, and transform it into ALTO resources ready to be accepted and distributed by the ALTO server.
     This task of network information processing is where ISP policies and preferences are injected via, for example, the abstraction of network entities with the aggregation of network addresses into PIDs, and the creation of cost maps which result from the transformation of network link information mixed with given ISP goals.
-    If, say, the administrator wished to provide a cost map between network entities which aimed to reduce inter-network traffic, it would firstly aggregate endpoints into abstract entities with common properties, as an attempt not to share too much infrastructural information, and then use the provided network link information, attribute higher costs to undesired links, and transform it utilizing the Dijkstra's algorithm to create a shortest path map.
-    Such map is then parsed as an ALTO resource and uploaded into the ALTO server with the access policies the administrator sees fit.
+    If, say, the administrator wished to provide a cost map between network entities which aimed to reduce inter-network traffic, it would firstly aggregate endpoints into abstract entities with common properties, as an attempt not to share too much infrastructural information, and then use the previously collected network link information, attribute higher costs to undesired links, and transform it utilizing the Dijkstra's algorithm to create a shortest path map that is bound to provider preferences.
+    Such map is then parsed as an ALTO resource - more specifically, a cost map - and afterwards uploaded into the ALTO server with the access policies the administrator sees fit.
 
     As most software architectures, each new communication channel represents a possible attack vector and, attending to the critical security concerns posed in \ref{sssec:alto-security}, all pondered communication channels must be secure and reliable, as signified by the padlocks on the presented architecture.
-    This implies that data communications within it must be resistant to being read or altered by outside parties, and the identity of the participating parties can be trusted and be made accountable.
+    This implies that data communications within it must be resistant to being read or altered by outside parties, and the identity of the participating parties can be trusted and made accountable.
     The identified communication channels must then have methods of maintaining data integrity in transit, user authentication and authorization, and communication confidentiality.
 
 \begin{table}[!h]
@@ -49,12 +49,12 @@
 
     The ALTO working group has extensively specified the ALTO protocol in regards to resource query, and the concrete implementation of this work will aim to comply to it.
     However, no resource provisioning protocol was, at time of writing, specified by the working group, nor was an interface been specified to allow network data to reach the ALTO server.
-    It has been set as a work in progress, and the topic of network information supply sources was briefly discussed in \cite{alto-deployment-considerations}.
+    It has been set as a work in progress, and the topic of network information sources was briefly discussed in \cite{alto-deployment-considerations}.
     The working group has grouped the tasks of raw network processing and supply into the role of the ALTO server.
-    However, as can be seen in the proposed architecture, the roles were separated and an additional protocol proposed to bridge communication between them.
+    However, as can be seen in the proposed architecture, a different approach was taken in this work, with the roles being separated and an additional protocol proposed to bridge communication between them.
     This was made as an attempt to adhere to the philosophy of single responsibility, making the sole task of the ALTO server the management of ALTO resources.
     This aims to facilitate the independent development of the different roles, and make it easier to interchange implementations - this would make it particularly useful, for example, to deploy many ALTO servers in a cascade fashion whilst utilizing only a single network information aggregator.
-    These are, however, only conceptually separated, and an implementation could, if it is more practical, merge the server and information provider roles into a single physical entity - which is similar to the architecture designed by the ALTO working group - if the conceptual roles and interfaces persist.
+    These are, however, only conceptually separated, and an implementation could, if it is more practical, merge the server and information provider roles into a single physical entity - which would then be similar to the architecture designed by the ALTO working group.
 
 \begin{figure}[!h]
         \centering
@@ -66,26 +66,28 @@
 \subsubsection{Role system}
 \label{sssec:system-roles}
 
-    As an access control measurement, the system will work with Role-based Access Control (RBAC) methods which, as the name states.
-    Thus, every entity acting on the system must identify itself as a user, and a given user can have many roles.
-    The ALTO resources - the main interest of this system as it is the data component requested by clients and managed by the servers - has associated to it an Access Control List (ACL), that maps, for a given set of roles and a special "catch all" role when none else apply, the list of user actions that are allowed to be performed to that resource.
-    The available user actions are read, update and delete, meaning the ability to get, change the contents of, or remove the resource, respectively.
-    This ACL is provided by the Network Information Aggregator whenever a new resource is inserted into the ALTO server.
+    As an access control measurement, the system will work with Role-based Access Control (RBAC) methods which, as the name states, center their control policy logic around roles, which themselves are tags that can be attributed to users.
+    A pre-requisite is then that users attempting to access a system employing RBAC must be authenticated as a given user, and from then a list of attributed roles can be retrieved to validate if a given action is permitted according to the set rules.
+    The ALTO resources - the main interest of this system as it is the data component requested by clients and managed by the servers - has associated to it an Access Control List (ACL), that maps, for a given set of roles, the list of user actions that are allowed to be performed to that resource, with the implicit rule that a resource's owner has full control of it.
+    The available user actions are "read", "update" and "delete", meaning the ability to get, change the contents of, or remove the resource, respectively.
+    This ACL must be provided by the Network Information Aggregator whenever a new resource is inserted into the ALTO server.
     The ISP administrator that controls the aggregator not only then designs the resource itself - adding the information that it deems important whilst not too detailed to damage privacy - but also defining access control policies on that resource, which will be then applied by the server in future requests.
 
-    Employing access control based on roles seems appropriate for this system since roles can be applied to, and thus group, many users, and indeed that seems to be applicable on real case deployments of the ALTO system - each given application can correspond to a group, and more intimate scenarios - such as a data center - can be grouped too.
-    As a user can be conceded many roles, he can naturally act on the system with a role that fits the currently queried resource, if so applies.
+    Employing access control based on roles seems appropriate for this system since roles can be applied to, and thus group, many users, and indeed that seems to be applicable on real case deployments of the ALTO system - each given application - consisting of a great number of users - can correspond to a single group, and more private scenarios - such as a data center - can be grouped as well.
+    This facilitates permission management, as the RBAC approach to access control is allows grouping of permissions into roles, which can then be quickly manipulated to affect every user associated to it - this would contrast to an approach where permissions are set per user, which would be considerably harder to manage at scale.
+    As a user can be conceded many roles, he can naturally act on the system with a role that fits the currently queried resource, if so applies, and likewise the network administrator can give permissions per role, which in turn can group as many as millions of users, to a single one.
 
-    Access control mechanisms such as this will help mitigate security threats pertaining to the ALTO working group's architecture - e.g. having unwanted users reading or tampering with data - mechanism that is also based on roles can give better flexibility on access credence attribution, as well as better scalability since these credences can be applied of groups instead of managed on a user-by-user basis.
-    However, for such mechanisms to be viable at all, authentication systems need to also be employed to help verify that the users are indeed who they are announcing to be, and nevertheless authentication seems to be a very important requisite of this system to mitigate spoofing security threats.
+    An RBAC-based access control mechanism will help mitigate security threats pertaining to the ALTO working group's architecture - e.g. having unwanted users reading or tampering with data.
+    However, for such mechanisms to be viable at all, authentication systems need to also be employed to help verify that the users are indeed who they are announcing to be.
+    Authentication mechanisms are, regardless, of extreme importance, as they additionally help mitigate spoofing security threats.
 
     Data breaches are not, however, totally mitigated with authenticity and access control mechanisms.
     After an entity gets a resource and acts outside the system, it becomes out of its control and these mechanisms cannot be employed.
     This means that there are no guarantees that the resources are shared outside of the system's domain and consequentially there are no security guarantees after that point.
     Because of this, privilege attribution by the ISP administrators not only give credence to do a certain action, but also imply that trust exists that these users will not be improper with the given resources and they won't thus share it with other users with improper credence.
 
-    Figure \ref{fig:communication-roles} provides a high-level communication diagram of how access control is enforced - the ISP administrator that uploads the resource into the ALTO server appends to it an ACL that maps actions to the allowed roles.
-    When a resource consumer requests an action, most commonly a read one, the server checks that the roles associated to that consumer - provided by a proper authentication system - have the requested action allowed in the ACL and, if indeed it is, the action performs as expected.
+    Figure \ref{fig:communication-roles} provides a high-level communication diagram of how access control is enforced - the ISP administrator that uploads the resource into the ALTO server appends to it an ACL that maps actions to the considered roles, with the implied meaning that those that weren't considered have no permitted actions.
+    When a resource consumer requests an action - which is expected to be a "read" one - and proper authentication was performed, the server checks that the roles associated to that consumer have the requested action allowed in the ACL and, if indeed it is, the action performs as expected.
 
 \begin{figure}[h]
         \centering
@@ -94,40 +96,39 @@
         \label{fig:macro-architecture}
 \end{figure}
 
-
-
 \subsubsection{Resources}
 \label{ssec:alto-resources}
 
     ALTO resources are pieces of network information which are provided by an ALTO server and consumed by ALTO clients that ideally would use such information to aid their application-level traffic decisions.
-    All ALTO resources can be separated into the following:
+    All ALTO resources can be separated into the following components:
 
 \begin{itemize}
         \item \textbf{Meta information}: data which regards to the resource's profile, that enable the client's ability to interpret and cross-reference the network data within.
-            Following suit to the defined protocol, meta information contains the resource's name, if applicable, version, resource dependencies and cost details - enclosed cost modes, metrics, and descriptions.
-            Finally, belonging to the meta section of the resource's information is the resource's ACL which, to a given set of roles, specifies what action those roles can perform on the resource.
+            Following suit to the defined protocol, meta information contains the resource's name, and if applicable, version, resource dependencies and cost details: enclosed cost modes, metrics, and descriptions.
+            Finally, also belonging to the meta section of the resource's information is the resource's ACL which, to a given set of roles, specifies the allowed set of actions.
 
-        \item \textbf{Network status information}: data structures that give a characterization of the ALTO Server's vision of a network. Concretely, these can map network properties to a node (such as the connection types of their interfaces, or their geographical location), they can aggregate many network addresses to a single identifier, or they can map properties to a node link or end-to-end path (such as link or cumulative routing costs).
-\end{itemize}{}
+        \item \textbf{Network status information}: data structures that give a characterization of the ALTO Server's vision of a network.
+            Concretely, these can map network properties to a node - such as the connection types of their interfaces, or their geographical location -, they can aggregate many network addresses to a single identifier, or they can map properties to a node link or end-to-end path - such as link or cumulative routing costs.
+\end{itemize}
 
     Meta information can be seen as a resource's header, containing data that regards to the network status and helps better handle it.
-    Following the defined protocol \cite{alto-protocol}, this field includes the resource's name for all resources which is needed for identification, and all other fields are dependant on the type of resource: at this version of the protocol, only network maps are version-able, allowing ISPs to reference different versions of a network map as this is updated; cost information is, naturally, only applicable to cost maps, and gives insight on how the numeric costs are to be interpreted, i.e. what their mode and metrics are, and what description it has.
+    Following the defined protocol \cite{alto-protocol}, this field includes the resource's name for all resources, which is needed for identification, and all other fields are dependant on the type of resource: at this version of the protocol, only network maps are version-able, allowing ISPs to reference different versions of a network map as this is updated; cost information is, naturally, only applicable to cost maps, and gives insight on how the numeric costs are to be interpreted, i.e. what their mode and metrics are, and what description it has.
     Finally, extending to the protocol is the addition of an ACL as a solution to access control needs.
     An ACL is defined as a matrix, with each entry defining a user role and actions - discussed in \ref{sssec:system-roles} - as a restriction on what a given user was given clearance to do.
 
     The network status information of a network map groups endpoint addresses into a single PID as a text literal.
     Akin to the ALTO protocol \cite{alto-protocol}, accepted endpoint address protocols include IPv4 and IPv6, utilizing a 32 bit long bitmask to identify a subnetwork.
     Similarly, support for aggregation of MAC addresses was added, with a 48 bit long bitmask to identify address ranges, similar to the IP variant.
-    Additionally, generic overlay IDs can be added with the key priv:X - meaning private scheme - where X is the qualified name - this naming scheme was adapted from the endpoint property map's specification for additional property names, for semantic consistency.
-    As endpoint addresses utilizing this scheme can be anything, the their interpretation is also left to the client - for example, if a server defines that PID aggregator of priv:my-overlay can use regular expression to specify address ranges, a pre-agreement must exist with a client.
-    Of course, if a given addressing scheme besides the previously mentioned ones becomes popular, it could afterwards become part of the specification, but the existence of a private addressing scheme with liberal usage gives liberties outside of the protocol, if so are needed.
+    Additionally, generic overlay IDs can be added with the key priv:X - meaning private scheme - where X is the qualified name - this naming scheme was adapted from the endpoint property map's specification done by the ALTO working group, for semantic consistency.
+    As endpoint addresses utilizing this scheme aren't restricted to any type, the their interpretation is also left to the client - for example, if a server defines that an endpoint addresses with priv:my-overlay can use regular expression to specify address ranges, a pre-agreement must exist with a client.
+    Of course, if a given addressing scheme besides the previously mentioned ones becomes of relevant wide appeal, it could afterwards become part of the specification, but the existence of a private addressing scheme with liberal type and semantic verification gives liberties outside of the protocol for network status supply schemes that aren't supported officially.
     A valid network map must unambiguously map every address in the domain range to a single PID, and whenever multiple matches occur wins the longest prefix match.
     As the custom addressing schemes let the network mad be interpreted in an undefined way by the protocol, the server cannot properly assert to the matching validity, and thus default protocol addressing schemes for network maps should be preferred, as semantic validity in private addressing schemes is not checked.
     Table \ref{table:networkmap-example} provides an example network status component of a network map within the topology in Figure \ref{fig:example-topology-boundary}.
     Three PIDs are given, each taking portion of an IPv4, IPv6, MAC, and custom overlay address range.
     The private address scheme groups users in regards to their private overlay ID, and it can be seen that nodes with ID 1, 3, and 4 are grouped to a single PID, which we can see belong inside the ISP domain.
     Lastly, nodes 2 and 5 are given different PIDs as they reside outside the ISP domain but are reachable through different peering points.
-    The ISP could thus leverage the network map to define domains of locality, as well as defining two different external groups, as these two associated nodes are reachable through different peering parameters.
+    The ISP could then in this case leverage the network map to logically group collections of endpoints by reachability - those local to their domain, and those reachable by one of the two possible peering points, which could be subjected to different peering agreements and as such should be treated differently in resources that reference this network map.
 
 \begin{table}[]
 \centering
@@ -147,7 +148,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
     A matrix must specify the type of cost represented with both their cost type and cost mode, with available options being the ones specified in the ongoing ALTO group's cost metric specification \cite{alto-cost-metrics(draft)}.
     Optionally, a cost matrix can specify calendar information about that matrix - similar to the current work in \cite{alto-calendar-cost-map(draft)} -  which signifies that besides having single-value costs - which are obligatory for any cost matrix - it also contains a time-sensitive list of costs that must be interpreted according to the calendar information provided.
     If the ISP contains full topological knowledge of the resource it is sharing, the information that can be provided by the cost maps can be quite detailed.
-    Consider the topology in Figure \ref{fig:example-topology} with its five network nodes - from the cost map presented in \ref{table-costmap-boundary}, one cost matrix depicts a generic "routingcost" cost matrix, depicting routing preference as a shortest path map with a Dijkstra algorithm and hop count as its link cost, and another could provide a "delay-ow" cost matrix, depicting expected one-way delay in milisseconds, as the cumulative calculation of known link delays.
+    Consider the topology in Figure \ref{fig:example-topology} with its five network nodes - from the cost map presented in \ref{table:costmap-example-non-boundary}, one cost matrix depicts a generic "routingcost" cost matrix, depicting routing preference as a shortest path map with a Dijkstra algorithm and hop count as its link cost, and another could provide a "delay-ow" cost matrix, depicting expected one-way delay in milliseconds, as the cumulative calculation of known link delays.
 
 \begin{figure}
     \centering
@@ -183,24 +184,23 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
     \end{subtable}
 
     \caption{Example cost map for a limited domain ALTO server}
-    \label{table:costmap-example-boundary}
+    \label{table:costmap-example-non-boundary}
 \end{figure}
 
-    However, without either full administrative control or some multi-ALTO domain orchestration mechanism, a single ALTO server instance is restricted to the information it knows.
-    This does not mean that valuable inter-layer cooperation is not possible, as will be now seen.
-    The network map presented previously contains in of itself important information, grouping endpoints into PIDs that themselves represent network borders - one local to the server, and two representing the peering relationships.
+    Without either full administrative control or some multi-ALTO domain orchestration mechanism, a single ALTO server instance is restricted to the information it knows.
+    Being bound by limited topological knowledge, however, does not necessarily mean that valuable inter-layer cooperation is not possible, and will now be subject of discussion.
+    The network map presented previously contains in of itself important information, grouping endpoints into PIDs that represent network borders - one local to the server, and two representing the peering relationships.
     This is relevant to help clients localize their traffic and would be impossible to derive without ISP insight.
     Table \ref{table:costmap-example-boundary} provides an example of cost matrices within a single cost map that consider a limited single ALTO server domain topology in Figure \ref{fig:example-topology-boundary}.
-    Notice how the ISP administrative domain contains only three of the five network nodes.
-    The ISP thus only possesses detailed network status information that regards to nodes 1, 3 and 4, which limits the amount of information that can be derived - however, it's still very much possible to dictate routing preferences and probing measurements can be collected and centralized by the ALTO server to acquire historical performance metrics.
-    As can be seen, a generic "routingcost" cost matrix - whose value increases with the associated costs of transferring data through that path, and derived as the ISP best sees fit - costs within the ISP domain incur minimal cost, whereas paths that originate locally and target PID2 or PID5 - both requiring the utilization of peering links - are less preferable, with the former being at least twice more preferable than the latter.
+    Notice how the ISP administrative domain is within scope of only three of the five network nodes.
+    The ISP only possesses detailed network status information that regards to nodes 1, 3 and 4, which limits the amount of topological information that can be retrieved and shared to ALTO clients - however, it's still very much possible to dictate routing preferences and probing measurements can be collected and centralized by the ALTO server to acquire historical performance metrics.
+    As can be seen, a generic "routingcost" cost matrix is presented, whose value increases with the associated costs of transferring data through that path, and constructed as the ISP best sees fit - costs within the ISP domain are minimal, whereas paths that originate locally and target PID2 or PID5 - both requiring the utilization of peering links - are less preferable, with the former being at least twice more preferable than the latter.
     A "delay-ow" cost matrix is also provided, specifying one way packet delay in milliseconds, with the ISP applying preceding probing measurements between endpoints and averaging the results.
-    In this case, locality is correlated with more reliable communications, and in situations where outside service is required, the cost matrix provides insightful information to help select the better peering connections.
     Finally, a "tput" cost matrix can be seen, specifying expected throughput in bytes per second, with the ISP applying probing measurements, topological insight, as well as collected feedback of previous application connections that occurred between endpoints to deduce theoretical available bandwidth between target points.
     Additionally, the inclusion of cost calendar capabilities to the cost matrix enables users to get a chronological view of bandwidth availability as rush hour arrives, with the single value cost being updated to the present time if a decision needs to be made only considering the current time.
     A similar cost matrix is presented next, that, instead of specifying the throughput costs as numerical values, does so instead in an ordinal fashion, where the number represents a ranking position in preference, with a lower number representing higher preference.
-    This is an alternative that preserves ranking information without requiring from the ISPs the need to concretely specify network information.
-
+    This is an alternative that preserves ranking information without requiring from the ISPs the need to concretely specify network information, and instead ordering connections by relative preference, with the choice of assigning equal preference to paths that differ in a given order of magnitude.
+    In the presented case, locality is correlated with more reliable communications and less operational costs from the ISP, and a concrete better choice exists - regarding routing cost, delay, and throughput - between the two peering connections, and that information can be part of the ALTO system as query-eligible by client applications that can now better optimize their network related decisions in a mutually beneficial scenario.
 
 \begin{figure}
     \centering
@@ -303,7 +303,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
     Following the same design pattern used for the other specified resources, the endpoint property map will have a set of defined properties with associated semantics, and all other properties can be added with the "priv" prefix to designate private properties outside of the considered domain, and thus all semantics and validation rules don't apply.
     Much like the other resources, an endpoint can be identified by an IPv4, IPv6, MAC or private overlay address, and the pondered properties are PID value, geographical coordinates, connection type (fiber, adsl, etc), server footprint information (total ram, storage, and processing power), and server status information (what part of the footprint information is currently available).
     In practice, a given property could be promoted from a private type to one pondered in the protocol and have a resulting official semantic and validation rules.
-    Table \ref{table:example-endpoint-prop} display an example endpoint property map, which is used to store status information relating to servers, identified by their IPv4 address, which server the same content.
+    Table \ref{table:example-endpoint-prop} display an example endpoint property map, which is used to store status information relating to servers, identified by their IPv4 address, which serve the same content.
 
     \begin{table}[]
     \centering
@@ -320,30 +320,49 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
     \caption{Example endpoint property map for server replicas}
     \end{table}
 
-    Finally, as a means to facilitate resource divulgence from servers to clients, there is also included the specification of an Information Resource Directory (IRD), that is based from the ALTO working group's protocol specification.
+    Finally, as a means to facilitate resource divulgence from servers to clients, there is also included the specification of an Information Resource Directory (IRD), that is also based from the ALTO working group's protocol specification \cite{alto-protocol}.
     An IRD can also be thought of as a resource, but instead of sharing network information it serves as an index of the available resources that a given server provides.
-    Each server must provide a single IRD, and it contains as many resource attributes as the amount of attributes it provides.
-    Each resource attribute must contain the resource's ID and its HTTP media type and, if applicable, their capabilities, accepted input media types, and dependent resources.
+    Each server must have available for query a single IRD, that lists all the available resources it provides, along with their meta information.
+    Each resource attribute must contain the resource's ID, its HTTP media type and, if applicable, their capabilities, accepted input media types, and dependent resources.
     The capabilities identifies, if existing, the cost and property types that are used - being indexed by their unique name, this allows for these to be cross-referenced on further protocol exchanges without need to repeat information.
-    Additionally, the resource's capabilities also serve to indicate what resource functionality extensions are enabled - currently applicable for cost maps only, it serves to signal if the cost map has calendared costs, if it accepts input filters, or if multiple cost matrices can be requested at once.
+    Additionally, the resource's capabilities also serve to indicate what resource functionality extensions are enabled - currently applicable for cost maps only, it serves to signal if the cost map has calendared costs - a protocol extension adapted from the work in progress in \cite{alto-calendar-cost-map}, that serves to retrieve calendar cost values, or if the multi-cost extension functionality exists - a protocol extension adapted from \cite{alto-multi-cost}, which lets multiple matrices to be requested at once.
     Two additions are made to the working group's specification - firstly, a description field, which for each resource attribute gives a brief description of what it is about, as it could facilitate resource selection since such a description could go into detail about appropriate usage guidelines of that resource and suggested use cases; finally, the resource's ACL, letting a user know beforehand what credences he has in relation to the server's resources - being a crucial part of metadata of the resource, it seems fitting to go into the IRD, and has the added benefit of giving the user this crucial piece of information without him having to make resource requests just to, by server reaction, figuring out what he can and cannot do.
+    A default network map entry must also exist in the IRD, as per the working group's specification, to serve as a guideline for clients that wish to use the most basic of ISP endpoint groupings.
+
+    An example IRD is provided in \ref{table:ird-example}.
+    A list of available costs and properties is presented, with their descriptive data discussed above, along with the available resources provided by that server, which contains data useful for their server cluster, as well as a broader-purpose endpoint cost map to query for path connection types and facilitate user selection.
+    Finally, a default network map is presented, as per the working group's protocol specification.
 
 \begin{figure}
     \centering
         \begin{subtable}{1\linewidth}
         \centering
-        \scriptsize
-        \begin{tabular}{|l|l|l|l|}
+        \begin{tabular}{|l|l|l|L|}
         \hline
-        \bf{Cost ID}     & \bf{Cost Mode}   & \bf{Cost Metric} & \bf{Description}                                                                \\ \hline
-        routing          & routingcost      & numerical        & Default routing preference                                                      \\ \hline
-        routing-rank     & routingcost      & ordinal          & Routing preference by ranking                                                   \\ \hline
-        owd              & delay-ow         & numerical        & Expected one way delay of a single packet. Based on application statistics      \\ \hline
-        tput-theoretical & tput             & numerical        & Theoretical maximum available TCP throughput. Based on topological knowledge    \\ \hline
-        tput-practical   & tput             & numerical        & Practical expected TCP throughput. Based on application statistics              \\ \hline
+        \bf{Cost ID}     & \bf{Cost Mode}   & \bf{Cost Metric} & \multicolumn{1}{m{5cm}|}{\bf{Description}}                                                                \\ \hline
+        routing          & routingcost      & numerical        & \multicolumn{1}{m{5cm}|}{Default routing preference}                                                      \\ \hline
+        routing-rank     & routingcost      & ordinal          & \multicolumn{1}{m{5cm}|}{Routing preference by ranking}                                                   \\ \hline
+        owd              & delay-ow         & numerical        & \multicolumn{1}{m{5cm}|}{Expected one way delay of a single packet. Based on application statistics}      \\ \hline
+        tput-theoretical & tput             & numerical        & \multicolumn{1}{m{5cm}|}{Theoretical maximum available TCP throughput. Based on topological knowledge}    \\ \hline
+        tput-practical   & tput             & numerical        & \multicolumn{1}{m{5cm}|}{Practical expected TCP throughput. Based on application statistics}              \\ \hline
         \end{tabular}
         \caption{Routing cost cost matrix}
         \end{subtable}
+
+        \begin{subtable}{1\linewidth}
+        \centering
+        \begin{tabular}{|l|l|l|}
+        \hline
+        \bf{Property ID} & \bf{Property type}         & \bf{Description}                              \\ \hline
+        cpu              & CPU                        & Machine's current CPU load                    \\ \hline
+        ram              & RAM                        & Machine's current occupied RAM                \\ \hline
+        coord            & geographic-coordinate      & Machine's geographical coordinates            \\ \hline
+        connection       & connection-type            & Machine interface's connection type           \\ \hline
+        is-mirror        & priv:is-mirror             & Is the machine an original server or a mirror \\ \hline
+        \end{tabular}
+        \caption{2}
+        \end{subtable}
+
         \begin{subtable}{1\linewidth}
         \centering
         \hspace*{-8em}
@@ -351,37 +370,32 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
         \begin{tabular}{|l|l|l|l|l|l|l|}
         \hline
         Resource ID             & URI                                & Media Type        & Uses           & Accepts                 & Capabilities                                              & Description                                   \\ \hline
-        def-networkmap          & resources/networkmaps/default      & alto-networkmap   & -              & alto-networkmapfilter   & -                                                         & Default                           \\ \hline
+        def-nmap          & resources/networkmaps/default      & alto-networkmap   & -              & alto-networkmapfilter   & -                                                         & Default                           \\ \hline
         cluster-costmap         & resources/costmaps/cluster         & alto-costmap      & def-networkmap & alto-costmapfilter      & Costs: {[}routing, routing-rank{]} & For main data center cluster         \\ \hline
-        cluster-endpoint-prop   & resources/endpointpropmaps/cluster & alto-endpointprop & -              & alto-endpointpropparams & Properties: {[}cpu, ram, coords{]} & For main data center cluster \\ \hline
-        client-endpoint-costmap & resources/endpointcostmaps/        & alto-endpointcost & -              & alto-endpointcostparams & Costs: {[}routing-rank, owd, tput-practical{]}            & For user application guidance       \\ \hline
+        cluster-endprop   & resources/endpointpropmaps/cluster & alto-endpointprop & -              & alto-endpointpropparams & Properties: {[}cpu, ram, coords{]} & For main data center cluster \\ \hline
+        client-endcost & resources/endpointcostmaps/        & alto-endpointcost & -              & alto-endpointcostparams & Costs: {[}routing-rank, owd, tput-practical{]}            & For user application guidance       \\ \hline
         \end{tabular}
         \caption{Routing cost cost matrix}
         \end{subtable}
         \begin{subtable}{1\linewidth}
         \centering
-        \begin{tabular}{|l|l|l|l|}
+        \begin{tabular}{|l|l|l|L|}
         \hline
-        cost ID          & Cost Mode   & Cost Metric & Description                                                                  \\ \hline
-        routing          & routingcost & numerical   & Default routing preference                                                   \\ \hline
-        routing-rank     & routingcost & ordinal     & Routing preference by ranking                                                \\ \hline
-        owd              & delay-ow    & numerical   & Expected one way delay of a single packet. Based on application statistics   \\ \hline
-        tput-theoretical & tput        & numerical   & Theoretical maximum available TCP throughput. Based on topological knowledge \\ \hline
-        tput-practical   & tput        & numerical   & Practical expected TCP throughput. Based on application statistics           \\ \hline
+        \bf{Cost ID}     & \bf{Cost Mode}   & \bf{Cost Metric} & \multicolumn{1}{m{5cm}|}{\bf{Description}}                                                             \\ \hline
+        routing          & routingcost      & numerical        & \multicolumn{1}{m{5cm}|}{Default routing preference}                                                   \\ \hline
+        routing-rank     & routingcost      & ordinal          & \multicolumn{1}{m{5cm}|}{Routing preference by ranking}                                                \\ \hline
+        owd              & delay-ow         & numerical        & \multicolumn{1}{m{5cm}|}{Expected one way delay of a single packet. Based on application statistics}   \\ \hline
+        tput-theoretical & tput             & numerical        & \multicolumn{1}{m{5cm}|}{Theoretical maximum available TCP throughput. Based on topological knowledge} \\ \hline
+        tput-practical   & tput             & numerical        & \multicolumn{1}{m{5cm}|}{Practical expected TCP throughput. Based on application statistics}           \\ \hline
         \end{tabular}
         \caption{Routing cost cost matrix}
         \end{subtable}
 
-
-        \caption{Routing cost cost matrix}
-        \end{subtable}
-
     \caption{Example cost map for a limited domain ALTO server}
-    \label{table:costmap-example-boundary}
+    \label{table:ird-example}
 \end{figure}
 
     Further formal specification is not made as it has been extensively done in the ALTO protocol \cite{alto-protocol}, and the proposed system is compliant to it whilst extending upon the design.
-
 
 
 \subsection{Resource Consumer (ALTO Client)}
@@ -397,25 +411,29 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
 
     Figure \ref{fig:p2p-tracker-communication} is similar to the previous example, meaning it relates to a P2P application, but this time the application-level traffic optimization is made in a way that is transparent to the P2P client.
     As a choice to purely localize traffic, as this alone can bring plenty of benefits to both layers, and as a means to minimize protocol modification, it is the tracker that serves as an ALTO client.
-    Whenever a request is made by a P2P client to retrieve peers serving a given data chunk, the tracker first consults with the ALTO server and retrieves its network map that groups peers within administrative domains - inside the providing ISP's domain, thus the local network, and outside administrative domains.
-    The tracker could use a very simple algorithm to filter out of its candidate pool candidate peers outside the local domain if results inside it exist.
-    After packaging a reply to the P2P client, the protocol acts normally and traffic could be successfully localized.
+    Whenever a request is made by a P2P client to retrieve peers serving a given data chunk, the tracker first consults with the ALTO server and retrieves its network map that groups peers within administrative domains - either inside the providing ISP's domain, thus the local network, and outside administrative domains, grouped by types of peering connections to different autonomous regions.
+    The tracker could use a very simple algorithm to filter out of its candidate pool only peers that reside in the same locality as the p2p client that contacted him.
+    After packaging a reply to the P2P client, the protocol acts normally and traffic could be successfully localized with minimal impact.
 
     \todo{alto tracker communication diagram}
 
     On the same vein, Figure \ref{fig:cdn-communication} exemplifies how this time a cdn controller would use the system to better help its decision in matching CDN clients to an edge server on their system.
     To do this, it retrieves a property map to query for server status information, and subsequently retrieves a cost map to query for path information between the CDN client and the candidate edge servers.
-    Having all the relevant server status information, e.g. available processing and storage resources, and path properties, e.g. max bandwidth, latency, packet loss, the CDN controller is in a condition to more optimally redirect his client.
+    Having all the relevant server status information, e.g. available processing and storage resources, as well as connection properties, e.g. max possible bandwidth, latency, and packet loss, the CDN controller is in a condition to more optimally redirect his client.
 
-    \todo{alto cdn communicaiton diagram}
+    \todo{alto cdn communication diagram}
 
 \subsection{Resource Provider (ALTO Server)}
 
     An ALTO resource provider is the ALTO server, an entity that possesses pre-processed network information in the form of ALTO resources.
-    Its job is to store and manage such resources, and provide it to querying ALTO clients, and Integral to these responsibilities are also data validation and persistence.
+    Its job is to store and manage such resources so they can be provided it to querying ALTO clients, with the additional responsibilities of data validation and persistence.
     Conceptually, the ALTO server is seen as a single entity, but considering the sensible information that could be stored within it and the influence it has on shaping network traffic, it would not be uncommon for an ALTO server to have a knowledge domain correspondent to the ISP that owns it.
     Physically, though, the resource provider layer could consist of many interlinked ALTO providers with an increased coverage area of network knowledge.
     Means through which this could occur are further specified in section \ref{ssec:multi-alto}.
+
+    A listing of available HTTP endpoints of the ALTO server interface is available in table \ref{table:alto-server-api}.
+    All resource types are hierarchically descendent from a "resources" path, and each unique type of resource exposes his own endpoint, with the methods to add, update, remove, and retrieve with and without filter.
+    These methods are subjected to the access control mechanisms discussed in \ref{sssec:system-roles}, as one should only expect reputable sources to upload and modify data, and only permitted users to query it.
 
 \begin{table}[]
 \resizebox{\textwidth}{!}{\begin{tabular}{|l|l|l|}
@@ -447,15 +465,79 @@ POST      & /resources/endpointcostmaps/\{id\} & Get the Endpoint Cost Map with 
 PUT       & /resources/endpointcostmaps/\{id\} & Modify the contents of an Endpoint Cost Map with the specified ID                             \\ \hline
 DELETE    & /resources/endpointcostmaps/\{id\} & Remove an Endpoint Cost Map with the specified ID                                             \\ \hline
 \end{tabular}}
+\label{table:alto-server-api}
 \end{table}
 
-\subsubsection{Server discovery}
-
-    \textbf{[Entities contact a central server for domain name resolution.]}
 
 \subsubsection{Resource Filtering}
 
-    \textbf{[Overview how the interface allows users to pass parameters that specify resource filters, as specified by the working group]}
+    Resource filtering is the task through which a resource consumer can pass a filter object to the resource provider that specifies the parameters that the consumer wishes to retrieve specifically.
+    With it, there's no need to pass more information to the client than he wishes to get, thus minimizing used network bandwidth and client cpu cycles to send and process the resource, respectively.
+    The need for filtering becomes greater at a larger system scale - with an increased number of users that query routinely, and resources that can have a massive amount of entries - specifically those that regard to network endpoints - such a mechanism becomes a necessary optimization.
+    Keeping with the objective of implementing a fully compatible ALTO protocol as specified by the working group, so will the resource filtering specifications be equal to those already specified in the protocol design \cite{alto-protocol}, thus no further specification will be necessary.
+
+    For clarification, the ALTO server must maintain an endpoint for retrieving all main specified network status resources via filtering, i.e. the server must let the client retrieve ALTO resources with parametrization that dictates what concrete fields must be delivered.
+    The types of resource filters considered are the following:
+
+    \begin{itemize}
+        \item \textbf{Network Map filter}: List of PIDs of value $PID\_List$, that if empty signifies the entire subset of available PIDs.
+            All entries of value
+
+            \begin{center}
+            $(PID, Endpoint\_List)$, $PID \in PID\_List$
+            \end{center}
+
+            must be retrieved, and all others must be filtered out.
+
+        \item \textbf{Endpoint Property Map filter}: Pair of list of endpoints and list of properties that must be selected, of value $(Endpoint\_List, Property\_List)$.
+            All entries of value
+
+            \begin{center}
+            $(Endpoint, Property)$, $Endpoint \in Endpoint\_List \land Property \in Property\_List$
+            \end{center}
+
+            must be retrieved, and all others must be filtered out.
+
+        \item \textbf{Cost Map filter}: Tuple of list of source PIDs, list of destination PIDs, list of cost types and list of cost value conditionals of value $(SrcPID\_LIST, DstPID\_LIST, CostType\_List, CostValueConditional\_List)$ with $CostType\_List > 1$ assuming a multi-cost map extension and their emptiness signifying the entire subset of available values in that list.
+            All entries of value
+
+            \begin{center}
+            $(Src\_PID, Dst\_PID, Cost\_Type, Cost\_Value)$, $Src\_PID \in SrcPID\_List \land Dst\_PID \in DstPID\_List \land Cost\_Type \in CostType\_List \land satisfies\_atleast\_one(Cost\_Value, CostValueConditional\_List)$
+            \end{center}
+
+             must be retrieved, and all other must be filtered out.
+
+        \item \textbf{Endpoint Cost Map filter}: Equal to the cost map filter, but considering a list of source and destination endpoint filters instead of PIDs.
+    \end{itemize}
+
+    By analogy, one can consider the ALTO server to act as a remote database with an interface for methods that interact with it, and the filters act as selection statements, such as the "SELECT" method in SQL databases, to retrieve specific parts of the dataset.
+    The filters of cost maps and endpoint cost maps also include a list of premises which themselves are logical operators applied to the candidate cost values.
+    Continuing the analogy, these allow the clients to use "WHERE" statements on the numerical cost values that are retrieved.
+    In summary, the filter functionality could be explained in the following examples:
+
+\begin{table}[]
+    \resizebox{\textwidth}{!}{\begin{tabular}{|l|l|l|L|}
+    \hline
+\bf{HTTP Verb} & \bf{Resource}    & \bf{Body}  & \multicolumn{1}{m{8cm}|}{\bf{Description}} \\ \hline
+
+     POST      & resources/networkmaps/default      & \begin{tabular}[c]{@{}l@{}}\{ \\ "pids": $[$"PID1", "PID2"$]$\\ \} \end{tabular} & \multicolumn{1}{m{8cm}|}{Retrieve an network map with id "default", filtering for the entries for PIDs "PID1" and "PID2"} \\ \hline
+     POST      & resources/endpointpropmaps/default & \begin{tabular}[c]{@{}l@{}}\{ \\ "endpoints": $[$"ipv4:10.0.0.1", "ipv4:10.0.0.2"$]$,\\  "properties": $[$"CPU", "RAM", "connection-type"$]$ \\ \}\end{tabular}  & \multicolumn{1}{m{8cm}|}{Retrieve an endpoint property map with the id "default", filtering for the "CPU", "RAM", and "connection-type" properties from the ipv4 endpoints "10.0.0.1" and "10.0.0.2"} \\ \hline
+     POST      & resources/costmaps/default         & \begin{tabular}[c]{@{}l@{}}\{ \\ "cost-type": \{ & \quad "cost-mode" : "numerical",\\ \quad "cost-metric": "routingcost" \\ \},\\  "pids": \{ \\ \quad "srcs" : $[$"PID1"$]$,\\ \quad "dsts": $[]$ \\ \quad \} \\ \} \end{tabular} & \multicolumn{1}{m{8cm}|}{Retrieve the cost map with the id "default", filtering for the cost matrix with cost mode "numerical" and cost metric "routingcost", whose entries have source "PID1" and any destination} \\ \hline
+     POST      & resources/costmaps/default         & \begin{tabular}[c]{@{}l@{}}\{ \\ "multi-cost-types": \\ \quad $[$ \\ \quad \{ \\ \quad "cost-mode" : "numerical",\\ \quad "cost-metric": "routingcost" \\ \quad \},\\  \quad \{ \\ \quad "cost-mode": "ordinal",\\ \quad "cost-metric": "routingcost" \\ \quad \} \\ \quad $]$,\\ "pids" : \{ \\ \quad "srcs": $[$"PID1", "PID2"$]$,\\ \quad "dsts" : $[$"PID3"$]$ \\ \quad \} \\ \}\end{tabular} & \multicolumn{1}{m{8cm}|}{Retrieve the cost map with the id "default" and, assuming a multi-cost protocol extension, retrieve both the "numerical" and "ordinal" variations of the "routingcost" metric, whose entries have source "PID1" or "PID2", and destination "PID3"} \\ \hline
+     POST      & resources/costmaps/default         & \begin{tabular}[c]{@{}l@{}}\{ \\ "multi-cost-types": \\ \quad $[$ \\ \quad \{ \\ \quad "cost-mode" : "numerical",\\ \quad "cost-metric": "routingcost" \\ \quad \},\\ \quad \{ \\ \quad "cost-mode": "numerical", \\ \quad "cost-metric": "delay-ow" \\ \quad \} \\ \quad $]$,\\ "calendared": $[$false, true$]$,\\ "pids" : \{ \\ \quad "srcs": $[]$,\\ \quad "dsts" : $[$"PID3"$]$ \\ \quad \}\\ \}\end{tabular}                                                                                           & \multicolumn{1}{m{8cm}|}{Retrieve the cost map with the id "default" and, assuming a multi-cost and cost calendar protocol extensions, retrieve the numerical variants of the "routingcost" and "delay-ow" metrics, requesting a singular value and a calendar value respectively, of all entries whose destination is "PID3"} \\ \hline
+     POST      & resources/costmaps/default         & \begin{tabular}[c]{@{}l@{}}\{ \\ "multi-cost-types": \\ \quad $[$ \\ \quad \{ \\ \quad "cost-mode" : "numerical", \\ \quad "cost-metric": "delay-ow"\}, \\ \quad \{ \\ \quad "cost-mode": "ordinal",\\ \quad "cost-metric": "routingcost" \\ \quad \} \\ \quad $]$,\\ "pids" : \{ \\ \quad "srcs" : $[$"PID1"$]$,\\ \quad "dsts" : $[$"PID2"$]$ \\ \quad \},\\ "or-constraints" : \{ \\ \quad $[$ \\ \quad $[$"$[$0$]$ ge 0","$[$0$]$ le 20"$]$,\\ \quad $[$"$[$1$]$ eq 0"$]$ \\ \quad $]$\\ \quad \} \\ \} \end{tabular} & \multicolumn{1}{m{8cm}|}{Retrieve the cost map with the id "default" and, assuming a multi-cost protocol extension, retrieve the "numerical" mode of the "ow-delay" metric and the "ordinal" mode of the "routingcost" metric, whose entires have source "PID1" and destination "PID2", and whose cost values satisfy for a given source and destination pair that either the "ow-delay" is within 0 and 20 ms or it's the number one preferencial "routingcost" value} \\ \hline
+\end{tabular}}
+\end{table}
+
+
+\subsubsection{Server discovery}
+
+    ALTO server discovery, by hand of either network state aggregators or resource consumers, must be done leveraging existing DNS technologies.
+    Each server entity maintains a given domain name, and along it is included the need to also maintain domain records in the chosen DNS system to map the domain name to the server's internet address.
+    Much like the choice to utilize HTTP as an application protocol, so do the server discovery mechanisms aim to comply with the ALTO working group's philosophy of leveraging existing proven technologies when possible as a means to facilitate development and minimize errors, with the added benefit of extending functionality with the chosen technologies.
+    With DNS, this gives flexibility of either privately configuring domain name to IP addresses - much like happens in Linux systems with the /etc/hosts file - or its deployment by leveraging existing authoritative DNS servers.
+    Additionally, by working around the existing technology and its specification one can easily implement load balancing for performance reasons, or, among others, DNS over HTTPS (DoH) for preventing eavesdropping, and ensuring both data integrity and host authenticity \cite{dns-https}.
+    A similar approach is to be taken for network state aggregator server discovery by part of the network state collectors for the same reasons explained above.
 
 \subsubsection{Inter-server communication}
 \label{ssec:multi-alto}
