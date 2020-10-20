@@ -1,4 +1,5 @@
 %!TEX root = dissertation.tex
+\usepackage{todonotes}
 
 % Color setup
 \usepackage{array}
@@ -11,8 +12,10 @@
 \usepackage{pgfgantt}
 \usepackage{a4wide} % Setup for fullpage
 \usepackage{enumerate}
+\usepackage{float}
 \usepackage{enumitem}
 \usepackage{comment}
+\usepackage{notoccite}
 \usepackage{pdfcomment}
 \usepackage{multirow}
 \usepackage{adjustbox}
@@ -24,7 +27,6 @@
 \usepackage{listings}
 \usepackage{textcomp} % for upquote
 \usepackage{indentfirst}
-%\usepackage[]{todonotes}
 \usepackage{siunitx}
 
 \usepackage[marginparwidth=150pt]{geometry}
@@ -315,7 +317,7 @@ showstringspaces=false}
 
 % Better looking bibliography references
 \usepackage[square,numbers]{natbib}
-\bibliographystyle{abbrvnat}
+\bibliographystyle{unsrt}
 
 % Better list handling
 \usepackage{enumitem}
@@ -383,6 +385,7 @@ showstringspaces=false}
 % Default Hyperlink and Bookmark settings
 \hypersetup{
 	bookmarksnumbered=true,
+    linktoc=all,
 	plainpages=false,
 	%bookmarks=true,			% show bookmarks bar?
 	%pdfstartview={FitW},		% fits the width of the page to the window
@@ -497,14 +500,14 @@ showstringspaces=false}
 }
 
 % Dissertation  commands
-\newcommand{\@coverstyle}[2]{ \thispagestyle{empty} \pagecolor{#1} \textcolor{#2}}
+\newcommand{\@coverstyle}[2]{ \pagestyle{empty} \pagecolor{#1} \textcolor{#2}}
 
 \newcommand{\umtitlepage}{
 	\begin{titlepage}
 		\gdef\umc{grey}\gdef\engc{lightgray}\gdef\hide{0}
 	 	\@coverstyle{white}{grey}\printcover
 		\end{titlepage}
-	\normalfont \rmfamily \cleardoublepage \pagenumbering{roman}
+	\normalfont \rmfamily \cleardoublepage
 }
 
 \newcommand{\umfrontcover}{
@@ -556,6 +559,14 @@ showstringspaces=false}
 \graphicspath{{img/}}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{3}
+
+\usepackage{afterpage}
+\newcommand\emptypage{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+}
 
 %Tirar isto depois
 

@@ -4,7 +4,6 @@
   % Replace oneside by twoside if you are printing your thesis on both sides
   % of the paper, leave as is for single sided prints or for viewing on screen.
   oneside,
-  %twoside,
   11pt, a4paper,
   footinclude=true,
   headinclude=true,
@@ -65,7 +64,6 @@
 % Author
 \author{Paulo Edgar Mendes Caldas}
 
-% Supervisor(s)
 \supervisor{Pedro Nuno Miranda de Sousa}
 %\cosupervisor{}
 
@@ -94,33 +92,64 @@
 \begin{document}
 
 \umfrontcover
+
 \umtitlepage
 
 \frontmatter
 
+\pagenumbering{roman}
+
 \input{chapters/acknowledgements.tex}
+\clearpage
+
+\emptypage
+
 \input{chapters/abstract.tex}
+\clearpage
+
+\emptypage
+
 \input{chapters/resumo.tex}
-
 \clearpage
+
+\emptypage
+
 \tableofcontents
-\listoffigures
-\listoftables
-\printglossary[type=\acronymtype]
-
 \clearpage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\clearpage
+
+\emptypage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+\clearpage
+
+\emptypage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Acronyms}
+\printglossaries
+\clearpage
+
+\emptypage
+
+\mainmatter
 
 \thispagestyle{empty}
 \pagenumbering{arabic}
 
-\mainmatter
-
-\input{chapters/introduction}
+\input{chapters/todos}
+%\input{chapters/introduction}
 \input{chapters/state-of-art}
-\input{chapters/architecture}
-\input{chapters/implementation}
-\input{chapters/experiments}
-\input{chapters/conclusion
+%\input{chapters/architecture}
+%\input{chapters/implementation}
+%\input{chapters/experiments}
+%\input{chapters/conclusion
 
 \bookmarksetup{startatroot} % Ends last part.
 \addtocontents{toc}{\bigskip} % Making the table of contents look good.

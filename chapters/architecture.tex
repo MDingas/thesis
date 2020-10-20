@@ -415,13 +415,23 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
     The tracker could use a very simple algorithm to filter out of its candidate pool only peers that reside in the same locality as the p2p client that contacted him.
     After packaging a reply to the P2P client, the protocol acts normally and traffic could be successfully localized with minimal impact.
 
-    \todo{alto tracker communication diagram}
+\begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.35]{communication-tracker.png}
+        \caption{High-level communication diagram of a successful resource action request}
+        \label{fig:macro-architecture}
+\end{figure}
 
     On the same vein, Figure \ref{fig:cdn-communication} exemplifies how this time a cdn controller would use the system to better help its decision in matching CDN clients to an edge server on their system.
     To do this, it retrieves a property map to query for server status information, and subsequently retrieves a cost map to query for path information between the CDN client and the candidate edge servers.
     Having all the relevant server status information, e.g. available processing and storage resources, as well as connection properties, e.g. max possible bandwidth, latency, and packet loss, the CDN controller is in a condition to more optimally redirect his client.
 
-    \todo{alto cdn communication diagram}
+\begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.35]{communication-cdn.png}
+        \caption{High-level communication diagram of a successful resource action request}
+        \label{fig:macro-architecture}
+\end{figure}
 
 \subsection{Resource Provider (ALTO Server)}
 
@@ -564,10 +574,8 @@ DELETE    & /resources/endpointcostmaps/\{id\} & Remove an Endpoint Cost Map wit
     The network information aggregation layer is the layer that enables the translation of raw topological information - such as the physical attributes of network devices and connections - into processed, query-eligible network knowledge.
     To do so, a very important entity, perhaps the heart of the system as a whole, is the network state provider, which is the supply of network information that is injected, through a network state provisioning protocol, into a network information aggregator.
     This latter entity is then responsible for providing the ALTO resource provider layer with valid information after the raw topological data has been processed - this includes the calculation of optimal paths, the abstraction of network entities, or the injection of static ISP preferences.
-    This pre-processing stage requires input from an ISP administrator, responsible for acting on the best behavior or the ISP from which the raw topological data originates - by interacting with the network information aggregator the administrator acts on this network information hub to retrieve from the database a history of retrieved network information, and afterwards manipulate this information to create ALTO resources to its liking - this is where data is transformed utilizing the algorithms the admin deems fitting, and transforms the raw data to be publishing ready, meaning that it contains an acceptable amount of abstraction not to compromise topological privacy.
-    Finally, the admin defines important meta data that identifies the resource, and defines the access control list to be enforced by the ALTO server.
-
-    \textbf{[Communication diagram of how the ISP admin interacts with the data in the network status database to create ALTO resources with appropriate access control levels, and uploads it to the server]}
+    This pre-processing stage requires input from an ISP administrator, responsible for acting on the best interest of the ISP from which the raw topological data originates - by interacting with the network information aggregator, the administrator acts on this network information hub to retrieve from the database a history of retrieved network information, and afterwards manipulate this information to create ALTO resources to its liking - this is where data is transformed utilizing the algorithms the administrator deems fitting, and transforms the raw data to be publishing ready, meaning that it contains an acceptable amount of abstraction not to compromise topological privacy.
+    Finally, the administrator defines important meta data that identifies the resource, and defines the access control list to be enforced by the ALTO server.
 
 \subsubsection{Network State Aggregator}
 
@@ -602,8 +610,6 @@ DELETE          & /measurements/group/\{id\}         & Remove a measured endpoin
 
     \textbf{[Network is provided raw, as is, without validation, but validation modules could be provided in the future if a need for it exists. The uploaded information firstly has meta data - which includes the source name (where the data came from, such as an OSPF collector daemon), the time where the measurements were collected, a description, an endpoint or group of endpoints, depending on what the measurement relates to - such as an endpoint property or a cost between two properties or a grouping between N properties, and the measurement itself.]}
 
-    \textbf{[Specificy interface]}
-    \textbf{[Communication diagram of how a data source entity - such as a daemon that collects OSPF data, uses the interface to upload data to the network information aggregator.]}
 
 \subsubsection{Network status processing}
 
