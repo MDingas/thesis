@@ -1,5 +1,7 @@
 \chapter{State of the art}
 
+\label{sec:state-of-art}
+
 
     This chapter aims to provide a literature overview of the topics that relate to the main problem that this thesis aims to help solve, which is the lack of cooperation between applications and the service providers of the infrastructure where such applications reside.
     As such, the first section focuses on discussing structural network patterns utilized by applications to give them particular properties which are helpful to achieve their use case.
@@ -320,7 +322,7 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
     Attributing node pairings - in \gls{cdn}'s case between edge servers to end-users - entirely on geographical data was previously discussed as being a non-optimal way of assessing node selection at the application layer in Section \ref{ssec:p2p-effects}.
     Again, much like in the scenario of peer selection in \gls{p2p} systems, the usage of network measurements made by the \gls{cdn} itself to better pick the appropriate end-server, while potentially be beneficial, can certainly be improved upon if it used additional, hard to retrieve data that only \glspl{isp} or other privileged infrastructural entities could possess, and which are at position to guide applications in the infrastructure from whom they have detailed knowledge.
 
-    There indeed seems to be a consequential coupling between overlay decisions in the \gls{cdn} systems and the underlying infrastructure - were the \glspl{cdn} not to take \gls{isp} input when redirecting clients, suboptimal choices would be made that would be prone for bottleneck congestion, and would \glspl{isp} employ only their own biases in content request redirection, user-level application \gls{gos} agreements might not be met.
+    There indeed seems to be a consequential coupling between overlay decisions in the \gls{cdn} systems and the underlying infrastructure - were the \glspl{cdn} not to take \gls{isp} input when redirecting clients, suboptimal choices would be made that would be prone for bottleneck congestion, and would \glspl{isp} employ only their own biases in content request redirection, user-level application \gls{qos} agreements might not be met.
         \cite{pushing-cdn-isp-collaboration} states that this lack of awareness to network status is indeed problematic for \gls{cdn} systems, listing end-user mismatching to edge servers based on dubious \gls{dns}-based location binning and resource consuming, non exact methods to detect bottlenecks, as well as lack of agility in server deployment in ideal locations.
         This is a view shared by \cite{cdn-isp-cooperations}, which adds that these problems reside in a shared medium that raises the opportunity for cooperative behavior that would enable better application performance and optimized \gls{isp} resource utilization.
         In fact, Akamai themselves have formed content delivery strategic alliances with major \glspl{isp}, such as AT\&T, Orange, Swisscom and KT \cite{pushing-cdn-isp-collaboration}, which hints at this type of partnership being the norm for content distribution technologies. \todo{cite at&t, orange, swisscom and kt}
@@ -562,60 +564,59 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
 
 \subsection{Architecture}
 
-        The high-level conceptual ALTO architecture can be seen on Figure \ref{fig:alto-architecture}.
-        Central to the operation is the ALTO server, which stores network information and provides it to querying clients.
-        Such network information is provided by trustworthy and relevant entities, such as information derived by routing protocols, ISP-specific policies, network historic measurements, and network feedback provided by third parties regarding application performance on the network.
-        Two protocols can be seen as part of the general architecture: the provisioning protocol - not currently contemplated by the ALTO working group - should specify how information is provided to the ALTO Server; the ALTO protocol - main focus of the working group with the same name - specifies server-client interactions as a request-response interface for retrieval of network attributes.
-        The ALTO client is the main consumer of the ALTO service as a whole, and it queries the ALTO server on network information whenever it deems such data as necessary to what it's doing at a given moment, with some potential use cases discussed previously.
-        An ALTO client could be seen as any entity which is able to interface with the ALTO protocol with the role of a client, and as such is not tied to a specific implementation - in the example of P2P file sharing, a peer can act as an ALTO client (like the example scenario in Figure \ref{fig:alto-design}), but instead a tracker could enhance its role in assisting peer communication by having an embedded ALTO client which would then act on behalf of querying peers as to provide them with an optimal response, minimizing needed protocol modifications and thus facilitating integration with currently existing tracker-oriented P2P solutions.
+    The high-level conceptual \gls{alto} architecture can be seen in Figure \ref{fig:alto-architecture}.
+        Central to the operation is the \gls{alto} server, which stores network information and provides it to querying clients.
+        Such network information is provided by trustworthy and relevant entities, as could be derived by routing protocols, \gls{isp}-specific policies, historic measurements, and feedback provided by third parties regarding application performance on the network.
+        Two protocols can be seen as part of the general architecture: the provisioning protocol - which is not currently contemplated by the \gls{alto} working group - should specify how information is provided to the \gls{alto} server; the \gls{alto} protocol - main focus of the working group with the same name - specifies server-client interactions as a request-response interface for retrieval of network attributes.
+        The \gls{alto} client is the main consumer of the \gls{alto} service, and it queries the \gls{alto} server on network information whenever it deems such data as necessary to what it's doing at a given moment, with some potential use cases discussed previously.
+        An \gls{alto} client could be seen as any entity which is able to interface with the \gls{alto} protocol with the role of a client, and as such is not tied to a specific implementation - in the example of \gls{p2p} file sharing, a peer can act as an \gls{alto} client (like the example scenario in Figure \ref{fig:alto-design}), but a tracker could instead take that role, enhancing its ability of assisting peer communication by having an embedded \gls{alto} client that would then act on behalf of peers when querying for \gls{isp} insight as to provide an optimal peer pairing.
+        Using the tracker-oriented \gls{alto} client approach would minimize needed \gls{p2p} client protocol modifications and thus facilitate integration with currently existing applications.
 
-    \begin{figure}[!t]
+    \begin{figure}[H]
     \centering
     \includegraphics[scale=0.60]{alto-architecture.jpeg}
-    \caption{ALTO architecture (adapted from \cite{alto-protocol}) }
+    \caption{ALTO architecture (adapted from \cite{alto-protocol})}
     \label{fig:alto-architecture}
     \end{figure}
 
-    \newpage
+    The \gls{alto} services contemplated by the working group can by visualized in Figure \ref{fig:alto-services}.
 
-        The ALTO services contemplated by the corresponding working group can by visualized in Figure \ref{fig:alto-services}.
-
-    \begin{figure}[!h]
+    \begin{figure}[H]
     \centering
     \includegraphics[scale=0.55]{alto-services.jpeg}
     \caption{ALTO services (adapted from \cite{alto-protocol}) }
     \label{fig:alto-services}
     \end{figure}
 
-    The ALTO server stores and provides special mappings in the form of network and cost maps.
+    The \gls{alto} server stores and provides special mappings in the form of network and cost maps.
 
     A network map provides network location grouping identifiers and the corresponding aggregated endpoints.
-    It utilizes Provider-Defined Identifiers (PIDs) as a key, and the mapping itself is left to the responsibility of the providers - it is thus a way of indicating that many endpoints should be handled similarly.
-    A provider can then aggregate endpoints by geographical proximity, one or many subnets, one or many Autonomous Systems (ASs), etc., and attribute properties to the aggregate, instead of the endpoint.
-    This is advantageous not only for scalability reasons - since it can compress information - but also because it allows ISPs to abstract network endpoints into groups, thus ensuring privacy of network topology details whilst maintaining useful network guidance, as the ISP has full control of how endpoints are aggregated, and consequentially how traffic is engineered since this changes how clients interpret resources.
+    It utilizes \glspl{pid} as a key, and the mapping itself is left to the responsibility of the providers - it is a way of indicating that many endpoints should be handled similarly.
+    A provider can then aggregate endpoints by geographical proximity, one or many subnets, one or many \glspl{as}, etc., and attribute properties to the aggregate, instead of the endpoint.
+    This is advantageous not only for scalability reasons - since it can compress information - but also because it allows \glspl{isp} to abstract network endpoints into groups, thus ensuring privacy of network topology details whilst maintaining useful network guidance, as the \gls{isp} has full control of how endpoints are aggregated, and consequentially how traffic is engineered since this changes how clients interpret resources.
 
-    A second resource type provided is a cost map, which can be defined as a matrix M, where $M_{ij}$ - with i and j being the source and destination PIDs, respectively - is the associated path cost between the two indexes.
+    A second resource type provided is a cost map, which can be defined as a matrix M, where $M_{ij}$ - with i and j being the source and destination \glspl{pid}, respectively - is the associated path cost between the two indexes.
     The cost has two components: its metric and mode.
-    The ALTO base protocol only defines a single, generic, cost metric called "routingcost".
-    However, \cite{alto-metrics} is currently specifying more concrete metrics, with many associated with Quality of Service (QoS) evaluation, e.g., one way and round trip delay, packet loss and throughput.
-    The other cost property, cost mode, can either specify that the metric is to be interpreted as a numerical value or as an ordinal ranking among all other costs in that cost map - this is useful in cases where too much network information is not deemed reasonable to share, and a simple order of preference that doesn't expose too much infrastructural detail can suffice.
+    The \gls{alto} base protocol only defines a single, generic, cost metric called "routingcost".
+    However, \cite{alto-metrics} is currently specifying more concrete metrics, with many associated with \gls{qos} evaluation, e.g., one way and round trip delay, packet loss and throughput.
+    The other cost property, cost mode, can either specify that the metric is to be interpreted as a numerical value or as an ordinal ranking among all other costs in that cost map - this is useful in cases where too much network information is not deemed reasonable to share, and a simple order of preference that doesn't expose excessive infrastructural details can suffice.
     The decision to separate network and cost map information into two types of resources comes from the reasoning that network mappings are unlikely to change, whereas cost mappings could be periodically updated.
-    As such, it alleviates client applications from the need to retrieve redundant information, and the ability to only retrieve a subset of it - this ability is further expanded in the map filtering service, which allows an ALTO client to further specify which regions of the requesting maps it wishes to retrieve (much like a "SELECT" statement from the Structured Query Language (SQL)), and only these are transmitted to it.
+    As such, it alleviates client applications from the need to retrieve redundant information, and the ability to only retrieve a subset of it - this ability is further expanded in the map filtering service, which allows an \gls{alto} client to further specify which regions of the requesting maps it wishes to retrieve (much like a "SELECT" statement from an \gls{sql} database), and only these are transmitted.
 
-    Finally, the last two services focus on mappings that regard to specific endpoints, instead of abstract mappings that utilize PIDs.
-    An endpoint is currently identified by one of the following: IP address, MAC address, or generic overlay ID.
-    The endpoint property service maps to an endpoint a set of properties, e.g., geographical location or connectivity type, and the endpoint cost map has the same meaning of a cost map, but mapping to particular endpoints and not abstract collections.
-    The ISP has thus the ability to work with abstract aggregates or specific endpoints, showing as little or as much network information as it deems fit.
+    Finally, the last two services focus on mappings that regard to specific endpoints, instead of abstract mappings that utilize \glspl{pid}.
+    An endpoint is currently identified by one of the following: \gls{ip} address, \gls{mac} address, or generic overlay ID.
+    The endpoint property service maps to an endpoint a set of properties, e.g., geographical location or connectivity type, and the endpoint cost map has the same meaning of a cost map, but mapping to particular endpoints addresses and not abstract collections.
+    The \gls{isp} has thus the ability to work with abstract aggregates or specific endpoints, showing as little or as much network information as it deems fit.
 
-    As could be seen, the ALTO project specifies an architecture for trading of network-related information, with well defined roles and a request-response protocol to fulfill interactions between them.
+    As could be seen, the \gls{alto} project specifies an architecture for sharing of network-related information, with well defined roles and a request-response protocol to fulfill interactions between them.
     It also attempts to standardize such interactions in the form of data structures with well defined attributes which are then to be manipulated for each use case.
-    This could then serve as a useful service for any application that wishes to retrieve network information that could improve its decision making at the application level.
-    It is important to note that there are restrictions to what kinds of information are contemplated by the ALTO protocol - for example, transport-level congestion is beyond its scope, and thus should not replace conventional mechanisms.
-    The type of data which is valid to consider, according to \cite{alto-problem-statement}, should not be easily obtainable by the clients themselves (such as end-to-end delay), and should be variable on a longer timescale than the instantaneous kinds that are seen on, for example, congestion control mechanisms, as the frequently resulting querying traffic would be counterproductive to the task of traffic optimization.
-    Potentially valuable information that is in the ALTO scope would then have to be harder to obtain without aid of this service, and not highly mutable through time - for example, routing costs, geographical locations, network proximity, operator's policies, scheduled down-times, etc.
+    This could then serve as a useful service for any application that wishes to retrieve network information as a means to improve its decision making at the application level.
+    It is important to note that there are restrictions to what kinds of information are contemplated by the \gls{alto} protocol - for example, transport-level congestion is beyond its scope, and thus should not replace conventional mechanisms.
+    The type of data which is valid to consider, according to \cite{alto-problem-statement}, should not be easily obtainable by the clients themselves - such as immediate end-to-end delay - and should be variable on a longer timescale than the instantaneous kinds that are seen on, for example, congestion control mechanisms, as the frequently resulting querying traffic would be counterproductive to the task of traffic optimization.
+    Potentially valuable information that is in the \gls{alto} scope would then have to be harder to obtain without aid of this service, and not highly mutable through time - for example, routing costs, geographical locations, network proximity, operator's policies, scheduled down-times, historical application feedback, etc.
 
-    This project is, at time of writing, still on-working, with many drafts being created and updated, as the ALTO project matures and increased its domain applicability.
-    These are, however, relating to service extension and deployment, since the main architecture, protocol design, implementation guidelines and security analysis are fully published into their respective RFC documents, serving as pillars for this work, and the ongoing efforts will serve as inspirations for potential extensibility.
+    This project is, at time of writing, still on-working, with many drafts being created and updated as the \gls{alto} project matures and increases its domain applicability.
+    These are, however, relating to service extension and deployment, since the main architecture, protocol design, implementation guidelines and security analysis are fully published into their respective \gls{rfc} documents, serving as pillars for this work, and the ongoing efforts will serve as inspirations for potential extensibility.
 
 \subsection{Viability}
 
@@ -623,110 +624,109 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
 \label{sssec:alto-security}
 
     Given the nature of this system - the trading of sensitive network structure information that can alter application behavior - it is quite apparent that its design and implementation are not without challenges from a security perspective.
-    \cite{alto-problem-statement} \cite{alto-protocol} \cite{alto-deployment-considerations} include discussions by the working group regarding security preoccupations at the development and deployment stages of the system.
+    Indeed, the working group published discussions regarding security preoccupations at the development and deployment stages of the \gls{alto} system \cite{alto-problem-statement} \cite{alto-protocol} \cite{alto-deployment-considerations}.
 
-    Utilizing the "STRIDE" threat model \todo{cite}, the main threats to the ALTO architecture can be summarized as follows:
+    Utilizing the "STRIDE" threat model \cite{stride}, the main threats to the \gls{alto} architecture can be summarized as follows:
 
 \begin{itemize}
-    \item Spoofing of a legitimate ALTO server that would mislead clients with wrong information - this could give the malicious party the ability to change traffic to its will.
+    \item Spoofing of a legitimate \gls{alto} server that would mislead clients with wrong information - this could give the malicious party the ability to change traffic to its will.
         Spoofing of the clients themselves can also occur, and could allow a malicious party to retrieve sensitive network data outside their permission.
-        Finally, spoofing of a provider of network status that could then feed information into the server to be spread into applications, possibly misleading them in the same way an ALTO server spoofing could, by proxy.
-    \item Tampering of data to mislead either ALTO servers or clients.
+        Finally, spoofing of a provider of network status that could feed information into the server to be spread to applications, possibly misleading them in the same way an \gls{alto} server spoofing could, but by proxy.
+    \item Tampering of data to mislead either \gls{alto} servers or clients.
         If some unauthorized and malicious party can retrieve data that is in transit or storage and tamper with it, clients would act on information that they assume is trustworthy but in fact has been modified.
         As such, clients could be redirected to wrong addresses, or receive incomplete or incorrect data that results in bad decision making.
-        On the other hand, data tampering that occurs between data providers and the ALTO server would give it, a seemingly trustworthy party, untrustworthy data.
+        On the other hand, data tampering that occurs between data providers and the \gls{alto} server would give the latter, from a seemingly trustworthy party, untrustworthy data.
         This would result in the same issues that could arrive from spoofing threats.
         Tampering could also occur in input forms in the server-client or server-provider interface with potential to inject malicious code execution.
-    \item Repudiation of being the source of some network information, whether it be by a third party that volunteered the data or the ALTO server itself, which would make it difficult to neutralize and attribute culpability to incorrect or malicious sources, jeopardizing the legitimacy of the provided network information .
-    \item Information disclosure in the form of ALTO resources being made available to entities that were not contemplated to access it.
-            These resources could give malicious parties insight on network topology status as well as the ability to derive clients' network usage patterns by observing what kinds of resources they attempted to retrieve in a given moment.
-    \item Denial of service (DoS) of the ALTO server itself through query flooding beyond its capability, which would disable its ability to serve legitimate users.
-        By proxy, service denial of external entities can also happen through the manipulation of ALTO resources themselves - leveraging the ALTO's potential to guide traffic, if a given resource is manipulated in such a way that unreasonable favors the preference of a specific subset of servers, these could be favourably picked by clients in a disproportionate matter, and highly affect these servers' availability.
-    \item Elevation of privileges that lead to obtaining or modifying more information than initially permitted.
+    \item Repudiation of being the source of some network information, whether it be by a third party that volunteered the data or the \gls{alto} server itself, which would make it difficult to neutralize and attribute culpability to incorrect or malicious sources, jeopardizing the legitimacy of the provided network information.
+    \item Information disclosure in the form of \gls{alto} resources being made available to entities that were not contemplated to access it.
+            These resources could give malicious parties insight on network topology status as well as the ability to derive clients' network usage patterns by observing what kinds of resources they attempted to retrieve at a given moment.
+    \item \gls{dos} of the \gls{alto} server through request flooding beyond its capability, which would severely hinder - or even negate - its ability to serve legitimate users.
+        By proxy, service denial of external entities can also happen through the manipulation of \gls{alto} resources themselves - leveraging the system's potential to guide traffic, if a given resource is manipulated in such a way that unreasonably favors the preference of a specific subset of servers, these could be selected by clients in a disproportionate matter, and highly affect these servers' availability.
+    \item Elevation of privileges that lead to obtaining or modifying more information than initially permitted, resulting in the previous threats being heightened.
 \end{itemize}
 
-    Many of these threats are standard and could be solved with state of the art solutions which are well proven and tested, as indeed states \cite{alto-protocol}.
-    However, threats of information disclosure - whilst they can be negated with in-transit encryption, what is done with this information the moment it reaches the client is hard to control - situations may arise when a client with proper resource permissions shares, intentionally or not, sensitive network information with one without, after interactions outside the ALTO architecture.
-    Furthermore, many authenticated clients with different permissions could share information among themselves which they initially retrieved legitimately, to get a complete view of the network structure.
+    Many of these threats are standard preoccupations for most computing systems and could be solved with state of the art solutions which are well proven and tested, as indeed states \cite{alto-protocol}.
+    However, regarding threats of information disclosure - whilst they can be negated with in-transit encryption, what is done with this information the moment it reaches the client is hard to control - situations may arise when a client with proper resource permissions shares, intentionally or not, sensitive network information with other users who may or may not have proper clearance, in interactions outside the \gls{alto} architecture.
+    Furthermore, many authenticated clients with different permissions could share information among themselves which they retrieved legitimately, to get a illegitimate complete view of the network structure.
     Thus, individual clients could internally collaborate outside the system to bypass access control measures applied inside it.
-    As such, it is firstly important for the ISP or third parties to carefully plan how what information they are comfortable with sharing, knowing that it may be susceptible to information disclosure outside the secure domain.
-    Possible solutions to minimize these threats are as follows:
+    As such, it is firstly important for the \gls{isp} or third parties to carefully plan on what information they are comfortable with sharing, knowing that it may be susceptible to future disclosure outside the secure domain.
+    Possible solutions to minimize these threats include:
 
 \begin{itemize}
-    \item Reduce the granularity, and generally the details, of the provided data.
-        Intuitively, the less granular and precise the shared information by the ALTO server is, the less valuable the resulting application guidance will be, and thus a balance would have to be found between layer cooperation and ISP privacy.
-        One example is the usage of network groupings by PIDs instead of mapping information to concrete endpoints, working with network status around abstract entities.
-        Another possible mean to reduce information granularity would be by utilizing ordinal cost values, which instead of specifying a concrete metric, e.g. bandwidth in bits per second or packet loss in percentage, the server would give a relative preference rating with lower costs meaning lower preference.
+    \item Reduce the granularity of the provided data.
+        Intuitively, the less granular and precise the shared information by the \gls{alto} server is, the less valuable the resulting application guidance will be, and thus a balance would have to be found between layer cooperation and \gls{isp} privacy.
+        One example is the usage of network groupings by \glspl{pid} instead of mapping information to concrete endpoints, working with network status around abstract entities.
+        Another possible mean to reduce information granularity would be to utilize ordinal cost values, which instead of specifying a concrete metric, e.g., bandwidth in bits per second or packet loss in percentage, the server would give a relative preference rating with lower costs meaning lower preference.
         In both examples, the granularity of network information transmitted to the client is several levels higher in abstraction than the actual physical layer, and this could reduce the flexibility of applications to optimize traffic.
-        However, they can still provide acceptable flexibility without impacting ISP privacy, acting as a much needed compromise.
+        However, they can still provide acceptable flexibility without impacting \gls{isp} privacy, acting as a much needed compromise.
 
-    \item Work only with a small set of trustworthy ALTO clients that are to act on behalf of a larger subset of less trustworthy clients.
+    \item Work only with a small set of trustworthy \gls{ALTO} clients that are to act on behalf of a larger subset of less trustworthy clients.
         For example, network status resources could only be provided to authorized cooperation-oriented trackers in the BitTorrent protocol, which would in turn use this information to provide customized replies to clients without the need to change the base protocol.
-        Similarly, information relevant for user-server assignment could only be provided to authenticated CDN control nodes, who'd share among them a private virtual domain to share information about user-server connectivity and server status that would otherwise be inappropriate for any other type of user.
-        This is still, however, worthy of further threat analysis as restricted information could still leak outside of the system - beyond the means of spoofing discussed previously, seeing how a system behaves with ALTO guidance can give - albeit limited - insight into ISP bias.
+        Similarly, information relevant for user-server assignment could only be provided to authenticated \gls{cdn} control nodes, who'd use among themselves a private virtual domain to share information about user-server connectivity and server status that would otherwise be inappropriate for any other type of user to retrieve.
+        This is still, however, worthy of further threat analysis as restricted information could still leak outside of the system - beyond the means of spoofing discussed previously, seeing how a system behaves with \gls{alto} guidance can give - albeit limited - insight into SP bias.
         To see this, consider how a BitTorrent peer could continuously query a tracker with carefully crafted parameters - such as source address and candidate peers - and attempt to derive information from the resulting action, or similarly how a end-user could utilize similar parameter modification to observe the edge server selection mechanism in action.
 
-    \item Utilize terms of agreements that are to be enforced on every querying client, stating that network status information does not get used beyond its original purpose, prohibiting sharing, and likewise that provided network information through third parties is not falsified.
+    \item Utilize terms of agreements that are to be enforced on every querying client, stating that network status information does not get used beyond its original purpose, prohibiting sharing.
         Although a potentially helpful mechanism to dissuade malicious users, it can be deemed impractical to apply, especially considering the scale at which this information could be shared.
-        Thus, utilizing such means should be applied at a case-by-case situation and it should not replace ISP discretion and server resource maintenance to verify a given standard.
+        Thus, utilizing such means should be applied at a case-by-case situation and it should not replace \gls{isp} discretion and server resource maintenance to ensure a given standard.
 \end{itemize}
 
 \subsubsection{Privacy}%
 
-    Privacy concerns are also very prevalent in the ALTO system, being an ubiquitous talking point in most of the working group's problem statements and protocol specifications.
-    When an ALTO client queries a server for one or more network status resources - in the attempt to optimize the application traffic it will generate in the near future - certain parameters can be passed to the server that can make the response be more personalized and contain more granular information.
-    For example, a real-time P2P media-streaming application seeking ALTO guidance to help choose among a list of candidate streaming peers may wish to include in its query helpful parameters such as the peer list itself, the desired QoS metrics that should favor real-time media streaming, and the network position of the querying client itself.
-    Indeed, these and more patterns will help increase the effectiveness of the ALTO server's guidance in helping the client application achieve its goal, but such happens at the expense of potentially allowing an ALTO server to infer on user pattern statistics.
-    Even assuming that the previously discussed information disclosure threats are nonexistent in the ALTO system, privacy concerns can arrive from client applications because the resource queries they need to produce can contain information about what the client either will or wants to do.
-    This is recognized by the ALTO working group as a possible concern \cite{alto-protocol} \cite{alto-problem-statement}.
-    In response, they state that the clients should firstly be cognizant about the potential tracking risk that is associated with the usage of the system and, as an attempt to make tracking harder, they could disable HTTP cookies and/or opt for more vague query parameters, e.g. by randomizing some bits on endpoint addresses or simply using more broad addresses, whilst being aware that the helpfulness of query results may vary with increased parameter obfuscation.
+    Privacy concerns are also very prevalent in the \gls{alto} system, being an ubiquitous talking point in most of the working group's problem statements and protocol specifications.
+    When an \gls{alto} client queries a server for one or more network status resources - in the attempt to optimize the application traffic it will generate in the near future - certain parameters can be passed to the server that can make the response be more personalized and contain more granular information.
+    For example, a real-time \gls{p2p} media-streaming application seeking \gls{alto} guidance to help choose among a list of candidate streaming peers may wish to include in its query helpful parameters such as the peer list itself, the desired \gls{qos}, and the network position of the querying client itself.
+    Indeed, these and more patterns will help increase the effectiveness of the \gls{alto} server's guidance in helping the client application achieve its goal, but such happens at the expense of potentially allowing an \gls{alto} server to infer on user pattern statistics.
+    Even assuming that the previously discussed information disclosure threats are nonexistent in the \gls{alto} system, privacy concerns can arrive from client applications because the resource queries they need to produce can contain information about what the client either will or wants to do.
+    This is recognized by the \gls{alto} working group as a possible concern \cite{alto-protocol} \cite{alto-problem-statement}.
+    In response, they state that the clients should firstly be cognizant about the potential tracking risk that is associated with the usage of the system and, as an attempt to make tracking harder, they could disable \gls{http} cookies and/or opt for more vague query parameters, e.g. by randomizing some bits on endpoint addresses or simply using more broad addresses, whilst being aware that the helpfulness of query results may vary with increased parameter obfuscation.
 
-    Privacy is likewise a concern towards the server side, as the ISP is providing sensitive network details to clients.
-    Very much like client privacy, ISP-related privacy is also considered by the working group.
-    Provider-Defined Identifiers (PIDs) were created as a means for ISPs to abstract network components as a collection of single network endpoints with similar properties, helping them not to disseminate network information that is too sensitive, and in turn also allows clients to make queries based on these identifiers and maintain a higher level of privacy.
-    An ongoing proposal for protocol extension includes path vectors \cite{alto-path-vector}, that aim to represent information on the intermediary hops from a given source-destination pair, and each of these hops is represented as an Abstract Network Element (ANE) that, similar to PIDs, give ISPs the ability to under or over-abstract the topological representation that gets published to clients, giving more options to balance guidance usefulness with ISP privacy.
+    Very much like client privacy, \gls{isp}-related privacy is also considered by the working group.
+    \glspl{pid} were created as a means for \glspl{isp} to abstract network components as a collection of single network endpoints with similar properties, helping them not to disseminate network information that is too sensitive, and in turn also allows clients to make queries based on these identifiers and maintain a higher level of privacy.
+    An ongoing proposal for protocol extension includes path vectors \cite{alto-path-vector}, that aim to represent information on the intermediary hops from a given source-destination pair, and each of these hops is represented as an \gls{ane} that, similar to \glspl{pid}, give \glspl{isp} the ability to under or over-abstract the topological representation that gets published to clients, giving more options to balance guidance usefulness with provider privacy.
     Other solutions could also be considered depending on the needs of the clients and the direction of the project as a whole.
     For example, the servers themselves could operate on a secure communications channel and maintain a clear agreement on what can and cannot be made with the collected information.
-    Alternatively, clients that wish not to impose much trust on the server's claims not to track them could make bulk queries (or use proxies to do so for them) and privately filter out the relevant information.
+    Alternatively, clients that wish not to impose much trust on the server's claims not to track them could make bulk queries (or use proxies to do so for them) and privately filter out the relevant information, heavily restricting on the ability to retrieve user activity patterns.
 
 \subsubsection{Incentivisation}
 
-    Incentivization relates to creating and divulging, to both layers, incentives to a fully cooperative layer relationship that is inherent in the oracle pattern adopted by the ALTO system.
-    It is quite the challenge to fundamentally change how applications behave on the internet, as indeed it is to ask of ISPs to launch a view of their infrastructure to the outside world.
-    \cite{dan-Commag10} notes incentivisation as one of the key challenges in overlay-underlay cooperation in regards to P2P applications, stating that incentive mechanisms need to exist to ensure that both layers both agree into and maintain a cooperative relationship.
-    According to the ALTO problem statement \cite{alto-problem-statement}, the incentives for both parties to act on the system are the advantages that derive from using it - clients are to expect better application performance by leveraging ALTO guidance, and similarly ISPs should expect that their internal goals, such as an optimization of infrastructural utilization, can be met with the increased traffic engineering ability resulting from their oracle role.
-    If the overlay consuming ALTO guidance has a manageable number of accountable entities - such as a single CDN or data center that the ISP agrees to partner with - it is realistic to maintain a cooperative agreement that can be solidified with feedback and service agreements.
-    However, if the overlay utilizing the ALTO system makes it hard to pinpoint accountability, such as a large P2P application with many users, it will naturally be harder to ensure that the power dynamic between layers doesn't shift beyond an equilibrium.
-    In these cases, policies should be created and enforced to give insurance to both parties that a cooperative relationship is maintained.
+    Incentivization relates to creating and divulging, to both layers, incentives to a fully cooperative layer relationship that is inherent in the oracle pattern adopted by the \gls{alto} system.
+    It is quite the challenge to fundamentally change how applications behave on the internet, as indeed is to ask of \glspl{isp} to launch a view of their infrastructure to the outside world.
+    \cite{dan-Commag10} notes incentivisation as one of the key challenges in overlay-underlay cooperation in regards to \gls{p2p} applications, stating that incentive mechanisms need to exist to ensure that both layers agree to participate in, and maintain, a cooperative relationship.
+    According to the \gls{alto} problem statement \cite{alto-problem-statement}, the incentives for both parties to act on the system are the advantages that derive from using it - clients are to expect better application performance by leveraging \gls{alto} guidance, and similarly \glspl{isp} should expect that their internal goals, such as an optimization of infrastructure utilization, can be met with the increased traffic engineering ability that results from their oracle role.
+    If the overlay consuming \gls{alto} guidance has a manageable number of accountable entities - such as a single \gls{cdn} or data center that the \gls{isp} agrees to partner with - it is realistic to maintain a cooperative agreement that can be solidified with feedback and service agreements.
+    However, if the overlay utilizing the \gls{alto} system makes it hard to pinpoint accountability, such as a large \gls{p2p} application with many users, it will naturally be harder to ensure that the power dynamic between layers doesn't shift beyond an equilibrium.
+    In these cases, policies could be created and enforced to give insurance to both parties that a cooperative relationship is maintained.
 
-    The lack of cooperation could also occur by the ISPs, that could leverage their new-found application traffic engineering capabilities to steer traffic in a way that is advantageous to only them.
-    Again, much like the lack of cooperation by clients, it is difficult to guarantee an equilibrium in the power dynamic between layers, but by guaranteeing improved QoS levels for applications that utilize ALTO cooperation, ISPs become responsible in guaranteeing that these improvements are met, fearing client abandonment otherwise.
+    The \glspl{isp} could too, like mentioned above, lack proper cooperation, as they are found in a new power dynamic that would leverage their application traffic engineering capabilities to steer traffic in a way that is advantageous to only them, or at least in a disproportionate manner.
+    Again, much like the lack of cooperation by clients, it is difficult to guarantee an equilibrium in the power dynamic between layers, but by guaranteeing improved \gls{qos} levels for applications that utilize \gls{alto} cooperation, \glspl{isp} become responsible for guaranteeing that these improvements are met, fearing client abandonment otherwise.
     Giving freedom to both layers on how they act ensures that the system evolves to a common ground that benefits both sides, at least enough to justify them remaining there.
 
-    Finally, if the application-ISP tussle becomes harsher, as it tends to, a cooperative system such as ALTO may become necessary - and thus beyond preferable - meaning that ISP may be forced to block or throttle traffic that it cannot route properly, as it historically happened.
-    Thus, acting with ALTO goes beyond cooperation into symbiosis, meaning that both parties have to act cooperatively to maintain network sustainability.
+    Finally, if the application-\gls{isp} tussle becomes harsher and unmaintainable - a point that was argued for in the network infrastructure effects portion in Section \ref{sec:state-of-art} - a cooperative system such as \gls{alto} may become necessary - and thus beyond preferable - meaning that \glspl{isp} may be forced to block or throttle traffic that it cannot route properly, as it historically happened.
+    Thus, acting with \gls{alto} could go beyond a voluntary action into a symbiotic necessity, meaning that both parties have to act cooperatively to maintain network sustainability.
     Regardless, the best approach seems to be that the system must in of itself be self-justifiable, meaning that the advantages that it brings should be enough to convince both parties to act on it.
-    ISPs are nevertheless free to deploy their own incentive mechanisms to facilitate early application adoption, that could include monetary rewards or routing privileges.
+    \glspl{isp} are nevertheless free to deploy their own incentive mechanisms to facilitate early application adoption, that could include monetary rewards or routing privileges, but doing so could damage network neutrality.
 
 \subsubsection{Network Neutrality}
     As stated by \cite{qos-framework}: "According to most network neutrality proponents, network neutrality rules are intended to preserve the Internet's ability to serve as an open, general-purpose infrastructure that provides value to society over time in various economic and non-economic ways. In particular, network neutrality rules aim to foster innovation in applications, protect users' ability to choose how they want to use the network, without interference from network providers, and preserve the Internet's ability to improve democratic discourse, facilitate political organization and action and to provide a decentralized environment for social, cultural and political interaction in which anyone can participate.".
-    Network neutrality has been a popular point of discussion as society grows around the Internet, sparking debates around the world on what the best course of action should be - for example, regulations were introduced by the FCC in the United States \cite{fcc} to police network neutrality, and the European Union has a framework for net neutrality laid down by article 3 \cite{article-3}.
-    However, potential violators of the spirit of a network neutrality exist, such as British Plusnet's usage of deep packet inspection (DPI) to implement limits and differential charges for different traffic \cite{arstechnica}, or Portuguese MEO's smartphone contracts which include zero rating programs for a given set of services \cite{meo-packages} that bundle applications such as Facebook or Spotify.
-    Network neutrality advocates are concerned with guaranteeing that ISPs keep Internet communications free and do not discriminate based on the traffic's specifics, such as platforms, applications, or source and destination.
-    On the other hand, opponents of net neutrality, among them ISPs, broadband and telecom companies, and hardware manufactures, argue against net neutrality - they claim that it would would reduce incentive to invest, as investments would be harder to insure without the ability to charge higher rates for better infrastructure capabilities.
-    Zero rating programs, such as Wikipedia Zero, which provides Wikipedia with no charge to a select group of low income regions \todo{cite} , would also not be possible.
-    Additionally, with net neutrality, the ISP's ability to route traffic could itself be at jeopardy - as \cite{jerzy} states in their solution to compromise net neutrality with QoS demands via service differentiation, the Internet is growing at an astonishing rate, as are the QoS demands of applications, and operating the infrastructure on a purely best-effort basis will not be sufficient without a constant provisioning of such infrastructure to keep up with demand, and this too may not be viable nor even possible.
+    Network neutrality has been a popular point of discussion as society grows around the Internet, sparking debates around the world on what the best course of action should be - for example, regulations were introduced by the \gls{fcc} in the United States \cite{fcc} to police network neutrality, and the European Union has a framework for net neutrality laid down in article 3 \cite{article-3}. \todo{cite fcc and article 3}
+    However, potential violators of the spirit of a network neutrality exist, such as British Plusnet's usage of \gls{dpi} to implement limits and differential charges for different traffic \cite{arstechnica}, or Portuguese MEO's smartphone contracts which include zero rating programs for a given set of services \cite{meo-packages} that bundle applications such as Facebook or Spotify. \todo{cite all this}
+    Network neutrality advocates are concerned with guaranteeing that \glspl{isp} keep Internet communications free and do not discriminate based on the traffic's specifics, such as platforms, applications, or source and destination addresses.
+    On the other hand, opponents of net neutrality, among them the \glspl{isp} themselves, broadband and telecom companies, and hardware manufactures, argue against net neutrality - they claim that it would would reduce incentive to invest, as investments would be harder to insure without the ability to charge higher rates for better infrastructure capabilities.
+    Zero rating programs, such as Wikipedia Zero, which provides Wikipedia pages with no charge to a select group of low income regions \todo{cite} , would also not be possible. \todo{cite wikipedia}
+    Additionally, with net neutrality, the \gls{isp}'s ability to route traffic could itself be at jeopardy - as \cite{jerzy} states in their solution to compromise net neutrality with \gls{qos} demands via service differentiation, the Internet is growing at an astonishing rate, as are the demands of applications, and operating the infrastructure on a purely best-effort basis will not be sufficient without a constant provisioning of such infrastructure to keep up with demand, and this too may not be viable nor even possible. \todo{cite jerzy}
     Thus, discriminating by traffic services may be needed to guarantee that, say, real-time medical information gets priority over real-time media streaming, which in turn gets priority over e-mail or file sharing.
 
-    Considering that the ALTO system behaves in an oracle pattern of cooperation where a single entity - the ISP - is able to heavily influence the traffic patterns of the applications it aids, on the promise of a cooperative network underlay-overlay relationship, such system could violate the principles of net neutrality.
-    In particular, this could happen if the oracle either blocks, or at the very least provides different guidance to different clients, depending on where the query originated from - e.g. what application, source address, or other defining characteristics.
-    A possible consequence of such a system guiding the Internet could be that given applications can consistently have better QoS measurements not on the basis of the application's implementation, but on the ISP personal biases.
-    Oracle systems such as ALTO do not seem to be analogous to other traffic engineering strategies, such as the usage of MPLS, DiffServ, nor to other means of ISP intervention on overlays, such as the deployment of data caches and redirector proxies - this is because the oracle system, in contrast to the previously mentioned strategies, is one of mutual voluntariness and cooperativeness between ISPs and applications.
-    However, it could be argued that if the ALTO system offered guidance to applications in such a way that consistently resulted in better application performance, such applications would be pressured to use such guidance as a means to remain competitively viable, and the ISPs would then have a platform to influence a considerable amount of traffic to their will, being in a position to, depending on how they treat guidance requests, break network neutrality.
-    This neutrality concern can be alleviated if application guidance operated on classes of traffic, e.g. real-time communication or file sharing, thus operating on traffic aggregates to insure QoS levels needed to given application types, but never discriminating beyond such given classes.
+    Considering that the \gls{alto} system behaves in an oracle pattern of cooperation where a single entity - the \gls{isp} - is able to heavily influence the traffic patterns of the applications it aids, on the promise of a cooperative network underlay-overlay relationship, such system could violate the principles of net neutrality.
+    In particular, this could happen if the oracle either blocks, or at the very least provides different guidance to different clients, depending on where the query originated from - e.g., which application, which source address, or other defining characteristics.
+    A possible consequence of such a system guiding the Internet could be that given applications can consistently have better \gls{qos} measurements not on the basis of the application's implementation, but on the \gls{isp} personal biases.
+    Oracle systems such as \gls{alto} do not seem to be analogous to other traffic engineering strategies, such as the usage of \gls{mpls}, \gls{diffserv}, nor to other means of \gls{isp} intervention on overlays, such as the deployment of data caches and redirector proxies - this is because the oracle system, in contrast to the previously mentioned strategies, is one of mutual voluntary and cooperative nature between \glspl{isp} and applications.
+    However, it could be argued that if the \gls{alto} system offered guidance to applications in such a way that consistently resulted in better application performance, such applications would be pressured to use such guidance as a means to remain competitively viable, and the \glspl{isp} would then have a platform to influence a considerable amount of traffic to their will, being in a position to, depending on how they treat guidance requests, break network neutrality.
+    This neutrality concern can be alleviated if application guidance operated on classes of traffic, e.g. real-time communication or file sharing, thus operating on traffic aggregates to insure \gls{qos} levels needed to given application types, but never discriminating beyond such given classes.
 
     As the protocol is defined \cite{alto-protocol}, the provided network status information is truthful and guidance is optional, and neutrality can then still remain outside of the system, since no routing measurements exist within it.
-    If particular implementations of the ALTO system give guidance in such a way to guide traffic in a discriminate fashion, and if such guidance have advantages that much outweigh any alternative - thus rendering it beyond optional - a case can be made for how ALTO as a concept can break network neutrality - for all its advantages and disadvantages discussed below - as the ISP can utilize discriminatory behaviour to treat applications on their infrastructure differently.
+    If particular implementations of the \gls{alto} system give guidance in such a way to guide traffic in a discriminatory fashion, and if such guidance has advantages that much outweigh any alternative - thus rendering it beyond optional - a case can be made for how \gls{alto} as a concept can break network neutrality - for all its advantages and disadvantages discussed below - as the \gls{isp} can utilize discriminatory behaviour to treat applications on their infrastructure differently.
 
 \subsubsection{Multi-Domain orchestration}
 
