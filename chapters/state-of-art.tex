@@ -621,7 +621,7 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
 \subsection{Viability}
 
 \subsubsection{Security}
-\label{sssec:alto-security}
+\label{ssec:alto-security}
 
     Given the nature of this system - the trading of sensitive network structure information that can alter application behavior - it is quite apparent that its design and implementation are not without challenges from a security perspective.
     Indeed, the working group published discussions regarding security preoccupations at the development and deployment stages of the \gls{alto} system \cite{alto-problem-statement} \cite{alto-protocol} \cite{alto-deployment-considerations}.
@@ -731,36 +731,36 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
 \subsubsection{Multi-Domain orchestration}
 
     The Internet as we know it today spans the entire globe and is rather complex in nature.
-    According to \cite{dan-Commag10}, the classic vision of the Internet consisting of a network of transit and stub ASs no longer seems accurate, as it now is much more complex - for starters, the role of network owner and service provider are separating, and Internet access is provided by numerous competing ISPs.
-    As a demonstration of such complexity, Figure \ref{network-connectivity-globe} displays how the Internet is structured into many tiers of different service providers.
-    It can thus be seen that the act of layer cooperation can get harder when the influence domain increases and potentially spans many different ISP regions which will inevitably act differently as they can have different technologies, biases, policies, and overall goals.
-    These per-ISP biases can make it difficult to guarantee that traffic optimization spanning multiple administrative domains is actually useful and achieves the cooperative nature in mind - for example, an ISP may not be comfortable categorising end-point costs of a given metric, thus making path calculations that pass through that ISP domain not viable.
-    Regardless, per-domain ISP guidance has nonetheless plenty of potential - for example, the ability to localize traffic, as entities outside of domain can be identified by ISP, and similarly per-domain optimization of resources can still be useful when such domain is large, and can be applied to high-volume operations such as those in a data center.
-    The ALTO server within a given domain can also leverage probing measurements and feedback statistics to derive information in areas whose topological detail is unknown, giving a partial network view that contains topological insight and also information derivation that, whilst not being as good as a complete topological insight, may nonetheless power a cooperative effort within a given domain with good results.
-    Some data may, whoever, be both not shared by an external domain nor derivable - endpoint property information, such as network connection types, or server footprints - e.g., available cpu, ram and storage - can only be retrieved by authoritative entities in a given domain and probing to them may be not available, thus considerably limiting the applicability of a single ALTO domain.
+    According to \cite{dan-Commag10}, the classic vision of the Internet consisting of a network of transit and stub \glspl{as} no longer seems accurate, as it now is much more complex - for starters, the role of network owner and service provider are separating, and Internet access is provided by numerous competing \glspl{isp}.
+    As a demonstration of such complexity, Figure \ref{fig:network-connectivity-globe} displays how the Internet is structured into many tiers of different service providers.
+    It can thus be inferred that the act of layer cooperation can get harder when the influence domain increases and potentially spans many different \gls{isp} regions which will inevitably act differently as they can have different technologies, biases, policies, and overall goals.
+    These per-\gls{isp} biases can make it difficult to guarantee that traffic optimization spanning multiple administrative domains is actually useful and achieves the cooperative nature in mind - for example, an \gls{isp} may not be comfortable categorising end-point costs of a given metric, thus making path calculations that pass through that \gls{isp} domain not viable.
+    Regardless, per-domain \gls{isp} guidance has nonetheless plenty of potential - for example, the ability to localize traffic, as entities outside of domain can be identified by \gls{isp}, and similarly per-domain optimization of resources can still be useful when such domain is large, and can be applied to high-volume operations such as those in a data center.
+    The \gls{alto} server within a given domain can also leverage probing measurements and feedback statistics to derive information in areas whose topological detail is unknown, giving a partial network view that contains topological insight and also information derivation that, whilst not being as good as a complete topological insight, may nonetheless power a cooperative effort within a given domain with good results.
+    Some data may, whoever, be both not shared by an external domain nor derivable - endpoint property information, such as network connection types, or server footprints - e.g., available \gls{cpu}, \gls{ram} and storage - can only be retrieved by authoritative entities in a given domain and probing solutions may not be available, thus considerably limiting the applicability of a single \gls{alto} domain.
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
     \centering
     \includegraphics[scale=0.30]{network-connectivity-globe.png}
     \caption{Conceptual representation of ISP diversity on the Internet}
     \label{fig:network-connectivity-globe}
     \end{figure}
 
-    Even assuming that all ISPs are comfortable with sharing sufficient information, ambiguity may arise - considering a cost map with the generic "routingcost" cost metric, ISPs could internally calculate routing costs differently, and prioritizing different goals, e.g. reducing overall link usage versus reducing inter-AS traffic first and foremost.
-    The base ALTO protocol specification states that each network region can provide its ALTO services, which in turn convey network information from their perspective.
-    A network region consists of a given administrative domain, such as an AS, an ISP, or a given set of agreeing ISPs \cite{alto-protocol}, thus implying that if multiple ISPs share an ALTO server they must reach a consensus on what network status is available for query from the outside.
-    Furthermost, the ALTO working group's deployment considerations \cite{alto-deployment-considerations} document states that an ALTO client can query a single server for one or many metrics, or he can additionally query multiple server instances on different networks \cite{alto-deployment-considerations}.
+    Even assuming that all \glspl{isp} are comfortable with sharing sufficient information, ambiguity may arise - considering a cost map with the generic "routingcost" cost metric, \glspl{isp} could internally calculate routing costs differently, and prioritizing different goals, e.g., reducing overall link usage versus reducing inter-\gls{as} traffic first and foremost.
+    The base \gls{alto} protocol specification states that each network region can provide its \gls{alto} services, which in turn convey network information from their perspective.
+    A network region, per the protocol specification, consists of a given administrative domain, such as an \gls{as}, an \gls{isp}, or a given set of agreeing \glspl{isp} \cite{alto-protocol}, thus implying that if multiple \glspl{isp} share an \gls{alto} server they must reach a consensus on what network status is available for query from the outside.
+    Furthermost, the \gls{alto} working group's deployment considerations \cite{alto-deployment-considerations} document states that an \gls{alto} client can query a single server for one or many metrics, or he can additionally query multiple server instances on different networks \cite{alto-deployment-considerations}.
     It is explicitly stated in the document that each server could give guidance for only a given network partition, and such guidance may wildly differ between them due to the fact that different algorithms and objectives may have been applied.
-    The document also states that, in regards to extending ALTO's reachability, three different strategies could be applied:
+    The document also states that, in regards to extending the reachability of a single server, three different strategies could be applied:
 
 \begin{itemize}
-    \item \textbf{Authoritative Servers}: A given set of servers can provide guidance for all kinds of destinations to all ALTO clients.
-    \item \textbf{Cascaded Servers}: An ALTO server can possess an embedded ALTO client and query other ALTO servers if it cannot serve the original request, acting as a middleman between the client and the more apt server.
-    \item \textbf{Inter-server Synchronization}: Different ALTO Servers communicate among themselves to expand the knowledge space.
+    \item \textbf{Authoritative Servers}: A given set of servers can provide guidance for all kinds of destinations to all \gls{alto} clients.
+    \item \textbf{Cascaded Servers}: An \gls{alto} server can possess an embedded \gls{alto} client and query other neighbouring servers if it cannot serve the original request, acting as a middleman between the client and the more appropriate servers.
+    \item \textbf{Inter-server Synchronization}: Different \gls{alto} servers communicate among themselves to expand the knowledge space.
 \end{itemize}
 
     The last strategy is still being subject to development and standardization by the working group as part of a bigger attempt to link different network regions and technologies into a single, homogeneous abstraction of the Internet.
-    Current efforts in multi domain orchestration and relevant use case examples are summarized in the ongoing work of \cite{ALTO-multi-domain-use-cases(draft)}.
+    Current efforts in multi domain orchestration and relevant use case examples are summarized in the ongoing work of \cite{alto-multi-domain-use-cases}.
 
 \section{Summary}
 
