@@ -63,7 +63,7 @@
 
 \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.25]{architecture-macro.png}
+        \includegraphics[scale=0.25]{architecture-macro2.png}
         \caption{System architecture at a macro level}
         \label{fig:macro-architecture}
 \end{figure}
@@ -414,50 +414,61 @@ Further formal specification is not made as it has been extensively done in the 
 
 \subsection{ALTO Client}
 
-    An ALTO resource consumer is materialized in the architecture in the form of an ALTO client, which can be any entity who is able to interface with an ALTO server to query for ALTO resources.
-    Whilst the ALTO working group was initially devised to help increase traffic localization via the sharing of network information, it now has an increased scope where an ideal client is any application which generates network traffic and would be able to optimize it with aid from an oracle entity with privileged network information.
-    Thus, an ALTO client is fit to be implemented in P2P applications, and could be embedded in a P2P client itself to help with picking neighbouring and content providing nodes, or on a tracker that would accomplish the same goal on behalf of the querying peer.
-    Likewise, nodes which are unable to optimally select between other nodes, such as CDN edge nodes or content mirrors, could also benefit from oracle guidance, and thus qualify as appropriate ALTO clients.
+    An \gls{alto} resource consumer is materialized in the architecture in the form of an \gls{alto} client, which can be any entity who is able to interface with an \gls{alto} server to query for \gls{alto} resources.
+    Whilst the \gls{alto} working group was initially devised to help increase \gls{p2p}-related traffic localization via the sharing of network information, it now has an increased scope where an ideal client is any application which generates network traffic and would be able to optimize it with aid from an oracle entity with privileged network information.
+    Thus, an \gls{alto} client is fit to be implemented in \gls{p2p} applications, and could be embedded in a \gls{p2p} client itself to help with picking neighbouring and content providing nodes, or on a tracker that would accomplish the same goal on behalf of the querying peer.
+    Likewise, nodes which are unable to optimally select between other nodes, such as \gls{cdn} edge nodes or content mirrors, could also benefit from oracle guidance, and thus qualify as appropriate \gls{alto} clients.
 
-    Figure \ref{fig:p2p-communication} exemplifies how a cooperative P2P application would, acting as an ALTO client, interact with the ALTO server to retrieve relevant network resources to aid their application choice of what candidate peer to consume a service from.
+    Figure \ref{fig:communication-p2p} exemplifies how a cooperative \gls{p2p} application would, acting as an ALTO client, interact with the ALTO server to retrieve relevant network resources to aid their application choice of what candidate peer to consume a service from.
     Firstly, a network map is retrieved to help group endpoints into groupings, and afterwards a cost map is retrieved filtering only the querying peer as source, candidate peers as destinations, and the routing cost and bandwidth cost matrices.
-    Acting on this information, the peer chooses the candidate that gives a good balance between ISP routing cost and path bandwidth, making a decision that should ideally benefit both them and the ISP that provided the information.
+    Acting on this information, the peer chooses the candidate that gives a good balance between \gls{isp} routing cost and path bandwidth, making a decision that should ideally benefit both them and the \gls{isp} that helped provide that information.
 
-    Figure \ref{fig:p2p-tracker-communication} is similar to the previous example, meaning it relates to a P2P application, but this time the application-level traffic optimization is made in a way that is transparent to the P2P client.
-    As a choice to purely localize traffic, as this alone can bring plenty of benefits to both layers, and as a means to minimize protocol modification, it is the tracker that serves as an ALTO client.
-    Whenever a request is made by a P2P client to retrieve peers serving a given data chunk, the tracker first consults with the ALTO server and retrieves its network map that groups peers within administrative domains - either inside the providing ISP's domain, thus the local network, and outside administrative domains, grouped by types of peering connections to different autonomous regions.
-    The tracker could use a very simple algorithm to filter out of its candidate pool only peers that reside in the same locality as the p2p client that contacted him.
-    After packaging a reply to the P2P client, the protocol acts normally and traffic could be successfully localized with minimal impact.
+\todo{create communication p2p example diagram}
 
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
-        \includegraphics[scale=0.35]{communication-tracker.png}
-        \caption{High-level communication diagram of a successful resource action request}
+        \includegraphics[scale=0.35]{communication-p2p.png}
+        \caption{High-level communication diagram of a \gls{p2p} application utilizing \gls{ALTO}}
+        \label{fig:communication-p2p}
+\end{figure}
+
+    Figure \ref{fig:communication-tracker} is similar to the previous example, in the sense that it aids a \gls{p2p} application by resorting to \gls{alto}'s guidance, but this time the application-level traffic optimization is made in a way that is transparent to the \gls{p2p} client.
+    As a choice to purely localize traffic - as this alone can bring plenty of benefits to both layers - and as a means to minimize protocol modification, it is the tracker that acts as an \gls{alto} client.
+    Whenever a request is made by a \gls{p2p} client to retrieve peers serving a given data chunk, the tracker first consults with the \gls{alto} server and retrieves its network map that groups peers within administrative domains - either inside the providing \gls{isp}'s domain, thus the local network, and outside administrative domains, grouped by types of peering connections to different autonomous regions.
+    The tracker could use a very simple algorithm to filter out of its candidate pool peers that reside outside of the \gls{isp} region where the requesting \gls{p2p} client resides, if a local alternative exists.
+    After packaging a reply to the \gls{p2p} client, the protocol acts normally and traffic could be successfully localized with minimal impact.
+
+\begin{figure}[H]
+        \centering
+        \hspace*{-1em}
+        \includegraphics[scale=0.40]{communication-tracker.png}
+        \caption{High-level communication diagram of a tracker utilizing \gls{ALTO} by proxy}
         \label{fig:communication-tracker}
 \end{figure}
 
-    On the same vein, Figure \ref{fig:cdn-communication} exemplifies how this time a cdn controller would use the system to better help its decision in matching CDN clients to an edge server on their system.
-    To do this, it retrieves a property map to query for server status information, and subsequently retrieves a cost map to query for path information between the CDN client and the candidate edge servers.
-    Having all the relevant server status information, e.g. available processing and storage resources, as well as connection properties, e.g. max possible bandwidth, latency, and packet loss, the CDN controller is in a condition to more optimally redirect his client.
+    On the same vein, Figure \ref{fig:cdn-communication} exemplifies how this time a \gls{cdn} controller would use the system to better help its decision in matching \gls{cdn} clients to an edge server on their system.
+    To do this, it retrieves a property map to query for server status information, and subsequently retrieves a cost map to query for path information between the \gls{cdn} client and the candidate edge servers.
+    Having all the relevant server status information, e.g. available processing and storage resources, as well as connection properties, e.g. max possible bandwidth, latency, and packet loss, the \gls{cdn} controller is in a condition to more optimally redirect his client.
 
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
-        \includegraphics[scale=0.35]{communication-cdn.png}
-        \caption{High-level communication diagram of a successful resource action request}
-        \label{fig:communication-\gls{cdn}}
+        \hspace*{-2em}
+        \includegraphics[scale=0.40]{communication-cdn.png}
+        \caption{High-level communication diagram of a \gls{cdn} controller utilizing \gls{alto}}
+        \label{fig:communication-cdn}
 \end{figure}
 
 \subsection{ALTO Server}
 
-    An ALTO resource provider is the ALTO server, an entity that possesses pre-processed network information in the form of ALTO resources.
-    Its job is to store and manage such resources so they can be provided it to querying ALTO clients, with the additional responsibilities of data validation and persistence.
-    Conceptually, the ALTO server is seen as a single entity, but considering the sensible information that could be stored within it and the influence it has on shaping network traffic, it would not be uncommon for an ALTO server to have a knowledge domain correspondent to the ISP that owns it.
-    Physically, though, the resource provider layer could consist of many interlinked ALTO providers with an increased coverage area of network knowledge.
-    Means through which this could occur are further specified in section \ref{ssec:multi-alto}.
+    An \gls{alto} resource provider is the \gls{alto} server, an entity that possesses pre-processed and authorized network information in the form of \gls{alto} resources.
+    Its job is to store and manage such resources so they can be provided to querying \gls{alto} clients, with the additional responsibilities of data validation and persistence.
+    Conceptually, the \gls{alto} server is seen as a single entity, but considering the sensible information that could be stored within it and the influence it has on shaping network traffic, it would not be uncommon for an \gls{alto} server to have a knowledge domain correspondent to the \gls{isp} that owns it.
+    Physically, though, the resource provider layer could consist of many interlinked \gls{alto} providers with an increased coverage area of network knowledge.
+    Means through which this could occur are further specified in Section \ref{ssec:multi-alto}.
 
-    A listing of available HTTP endpoints of the ALTO server interface is available in table \ref{table:alto-server-api}.
-    All resource types are hierarchically descendent from a "resources" path, and each unique type of resource exposes his own endpoint, with the methods to add, update, remove, and retrieve with and without filter.
-    These methods are subjected to the access control mechanisms discussed in \ref{sec:system-roles}, as one should only expect reputable sources to upload and modify data, and only permitted users to query it.
+    A listing of available \gls{http} endpoints of the \gls{alto} server interface is available in Table \ref{table:alto-server-api}.
+    All resource types hierarchically descend from a "resources" path, and each unique type of resource exposes his own endpoint, with the methods to add, update, remove, and retrieve with and without filter as arguments.
+    These methods are subjected to the access control mechanisms discussed in Section \ref{sec:system-roles}, as one should only expect reputable sources to upload and modify data, and only permitted users to query it.
 
 \begin{table}[]
 \resizebox{\textwidth}{!}{\begin{tabular}{|l|l|l|}
@@ -489,6 +500,7 @@ POST      & /resources/endpointcostmaps/\{id\} & Get the Endpoint Cost Map with 
 PUT       & /resources/endpointcostmaps/\{id\} & Modify the contents of an Endpoint Cost Map with the specified ID                             \\ \hline
 DELETE    & /resources/endpointcostmaps/\{id\} & Remove an Endpoint Cost Map with the specified ID                                             \\ \hline
 \end{tabular}}
+\caption{\gls{alto} server's available endpoints}
 \label{table:alto-server-api}
 \end{table}
 
@@ -496,16 +508,16 @@ DELETE    & /resources/endpointcostmaps/\{id\} & Remove an Endpoint Cost Map wit
 \subsubsection{Resource Filtering}
 
     Resource filtering is the task through which a resource consumer can pass a filter object to the resource provider that specifies the parameters that the consumer wishes to retrieve specifically.
-    With it, there's no need to pass more information to the client than he wishes to get, thus minimizing used network bandwidth and client cpu cycles to send and process the resource, respectively.
+    With it, there's no need to pass more information to the client than he wishes to get, thus minimizing used network bandwidth and client \gls{cpu} cycles to send and process the resource, respectively.
     The need for filtering becomes greater at a larger system scale - with an increased number of users that query routinely, and resources that can have a massive amount of entries - specifically those that regard to network endpoints - such a mechanism becomes a necessary optimization.
-    Keeping with the objective of implementing a fully compatible ALTO protocol as specified by the working group, so will the resource filtering specifications be equal to those already specified in the protocol design \cite{alto-protocol}, thus no further specification will be necessary.
+    Keeping with the objective of implementing a fully compatible \gls{alto} protocol as specified by the working group, so will the resource filtering specifications be equal to those already specified in the protocol design \cite{alto-protocol}, thus no further specification will be necessary.
 
-    For clarification, the ALTO server must maintain an endpoint for retrieving all main specified network status resources via filtering, i.e. the server must let the client retrieve ALTO resources with parametrization that dictates what concrete fields must be delivered.
+    For clarification, the \gls{alto} server must maintain an endpoint for retrieving all main specified network status resources via filtering, i.e. the server must let the client retrieve \gls{alto} resources with parametrization that dictates what concrete fields must be delivered.
     The types of resource filters considered are the following:
 
     \begin{itemize}
-        \item \textbf{Network Map filter}: List of PIDs of value $PID\_List$, that if empty signifies the entire subset of available PIDs.
-            All entries of value
+        \item \textbf{Network Map filter}: List of \gls{pids} of value $PID\_List$, that if empty signifies the entire subset of available \gls{pids}.
+            All entries of value:
 
             \begin{center}
             $(PID, Endpoint\_List)$, $PID \in PID\_List$
@@ -522,7 +534,11 @@ DELETE    & /resources/endpointcostmaps/\{id\} & Remove an Endpoint Cost Map wit
 
             must be retrieved, and all others must be filtered out.
 
-        \item \textbf{Cost Map filter}: Tuple of list of source PIDs, list of destination PIDs, list of cost types and list of cost value conditionals of value $(SrcPID\_LIST, DstPID\_LIST, CostType\_List, CostValueConditional\_List)$ with $CostType\_List > 1$ assuming a multi-cost map extension and their emptiness signifying the entire subset of available values in that list.
+        \item \textbf{Cost Map filter}: Tuple of list of source \gls{pids}, list of destination \gls{pids}, list of cost types and list of cost value conditionals of value
+
+            $(SrcPID\_LIST, DstPID\_LIST, CostType\_List, CostValueConditional\_List)$,
+
+            with $CostType\_List > 1$ assuming a multi-cost map extension and the emptiness of any of the lists signifying the entire subset of available values.
             All entries of value
 
             \begin{center}
@@ -531,37 +547,39 @@ DELETE    & /resources/endpointcostmaps/\{id\} & Remove an Endpoint Cost Map wit
 
              must be retrieved, and all other must be filtered out.
 
-        \item \textbf{Endpoint Cost Map filter}: Equal to the cost map filter, but considering a list of source and destination endpoint filters instead of PIDs.
+         \item \textbf{Endpoint Cost Map filter}: Equal to the cost map filter, but considering a list of source and destination endpoint filters instead of \gls{pids}.
     \end{itemize}
 
-    By analogy, one can consider the ALTO server to act as a remote database with an interface for methods that interact with it, and the filters act as selection statements, such as the "SELECT" method in SQL databases, to retrieve specific parts of the dataset.
+    By analogy, one can consider the \gls{alto} server to act as a remote database with an interface for clients to interact with it, and the filters act as selection statements, such as the "SELECT" method in \gls{sql} databases, to retrieve specific parts of the dataset.
     The filters of cost maps and endpoint cost maps also include a list of premises which themselves are logical operators applied to the candidate cost values.
     Continuing the analogy, these allow the clients to use "WHERE" statements on the numerical cost values that are retrieved.
-    In summary, the filter functionality could be explained in the following examples:
+    In summary, the filter functionality could be explained in the examples shown in Table \ref{table:filter-examples}.
 
-\begin{table}[]
+\begin{table}[H]
     \resizebox{\textwidth}{!}{\begin{tabular}{|l|l|l|L|}
     \hline
 \bf{HTTP Verb} & \bf{Resource}    & \bf{Body}  & \multicolumn{1}{m{8cm}|}{\bf{Description}} \\ \hline
 
-     POST      & resources/networkmaps/default      & \begin{tabular}[c]{@{}l@{}}\{ \\ "pids": $[$"PID1", "PID2"$]$\\ \} \end{tabular} & \multicolumn{1}{m{8cm}|}{Retrieve an network map with id "default", filtering for the entries for PIDs "PID1" and "PID2"} \\ \hline
-     POST      & resources/endpointpropmaps/default & \begin{tabular}[c]{@{}l@{}}\{ \\ "endpoints": $[$"ipv4:10.0.0.1", "ipv4:10.0.0.2"$]$,\\  "properties": $[$"CPU", "RAM", "connection-type"$]$ \\ \}\end{tabular}  & \multicolumn{1}{m{8cm}|}{Retrieve an endpoint property map with the id "default", filtering for the "CPU", "RAM", and "connection-type" properties from the ipv4 endpoints "10.0.0.1" and "10.0.0.2"} \\ \hline
-     POST      & resources/costmaps/default         & \begin{tabular}[c]{@{}l@{}}\{ \\ "cost-type": \{ & \quad "cost-mode" : "numerical",\\ \quad "cost-metric": "routingcost" \\ \},\\  "pids": \{ \\ \quad "srcs" : $[$"PID1"$]$,\\ \quad "dsts": $[]$ \\ \quad \} \\ \} \end{tabular} & \multicolumn{1}{m{8cm}|}{Retrieve the cost map with the id "default", filtering for the cost matrix with cost mode "numerical" and cost metric "routingcost", whose entries have source "PID1" and any destination} \\ \hline
-     POST      & resources/costmaps/default         & \begin{tabular}[c]{@{}l@{}}\{ \\ "multi-cost-types": \\ \quad $[$ \\ \quad \{ \\ \quad "cost-mode" : "numerical",\\ \quad "cost-metric": "routingcost" \\ \quad \},\\  \quad \{ \\ \quad "cost-mode": "ordinal",\\ \quad "cost-metric": "routingcost" \\ \quad \} \\ \quad $]$,\\ "pids" : \{ \\ \quad "srcs": $[$"PID1", "PID2"$]$,\\ \quad "dsts" : $[$"PID3"$]$ \\ \quad \} \\ \}\end{tabular} & \multicolumn{1}{m{8cm}|}{Retrieve the cost map with the id "default" and, assuming a multi-cost protocol extension, retrieve both the "numerical" and "ordinal" variations of the "routingcost" metric, whose entries have source "PID1" or "PID2", and destination "PID3"} \\ \hline
+    POST      & resources/networkmaps/default      & \begin{tabular}[c]{@{}l@{}}\{ \\ "pids": $[$"PID1", "PID2"$]$\\ \} \end{tabular} & \multicolumn{1}{m{8cm}|}{Retrieve an network map with id "default", filtering the entries for \gls{pids} "PID1" and "PID2"} \\ \hline
+    POST      & resources/endpointpropmaps/default & \begin{tabular}[c]{@{}l@{}}\{ \\ "endpoints": $[$"ipv4:10.0.0.1", "ipv4:10.0.0.2"$]$,\\  "properties": $[$"CPU", "RAM", "connection-type"$]$ \\ \}\end{tabular}  & \multicolumn{1}{m{8cm}|}{Retrieve an endpoint property map with the id "default", filtering the entries for the properties "CPU", "RAM", and "connection-type" and the \gls{ipv4} endpoints "10.0.0.1" and "10.0.0.2"} \\ \hline
+    POST      & resources/costmaps/default         & \begin{tabular}[c]{@{}l@{}}\{ \\ "cost-type": \{ & \quad "cost-mode" : "numerical",\\ \quad "cost-metric": "routingcost" \\ \},\\  "pids": \{ \\ \quad "srcs" : $[$"PID1"$]$,\\ \quad "dsts": $[]$ \\ \quad \} \\ \} \end{tabular} & \multicolumn{1}{m{8cm}|}{Retrieve the cost map with the id "default", filtering the entries for the cost matrix with cost mode "numerical" and cost metric "routingcost", whose entries have source \gls{pid} "PID1" and any destination} \\ \hline
+    POST      & resources/costmaps/default         & \begin{tabular}[c]{@{}l@{}}\{ \\ "multi-cost-types": \\ \quad $[$ \\ \quad \{ \\ \quad "cost-mode" : "numerical",\\ \quad "cost-metric": "routingcost" \\ \quad \},\\  \quad \{ \\ \quad "cost-mode": "ordinal",\\ \quad "cost-metric": "routingcost" \\ \quad \} \\ \quad $]$,\\ "pids" : \{ \\ \quad "srcs": $[$"PID1", "PID2"$]$,\\ \quad "dsts" : $[$"PID3"$]$ \\ \quad \} \\ \}\end{tabular} & \multicolumn{1}{m{8cm}|}{Retrieve the cost map with the id "default" and, assuming a multi-cost protocol extension, retrieve both the "numerical" and "ordinal" variations of the "routingcost" metric, whose entries have source \gls{pid} "PID1" or "PID2", and destination "PID3"} \\ \hline
      POST      & resources/costmaps/default         & \begin{tabular}[c]{@{}l@{}}\{ \\ "multi-cost-types": \\ \quad $[$ \\ \quad \{ \\ \quad "cost-mode" : "numerical",\\ \quad "cost-metric": "routingcost" \\ \quad \},\\ \quad \{ \\ \quad "cost-mode": "numerical", \\ \quad "cost-metric": "delay-ow" \\ \quad \} \\ \quad $]$,\\ "calendared": $[$false, true$]$,\\ "pids" : \{ \\ \quad "srcs": $[]$,\\ \quad "dsts" : $[$"PID3"$]$ \\ \quad \}\\ \}\end{tabular}                                                                                           & \multicolumn{1}{m{8cm}|}{Retrieve the cost map with the id "default" and, assuming a multi-cost and cost calendar protocol extensions, retrieve the numerical variants of the "routingcost" and "delay-ow" metrics, requesting a singular value and a calendar value respectively, of all entries whose destination is "PID3"} \\ \hline
-     POST      & resources/costmaps/default         & \begin{tabular}[c]{@{}l@{}}\{ \\ "multi-cost-types": \\ \quad $[$ \\ \quad \{ \\ \quad "cost-mode" : "numerical", \\ \quad "cost-metric": "delay-ow"\}, \\ \quad \{ \\ \quad "cost-mode": "ordinal",\\ \quad "cost-metric": "routingcost" \\ \quad \} \\ \quad $]$,\\ "pids" : \{ \\ \quad "srcs" : $[$"PID1"$]$,\\ \quad "dsts" : $[$"PID2"$]$ \\ \quad \},\\ "or-constraints" : \{ \\ \quad $[$ \\ \quad $[$"$[$0$]$ ge 0","$[$0$]$ le 20"$]$,\\ \quad $[$"$[$1$]$ eq 0"$]$ \\ \quad $]$\\ \quad \} \\ \} \end{tabular} & \multicolumn{1}{m{8cm}|}{Retrieve the cost map with the id "default" and, assuming a multi-cost protocol extension, retrieve the "numerical" mode of the "ow-delay" metric and the "ordinal" mode of the "routingcost" metric, whose entires have source "PID1" and destination "PID2", and whose cost values satisfy for a given source and destination pair that either the "ow-delay" is within 0 and 20 ms or it's the number one preferencial "routingcost" value} \\ \hline
+     POST      & resources/costmaps/default         & \begin{tabular}[c]{@{}l@{}}\{ \\ "multi-cost-types": \\ \quad $[$ \\ \quad \{ \\ \quad "cost-mode" : "numerical", \\ \quad "cost-metric": "delay-ow" \\ \quad \}, \\ \quad \{ \\ \quad "cost-mode": "ordinal",\\ \quad "cost-metric": "routingcost" \\ \quad \} \\ \quad $]$,\\ "pids" : \{ \\ \quad "srcs" : $[$"PID1"$]$,\\ \quad "dsts" : $[$"PID2"$]$ \\ \quad \},\\ "or-constraints" : \{ \\ \quad $[$ \\ \quad $[$"$[$0$]$ ge 0","$[$0$]$ le 20"$]$,\\ \quad $[$"$[$1$]$ eq 1"$]$ \\ \quad $]$\\ \quad \} \\ \} \end{tabular} & \multicolumn{1}{m{8cm}|}{Retrieve the cost map with the id "default" and, assuming a multi-cost protocol extension, retrieve the "numerical" mode of the "ow-delay" metric and the "ordinal" mode of the "routingcost" metric, whose entires have source "PID1" and destination "PID2", and whose cost values satisfy for a given source and destination pair that either the "ow-delay" is within 0 and 20 ms or it's the number one preferencial "routingcost" value} \\ \hline
 \end{tabular}}
+\caption{Example \gls{alto} queries with the filtering functionality}
+\label{table:filter-examples}
 \end{table}
 
 
 \subsubsection{Server discovery}
 
-    ALTO server discovery, by hand of either network state aggregators or resource consumers, must be done leveraging existing DNS technologies.
-    Each server entity maintains a given domain name, and along it is included the need to also maintain domain records in the chosen DNS system to map the domain name to the server's internet address.
-    Much like the choice to utilize HTTP as an application protocol, so do the server discovery mechanisms aim to comply with the ALTO working group's philosophy of leveraging existing proven technologies when possible as a means to facilitate development and minimize errors, with the added benefit of extending functionality with the chosen technologies.
-    With DNS, this gives flexibility of either privately configuring domain name to IP addresses - much like happens in Linux systems with the /etc/hosts file - or its deployment by leveraging existing authoritative DNS servers.
-    Additionally, by working around the existing technology and its specification one can easily implement load balancing for performance reasons, or, among others, DNS over HTTPS (DoH) for preventing eavesdropping, and ensuring both data integrity and host authenticity \cite{dns-https}.
-    A similar approach is to be taken for network state aggregator server discovery by part of the network state collectors for the same reasons explained above.
+    \gls{alto} server discovery, by hand of either network information aggregators or resource consumers, must be done leveraging existing \gls{dns} technologies.
+    Each server entity maintains a given domain name, and along it is included the need to also maintain domain records in the chosen \gls{dns} system to map the domain name to the server's \gls{ip} address.
+    Much like the choice to utilize \gls{http} as an application protocol, so do the server discovery mechanisms aim to comply with the \gls{alto} working group's philosophy of leveraging existing proven technologies when possible as a means to facilitate development and minimize errors, with the added benefit of extending functionality with the chosen technologies since it is mature and has plenty of options.
+    With \gls{dns}, this gives flexibility of either privately configuring domain name to \gls{ip} addresses - much like happens in Linux systems with the "/etc/hosts" file - or its deployment by leveraging existing authoritative \gls{dns} servers.
+    Additionally, by working around the existing technology and its specification, one can easily implement load balancing for performance reasons, or, among others, \gls{doh} for preventing eavesdropping, and ensuring both data integrity and host authenticity \cite{dns-https}.
+    A similar approach is to be taken for network information aggregator server discovery by part of the network state collectors for the same reasons explained above.
 
 \subsubsection{Inter-server communication}
 \label{ssec:multi-alto}
