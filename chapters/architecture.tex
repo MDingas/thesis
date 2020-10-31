@@ -32,8 +32,6 @@
 \end{tabular}
 \end{table}
 
-\todo{intelligence to information}
-
 \begin{figure}[H]
         \centering
         \hspace*{0.35cm}
@@ -58,12 +56,10 @@
     This implies that data communications within it must be block being read or altered by non authorized users, and the identity of the participating parties can be trusted and made accountable.
     The identified communication channels must then have methods of maintaining data integrity in transit, user authentication and authorization, and communication confidentiality.
 
-\todo{add "network data preprocessing" in network information aggregator rectangle}
-\todo{replace intelligence with status}
-
 \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.25]{architecture-macro2.png}
+        \hspace*{-4em}
+        \includegraphics[scale=0.25]{architecture-macro.png}
         \caption{System architecture at a macro level}
         \label{fig:macro-architecture}
 \end{figure}
@@ -106,6 +102,8 @@
     \gls{alto} resources are pieces of network information which are provided by an \gls{alto} server and consumed by \gls{alto} clients that ideally would use such information to aid their application-level traffic decisions.
     All \gls{alto} resources can be separated into the following components:
 
+    \todo{talk about scope}
+
 \begin{itemize}
         \item \textbf{Meta information}: Data which regards to the resource's profile, that enable the client's ability to interpret and cross-reference the network data within.
             Meta information contains the resource's name, and if applicable, version, resource dependencies and cost details: enclosed cost modes, metrics, and descriptions.
@@ -134,8 +132,6 @@
     Lastly, nodes 2 and 5 are given different \glspl{pid} as they reside outside the \glspl{is} domain but are reachable through different peering points.
     The \gls{isp} could then in this case leverage the network map to logically group collections of endpoints by reachability - those local to their domain, and those reachable by one of the two possible peering points, which could be subjected to different peering agreements and as such should be treated differently in resources that reference this network map.
 
-\todo{add ipv4 and mac addresses to nodes}
-
 \begin{figure}[H]
         \centering
         \includegraphics[scale=1.00]{img/topology-boundary.png}
@@ -143,15 +139,16 @@
         \label{fig:example-topology-boundary}
 \end{figure}
 
-
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|l|l|l|c|}
+\hspace*{-1.64em}
+\begin{tabular}{|l|L|l|l|c|}
     \hline
-PID  & IPv4          & IPv6                  & MAC                  & priv:my-overlay                     \\ \hline
-1    & 10.20.3.0/24  & -                     & D0-9F-BF-2A-00-00/32 & [1, 3, 4]                           \\ \hline
-2    & 10.20.3.10/25 & -                     & D0-9F-BF-2A-FE-00/40 & 2                                   \\ \hline
-3    & 0.0.0.0/0     & ::/0                  & 00-00-00-00-00-00/48 & 5                                   \\ \hline
+    \textbf{PID}  & \multicolumn{1}{m{5cm}|}{\textbf{IPv4}}                                                 & \textbf{IPv6}   & \textbf{MAC}      & \textf{priv:my-overlay}  \\ \hline
+    1             & \multicolumn{1}{m{5cm}|}{[10.0.0.0/24,10.0.1.0/24, 10.0.2.1/32, 10.0.3.1/32]}           & -                 & D0-9F-BF-2A-00-00/32 & [1, 3, 4]           \\ \hline
+    2             & \multicolumn{1}{m{5cm}|}{[10.0.2.2/32]}                                                 & -                 & D0-9F-BF-2A-FE-00/40 & 2                   \\ \hline
+    3             & \multicolumn{1}{m{5cm}|}{[10.0.3.2/32]}                                                 & -                 & F8-BB-0B-0A-AA-AA/40 & 5                   \\ \hline
+    4             & \multicolumn{1}{m{5cm}|}{0.0.0.0/0}                                                     & ::/0              & 00-00-00-00-00-00/0  & *                   \\ \hline
 \end{tabular}
 \caption{Example network map referencing Figure \ref{fig:example-topology-boundary}}
 \label{table:networkmap-example}
@@ -171,7 +168,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
         \label{fig:example-topology}
 \end{figure}
 
-\begin{figure}[H]
+\begin{table}[H]
     \centering
     \begin{subtable}{.4\linewidth}
         \centering
@@ -206,7 +203,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
 
     \caption{Example cost map for overlay in Figure \ref{fig:example-topology}}
     \label{table:costmap-example-non-boundary}
-\end{figure}
+\end{table}
 
     Without either full administrative control or some multi-\gls{alto} domain orchestration mechanism, a single \gls{alto} server instance is restricted to the information it knows.
     Being bound by limited topological knowledge, however, does not necessarily mean that valuable inter-layer cooperation is not possible, and will now be subject of discussion.
@@ -224,7 +221,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
     In the presented case, locality is correlated with more reliable communications and less operational costs from the \gls{isp}'s point of view, and a concrete better choice exists - regarding routing cost, delay, and throughput - between the two peering connections
     That information can be part of the \gls{alto} system as query-eligible by client applications that can now better optimize their network-related decisions in a mutually beneficial scenario.
 
-\begin{figure}
+\begin{table}
     \centering
     \begin{subtable}{.46\linewidth}
         \centering
@@ -310,7 +307,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
 
     \caption{Example cost map for the limited \gls{isp} domain in \ref{fig:example-topology}}
     \label{table:costmap-example-boundary}
-\end{figure}
+\end{table}
 
     \newpage
 
@@ -350,7 +347,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
     A list of available costs and properties is presented, with their descriptive data discussed above, along with the available resources provided by that server, which contains data useful for their server cluster, as well as a broader-purpose endpoint cost map to query for path connection types and facilitate user selection.
     Finally, a default network map is presented.
 
-\begin{figure}[H]
+\begin{table}[H]
     \centering
         \begin{subtable}{1\linewidth}
         \centering
@@ -375,7 +372,7 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
         ram              & RAM                        & Machine's currently occupied RAM                \\ \hline
         coord            & geographic-coordinate      & Machine's geographical coordinates            \\ \hline
         connection       & connection-type            & Machine interface's connection type           \\ \hline
-        is-mirror        & priv:is-mirror             & Flag stating if machine is a mirror of original server\\ \hline
+        is-mirror        & priv:is-mirror             & Flag stating if machine is a mirror of original server \\ \hline
         \end{tabular}
         \caption{Available property types}
         \end{subtable}
@@ -404,9 +401,9 @@ PID  & IPv4          & IPv6                  & MAC                  & priv:my-ov
         \caption{Default Network Map}
         \end{subtable}
 
-    \caption{Example of an \gls{ALTO} server's \gls{ird}}
+    \caption{Example of an \gls{alto} server's \gls{ird}}
     \label{table:ird-example}
-\end{figure}
+\end{table}
 
 Further formal specification is not made as it has been extensively done in the \gls{alto} protocol \cite{alto-protocol}, and the proposed system complies to it whilst extending upon the design.
 
@@ -423,12 +420,11 @@ Further formal specification is not made as it has been extensively done in the 
     Firstly, a network map is retrieved to help group endpoints into groupings, and afterwards a cost map is retrieved filtering only the querying peer as source, candidate peers as destinations, and the routing cost and bandwidth cost matrices.
     Acting on this information, the peer chooses the candidate that gives a good balance between \gls{isp} routing cost and path bandwidth, making a decision that should ideally benefit both them and the \gls{isp} that helped provide that information.
 
-\todo{create communication p2p example diagram}
-
 \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.35]{communication-p2p.png}
-        \caption{High-level communication diagram of a \gls{p2p} application utilizing \gls{ALTO}}
+        \hspace*{-0.7em}
+        \includegraphics[scale=0.48]{communication-p2p.png}
+        \caption{High-level communication diagram of a \gls{p2p} application utilizing \gls{alto}}
         \label{fig:communication-p2p}
 \end{figure}
 
@@ -584,38 +580,55 @@ DELETE    & /resources/endpointcostmaps/\{id\} & Remove an Endpoint Cost Map wit
 \subsubsection{Inter-server communication}
 \label{ssec:multi-alto}
 
-    A glaring gap in the working group's base ALTO protocol is its single administrative applicability domain.
-    Meaning, an ALTO server is managed by a single administrative entity - likely an ISP - and its knowledge domain is limited by the network topology details that the entity wants to share.
-    In the attempt to fix the server's inability to provide network status information outside its domain, this section overviews mechanisms that enable inter-server communication as a means to expand the capabilities of each domain.
+    A glaring gap in the working group's base \gls{alto} protocol is its single administrative applicability domain.
+    Meaning, an \gls{alto} server is managed by a single administrative entity - likely an \gls{isp} - and its knowledge domain is limited by the network topology details that the entity knows, which is a subset of the entirety of the Internet's infrastructure.
+    In the attempt to fix the server's inability to provide network status information outside its domain, this section overviews mechanisms that enable inter-server communications as a means to expand the capabilities of each domain.
 
     Firstly, consider how efforts for full resource synchronization could be taken.
     These would be similar to data synchronization mechanisms employed by popular databases to ensure consistency across several server replicas, and could increase availability as well as the serviceability of content nearby clients.
-    However, it does not seem to fit this use case - for starters, if all data were to exist redundantly on all servers, that would defeat the purpose of having many administrative domains and thus a single server architecture would suffice; secondly, the architecture is inherently designed to work within a trust domain of selected clients, and because of it the servers may not even be comfortable with sharing all of its information within other domains to begin with, limiting replication strategies; thirdly, accounting for the amount of users acting on the ALTO system, better scalability could be achieved with a distributed solution that limits information within set boundaries.
-    Accounting for these reasons, an inter-server synchronization protocol was designed for servers to negotiate information exchange among themselves.
+    However, it does not seem to fit this use case - for starters, if all data were to exist redundantly on all servers, that would defeat the purpose of having many administrative domains and thus a single server architecture would suffice; secondly, the architecture is inherently designed to work within a trust domain of selected clients and, because of it, the servers may not even be comfortable with sharing all of its information within other domains to begin with, limiting replication strategies; thirdly, accounting for the amount of users acting on the \gls{alto} system, better scalability could be achieved with a distributed solution that limits information within set boundaries.
+    Accounting for these reasons, an inter-server synchronization protocol was designed for servers to negotiate information exchange among themselves, as opposed to one that enabled the synchronization of a single monolithic dataset between servers.
 
-    \textbf{[Important to note that each server must maintain administrative control over itself, thus controling who has access to what and how long that resource is accessible. It it thus unwise to create a single database that all other servers have access to. Instead, every server has an interface for other servers to enquire about, and access is granted/blocked by the server itself at any moment.]}
-    \textbf{[Data resources can have a property, called "global", that dictate that a given resource is derived by sharing data from multiple ALTO servers]}
-    \textbf{[There is a single central server where all ALTO servers report to, and where they advertise what information they have. If a client requests a resource to a server that isn't global and he does not possess it, he can check on this global database and redirect the user to it if he so desires, analogous to a recursive DNS query. If the resource is of global type, the ALTO server will request data to help generate the resource, and it is the result of a global connection effort. A global endpoint property map is just the joint of know key-> value pairs, whereas a cost map must require a dijkstra algorithm, for example, to derive the best choices]}
-    \textbf{[Servers have an interface just for inter-server communication. ]}
-    \textbf{[Communication diagrams of how inter-server synchronization works]}
+    It is very important that a multi-domain solution assures that each \gls{isp} has full sovereignty over their domain.
+    Simply collecting data from each domain and storing it in an third-party entity from which the original source has no control fails to comply to the sovereignty requirement.
+    Each \gls{isp} that participates in a multi-domain knowledge system must, at any time, have control over what the information is and who gets access to it, being able to retroactively change its content and the access control policies, respectively.
+    This solution will then consider that each \gls{alto} server belonging to the multi-domain orchestration mechanism will compute and store it's data locally,and will have an interface open for data querying from other \gls{alto} servers, being then open to selecting and enforcing their own policies as they see fit, in regards to how and when data is calculated, and who gets access to it.
+
+    To achieve the stated requirements, a "scope" property will be added in the "meta" field of every \gls{alto} resource.
+    This property, like the name implies, states the scope of the resource - a "local" resource is no different from those in the base protocol, meaning that it gets calculated and distributed within a single administrative \gls{alto} domain; a "global" resource is essentially virtual, in the sense that it is presented as if it were stored in the server, but instead is dynamically retrieved every time through inter-server communication.
+    The decision for this property to be visible in the \gls{ird} was made so it is communicated to the client that a given property can be retrieved as a multi-domain effort - and as such is susceptible to a clash of different \gls{isp} policies and strategies - or as a locally bound resource that will be less prone to inconsistencies, as only a single domain is responsible for managing it.
+
+    To manage the synchronization of globally-scoped \gls{alto} resources, a new entity, the domain synchronizer, was specified.
+    This central server will too be an \gls{alto} server, meaning that it will be used to store and manage \gls{alto} resources, although its use is specialized for inter-server synchronization.
+    The server maintains property maps, where each of them refers to globally and locally scoped resources, and contains the addresses of the servers that independently store that data and make it available for querying.
+    Locally-scoped resource IDs are stored in this server with the addresses of the server's that host it, so that a given \gls{alto} server, whenever asked for a resource which he does not posses, can contact this synchronization database and appropriately redirect a client to a server that contains that information.
+    In contrast, globally-scoped resource IDs and their owner's addresses are also stored in this server, so that a given server can know who he must query to retrieve the needed information to locally build the resource to be delivered to the client.
+
+    Listing \ref{lst:example-synchronizer-endpoint-property} shows example data of an endpoint property map for inter-server synchronization.
+    Figure \ref{fig:communication-alto-synchronization} shows the required steps taken by a given \gls{alto} server when a client requests for data - in this case an endpoint property map and a cost map - that is globally scoped.
+
+    The required \gls{api} endpoints that an \gls{alto} server must provide for inter-server sharing of resources is no different from the ones they already must provide for clients.
+    The only difference is that that these resources contain \glspl{acl} that dictate exclusive action access by authenticated \gls{alto} servers.
 
 \subsection{Network State Provider}
 
-\subsubsection{Network State Collectors}
+\subsubsection{Network Information Aggregator}
 
     The network information aggregation layer is the layer that enables the translation of raw topological information - such as the physical attributes of network devices and connections - into processed, query-eligible network knowledge.
-    To do so, a very important entity, perhaps the heart of the system as a whole, is the network state provider, which is the supply of network information that is injected, through a network state provisioning protocol, into a network information aggregator.
-    This latter entity is then responsible for providing the ALTO resource provider layer with valid information after the raw topological data has been processed - this includes the calculation of optimal paths, the abstraction of network entities, or the injection of static ISP preferences.
-    This pre-processing stage requires input from an ISP administrator, responsible for acting on the best interest of the ISP from which the raw topological data originates - by interacting with the network information aggregator, the administrator acts on this network information hub to retrieve from the database a history of retrieved network information, and afterwards manipulate this information to create ALTO resources to its liking - this is where data is transformed utilizing the algorithms the administrator deems fitting, and transforms the raw data to be publishing ready, meaning that it contains an acceptable amount of abstraction not to compromise topological privacy.
-    Finally, the administrator defines important meta data that identifies the resource, and defines the access control list to be enforced by the ALTO server.
+    To do so, a very important entity, perhaps the heart of the system as a whole, is the network state collector, which is the supply of network information that is injected, through a network state provisioning protocol, into a network information aggregator.
+    This latter entity is then responsible for providing the \gls{alto} resource provider layer with valid information after the raw topological data has been processed - this includes the calculation of optimal paths, the abstraction of network entities, or the injection of static \gls{isp} preferences.
+    This pre-processing stage requires input from an \gls{isp} administrator, responsible for acting on the best interest of the \gls{isp} from which the raw topological data originates - by interacting with the network information aggregator, the administrator acts on this network information hub to retrieve from the database a history of retrieved network information, and afterwards manipulate this information to create \gls{alto} resources to its liking - this is where data is transformed utilizing the algorithms the administrator deems fitting, and transforms the raw data to be publishing ready, meaning that it contains an acceptable amount of abstraction not to compromise topological privacy.
+    Finally, the administrator defines important meta data that identifies the resource, and defines the access control list to be enforced by the \gls{alto} server.
 
-\subsubsection{Network State Aggregator}
+\subsubsection{Network State Collector}
 
-    Before ALTO resources are provided into the ALTO server by the Network Information Aggregator, the latter needs himself to be provided with raw network status information.
-    The ALTO working group has discussed possible sources of raw topological information, including protocols like IGP, BGP, SNMP, or NETCONF, or databases like the Traffic Engineering Database (TED) or Label Switched Path Database (LSPD) \cite{alto-deployment-considerations}.
-    A protocol needs to exist to interface between the entities that collect and provide the raw topological data, and the Network Information Aggregator that processes it and provides it to the ALTO server.
+    Before \gls{alto} resources are provided into the \gls{alto} server by the Network Information Aggregator, the latter needs himself to be provided with raw network status information.
+    The \gls{alto} working group has discussed possible sources of raw topological information, including protocols like \gls{igp}, \gls{bgp}, \gls{snmp}, or \gls{netconf}, or databases like the \gls{ted} or \gls{lspd} \cite{alto-deployment-considerations}.
+    A protocol needs to exist to interface between the entities that collect and provide the raw topological data, and the Network Information Aggregator that processes it and provides it to the \gls{alto} server.
 
-\begin{table}[]
+    The available endpoints supported by the Network Information Aggregator server are presented in Table \ref{table:aggregator-endpoints}.
+
+\begin{table}[H]
 \resizebox{\textwidth}{!}{\begin{tabular}{|l|l|l|}
 \hline
 \bf{HTTP Verb}  & \bf{Resource}                      & \bf{Description}                                               \\ \hline
@@ -629,12 +642,16 @@ POST            & /measurements/group                & Add a measured endpoint g
 PUT             & /measurements/group/\{id\}         & Modify the contents a measured endpoint grouping               \\ \hline
 DELETE          & /measurements/group/\{id\}         & Remove a measured endpoint grouping                            \\ \hline
 \end{tabular}}
+\caption{Network Information Aggregator's available endpoints}
+\label{table:aggregator-endpoints}
 \end{table}
 
+    An illustrative example on how certain Network State Collectors of given network data could use this endpoint to interface with the Network Information Aggregator is presented on Figure \ref{fig:provisioning-providers}
 
-\begin{figure}[!h]
+\begin{figure}[H]
         \centering
-        \includegraphics[scale=0.3]{img/info-provisioning-providers.png}
+        \hspace*{-1em}
+        \includegraphics[scale=0.42]{img/communication-info-provisioning-providers.png}
         \caption{Communication diagram of how external network state providers upload information to the network information aggregator}
         \label{fig:provisioning-providers}
 \end{figure}
@@ -647,9 +664,12 @@ DELETE          & /measurements/group/\{id\}         & Remove a measured endpoin
 
     \textbf{[Detail how the ISP uses the information gathered by the network state providers and pre-processes it. This includes, for example, calculating shortest path maps utilizing a Dijkstra algorithm, limiting/changing information to maintain security, adding static ISP policies, and attributing access control policies for that resource]}
 
-\begin{figure}[!h]
+    \textbf{Creating a user-friendly network data constructor would be a good future work}
+
+\begin{figure}[H]
         \centering
-        \includegraphics[scale=0.3]{img/info-provisioning-isp.png}
+        \hspace*{-2em}
+        \includegraphics[scale=0.40]{img/communication-info-provisioning-isp.png}
         \caption{Communication diagram of how an ISP administrator pre-processes the gathered network state and uploads it to the ALTO server}
         \label{fig:provisioning-isp}
 \end{figure}
