@@ -1,0 +1,482 @@
+\begin{thebibliography}{10}
+
+\bibitem{sandvine}
+Active network intelligence solutions | sandvine.
+\newblock \url{https://www.sandvine.com/}.
+\newblock Accessed: 2020-05-20.
+
+\bibitem{bittorrent}
+Bittorrent.org.
+\newblock \url{http://bittirrent.org/beps/bep_0003.html}.
+\newblock Accessed: 2020-05-20.
+
+\bibitem{sandvine2019}
+The global internet phenomena report.
+\newblock Technical report, 9 2019.
+
+\bibitem{ppstream}
+Ppstream.
+\newblock \url{http://pps.tv/}.
+\newblock Accessed: 2020-05-20.
+
+\bibitem{akamai}
+Akamai.
+\newblock \url{https://www.akamai.com/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{akamai-report}
+Erik Nygren, Ramesh Sitaraman, and Jennifer Sun.
+\newblock The akamai network: a platform for high-performance internet
+  applications.
+\newblock {\em Operating Systems Review}, 44:2--19, 01 2010.
+
+\bibitem{jiangchuanliu2008}
+J.~{Liu}, S.~G. {Rao}, B.~{Li}, and H.~{Zhang}.
+\newblock Opportunities and challenges of peer-to-peer internet video
+  broadcast.
+\newblock {\em Proceedings of the IEEE}, 96(1), 2008.
+
+\bibitem{p2p-survey-1}
+Diomidis Spinellis.
+\newblock A survey of peer-to-peer content distribution technologies.
+\newblock {\em ACM Computing Surveys (CSUR)}, 36, 12 2004.
+
+\bibitem{p2p-survey-2}
+Eng Lua, Jon Crowcroft, Marcelo Pias, Ravi Sharma, and Steven Lim.
+\newblock A survey and comparison of peer-to-peer overlay network schemes.
+\newblock {\em Communications Surveys & Tutorials, IEEE}, 7:72-- 93, 04 2006.
+
+\bibitem{gnutella}
+Regarding gnutella - gnu project - free software foundation.
+\newblock \url{https://www.gnu.org/philosophy/gnutella.en.html}.
+\newblock Accessed: 2020-05-20.
+
+\bibitem{gnutella-flood}
+Wikipedia Commons.
+\newblock The gnutella search and retrieval protocol.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Gnutella#/media/File:GnutellaQuery.JPG}.
+\newblock Accessed: 2020-05-20.
+
+\bibitem{napster}
+Napster.
+\newblock \url{https://www.napster.com/}.
+\newblock Accessed: 2020-05-20.
+
+\bibitem{freenet}
+Freenet.
+\newblock \url{https://freenetproject.org/}.
+\newblock Accessed: 2020-05-20.
+
+\bibitem{freehaven}
+The free haven project.
+\newblock \url{https://www.freehaven.net/overview.html}.
+\newblock Accessed: 2020-05-20.
+
+\bibitem{freeriding-gnutella}
+Eytan Adar and Bernardo~A. Huberman.
+\newblock Free riding on gnutella.
+\newblock {\em First Monday}, 5, 2000.
+
+\bibitem{stoica2003}
+I.~{Stoica}, R.~{Morris}, D.~{Liben-Nowell}, D.~R. {Karger}, M.~F. {Kaashoek},
+  F.~{Dabek}, and H.~{Balakrishnan}.
+\newblock Chord: a scalable peer-to-peer lookup protocol for internet
+  applications.
+\newblock {\em IEEE/ACM Transactions on Networking}, 11(1), 2003.
+
+\bibitem{overlay-vs-underlay}
+Claudio Fiandrino.
+\newblock P2p system topology.
+\newblock \url{https://texample.net/tikz/examples/p2p-topology/}.
+\newblock Accessed: 2020-06-04.
+
+\bibitem{liao2014}
+Q.~{Liao}, Z.~{Li}, and A.~{Striegel}.
+\newblock Is more p2p always bad for isps? an analysis of p2p and isp business
+  models.
+\newblock In {\em 2014 23rd International Conference on Computer Communication
+  and Networks (ICCCN)}, Aug 2014.
+
+\bibitem{akella}
+Aditya Akella, Srinivasan Seshan, and Anees Shaikh.
+\newblock An empirical evaluation of wide-area internet bottlenecks.
+\newblock {\em ACM SIGMETRICS Performance Evaluation Review}, 31, 05 2003.
+
+\bibitem{bittorrent-details}
+Bram Cohen.
+\newblock Incentives build robustness in bittorrent.
+\newblock {\em Workshop on Economics of PeertoPeer systems}, 6, 06 2003.
+
+\bibitem{qin2009}
+F.~{Qin}, J.~{Liu}, L.~{Zheng}, and L.~{Ge}.
+\newblock An effective network-aware peer selection algorithm in bittorrent.
+\newblock In {\em 2009 Fifth International Conference on Intelligent
+  Information Hiding and Multimedia Signal Processing}, Sep. 2009.
+
+\bibitem{isp-p2p-tussle}
+J.~H. {Wang}, D.~M. {Chiu}, and J.~C. s.~{Lui}.
+\newblock Modeling the peering and routing tussle between isps and p2p
+  applications.
+\newblock In {\em 200614th IEEE International Workshop on Quality of Service},
+  2006.
+
+\bibitem{karagiannis}
+Thomas Karagiannis, Pablo Rodriguez, and Konstantina Papagiannaki.
+\newblock Should internet service providers fear peer-assisted content
+  distribution?
+\newblock 01 2005.
+
+\bibitem{estimating-gnutella}
+Vinay Aggarwal, Stefan Bender, Anja Feldmann, and Arne Wichmann.
+\newblock Methodology for estimating network distances of gnutella neighbors.
+\newblock 01 2004.
+
+\bibitem{dan-Commag10}
+György Dán, Tobias Hossfeld, Simon Oechsner, Piotr Cholda, Rafal Stankiewicz,
+  Ioanna Papafili, and George Stamoulis.
+\newblock Interaction patterns between p2p content distribution systems and
+  isps.
+\newblock {\em IEEE Communications Magazine}, 49, 05 2011.
+
+\bibitem{cdn-survey}
+Al-Mukaddim~Khan Pathan, Rajkumar Buyya, and Design Computing.
+\newblock A taxonomy and survey of content delivery networks.
+\newblock 2006.
+
+\bibitem{cookbook}
+Evi Nemeth, Garth Snyder, Trent~R. Hein, Ben Whaley, and Dan Mackin.
+\newblock {\em UNIX and Linux System Administration Handbook (5th Edition)}.
+\newblock Addison-Wesley Professional, 5th edition, 2017.
+
+\bibitem{netflix}
+Netflix.
+\newblock \url{https://www.netflix.com}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{youtube}
+Youbtube.
+\newblock \url{https://www.youtube.com/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{cloudflare}
+Cloudflare.
+\newblock \url{https://www.cloudflare.com/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{cloudfront}
+Cloudfront.
+\newblock \url{https://aws.amazon.com/cloudfront/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{wichtlhuber2017}
+M.~{Wichtlhuber}, J.~{Kessler}, S.~{Bücker}, I.~{Poese}, J.~{Blendin},
+  C.~{Koch}, and D.~{Hausheer}.
+\newblock Soda: Enabling cdn-isp collaboration with software defined anycast.
+\newblock In {\em 2017 IFIP Networking Conference (IFIP Networking) and
+  Workshops}, June 2017.
+
+\bibitem{pushing-cdn-isp-collaboration}
+Benjamin Frank, Ingmar Poese, Yin Lin, Georgios Smaragdakis, Anja Feldmann,
+  Bruce Maggs, Jannis Rake, Steve Uhlig, and Rick Weber.
+\newblock Pushing cdn-isp collaboration to the limit.
+\newblock {\em SIGCOMM Comput. Commun. Rev.}, 43(3):34–44, July 2013.
+
+\bibitem{cdn-isp-cooperations}
+Raghunath Deshpande.
+\newblock Overview of cdn-isp collaboration strategies.
+\newblock 07 2014.
+
+\bibitem{att}
+At\&t.
+\newblock \url{https://www.att.com/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{orange}
+Orange.
+\newblock \url{https://www.orange.com/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{swisscom}
+Swisscom.
+\newblock \url{https://www.swisscom.ch/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{kt}
+Kt.
+\newblock \url{https://corp.kt.com/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{linux-mint}
+Linux mint.
+\newblock \url{https://linuxmint.com/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{load-balancing}
+Zahra Elngomi and Khalid Khanfar.
+\newblock A comparative study of load balancing algorithms: A review paper.
+\newblock In {\em International Journal of Computer Science and Mobile
+  Computing}, pages 448--458, 06 2016.
+
+\bibitem{dns-load-balancing}
+Mei Chin, Chong~Eng Tan, and Mohamad Bandan.
+\newblock Efficient load balancing for bursty demand in web based application
+  services via domain name services.
+\newblock 01 2010.
+
+\bibitem{sdn-load-balancing}
+Xiaohui Yang.
+\newblock Sdn load balancing method based on k-dijkstra.
+\newblock {\em International Journal of Performability Engineering}, 14, 04
+  2018.
+
+\bibitem{mint-article}
+Why you should switch to a different linux mint mirror today!
+\newblock
+  \url{https://unlockforus.com/why-you-should-switch-to-a-different-linux-mint-mirror-today/}.
+\newblock Accessed: 2020-01-03.
+
+\bibitem{programmable-trackers}
+Pedro {Sousa}.
+\newblock {\em {Context Aware Programmable Trackers for the Next Generation
+  Internet}}, volume 5733, page~78.
+\newblock 2009.
+
+\bibitem{configurable-trackers}
+Pedro Sousa.
+\newblock A framework for highly reconfigurable p2p trackers.
+\newblock {\em Journal of Communications Software and Systems}, 9(4):236, dec
+  2013.
+
+\bibitem{altruistic-gnutella}
+D.~{Hughes}, I.~{Warren}, and G.~{Coulson}.
+\newblock Agnus: the altruistic gnutella server.
+\newblock In {\em Proceedings Third International Conference on Peer-to-Peer
+  Computing (P2P2003)}, 2003.
+
+\bibitem{kim2011}
+T.~N. {Kim}, S.~{Jeon}, and Y.~{Kim}.
+\newblock A cdn-p2p hybrid architecture with content/location awareness for
+  live streaming service networks.
+\newblock In {\em 2011 IEEE 15th International Symposium on Consumer
+  Electronics (ISCE)}, June 2011.
+
+\bibitem{topology-aware-p2p-server-selection}
+S.~{Ratnasamy}, M.~{Handley}, R.~{Karp}, and S.~{Shenker}.
+\newblock Topologically-aware overlay construction and server selection.
+\newblock In {\em Proceedings.Twenty-First Annual Joint Conference of the IEEE
+  Computer and Communications Societies}, volume~3, pages 1190--1199 vol.3,
+  2002.
+
+\bibitem{locality-aware-p2p}
+Vinay Aggarwal and Anja Feldmann.
+\newblock Locality-aware p2p query search with isp collaboration.
+\newblock {\em NHM}, 3, 06 2008.
+
+\bibitem{han2009}
+K.~{Han}, Q.~{Guo}, and J.~{Luo}.
+\newblock Optimal peer selection, task assignment and rate allocation for p2p
+  downloading.
+\newblock In {\em 2009 First International Workshop on Education Technology and
+  Computer Science}, volume~1, March 2009.
+
+\bibitem{gromov2014}
+M.~L. {Gromov} and Y.~P. {Chebotareva}.
+\newblock On optimal cdn node selection.
+\newblock In {\em 2014 15th International Conference of Young Specialists on
+  Micro/Nanotechnologies and Electron Devices (EDM)}, June 2014.
+
+\bibitem{cdni-problem-statement}
+Ben Niven-Jenkins, François~Le Faucheur, and Dr. Nabil~N. Bitar.
+\newblock {Content Distribution Network Interconnection (CDNI) Problem
+  Statement}.
+\newblock RFC 6707, September 2012.
+
+\bibitem{idmaps}
+P.~{Francis}, S.~{Jamin}, {Cheng Jin}, {Yixin Jin}, D.~{Raz}, Y.~{Shavitt}, and
+  L.~{Zhang}.
+\newblock Idmaps: a global internet host distance estimation service.
+\newblock {\em IEEE/ACM Transactions on Networking}, 9(5):525--540, 2001.
+
+\bibitem{gnp}
+T.~S.~E. {Ng} and {Hui Zhang}.
+\newblock Predicting internet network distance with coordinates-based
+  approaches.
+\newblock In {\em Proceedings.Twenty-First Annual Joint Conference of the IEEE
+  Computer and Communications Societies}, volume~1, pages 170--179 vol.1, 2002.
+
+\bibitem{pfa-10}
+I.~{Poese}, B.~{Frank}, B.~{Ager}, G.~{Smaragdakis}, S.~{Uhlig}, and
+  A.~{Feldmann}.
+\newblock Improving content delivery with padis.
+\newblock {\em IEEE Internet Computing}, 16(3):46--52, 2012.
+
+\bibitem{fps-12}
+Benjamin Frank, Ingmar Poese, Georgios Smaragdakis, Steve Uhlig, and Anja
+  Feldmann.
+\newblock Content-aware traffic engineering.
+\newblock {\em CoRR}, abs/1202.1464, 2012.
+
+\bibitem{kenichi}
+K.~{Mase}, A.~{Tsuno}, Y.~{Toyama}, and N.~{Karasawa}.
+\newblock A web server selection algorithm using qos measurement.
+\newblock In {\em ICC 2001. IEEE International Conference on Communications.
+  Conference Record (Cat. No.01CH37240)}, volume~8, June 2001.
+
+\bibitem{swain}
+M.~{Swain} and {Young-Gyun Kim}.
+\newblock Finding an optimal mirror site.
+\newblock In {\em Proceedings. IEEE SoutheastCon, 2005.}, April 2005.
+
+\bibitem{adaptable-overlay}
+Andr{\'{e}} Sampaio and Pedro Sousa.
+\newblock An adaptable and {ISP}-friendly multicast overlay network.
+\newblock {\em Peer-to-Peer Networking and Applications}, 12(4):809--829,
+  September 2018.
+
+\bibitem{seedorf2009}
+Jan Seedorf, Sebastian Kiesel, and Martin Stiemerling.
+\newblock Traffic localization for p2p-applications: The alto approach.
+\newblock 10 2009.
+
+\bibitem{alto-about}
+Application-layer traffic optimization (alto).
+\newblock Technical report, 11 2019.
+
+\bibitem{alto-cdni}
+Jan Seedorf, Y.~Richard Yang, Kevin~J. Ma, Jon Peterson, Xiao~Shawn Lin, and
+  Jingxuan~Jensen Zhang.
+\newblock {Content Delivery Network Interconnection (CDNI) Request Routing:
+  CDNI Footprint and Capabilities Advertisement using ALTO}.
+\newblock Internet-Draft draft-ietf-alto-cdni-request-routing-alto-08, Internet
+  Engineering Task Force, November 2019.
+\newblock Work in Progress.
+
+\bibitem{alto-determining-service-edge}
+Luis~M. Contreras, Danny Alex~Lachos Perez, and Christian~Esteve Rothenberg.
+\newblock {Use of ALTO for Determining Service Edge}.
+\newblock Internet-Draft draft-contreras-alto-service-edge-01, Internet
+  Engineering Task Force, July 2020.
+\newblock Work in Progress.
+
+\bibitem{alto-path-vector}
+Kai Gao, Young Lee, Sabine Randriamasy, Y.~Richard Yang, and J.~(Jensen) Zhang.
+\newblock {ALTO Extension: Path Vector}.
+\newblock Internet-Draft draft-ietf-alto-path-vector-11, Internet Engineering
+  Task Force, July 2020.
+\newblock Work in Progress.
+
+\bibitem{alto-calendar-cost-map}
+Sabine Randriamasy, Y.~Richard Yang, Qin Wu, Deng Lingli, and Nico Schwan.
+\newblock {Application-Layer Traffic Optimization (ALTO) Cost Calendar}.
+\newblock Internet-Draft draft-ietf-alto-cost-calendar-21, Internet Engineering
+  Task Force, March 2020.
+\newblock Work in Progress.
+
+\bibitem{alto-protocol}
+Sebastian Kiesel, Wendy Roome, Richard Woundy, Stefano Previdi, Stanislav
+  Shalunov, Richard Alimi, Reinaldo Penno, and Y.~Richard Yang.
+\newblock {Application-Layer Traffic Optimization (ALTO) Protocol}.
+\newblock RFC 7285, September 2014.
+
+\bibitem{alto-problem-statement}
+Jan Seedorf and Eric Burger.
+\newblock {Application-Layer Traffic Optimization (ALTO) Problem Statement}.
+\newblock RFC 5693, October 2009.
+
+\bibitem{alto-deployment-considerations}
+Martin Stiemerling, Sebastian Kiesel, Michael Scharf, Hans Seidel, and Stefano
+  Previdi.
+\newblock {Application-Layer Traffic Optimization (ALTO) Deployment
+  Considerations}.
+\newblock RFC 7971, October 2016.
+
+\bibitem{stride}
+The stride threat model.
+\newblock
+  \url{https://docs.microsoft.com/en-us/previous-versions/commerce-server/ee823878(v=cs.20)?redirectedfrom=MSDN}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{qos-framework}
+Barbara~Van Schewick.
+\newblock Network neutrality and quality of service: What a non-discrimination
+  rule should look like.
+\newblock Technical report, 6 2012.
+
+\bibitem{fcc}
+Federal communications commission.
+\newblock \url{https://www.fcc.gov/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{article-3}
+Regulation (eu) 2015/2120 of the european parliament and of the council.
+\newblock
+  \url{https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32015R2120&rid=2#d1e445-1-1}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{plusnet}
+Plusnet.
+\newblock \url{https://www.plus.net/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{arstechnica}
+Nate Anderson.
+\newblock Deep packet inspection meets ‘net neutrality'.
+\newblock
+  \url{https://arstechnica.com/gadgets/2007/07/deep-packet-inspection-meets-net-neutrality/2/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{meo}
+Meo.
+\newblock \url{https://www.meo.pt/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{meo-packages}
+Tarifários móveis pós-pagos unlimited.
+\newblock \url{https://www.meo.pt/telemovel/tarifarios/unlimited}.
+\newblock Accessed: 2017-12-14.
+
+\bibitem{Facebook}
+Facebook.
+\newblock \url{https://www.facebook.com/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{spotify}
+Spotify.
+\newblock \url{https://www.spotify.com/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{wikipedia-zero}
+Wikipedia zero.
+\newblock \url{https://en.wikipedia.org/wiki/Wikipedia_Zero}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{wikipedia}
+Wikipedia.
+\newblock \url{https://en.wikipedia.org}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{network-neutrality-developing}
+Lily~Hay Newman.
+\newblock Net neutrality is already in trouble in the developing world.
+\newblock
+  \url{https://slate.com/technology/2014/01/net-neutrality-internet-access-is-already-in-trouble-in-the-developing-world.html},
+  1 2014.
+\newblock Accessed: 2020-25-10.
+
+\bibitem{qos-aware}
+J.~{Domzal}, R.~{Wójcik}, and A.~{Jajszczyk}.
+\newblock Qos-aware net neutrality.
+\newblock In {\em 2009 First International Conference on Evolving Internet},
+  pages 147--152, 2009.
+
+\bibitem{alto-multi-domain-use-cases}
+Danny Alex~Lachos Perez, Christian~Esteve Rothenberg, Qiao Xiang, Y.~Richard
+  Yang, Börje Ohlman, Sabine Randriamasy, Farni Boten, Luis~M. Contreras,
+  J.~(Jensen) Zhang, and Kai Gao.
+\newblock {Supporting Multi-domain Use Cases with ALTO}.
+\newblock Internet-Draft draft-lachos-alto-multi-domain-use-cases-01, Internet
+  Engineering Task Force, July 2020.
+\newblock Work in Progress.
+
+\end{thebibliography}
