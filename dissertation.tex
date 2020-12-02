@@ -71,7 +71,7 @@
 % \def\school{Escola de Engenharia}
 % \def\department{Departamento de Inform\'{a}tica}
 % \def\university{Universidade do Minho}
-\def\masterdegree{Informatics Engineering}
+\degree{Integrated Master's in Informatics Engineering}
 
 % Date
 \date{\myear} % change to text if date is not today
@@ -99,30 +99,41 @@
 %
 \pagenumbering{roman}
 
+\emptypage
+
+\input{chapters/copyright.tex}
+
+\myblankpage
+
 \input{chapters/acknowledgements.tex}
 \clearpage
 
-\emptypage
+\myblankpage
+
+\input{chapters/integrity.tex}
+\clearpage
+
+\myblankpage
 
 \input{chapters/abstract.tex}
 \clearpage
 
-\emptypage
+\myblankpage
 
 \input{chapters/resumo.tex}
 \clearpage
 
-\emptypage
+\myblankpage
 
 \tableofcontents
 \clearpage
+
+\myblankpage
 
 \phantomsection
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
 \clearpage
-
-\emptypage
 
 \phantomsection
 \addcontentsline{toc}{chapter}{\listtablename}
@@ -143,7 +154,9 @@
 \thispagestyle{empty}
 \pagenumbering{arabic}
 
-\input{chapters/todos}
+\glsresetall
+
+%\input{chapters/todos}
 \input{chapters/introduction}
 \input{chapters/state-of-art}
 \input{chapters/architecture}
@@ -175,7 +188,7 @@
 
 % Back Cover -------------------------------------------
 \umbackcover{
-	NB: place here information about funding, FCT project, etc in which the work is framed. Leave empty otherwise.
+	%NB: place here information about funding, FCT project, etc in which the work is framed. Leave empty otherwise.
 	}
 
 \end{document}

@@ -17,6 +17,7 @@
 \usepackage{enumitem}
 \usepackage{comment}
 \usepackage{notoccite}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
 \usepackage{pdfcomment}
 \usepackage{multirow}
 \usepackage{adjustbox}
@@ -140,7 +141,7 @@
 \definecolor{dark-green}{cmyk}{1.0,0,1.0,0.65}
 \definecolor{dark-red}{cmyk}{0,1.0,1.0,0.3}
 \definecolor{amber}{rgb}{1.0, 0.75, 0.0}
-\definecolor{navyblue}{rgb}{0.0, 0.0, 0.5}
+\definecolor{navy-blue}{rgb}{0.0, 0.0, 0.5}
 \definecolor{alizarin}{rgb}{0.82, 0.1, 0.26}
 \definecolor{awesome}{rgb}{1.0, 0.13, 0.32}
 \definecolor{bananayellow}{rgb}{1.0, 0.88, 0.21}
@@ -191,10 +192,15 @@
 \newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
 
 %Caption formatting
-\usepackage{caption}
+\usepackage[figurewithin=chapter, tablewithin=chapter]{caption}
 %\DeclareCaptionFont{white}{\color{white}}
 %\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
 \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
 
 \lstset{language=Java,
 breaklines,
@@ -346,6 +352,8 @@ showstringspaces=false}
 %\renewcommand{\cftfigleader}{\cftdotfill{\cftnodots}} % for figures
 %\renewcommand{\cfttableader}{\cftdotfill{\cftnodots}} % for tables
 
+\pagestyle{plain}
+
 
 % Create better looking section cross-reference links
 \usepackage[capitalise]{cleveref}
@@ -404,10 +412,10 @@ showstringspaces=false}
 	pdffitwindow=true,			% window fit to page when opened
 	pdfnewwindow=true,			% links in new window
 	colorlinks=true,				% false: boxed links; true: colored links
-	linkcolor=navy-blue,			% color of internal links
-	citecolor=blue,		% color of links to bibliography
-	filecolor=dark-red,			% color of file links
-	urlcolor=navy-blue			% color of external links
+	linkcolor=black,			% color of internal links
+	citecolor=black,		% color of links to bibliography
+	filecolor=black,			% color of file links
+	urlcolor=blacke			% color of external links
 	%pdfkeywords={\@keywords},	% list of keywords
 }
 
@@ -479,7 +487,7 @@ showstringspaces=false}
 \def\school#1{\gdef\@school{#1}}
 \def\department#1{\gdef\@department{#1}}
 \def\university#1{\gdef\@university{#1}}
-\def\masterdegree#1{\gdef\@masterdegree{#1}}
+\def\degree#1{\gdef\@degree{#1}}
 
 % cover layout
 \newcommand{\printcover}{
@@ -501,12 +509,12 @@ showstringspaces=false}
 \\\rule{0pt}{0.3cm}
 \\\rule{0pt}{4.2cm}
 \\\optionalwithnewsgott{\large Masters dissertation}
-\\\optionalwithnewsgott{\large Masters degree in Informatics Engineering}
+\\\optionalwithnewsgott{\large \@degree}
 \\\rule{0pt}{6mm}
 \\\optionalwithnewsgott{\large Dissertation supervised by}
 \\\optionalwithboldnewsgott{\@supervisor}\rule{0pt}{4mm}
 \\\rule{0pt}{2cm}
-\\\withnewsgott{{\small October 2020}}
+\\\withnewsgott{{\small January 2021}}
 \end{tabular}
 }
 
@@ -541,6 +549,12 @@ showstringspaces=false}
 }
 
 \newcommand{\umappendix}[1]{\appendix\renewcommand\chaptername{#1}}
+
+\newcommand{\myblankpage}[0]{\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+}
 
 
 % Implicit commands whenever possible

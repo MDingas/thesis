@@ -1,5 +1,18 @@
 \begin{thebibliography}{10}
 
+\bibitem{cisco2019}
+Cisco visual networking index: Forecast and trends.
+\newblock Technical report, 2 2019.
+
+\bibitem{sandvine2019}
+The global internet phenomena report.
+\newblock Technical report, 9 2019.
+
+\bibitem{seedorf2009}
+Jan Seedorf, Sebastian Kiesel, and Martin Stiemerling.
+\newblock Traffic localization for p2p-applications: The alto approach.
+\newblock 10 2009.
+
 \bibitem{sandvine}
 Active network intelligence solutions | sandvine.
 \newblock \url{https://www.sandvine.com/}.
@@ -9,10 +22,6 @@ Active network intelligence solutions | sandvine.
 Bittorrent.org.
 \newblock \url{http://bittirrent.org/beps/bep_0003.html}.
 \newblock Accessed: 2020-05-20.
-
-\bibitem{sandvine2019}
-The global internet phenomena report.
-\newblock Technical report, 9 2019.
 
 \bibitem{ppstream}
 Ppstream.
@@ -27,8 +36,7 @@ Akamai.
 \bibitem{akamai-report}
 Erik Nygren, Ramesh Sitaraman, and Jennifer Sun.
 \newblock The akamai network: a platform for high-performance internet
-  applications.
-\newblock {\em Operating Systems Review}, 44:2--19, 01 2010.
+  applications., 01 2010.
 
 \bibitem{jiangchuanliu2008}
 J.~{Liu}, S.~G. {Rao}, B.~{Li}, and H.~{Zhang}.
@@ -68,6 +76,13 @@ Freenet.
 \newblock \url{https://freenetproject.org/}.
 \newblock Accessed: 2020-05-20.
 
+\bibitem{stoica2003}
+I.~{Stoica}, R.~{Morris}, D.~{Liben-Nowell}, D.~R. {Karger}, M.~F. {Kaashoek},
+  F.~{Dabek}, and H.~{Balakrishnan}.
+\newblock Chord: a scalable peer-to-peer lookup protocol for internet
+  applications.
+\newblock {\em IEEE/ACM Transactions on Networking}, 11(1), 2003.
+
 \bibitem{freehaven}
 The free haven project.
 \newblock \url{https://www.freehaven.net/overview.html}.
@@ -77,13 +92,6 @@ The free haven project.
 Eytan Adar and Bernardo~A. Huberman.
 \newblock Free riding on gnutella.
 \newblock {\em First Monday}, 5, 2000.
-
-\bibitem{stoica2003}
-I.~{Stoica}, R.~{Morris}, D.~{Liben-Nowell}, D.~R. {Karger}, M.~F. {Kaashoek},
-  F.~{Dabek}, and H.~{Balakrishnan}.
-\newblock Chord: a scalable peer-to-peer lookup protocol for internet
-  applications.
-\newblock {\em IEEE/ACM Transactions on Networking}, 11(1), 2003.
 
 \bibitem{overlay-vs-underlay}
 Claudio Fiandrino.
@@ -206,6 +214,11 @@ Swisscom.
 Kt.
 \newblock \url{https://corp.kt.com/}.
 \newblock Accessed: 2020-09-20.
+
+\bibitem{cliserv-p2p}
+Lu~Liu and Nick Antonopoulos.
+\newblock {\em From Client-Server to P2P Networking}, pages 71--89.
+\newblock Springer US, 2010.
 
 \bibitem{linux-mint}
 Linux mint.
@@ -333,11 +346,6 @@ Andr{\'{e}} Sampaio and Pedro Sousa.
 \newblock An adaptable and {ISP}-friendly multicast overlay network.
 \newblock {\em Peer-to-Peer Networking and Applications}, 12(4):809--829,
   September 2018.
-
-\bibitem{seedorf2009}
-Jan Seedorf, Sebastian Kiesel, and Martin Stiemerling.
-\newblock Traffic localization for p2p-applications: The alto approach.
-\newblock 10 2009.
 
 \bibitem{alto-about}
 Application-layer traffic optimization (alto).
@@ -478,5 +486,47 @@ Danny Alex~Lachos Perez, Christian~Esteve Rothenberg, Qiao Xiang, Y.~Richard
 \newblock Internet-Draft draft-lachos-alto-multi-domain-use-cases-01, Internet
   Engineering Task Force, July 2020.
 \newblock Work in Progress.
+
+\bibitem{alto-cost-metrics}
+Qin Wu, Y.~Richard Yang, Young Lee, Dhruv Dhody, and Sabine Randriamasy.
+\newblock {ALTO Performance Cost Metrics}.
+\newblock Internet-Draft draft-ietf-alto-performance-metrics-08, Internet
+  Engineering Task Force, November 2019.
+\newblock Work in Progress.
+
+\bibitem{alto-multi-cost}
+Sabine Randriamasy, Wendy Roome, and Nico Schwan.
+\newblock {Multi-Cost Application-Layer Traffic Optimization (ALTO)}.
+\newblock RFC 8189, October 2017.
+
+\bibitem{dns-https}
+Kimo Bumanglag and Houssain Kettani.
+\newblock On the impact of dns over https paradigm on cyber systems.
+\newblock pages 494--499, 03 2020.
+
+\bibitem{java}
+Java.
+\newblock \url{https://www.java.com/en/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{java-spring}
+Java spring.
+\newblock \url{https://spring.io/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{mongodb}
+Mongodb.
+\newblock \url{https://www.mongodb.com/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{http-basic}
+Julian Reschke.
+\newblock {The 'Basic' HTTP Authentication Scheme}.
+\newblock RFC 7617, September 2015.
+
+\bibitem{http-digest}
+Rifaat Shekh-Yusef, David Ahrens, and Sophie Bremer.
+\newblock {HTTP Digest Access Authentication}.
+\newblock RFC 7616, September 2015.
 
 \end{thebibliography}

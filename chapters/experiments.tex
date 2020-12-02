@@ -127,7 +127,7 @@ $ vcmd -c /tmp/pycore.12345/P2P-Client-1 -- ping 10.0.0.1
     Random                     & \multicolumn{1}{m{11cm}|}{Randomly elect among all available peers}                                                     \\ \hline
     RTT                        & \multicolumn{1}{m{11cm}|}{Select the peer with the smallest probe packet \gls{rtt} measurement average in 10 pings}     \\ \hline
     ALTO - Local               & \multicolumn{1}{m{11cm}|}{Retrieve the local network map from the requesting peer's \gls{alto} server and discover the peers whose \gls{pid} matches the requesting peer, choosing randomly if multiple options exist}                                                                                                           \\ \hline
-    ALTO - Global              & \multicolumn{1}{m{11cm}|}{Retrieve the global multicost endpoint cost map from the requesting peer's \gls{alto} server by selecting the tcp throughput and one way delay metrics, and selecting the peer that maximizes throughput with a delay no bigger than 5 milliseconds.}                                                  \\ \hline
+    ALTO - Global              & \multicolumn{1}{m{11cm}|}{Retrieve the global multicost endpoint cost map from the requesting peer's \gls{alto} server by selecting the \gls{tcp} throughput and one way delay metrics, and selecting the peer that maximizes throughput with a delay no bigger than 5 milliseconds.}                                                  \\ \hline
 \end{tabular}
 \caption{Tracker algorithms to be tested in scenario 1}
 \label{table:s1-tracker-methods}
@@ -165,7 +165,7 @@ Table \ref{table:s1-measurements} presents the measurements that will be collect
     0 seconds                 & 100 ms                             \\ \hline
     60 seconds                & 50 ms                              \\ \hline
     120 seconds               & 20 ms                              \\ \hline
-    180 seconds - \infty      & 10 ms                              \\ \hline
+    180 seconds - $\infty$    & 10 ms                              \\ \hline
 \end{tabular}
 \caption{Dynamically applied client-server path delays}
 \label{table:server-delays}
@@ -220,7 +220,7 @@ The listing is show in table \ref{table:server-mirrors}
     10.0.13.10              & 3           & B             \\ \hline
 \end{tabular}
 \caption{Listed server mirrors}
-\label{tabel:server-mirrors}
+\label{table:server-mirrors}
 \end{table}
 
 The mirror servers will be subjected to constant loads at the start of the scenario, that are translated as throughput throttling applied from the client to the servers, specifically the ones shown in \ref{table:mirrors-bandwidth}.
@@ -235,8 +235,8 @@ The mirror servers will be subjected to constant loads at the start of the scena
     10.0.23.11              & 10.0 ms             \\ \hline
     10.0.13.10              & 5.0  ms             \\ \hline
 \end{tabular}
-\caption{Listed server mirrors}
-\label{tabel:server-mirrors}
+\caption{Available path throughput from client to mirror servers}
+\label{table:mirrors-bandwidth}
 \end{table}
 
 The \gls{alto} server local to that client provides a global \gls{alto} endpoint property map that contains \gls{cpu} and \gls{ram} load information about all the mirrors, as well as an endpoint cost map containing information about the expected bandwidth and delay from the client to the mirror.
@@ -254,7 +254,7 @@ Table \ref{table:s3-client-methods} displays the different client algorithms tha
     ALTO                      & \multicolumn{1}{m{11cm}|}{Retrieve an endpoint property map and endpoint cost map from the local \gls{alto} server, and choose the with most available bandwidth and delay below 2ms, whose memory and processing power is below 30\%} \\ \hline
 \end{tabular}
 \caption{Client algorithms to be tested in scenario 3}
-\label{table:s2-client-methods}
+\label{table:s3-client-methods}
 \end{table}
 
 \textbf{Measurements:} Table \ref{table:s3-measurements} presents the measurements that will be collected during the experiment runs.
@@ -268,7 +268,7 @@ Table \ref{table:s3-client-methods} displays the different client algorithms tha
     Network Traffic             & Megabytes          & \multicolumn{1}{m{7cm}|}{Total amount of traffic that passed through each area network and AS}  \\ \hline
 \end{tabular}
 \caption{Measurements to be taken in scenario 3}
-\label{table:s2-measurements}
+\label{table:s3-measurements}
 \end{table}
 
 \section{Results}
@@ -461,7 +461,7 @@ Disregarding negligible measurements from given \glspl{as} and areas, it appears
     \addplot[fill=red] coordinates {(0.062908,{RTT}) (0.059772,{ALTO-Global}) (0.054064,{Immediate})};
 
     % AS1 - Area B
-    \addplot[fill=navyblue] coordinates {(12.495609,{RTT}) (12.465589,{ALTO-Global}) (12.405077,{Immediate})};
+    \addplot[fill=navy-blue] coordinates {(12.495609,{RTT}) (12.465589,{ALTO-Global}) (12.405077,{Immediate})};
     % AS1 - Area A
     \addplot[fill=lightblue] coordinates {(570.188334,{RTT}) (570.188204,{ALTO-Global}) (570.231908,{Immediate})};
     % AS1
@@ -558,7 +558,7 @@ It appears that the approach that probed for path bandwidth had a considerable i
     \addplot[fill=red] coordinates {(0.077014,{Random}) (38.313674,{Bandwidth}) (13.200761,{ALTO-Global})};
 
     % AS1 - Area B
-    \addplot[fill=navyblue] coordinates {(0.080092,{Random}) (12.585188,{Bandwidth}) (0.056120,{ALTO-Global})};
+    \addplot[fill=navy-blue] coordinates {(0.080092,{Random}) (12.585188,{Bandwidth}) (0.056120,{ALTO-Global})};
     % AS1 - Area A
     \addplot[fill=lightblue] coordinates {(570.197962,{Random}) (571.161868,{Bandwidth}) (570.178424,{ALTO-Global})};
     % AS1

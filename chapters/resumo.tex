@@ -1,12 +1,17 @@
 \chapter{Resumo}
 
-    Com o uso cada vez mais acrescido da Internet que acompanha o início da nova década, a necessidade para otimizar esta rede global de computadores passa a ser uma grande prioridade na esfera tecnológica, que vê o seu número de utilizadores a aumentar, assim como a exigência, por parte das aplicações, de novos padrões de qualidade de serviço (QoS), como se vê em domínios de stream multimédia em tempo real ou realidade virtual.
+    Com o uso cada vez mais acrescido da Internet que acompanha o início da nova década, a necessidade de otimizar esta rede global de computadores passa a ser uma grande prioridade na esfera tecnológica, que vê o seu número de utilizadores a aumentar, assim como a exigência, por parte das aplicações, de novos padrões de Qualidade de Serviço (QoS), como se vê em domínios de stream multimédia em tempo real ou realidade virtual.
 
-    Face ao aumento de tráfego e a padrões de exigência aplicacionais mais restritos, uma melhor compreensão é necessária de como os provedores de serviços Internet (ISPs) devem gerir os seus recursos.
-    Numa tentativa por otimizar a Internet, um ponto fulcral é o de perceber como as aplicações utilizam a infraestrutura tecnológica da rede sobre a qual residem.
-    As aplicações Peer-to-Peer (P2P), por exemplo, são tradicionalmente desfavorecidas pelos ISPs devido à sua imprevisibilidade e incontrolabilidade, bem como uma utilização ineficiente de recursos de rede, que acaba por afetar os ISPs em maiores custos de operação e reduzidas garantias de níveis de QoS.
-    Um problema aparente é a falta de consideração que estas e outras aplicações têm pelas preferências dos ISPs durante a sua operação, exemplificado nas aplicações P2P pela sua falta de esforço em obter proximidade topológica com os vizinhos na rede overlay, que caso existisse seria preferível por administradores de rede e teria potencial para melhorar o desempenho aplicacional.
+    Face ao aumento de tráfego e a padrões de exigência aplicacionais mais restritos, uma melhor compreensão é necessária de como os fornecedores de serviços Internet (ISPs) devem gerir os seus recursos.
+    Numa tentativa por otimizar a Internet, um ponto fulcral é o de perceber como as aplicações utilizam os recursos da rede sobre a qual residem.
+    Um problema aparente é a falta de consideração que estas e outras aplicações têm pelas preferências dos ISPs durante a sua operação, como as aplicações P2P pela sua falta de esforço em obter proximidade topológica com os vizinhos na rede overlay, que caso existisse seria preferível por administradores de rede e teria potencial para melhorar o desempenho aplicacional.
     Todavia, uma tentativa de melhor esforço por parte das aplicações por cooperar não será bem-sucedida se tais preferências não são claramente comunicadas.
     Um sistema que sirva de ponte de comunicação entre as duas camadas tem portanto bastante potencial na tarefa de atingir um cenário mutuamente benéfico.
 
-    O objetivo primordial desta tese é a implementação e extensão do projecto desenvolvido pelo grupo de trabalho Application-Layer Traffic Optimization (ALTO), que especificou um protocolo de pedido e fornecimento de recursos no qual entidades autoritárias disponibilizam auxílio a aplicações na forma de informação de estado de rede e preferências administrativas, com o intuito de obter cooperação entre as camadas underlay e overlay durante operação aplicacional para alcançar uma melhor harmonia na Internet através de uma otimizada utilização de recursos infraestruturais e consequente minimização de custos.
+    O foco principal desta tese é o grupo de trabalho \gls{alto}, que foi formado pelo \gls{ietf} para explorar estandardizações para recolha de informação do estado da rede. 
+    Este grupo de trabalho especificou um protocolo de pedido e fornecimento de recursos onde entidades autoritárias auxiliam aplicações com informação sobre estado de rede e preferências administrativas, como forma de obter cooperação entre camadas durante operação aplicacional, para melhor otimizar a Internet através de uma mais eficiente utilização de recursos infraestruturais e a consequente minimização de custos operacionais.
+    Este trabalho pretende implementar e alargar as ideias do grupo \gls{alto}, bem como verificar a eficiência do sistema desenvolvido num ambiente simulado.
+
+    \bigskip
+
+    \textbf{Palavras-Chave:} Application-Layer Traffic Optimization, Content Distribution networks, Engenharia de Tráfego, Otimização de rede, Peer-to-peer
