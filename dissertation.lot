@@ -8,29 +8,5 @@
 \ttl@tocsep 
 \ttl@tocsep 
 \ttl@tocsep 
-\ttl@tocsep 
-\contentsline {table}{\numberline {2.1}{\ignorespaces Types of P2P systems (Adapted from \cite {p2p-survey-1})\relax }}{10}{table.caption.8}%
-\ttl@tocsep 
-\contentsline {table}{\numberline {3.1}{\ignorespaces Network node entities in the conceptual ALTO system representation\relax }}{56}{table.caption.22}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Example network map referencing Figure \ref {fig:example-topology-boundary}\relax }}{63}{table.caption.28}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Example cost map for overlay in Figure \ref {fig:example-topology}\relax }}{64}{table.caption.30}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces Example cost map for the limited \gls {isp} domain in \ref {fig:example-topology}\relax }}{66}{table.caption.31}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces Example endpoint property map for server replicas\relax }}{67}{table.caption.32}%
-\contentsline {table}{\numberline {3.6}{\ignorespaces Example of an \gls {alto} server's \gls {ird}\relax }}{69}{table.caption.33}%
-\contentsline {table}{\numberline {3.7}{\ignorespaces \gls {alto} server's available endpoints\relax }}{74}{table.caption.37}%
-\contentsline {table}{\numberline {3.8}{\ignorespaces Example \gls {alto} queries with the filtering functionality\relax }}{76}{table.caption.38}%
-\contentsline {table}{\numberline {3.9}{\ignorespaces Network Information Aggregator's available endpoints\relax }}{80}{table.caption.39}%
-\ttl@tocsep 
-\ttl@tocsep 
-\contentsline {table}{\numberline {5.1}{\ignorespaces Tracker mappings of file fragments to available endpoints\relax }}{105}{table.caption.48}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Tracker algorithms to be tested in scenario 1\relax }}{106}{table.caption.49}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Measurements to be taken in scenario 1\relax }}{106}{table.caption.50}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces Dynamically applied client-server path delays\relax }}{106}{table.caption.51}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces Client algorithms to be tested in scenario 2\relax }}{107}{table.caption.52}%
-\contentsline {table}{\numberline {5.6}{\ignorespaces Measurements to be taken in scenario 2\relax }}{107}{table.caption.53}%
-\contentsline {table}{\numberline {5.7}{\ignorespaces Listed server mirrors\relax }}{107}{table.caption.54}%
-\contentsline {table}{\numberline {5.8}{\ignorespaces Available path throughput from client to mirror servers\relax }}{108}{table.caption.55}%
-\contentsline {table}{\numberline {5.9}{\ignorespaces Client algorithms to be tested in scenario 3\relax }}{108}{table.caption.56}%
-\contentsline {table}{\numberline {5.10}{\ignorespaces Measurements to be taken in scenario 3\relax }}{108}{table.caption.57}%
-\ttl@tocsep 
+\contentsline {table}{\numberline {1.1}{\ignorespaces Types of P2P systems (Adapted from \cite {p2p-survey-1})\relax }}{4}{table.caption.8}%
 \ttl@tocsep 

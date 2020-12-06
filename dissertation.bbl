@@ -1,18 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{cisco2019}
-Cisco visual networking index: Forecast and trends.
-\newblock Technical report, 2 2019.
-
-\bibitem{sandvine2019}
-The global internet phenomena report.
-\newblock Technical report, 9 2019.
-
-\bibitem{seedorf2009}
-Jan Seedorf, Sebastian Kiesel, and Martin Stiemerling.
-\newblock Traffic localization for p2p-applications: The alto approach.
-\newblock 10 2009.
-
 \bibitem{sandvine}
 Active network intelligence solutions | sandvine.
 \newblock \url{https://www.sandvine.com/}.
@@ -22,6 +9,10 @@ Active network intelligence solutions | sandvine.
 Bittorrent.org.
 \newblock \url{http://bittirrent.org/beps/bep_0003.html}.
 \newblock Accessed: 2020-05-20.
+
+\bibitem{sandvine2019}
+The global internet phenomena report.
+\newblock Technical report, 9 2019.
 
 \bibitem{ppstream}
 Ppstream.
@@ -261,6 +252,13 @@ Pedro Sousa.
 \newblock {\em Journal of Communications Software and Systems}, 9(4):236, dec
   2013.
 
+\bibitem{rev3}
+Pedro Sousa.
+\newblock Towards effective control of p2p traffic aggregates in network
+  infrastructures.
+\newblock {\em Journal of Communications Software and Systems}, 11:37--47, 04
+  2015.
+
 \bibitem{altruistic-gnutella}
 D.~{Hughes}, I.~{Warren}, and G.~{Coulson}.
 \newblock Agnus: the altruistic gnutella server.
@@ -347,6 +345,11 @@ Andr{\'{e}} Sampaio and Pedro Sousa.
 \newblock {\em Peer-to-Peer Networking and Applications}, 12(4):809--829,
   September 2018.
 
+\bibitem{seedorf2009}
+Jan Seedorf, Sebastian Kiesel, and Martin Stiemerling.
+\newblock Traffic localization for p2p-applications: The alto approach.
+\newblock 10 2009.
+
 \bibitem{alto-about}
 Application-layer traffic optimization (alto).
 \newblock Technical report, 11 2019.
@@ -386,6 +389,13 @@ Sebastian Kiesel, Wendy Roome, Richard Woundy, Stefano Previdi, Stanislav
   Shalunov, Richard Alimi, Reinaldo Penno, and Y.~Richard Yang.
 \newblock {Application-Layer Traffic Optimization (ALTO) Protocol}.
 \newblock RFC 7285, September 2014.
+
+\bibitem{alto-cost-metrics}
+Qin Wu, Y.~Richard Yang, Young Lee, Dhruv Dhody, and Sabine Randriamasy.
+\newblock {ALTO Performance Cost Metrics}.
+\newblock Internet-Draft draft-ietf-alto-performance-metrics-08, Internet
+  Engineering Task Force, November 2019.
+\newblock Work in Progress.
 
 \bibitem{alto-problem-statement}
 Jan Seedorf and Eric Burger.
@@ -486,47 +496,5 @@ Danny Alex~Lachos Perez, Christian~Esteve Rothenberg, Qiao Xiang, Y.~Richard
 \newblock Internet-Draft draft-lachos-alto-multi-domain-use-cases-01, Internet
   Engineering Task Force, July 2020.
 \newblock Work in Progress.
-
-\bibitem{alto-cost-metrics}
-Qin Wu, Y.~Richard Yang, Young Lee, Dhruv Dhody, and Sabine Randriamasy.
-\newblock {ALTO Performance Cost Metrics}.
-\newblock Internet-Draft draft-ietf-alto-performance-metrics-08, Internet
-  Engineering Task Force, November 2019.
-\newblock Work in Progress.
-
-\bibitem{alto-multi-cost}
-Sabine Randriamasy, Wendy Roome, and Nico Schwan.
-\newblock {Multi-Cost Application-Layer Traffic Optimization (ALTO)}.
-\newblock RFC 8189, October 2017.
-
-\bibitem{dns-https}
-Kimo Bumanglag and Houssain Kettani.
-\newblock On the impact of dns over https paradigm on cyber systems.
-\newblock pages 494--499, 03 2020.
-
-\bibitem{java}
-Java.
-\newblock \url{https://www.java.com/en/}.
-\newblock Accessed: 2020-09-20.
-
-\bibitem{java-spring}
-Java spring.
-\newblock \url{https://spring.io/}.
-\newblock Accessed: 2020-09-20.
-
-\bibitem{mongodb}
-Mongodb.
-\newblock \url{https://www.mongodb.com/}.
-\newblock Accessed: 2020-09-20.
-
-\bibitem{http-basic}
-Julian Reschke.
-\newblock {The 'Basic' HTTP Authentication Scheme}.
-\newblock RFC 7617, September 2015.
-
-\bibitem{http-digest}
-Rifaat Shekh-Yusef, David Ahrens, and Sophie Bremer.
-\newblock {HTTP Digest Access Authentication}.
-\newblock RFC 7616, September 2015.
 
 \end{thebibliography}
