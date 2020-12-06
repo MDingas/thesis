@@ -8,17 +8,15 @@
 \ttl@tocsep 
 \ttl@tocsep 
 \ttl@tocsep 
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Demonstration of Gnutella's file searching mechanism \cite {gnutella-flood}\relax }}{5}{figure.caption.9}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Examples of structured P2P query mechanisms that utilize DHTs\relax }}{7}{figure.caption.10}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Examples of \gls {p2p} query mechanisms when application optimizations are in place\relax }}{9}{figure.caption.11}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Example demonstration of an overlay network and corresponding physical layer \cite {overlay-vs-underlay}\relax }}{9}{figure.caption.12}%
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Conceptual architecture of a \gls {cdn} \cite {cdn-survey}\relax }}{14}{figure.caption.13}%
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Request routing functionality of a \gls {cdn} \cite {cdn-survey}\relax }}{15}{figure.caption.14}%
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Client-Server architecture \cite {cliserv-p2p}\relax }}{20}{figure.caption.15}%
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Linux Mint prompt to select a software repository mirror\relax }}{21}{figure.caption.16}%
-\contentsline {figure}{\numberline {1.9}{\ignorespaces Approaches to decrease tension between \gls {p2p} applications and \glspl {isp} grouped by their involvement \cite {dan-Commag10}\relax }}{24}{figure.caption.17}%
-\contentsline {figure}{\numberline {1.10}{\ignorespaces ALTO scenario \cite {seedorf2009}\relax }}{32}{figure.caption.18}%
-\contentsline {figure}{\numberline {1.11}{\ignorespaces ALTO architecture (adapted from \cite {alto-protocol})\relax }}{35}{figure.caption.19}%
-\contentsline {figure}{\numberline {1.12}{\ignorespaces ALTO services (adapted from \cite {alto-protocol}) \relax }}{36}{figure.caption.20}%
-\contentsline {figure}{\numberline {1.13}{\ignorespaces Conceptual representation of ISP diversity on the Internet\relax }}{46}{figure.caption.21}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Conceptual representation of the ALTO system of a given ISP\relax }}{3}{figure.caption.9}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces System architecture at a macro level\relax }}{4}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces High-level communication diagram of a successful resource action request\relax }}{7}{figure.caption.11}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Example network topology with ISP boundary\relax }}{9}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Example overlay network topology without ISP boundary\relax }}{11}{figure.caption.15}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces High-level communication diagram of a \gls {p2p} application utilizing \gls {alto}\relax }}{18}{figure.caption.20}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces High-level communication diagram of a tracker utilizing \gls {alto} by proxy\relax }}{19}{figure.caption.21}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces High-level communication diagram of a \gls {cdn} controller utilizing \gls {alto}\relax }}{20}{figure.caption.22}%
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Communication diagram of how external network state providers upload information to the network information aggregator\relax }}{28}{figure.caption.26}%
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Communication diagram of how an ISP administrator pre-processes the gathered network state and uploads it to the ALTO server\relax }}{30}{figure.caption.27}%
 \ttl@tocsep 
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
