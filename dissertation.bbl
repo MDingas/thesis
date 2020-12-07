@@ -1,5 +1,32 @@
 \begin{thebibliography}{10}
 
+\bibitem{cisco2019}
+Cisco visual networking index: Forecast and trends.
+\newblock Technical report, 2 2019.
+
+\bibitem{rev1}
+Vitor Pereira, Miguel Rocha, Paulo Cortez, Miguel Rio, and Pedro Sousa.
+\newblock A framework for robust traffic engineering using evolutionary
+  computation.
+\newblock In {\em 7th International Conference on Autonomous Infrastructure,
+  Management and Security (AIMS 2013)}, LNCS 7943, pages 2--13, Barcelona,
+  Spain, 2013. Springer.
+
+\bibitem{rev2}
+V.~{Pereira}, M.~{Rocha}, and P.~{Sousa}.
+\newblock Traffic engineering with three-segments routing.
+\newblock {\em IEEE Transactions on Network and Service Management},
+  17(3):1896--1909, 9 2020.
+
+\bibitem{sandvine2019}
+The global internet phenomena report.
+\newblock Technical report, 9 2019.
+
+\bibitem{seedorf2009}
+Jan Seedorf, Sebastian Kiesel, and Martin Stiemerling.
+\newblock Traffic localization for p2p-applications: The alto approach.
+\newblock 10 2009.
+
 \bibitem{sandvine}
 Active network intelligence solutions | sandvine.
 \newblock \url{https://www.sandvine.com/}.
@@ -9,10 +36,6 @@ Active network intelligence solutions | sandvine.
 Bittorrent.org.
 \newblock \url{http://bittirrent.org/beps/bep_0003.html}.
 \newblock Accessed: 2020-05-20.
-
-\bibitem{sandvine2019}
-The global internet phenomena report.
-\newblock Technical report, 9 2019.
 
 \bibitem{ppstream}
 Ppstream.
@@ -345,11 +368,6 @@ Andr{\'{e}} Sampaio and Pedro Sousa.
 \newblock {\em Peer-to-Peer Networking and Applications}, 12(4):809--829,
   September 2018.
 
-\bibitem{seedorf2009}
-Jan Seedorf, Sebastian Kiesel, and Martin Stiemerling.
-\newblock Traffic localization for p2p-applications: The alto approach.
-\newblock 10 2009.
-
 \bibitem{alto-about}
 Application-layer traffic optimization (alto).
 \newblock Technical report, 11 2019.
@@ -496,5 +514,50 @@ Danny Alex~Lachos Perez, Christian~Esteve Rothenberg, Qiao Xiang, Y.~Richard
 \newblock Internet-Draft draft-lachos-alto-multi-domain-use-cases-01, Internet
   Engineering Task Force, July 2020.
 \newblock Work in Progress.
+
+\bibitem{alto-multi-cost}
+Sabine Randriamasy, Wendy Roome, and Nico Schwan.
+\newblock {Multi-Cost Application-Layer Traffic Optimization (ALTO)}.
+\newblock RFC 8189, October 2017.
+
+\bibitem{dns-https}
+Kimo Bumanglag and Houssain Kettani.
+\newblock On the impact of dns over https paradigm on cyber systems.
+\newblock pages 494--499, 03 2020.
+
+\bibitem{java}
+Java.
+\newblock \url{https://www.java.com/en/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{java-spring}
+Java spring.
+\newblock \url{https://spring.io/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{mongodb}
+Mongodb.
+\newblock \url{https://www.mongodb.com/}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{http-basic}
+Julian Reschke.
+\newblock {The 'Basic' HTTP Authentication Scheme}.
+\newblock RFC 7617, September 2015.
+
+\bibitem{http-digest}
+Rifaat Shekh-Yusef, David Ahrens, and Sophie Bremer.
+\newblock {HTTP Digest Access Authentication}.
+\newblock RFC 7616, September 2015.
+
+\bibitem{core}
+Common open research emulator.
+\newblock \url{https://www.nrl.navy.mil/itd/ncs/products/core}.
+\newblock Accessed: 2020-09-20.
+
+\bibitem{python}
+Python.
+\newblock \url{https://www.python.org/}.
+\newblock Accessed: 2020-09-20.
 
 \end{thebibliography}

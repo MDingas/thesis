@@ -24,18 +24,6 @@
     If, say, the administrator wished to provide a cost map between network entities which aimed to reduce inter-network traffic, it would firstly aggregate endpoints into abstract entities with common properties, as an attempt not to share too much infrastructural information, and then use the previously collected network link information, attribute higher costs to undesired links, and transform it utilizing the Dijkstra's algorithm to create a shortest path map that is bound to provider preferences.
     Such map is then parsed as an \gls{alto} resource - more specifically, a cost map - and afterwards uploaded into the \gls{alto} server with the access policies the administrator sees fit.
 
-\begin{table}[H]
-\centering
-\caption{Network node entities in the conceptual ALTO system representation}
-\begin{tabular}{ | c | l |}
-\hline
-\textbf{Image} & \textbf{Description} \\ \hline
-\raisebox{-.30\height}{\includegraphics[width=8mm]{img/circle-white}} & Network node \\ \hline
-\raisebox{-.30\height}{\includegraphics[width=8mm]{img/circle-blue}} & Network node participating in a given overlay network \\
-\hline
-\end{tabular}
-\end{table}
-
 \begin{figure}[H]
         \centering
         \hspace*{0.35cm}
@@ -65,7 +53,7 @@
 \begin{figure}[H]
         \centering
         \hspace*{-4em}
-        \includegraphics[scale=0.25]{architecture-macro2.png}
+        \includegraphics[scale=0.25]{architecture-macro.png}
         \caption{System architecture at a macro level}
         \label{fig:macro-architecture}
 \end{figure}
@@ -681,6 +669,16 @@ DELETE          & /measurements/group/\{id\}         & Remove a measured endpoin
 \label{table:aggregator-endpoints}
 \end{table}
 
+    All measurements contain two portions:
+
+    \begin{itemize}
+        \textbf{Meta data:} Information that pertains to the characterization of the measurement.
+        These include the type of source from where the measurement came from, such as "OSPF", and better help parse and, in future system iterations, validate the data.
+        Additionally, the time the measurement took place and a description are also required, as they better help store and index the measurements in such a way that facilitate the administrator's ability to reason on the collected network status information.
+
+        \textbf{Measurement values:} The actual measurement values, which map a node, pair of nodes, or group of nodes, to a value, if these regard to a property, cost, or group measurements.
+    \end{itemize}
+
     An illustrative example on how certain Network State Collectors of given network data could use this endpoint to interface with the Network Information Aggregator is presented on Figure \ref{fig:provisioning-providers}.
 
 \begin{figure}[H]
@@ -691,21 +689,23 @@ DELETE          & /measurements/group/\{id\}         & Remove a measured endpoin
         \label{fig:provisioning-providers}
 \end{figure}
 
-
-    \textbf{[Network is provided raw, as is, without validation, but validation modules could be provided in the future if a need for it exists. The uploaded information firstly has meta data - which includes the source name (where the data came from, such as an OSPF collector daemon), the time where the measurements were collected, a description, an endpoint or group of endpoints, depending on what the measurement relates to - such as an endpoint property or a cost between two properties or a grouping between N properties, and the measurement itself.]}
-
+    This protocol is specified in such a way that the network data is provided raw, without validation.
+    This is due to the fact that, as explained before, a big range of protocols and data types define the Internet, and because of this an equal range of validation modules would be necessary for a complete validation of all input data.
 
 \subsubsection{Network Status processing}
 
-    \textbf{[Detail how the ISP uses the information gathered by the network state providers and pre-processes it. This includes, for example, calculating shortest path maps utilizing a Dijkstra algorithm, limiting/changing information to maintain security, adding static ISP policies, and attributing access control policies for that resource]}
+    Given that data is retrieved by the network state collectors into the network state aggregator and now resides in its database fully tagged with important descriptive information, it is now responsibility of some entity to interact with the network status information and process it into an \gls{alto} resource.
+    This would include, for example, using an automated shortest path algorithm considering link costs which were retrieved by an \gls{ospf} daemon, or filtering out sensitive \gls{snmp} data initially retrieved with a script, leaving out only data that would be advantageous to share without jeopardizing the network's security.
+    A final important step would be to set the resources \gls{acl} list as a means to signal to the \gls{alto} server how to enforce access control policies better fit to each data.  
+    Figure \ref{fig:provisioning-isp} exemplifies how an \gls{isp} administrator would enact the aforementioned steps.
 
-    \textbf{Creating a user-friendly network data constructor would be a good future work}
+    \textbf{Falta imagem, mas irá repetir o que disse textualmente mas mostrando as entidades envolvidas} 
 
-\begin{figure}[H]
-        \centering
-        \hspace*{-2em}
-        \includegraphics[scale=0.40]{img/communication-info-provisioning-isp.png}
-        \caption{Communication diagram of how an ISP administrator pre-processes the gathered network state and uploads it to the ALTO server}
-        \label{fig:provisioning-isp}
-\end{figure}
+%% \begin{figure}[H]
+%%         \centering
+%%         \hspace*{-2em}
+%%         \includegraphics[scale=0.40]{img/communication-info-provisioning-isp.png}
+%%         \caption{Communication diagram of how an ISP administrator pre-processes the gathered network state and uploads it to the ALTO server}
+%%         \label{fig:provisioning-isp}
+%% \end{figure}
 

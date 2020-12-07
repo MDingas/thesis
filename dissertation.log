@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.12.6)  6 DEC 2020 23:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.12.6)  7 DEC 2020 02:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2179,12 +2179,12 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 12
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/pplj/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-)
-\tf@toc=\write9
  [11
 
 
-] [12
+] [12])
+\tf@toc=\write9
+ [13] [14
 
 
 
@@ -2193,156 +2193,338 @@ Package tocbasic Info: character protrusion at lof deactivated on input line 13
 5.
 
 (./dissertation.lof
-Overfull \hbox (2.58604pt too wide) in paragraph at lines 18--18
- [][] [][][]\T1/pplj/m/n/10.95 High-level com-mu-ni-ca-tion di-a-gram of a [][]
-[]\T1/pplj/m/it/10.95 Con-tent Dis-tri-bu-tion Net- 
- []
-
-
-Overfull \hbox (7.8201pt too wide) in paragraph at lines 19--19
+Overfull \hbox (7.8201pt too wide) in paragraph at lines 35--35
  [][] [][][]\T1/pplj/m/n/10.95 Communication di-a-gram of how ex-ter-nal net-wo
 rk state providers 
  []
 
+[15
 
-Overfull \hbox (19.19641pt too wide) in paragraph at lines 20--20
- [][] [][][]\T1/pplj/m/n/10.95 Communication di-a-gram of how an ISP ad-min-is-
-tra-tor pre-processes 
- []
 
-)
+])
 \tf@lof=\write10
- [13
-
-
-]
+ [16]
 Package tocbasic Info: character protrusion at lot deactivated on input line 14
 0.
  (./dissertation.lot)
 \tf@lot=\write11
- [14
+ [17
 
 
 
 
 
-]pdfTeX warning (ext4): destination with the same identifier (name{page.xiv}) h
-as been already used, duplicate ignored
+]pdfTeX warning (ext4): destination with the same identifier (name{page.xvii}) 
+has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.143 \emptypage
-                 [14
+                 [17
 
 
 
 ]
 Package marginnote Info: Using workaround for absolute page number on input lin
 e 143.
- (./dissertation.acr [15
+ (./dissertation.acr [18
 
 
 
 
-] [16]) [17]pdfTeX warning (ext4): destination with the same identifier (name{p
-age.xvii}) has been already used, duplicate ignored
+] [19]) [20]pdfTeX warning (ext4): destination with the same identifier (name{p
+age.xx}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.150 \emptypage
-                 [17
+                 [20
 
 ]
 Package marginnote Info: Using workaround for absolute page number on input lin
 e 150.
- (./chapters/architecture.tex
+ (./chapters/todos.tex) (./dissertation.tdo)
+\tf@tdo=\write12
+
+(./chapters/introduction.tex
 Chapter 1.
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/iwona/m/sc/14.4'.
-(microtype)             Ignoring protrusion settings for this character.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.26 
-      [1
+l.1 \chapter{Introduction}
+                           [1
 
 
 
 ]
-Package marginnote Info: Using workaround for absolute page number on input lin
-e 26.
-<img/circle-white.png, id=385, 30.5943pt x 30.5943pt>
-File: img/circle-white.png Graphic file (type png)
-<use img/circle-white.png>
-Package pdftex.def Info: img/circle-white.png  used on input line 33.
-(pdftex.def)             Requested size: 22.76219pt x 22.76218pt.
-<img/circle-blue.png, id=386, 30.5943pt x 30.5943pt>
-File: img/circle-blue.png Graphic file (type png)
-<use img/circle-blue.png>
-Package pdftex.def Info: img/circle-blue.png  used on input line 34.
-(pdftex.def)             Requested size: 22.76219pt x 22.76218pt.
-<img/architecture-network.png, id=387, 438.9198pt x 617.6676pt>
-File: img/architecture-network.png Graphic file (type png)
-<use img/architecture-network.png>
-Package pdftex.def Info: img/architecture-network.png  used on input line 42.
-(pdftex.def)             Requested size: 329.18903pt x 463.24956pt.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/iwona/m/sc/14.4'.
+(microtype)             Ignoring protrusion settings for this character.
+
+
+Package natbib Warning: Citation `cisco2019' on page 2 undefined on input line 
+12.
+
+
+Package natbib Warning: Citation `rev1' on page 2 undefined on input line 13.
+
+
+Package natbib Warning: Citation `rev2' on page 2 undefined on input line 13.
+
+
+Package natbib Warning: Citation `cisco2019' on page 2 undefined on input line 
+24.
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.46 
-      [2 <./img/circle-white.png> <./img/circle-blue.png>]pdfTeX warning (ext4)
-: destination with the same identifier (name{page.3}) has been already used, du
-plicate ignored
+l.25 
+      [2
+
+
+]
+
+Package natbib Warning: Citation `cisco2019' on page 3 undefined on input line 
+27.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.60 
-      [3 <./img/architecture-network.png>]
+l.32 
+      [3]pdfTeX warning (ext4): destination with the same identifier (name{page
+.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.42 
+      [4] [5] [6]
+Overfull \hbox (4.40482pt too wide) in paragraph at lines 74--75
+\T1/pplj/m/n/10.95 func-tional and non-functional re-quire-ments, as well as an
+ overview of the planned
+ []
 
-LaTeX Warning: Reference `ssec:alto-security' on page 4 undefined on input line
- 61.
+) (./chapters/state-of-art.tex
+Chapter 2.
+[7]
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/iwona/b/sc/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+ [8
 
 
-LaTeX Warning: File `architecture-macro2.png' not found on input line 68.
+] [9] [10] [11]
+<img/gnutella-flood.png, id=810, 230.66174pt x 200.54926pt>
+File: img/gnutella-flood.png Graphic file (type png)
+<use img/gnutella-flood.png>
+Package pdftex.def Info: img/gnutella-flood.png  used on input line 92.
+(pdftex.def)             Requested size: 345.99174pt x 300.82312pt.
+ [12 <./img/gnutella-flood.png>]
+<img/chord-lookup.png, id=833, 350.05782pt x 298.86656pt>
+File: img/chord-lookup.png Graphic file (type png)
+<use img/chord-lookup.png>
+Package pdftex.def Info: img/chord-lookup.png  used on input line 120.
+(pdftex.def)             Requested size: 142.26378pt x 121.45984pt.
+<img/can-lookup.png, id=836, 231.11343pt x 222.8325pt>
+File: img/can-lookup.png Graphic file (type png)
+<use img/can-lookup.png>
+Package pdftex.def Info: img/can-lookup.png  used on input line 127.
+(pdftex.def)             Requested size: 142.26378pt x 137.16527pt.
+ [13] [14 <./img/chord-lookup.png (PNG copy)> <./img/can-lookup.png (PNG copy)>
+]
+<img/chord-lookup-efficient.png, id=868, 321.45094pt x 282.30469pt>
+File: img/chord-lookup-efficient.png Graphic file (type png)
+<use img/chord-lookup-efficient.png>
+Package pdftex.def Info: img/chord-lookup-efficient.png  used on input line 165
+.
+(pdftex.def)             Requested size: 170.71652pt x 149.93091pt.
+
+Overfull \hbox (3.41762pt too wide) in paragraph at lines 165--166
+ [][] 
+ []
 
 
-! Package pdftex.def Error: File `architecture-macro2.png' not found: using dra
-ft setting.
+Underfull \hbox (badness 2556) in paragraph at lines 166--166
+[][]|\T1/pplj/m/n/9 Chord file query mech-a-nism with
+ []
 
-See the pdftex.def package documentation for explanation.
+
+! Package xkeyval Error: `witdh' undefined in families `Gin'.
+
+See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.68 ...phics[scale=0.25]{architecture-macro2.png}
+l.172 ...dh=6cm]{img/gnutella-flood-efficient.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 68
+<img/gnutella-flood-efficient.png, id=871, 230.66174pt x 200.54926pt>
+File: img/gnutella-flood-efficient.png Graphic file (type png)
+<use img/gnutella-flood-efficient.png>
+Package pdftex.def Info: img/gnutella-flood-efficient.png  used on input line 1
+72.
+(pdftex.def)             Requested size: 230.66116pt x 200.54875pt.
+
+Overfull \hbox (63.36226pt too wide) in paragraph at lines 172--173
+ [][] 
+ []
+
+<img/p2p-topology.png, id=879, 120.45pt x 56.6115pt>
+File: img/p2p-topology.png Graphic file (type png)
+<use img/p2p-topology.png>
+Package pdftex.def Info: img/p2p-topology.png  used on input line 186.
+(pdftex.def)             Requested size: 361.34908pt x 169.83403pt.
+[15] [16 <./img/chord-lookup-efficient.png (PNG copy)> <./img/gnutella-flood-ef
+ficient.png> <./img/p2p-topology.png (PNG copy)>] [17] [18] [19]
+<img/cdn-architecture.png, id=976, 654.19406pt x 385.44pt>
+File: img/cdn-architecture.png Graphic file (type png)
+<use img/cdn-architecture.png>
+Package pdftex.def Info: img/cdn-architecture.png  used on input line 272.
+(pdftex.def)             Requested size: 425.2211pt x 250.53302pt.
+
+Overfull \hbox (6.96742pt too wide) in paragraph at lines 272--273
+ [][] 
+ []
+
+[20]
+<img/cdn-request-routing.png, id=992, 716.6775pt x 369.63094pt>
+File: img/cdn-request-routing.png Graphic file (type png)
+<use img/cdn-request-routing.png>
+Package pdftex.def Info: img/cdn-request-routing.png  used on input line 283.
+(pdftex.def)             Requested size: 358.33788pt x 184.815pt.
+ [21 <./img/cdn-architecture.png (PNG copy)>] [22 <./img/cdn-request-routing.pn
+g (PNG copy)>] [23] [24] [25]
+Overfull \hbox (6.19684pt too wide) in paragraph at lines 371--376
+[]\T1/pplj/m/n/10.95 The Client-Server model is a clas-si-cal way of at-tribut-
+ing roles in the net-work. Whereas
+ []
+
+<img//cli-serv-architecture.png, id=1100, 563.10374pt x 155.07938pt>
+File: img//cli-serv-architecture.png Graphic file (type png)
+<use img//cli-serv-architecture.png>
+Package pdftex.def Info: img//cli-serv-architecture.png  used on input line 379
 .
-(/usr/share/texmf-dist/tex/latex/bera/t1fvm.fd
-File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-)
-LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 9.30756pt on input line 68.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `fvm' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.82 
-      [4] [5]
-<img//communication-roles.png, id=441, 588.1975pt x 577.15625pt>
+(pdftex.def)             Requested size: 309.70801pt x 85.2939pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[26]
+<img//mint-mirror.png, id=1116, 406.51875pt x 297.11pt>
+File: img//mint-mirror.png Graphic file (type png)
+<use img//mint-mirror.png>
+Package pdftex.def Info: img//mint-mirror.png  used on input line 400.
+(pdftex.def)             Requested size: 325.21542pt x 237.68831pt.
+ [27 <./img//cli-serv-architecture.png (PNG copy)>] [28 <./img//mint-mirror.png
+>] [29]
+Overfull \hbox (49.34058pt too wide) in paragraph at lines 442--442
+|[]\T1/iwona/m/sc/14.4/80ls traffic op-ti-miza-tion by ap-pli-ca-tions and laye
+r-cooperative 
+ []
+
+[30]
+<img/approaches-isp-p2p.png, id=1159, 609.77812pt x 362.85562pt>
+File: img/approaches-isp-p2p.png Graphic file (type png)
+<use img/approaches-isp-p2p.png>
+Package pdftex.def Info: img/approaches-isp-p2p.png  used on input line 460.
+(pdftex.def)             Requested size: 396.35107pt x 235.85336pt.
+ [31 <./img/approaches-isp-p2p.png (PNG copy)>] [32] [33] [34] [35]
+[36] [37] [38]
+<img//alto-design.png, id=1382, 439.6425pt x 253.69781pt>
+File: img//alto-design.png Graphic file (type png)
+<use img//alto-design.png>
+Package pdftex.def Info: img//alto-design.png  used on input line 582.
+(pdftex.def)             Requested size: 329.73106pt x 190.27289pt.
+
+! Undefined control sequence.
+l.589 ...spl{cdn} to query known downstream \gnspl
+                                                  {cdn} for their willingnes...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[39 <./img//alto-design.png (PNG copy)>] [40] [41]
+<img//alto-architecture.jpeg, id=1462, 775.89874pt x 383.4325pt>
+File: img//alto-architecture.jpeg Graphic file (type jpg)
+<use img//alto-architecture.jpeg>
+Package pdftex.def Info: img//alto-architecture.jpeg  used on input line 627.
+(pdftex.def)             Requested size: 465.54283pt x 230.06126pt.
+
+Overfull \hbox (47.28915pt too wide) in paragraph at lines 627--628
+ [][] 
+ []
+
+<img//alto-services.jpeg, id=1467, 424.58624pt x 252.945pt>
+File: img//alto-services.jpeg Graphic file (type jpg)
+<use img//alto-services.jpeg>
+Package pdftex.def Info: img//alto-services.jpeg  used on input line 636.
+(pdftex.def)             Requested size: 233.52315pt x 139.12018pt.
+[42 <./img//alto-architecture.jpeg>] [43 <./img//alto-services.jpeg>] [44]
+[45] [46]
+
+! Package inputenc Error: Unicode character ^^R (U+0012)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.717 ... give - albeit limited - insight into ^^R
+                                                  SP bias.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+[47] [48] [49] [50] [51] [52]
+<img//network-connectivity-globe.png, id=1675, 1284.8pt x 749.80125pt>
+File: img//network-connectivity-globe.png Graphic file (type png)
+<use img//network-connectivity-globe.png>
+Package pdftex.def Info: img//network-connectivity-globe.png  used on input lin
+e 800.
+(pdftex.def)             Requested size: 385.44298pt x 224.94211pt.
+ [53 <./img//network-connectivity-globe.png>]
+Overfull \hbox (4.02075pt too wide) in paragraph at lines 816--817
+[]\T1/pplj/b/n/10.95 Inter-server Syn-chro-niza-tion\T1/pplj/m/n/10.95 : Dif-fe
+r-ent [][][]ALTO[][] servers com-mu-ni-cate among them-
+ []
+
+) (./chapters/architecture.tex
+Chapter 3.
+[54] [55] [56
+
+
+]
+<img/architecture-network.png, id=1734, 445.9059pt x 708.0051pt>
+File: img/architecture-network.png Graphic file (type png)
+<use img/architecture-network.png>
+Package pdftex.def Info: img/architecture-network.png  used on input line 30.
+(pdftex.def)             Requested size: 334.4286pt x 531.00252pt.
+ [57] [58 <./img/architecture-network.png>]
+<img//architecture-macro.png, id=1760, 2004.5289pt x 2405.6274pt>
+File: img//architecture-macro.png Graphic file (type png)
+<use img//architecture-macro.png>
+Package pdftex.def Info: img//architecture-macro.png  used on input line 56.
+(pdftex.def)             Requested size: 501.131pt x 601.40538pt.
+
+Overfull \hbox (41.49728pt too wide) in paragraph at lines 55--57
+ []|  [] 
+ []
+
+[59]
+Overfull \vbox (31.87518pt too high) has occurred while \output is active []
+
+
+[60 <./img//architecture-macro.png>] [61]
+<img//communication-roles.png, id=1793, 588.1975pt x 577.15625pt>
 File: img//communication-roles.png Graphic file (type png)
 <use img//communication-roles.png>
-Package pdftex.def Info: img//communication-roles.png  used on input line 102.
+Package pdftex.def Info: img//communication-roles.png  used on input line 90.
 (pdftex.def)             Requested size: 323.50961pt x 317.4369pt.
- [6]
+ [62]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 113.
- [7 <./img//communication-roles.png>]
+ine 101.
+ [63 <./img//communication-roles.png>]
 
 ! Package glossaries Error: Glossary entry `is' has not been defined.
 
@@ -2350,20 +2532,20 @@ See the glossaries package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.141 ...d} as they reside outside the \glspl{is} 
+l.129 ...d} as they reside outside the \glspl{is} 
                                                   domain but are reachable t...
 
 You need to define a glossary entry before you can use it.
 
-[8]
-<img/topology-boundary.png, id=488, 205.2468pt x 158.5122pt>
+[64]
+<img/topology-boundary.png, id=1837, 205.2468pt x 158.5122pt>
 File: img/topology-boundary.png Graphic file (type png)
 <use img/topology-boundary.png>
-Package pdftex.def Info: img/topology-boundary.png  used on input line 146.
+Package pdftex.def Info: img/topology-boundary.png  used on input line 134.
 (pdftex.def)             Requested size: 205.24628pt x 158.51181pt.
 
 ! Undefined control sequence.
-l.156 ...xtbf{IPv6}   & \textbf{MAC}      & \textf
+l.144 ...xtbf{IPv6}   & \textbf{MAC}      & \textf
                                                   {priv:my-overlay}  \\ \hline
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2372,22 +2554,22 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--157
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 []|\T1/pplj/m/n/10.95 [10.0.0.0/24,10.0.1.0/24,
  []
 
 
-Overfull \hbox (12.17683pt too wide) in paragraph at lines 153--162
+Overfull \hbox (12.17683pt too wide) in paragraph at lines 141--150
  []|  [] 
  []
 
-[9 <./img/topology-boundary.png>]
-<img/topology.png, id=506, 205.2468pt x 158.5122pt>
+[65 <./img/topology-boundary.png>]
+<img/topology.png, id=1855, 205.2468pt x 158.5122pt>
 File: img/topology.png Graphic file (type png)
 <use img/topology.png>
-Package pdftex.def Info: img/topology.png  used on input line 178.
+Package pdftex.def Info: img/topology.png  used on input line 166.
 (pdftex.def)             Requested size: 205.24628pt x 158.51181pt.
- [10]
+ [66]
 
 ! Package glossaries Error: Glossary entry `is' has not been defined.
 
@@ -2395,7 +2577,7 @@ See the glossaries package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.223 ... impossible to derive without \glspl{is} 
+l.211 ... impossible to derive without \glspl{is} 
                                                   insight.
 You need to define a glossary entry before you can use it.
 
@@ -2406,27 +2588,27 @@ See the glossaries package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.225     Notice how the \glspl{is} 
+l.213     Notice how the \glspl{is} 
                                     administrative domain is within scope of...
 
 You need to define a glossary entry before you can use it.
 
 
-Overfull \hbox (33.38568pt too wide) in paragraph at lines 282--293
+Overfull \hbox (33.38568pt too wide) in paragraph at lines 270--281
  [][] 
  []
 
 
-Underfull \hbox (badness 6268) in paragraph at lines 293--293
+Underfull \hbox (badness 6268) in paragraph at lines 281--281
 [][]|\T1/pplj/m/n/9 TCP through-put rank-ing
  []
 
 
-Overfull \hbox (29.9201pt too wide) in paragraph at lines 299--314
+Overfull \hbox (29.9201pt too wide) in paragraph at lines 287--302
  []|  [] 
  []
 
-[11 <./img/topology.png>] [12]
+[67 <./img/topology.png>] [68]
 
 ! Package glossaries Error: Glossary entry `isps' has not been defined.
 
@@ -2434,21 +2616,21 @@ See the glossaries package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.329 ...on without requiring from the \gls{isps} 
+l.317 ...on without requiring from the \gls{isps} 
                                                   the need to concretely spe...
 
 You need to define a glossary entry before you can use it.
 
-[13]
-Overfull \hbox (30.43336pt too wide) in paragraph at lines 345--355
+[69]
+Overfull \hbox (30.43336pt too wide) in paragraph at lines 333--343
  []|  [] 
  []
 
 
-Package natbib Warning: Citation `alto-multi-cost' on page 14 undefined on inpu
-t line 366.
+Package natbib Warning: Citation `alto-multi-cost' on page 70 undefined on inpu
+t line 354.
 
-[14]
+[70]
 
 ! Class scrbook Error: undefined old font command `\bf'.
 
@@ -2456,7 +2638,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.382         \bf
+l.370         \bf
                  {Cost ID}     & \bf{Cost Mode}   & \bf{Cost Metric} & \mult...
 
 You should note that since 1994 LaTeX2e provides a new font selection scheme
@@ -2481,7 +2663,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.382         \bf{Cost ID}     & \bf
+l.370         \bf{Cost ID}     & \bf
                                     {Cost Mode}   & \bf{Cost Metric} & \mult...
 
 You should note that since 1994 LaTeX2e provides a new font selection scheme
@@ -2506,7 +2688,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.382 ...\bf{Cost ID}     & \bf{Cost Mode}   & \bf
+l.370 ...\bf{Cost ID}     & \bf{Cost Mode}   & \bf
                                                   {Cost Metric} & \multicolu...
 
 You should note that since 1994 LaTeX2e provides a new font selection scheme
@@ -2531,7 +2713,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.382 ...multicolumn{1}{m{5cm}|}{\bf{Description}}
+l.370 ...multicolumn{1}{m{5cm}|}{\bf{Description}}
                                                                             ...
 
 You should note that since 1994 LaTeX2e provides a new font selection scheme
@@ -2550,7 +2732,7 @@ To make it work for now, you can use the already also deprecated class option
 `enabledeprecatedfontcommands'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 387--387
+Underfull \hbox (badness 10000) in paragraph at lines 375--375
 []|\T1/pplj/m/n/10.95 Practical ex-pected TCP
  []
 
@@ -2561,7 +2743,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.397         \bf
+l.385         \bf
                  {Property ID} & \bf{Property type}         & \bf{Descriptio...
 
 You should note that since 1994 LaTeX2e provides a new font selection scheme
@@ -2586,7 +2768,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.397         \bf{Property ID} & \bf
+l.385         \bf{Property ID} & \bf
                                     {Property type}         & \bf{Descriptio...
 
 You should note that since 1994 LaTeX2e provides a new font selection scheme
@@ -2611,7 +2793,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.397 ...ty ID} & \bf{Property type}         & \bf
+l.385 ...ty ID} & \bf{Property type}         & \bf
                                                   {Description}             ...
 
 You should note that since 1994 LaTeX2e provides a new font selection scheme
@@ -2630,12 +2812,12 @@ To make it work for now, you can use the already also deprecated class option
 `enabledeprecatedfontcommands'.
 
 
-Overfull \hbox (41.07388pt too wide) in paragraph at lines 395--404
+Overfull \hbox (41.07388pt too wide) in paragraph at lines 383--392
  [][] 
  []
 
 
-Overfull \hbox (79.79137pt too wide) in paragraph at lines 410--420
+Overfull \hbox (79.79137pt too wide) in paragraph at lines 398--408
  []|  [] 
  []
 
@@ -2646,7 +2828,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.427         \bf
+l.415         \bf
                  {Resource ID} \\ \hline
 You should note that since 1994 LaTeX2e provides a new font selection scheme
 called NFSS2 with several new, combinable font commands. KOMA-Script
@@ -2663,55 +2845,51 @@ you should replace it, e.g., by `\normalfont \bfseries '.
 To make it work for now, you can use the already also deprecated class option
 `enabledeprecatedfontcommands'.
 
-[15]
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/iwona/b/sc/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
- [16]
-<img//communication-p2p.png, id=616, 914.41624pt x 713.66624pt>
+[71] [72]
+<img//communication-p2p.png, id=1962, 914.41624pt x 713.66624pt>
 File: img//communication-p2p.png Graphic file (type png)
 <use img//communication-p2p.png>
-Package pdftex.def Info: img//communication-p2p.png  used on input line 458.
+Package pdftex.def Info: img//communication-p2p.png  used on input line 446.
 (pdftex.def)             Requested size: 438.91481pt x 342.5559pt.
 
-Overfull \hbox (15.41612pt too wide) in paragraph at lines 457--459
+Overfull \hbox (15.41612pt too wide) in paragraph at lines 445--447
  []|  [] 
  []
 
-[17]
-<img//communication-tracker.png, id=638, 1095.09125pt x 714.67pt>
+[73]
+<img//communication-tracker.png, id=1982, 1095.09125pt x 714.67pt>
 File: img//communication-tracker.png Graphic file (type png)
 <use img//communication-tracker.png>
-Package pdftex.def Info: img//communication-tracker.png  used on input line 472
+Package pdftex.def Info: img//communication-tracker.png  used on input line 460
 .
 (pdftex.def)             Requested size: 438.02873pt x 285.86293pt.
 
-Overfull \hbox (11.24501pt too wide) in paragraph at lines 471--473
+Overfull \hbox (11.24501pt too wide) in paragraph at lines 459--461
  []|  [] 
  []
 
-[18 <./img//communication-p2p.png>]
-<img//communication-cdn.png, id=652, 1155.31625pt x 472.76625pt>
+[74 <./img//communication-p2p.png>]
+<img//communication-cdn.png, id=1996, 1155.31625pt x 472.76625pt>
 File: img//communication-cdn.png Graphic file (type png)
 <use img//communication-cdn.png>
-Package pdftex.def Info: img//communication-cdn.png  used on input line 484.
+Package pdftex.def Info: img//communication-cdn.png  used on input line 472.
 (pdftex.def)             Requested size: 462.11832pt x 189.10315pt.
 
-Overfull \hbox (24.3846pt too wide) in paragraph at lines 483--485
+Overfull \hbox (24.3846pt too wide) in paragraph at lines 471--473
  []|  [] 
  []
 
-[19 <./img//communication-tracker.png>]
-Overfull \hbox (6.64781pt too wide) in paragraph at lines 491--496
+[75 <./img//communication-tracker.png>]
+Overfull \hbox (6.64781pt too wide) in paragraph at lines 479--484
 []\T1/pplj/m/n/10.95 An [][][]ALTO[][] re-source provider is the [][][]ALTO[][]
  server, an en-tity that pos-sesses pre-processed
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 501.
+               Default added (so using `tbp') on input line 489.
 
-[20 <./img//communication-cdn.png>]
+[76 <./img//communication-cdn.png>]
 
 ! Package glossaries Error: Glossary entry `pids' has not been defined.
 
@@ -2719,7 +2897,7 @@ See the glossaries package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.547 ...{Network Map filter}: List of \gls{pids} 
+l.535 ...{Network Map filter}: List of \gls{pids} 
                                                   of value $PID\_List$, that...
 
 You need to define a glossary entry before you can use it.
@@ -2731,11 +2909,11 @@ See the glossaries package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.547 ...he entire subset of available \gls{pids}.
+l.535 ...he entire subset of available \gls{pids}.
                                                   
 You need to define a glossary entry before you can use it.
 
-[21]
+[77]
 
 ! Package glossaries Error: Glossary entry `pids' has not been defined.
 
@@ -2743,7 +2921,7 @@ See the glossaries package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.565 ...ter}: Tuple of list of source \gls{pids},
+l.553 ...ter}: Tuple of list of source \gls{pids},
                                                    list of destination \gls{...
 
 You need to define a glossary entry before you can use it.
@@ -2755,7 +2933,7 @@ See the glossaries package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.565 ...ls{pids}, list of destination \gls{pids},
+l.553 ...ls{pids}, list of destination \gls{pids},
                                                    list of cost types and li...
 
 You need to define a glossary entry before you can use it.
@@ -2767,7 +2945,7 @@ See the glossaries package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.578 ...n endpoint filters instead of \gls{pids}.
+l.566 ...n endpoint filters instead of \gls{pids}.
                                                   
 You need to define a glossary entry before you can use it.
 
@@ -2778,7 +2956,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.597 \end{tabular}}
+l.585 \end{tabular}}
                     
 You should note that since 1994 LaTeX2e provides a new font selection scheme
 called NFSS2 with several new, combinable font commands. KOMA-Script
@@ -2802,7 +2980,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.597 \end{tabular}}
+l.585 \end{tabular}}
                     
 You should note that since 1994 LaTeX2e provides a new font selection scheme
 called NFSS2 with several new, combinable font commands. KOMA-Script
@@ -2826,7 +3004,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.597 \end{tabular}}
+l.585 \end{tabular}}
                     
 You should note that since 1994 LaTeX2e provides a new font selection scheme
 called NFSS2 with several new, combinable font commands. KOMA-Script
@@ -2850,7 +3028,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.597 \end{tabular}}
+l.585 \end{tabular}}
                     
 You should note that since 1994 LaTeX2e provides a new font selection scheme
 called NFSS2 with several new, combinable font commands. KOMA-Script
@@ -2874,34 +3052,34 @@ See the glossaries package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.597 \end{tabular}}
+l.585 \end{tabular}}
                     
 You need to define a glossary entry before you can use it.
 
 ! Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.597 \end{tabular}}
+l.585 \end{tabular}}
                     
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
-[22]
+[78]
 
-Package natbib Warning: Citation `dns-https' on page 23 undefined on input line
- 609.
+Package natbib Warning: Citation `dns-https' on page 79 undefined on input line
+ 597.
 
-[23] [24] [25]
+[79] [80] [81]
 
-LaTeX Warning: Reference `lst:example-synchronizer-endpoint-property' on page 2
-6 undefined on input line 639.
+LaTeX Warning: Reference `lst:example-synchronizer-endpoint-property' on page 8
+2 undefined on input line 629.
 
 
-LaTeX Warning: Reference `fig:communication-alto-synchronization' on page 26 un
-defined on input line 640.
+LaTeX Warning: Reference `fig:communication-alto-synchronization' on page 82 un
+defined on input line 630.
 
-[26]
+[82]
 
 ! Class scrbook Error: undefined old font command `\bf'.
 
@@ -2909,7 +3087,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.676 \end{tabular}}
+l.667 \end{tabular}}
                     
 You should note that since 1994 LaTeX2e provides a new font selection scheme
 called NFSS2 with several new, combinable font commands. KOMA-Script
@@ -2933,7 +3111,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.676 \end{tabular}}
+l.667 \end{tabular}}
                     
 You should note that since 1994 LaTeX2e provides a new font selection scheme
 called NFSS2 with several new, combinable font commands. KOMA-Script
@@ -2957,7 +3135,7 @@ See the scrbook class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.676 \end{tabular}}
+l.667 \end{tabular}}
                     
 You should note that since 1994 LaTeX2e provides a new font selection scheme
 called NFSS2 with several new, combinable font commands. KOMA-Script
@@ -2974,31 +3152,1431 @@ you should replace it, e.g., by `\normalfont \bfseries '.
 To make it work for now, you can use the already also deprecated class option
 `enabledeprecatedfontcommands'.
 
-<img/communication-info-provisioning-providers.png, id=777, 1095.09125pt x 1165
-.35374pt>
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.680     \end{itemize}
+                       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<img/communication-info-provisioning-providers.png, id=2118, 1095.09125pt x 116
+5.35374pt>
 File: img/communication-info-provisioning-providers.png Graphic file (type png)
 
 <use img/communication-info-provisioning-providers.png>
 Package pdftex.def Info: img/communication-info-provisioning-providers.png  use
-d on input line 686.
+d on input line 687.
 (pdftex.def)             Requested size: 459.9352pt x 489.44524pt.
 
-Overfull \hbox (33.15147pt too wide) in paragraph at lines 685--687
+Overfull \hbox (33.15147pt too wide) in paragraph at lines 686--688
  []|  [] 
  []
 
-[27] [28 <./img/communication-info-provisioning-providers.png>]
-<img/communication-info-provisioning-isp.png, id=788, 1095.09125pt x 1165.35374
-pt>
-File: img/communication-info-provisioning-isp.png Graphic file (type png)
-<use img/communication-info-provisioning-isp.png>
-Package pdftex.def Info: img/communication-info-provisioning-isp.png  used on i
-nput line 704.
-(pdftex.def)             Requested size: 438.02873pt x 466.13324pt.
- [29]) [30 <./img/communication-info-provisioning-isp.png>] (./dissertation.bbl
+[83] [84 <./img/communication-info-provisioning-providers.png>]
 
+LaTeX Warning: Reference `fig:provisioning-isp' on page 85 undefined on input l
+ine 700.
+
+) (./chapters/implementation.tex
+Chapter 4.
+[85] [86
+
+
+]
+
+Package natbib Warning: Citation `java' on page 87 undefined on input line 27.
+
+
+Package natbib Warning: Citation `java-spring' on page 87 undefined on input li
+ne 29.
+
+[87]
+
+Package natbib Warning: Citation `mongodb' on page 88 undefined on input line 3
+8.
+
+
+Package natbib Warning: Citation `http-basic' on page 88 undefined on input lin
+e 42.
+
+
+Package natbib Warning: Citation `http-digest' on page 88 undefined on input li
+ne 42.
+
+
+Package natbib Warning: Citation `https://sci-hub.se/https://link.springer.com/
+chapter/10.1007/978-1-4302-6817-8_3' on page 88 undefined on input line 47.
+
+[88]
+
+Package natbib Warning: Citation `fig:alto-server-architecture-macro' on page 8
+9 undefined on input line 59.
+
+[89]
+
+Package natbib Warning: Citation `fig:controller-unversioned-architecture' on p
+age 90 undefined on input line 62.
+
+
+LaTeX Warning: Reference `lst:generic-controller' on page 90 undefined on input
+ line 67.
+
+<img/controller-unversioned-architecture.png, id=2204, 2159.06625pt x 561.09625
+pt>
+File: img/controller-unversioned-architecture.png Graphic file (type png)
+<use img/controller-unversioned-architecture.png>
+Package pdftex.def Info: img/controller-unversioned-architecture.png  used on i
+nput line 74.
+(pdftex.def)             Requested size: 496.5748pt x 129.04942pt.
+
+Overfull \hbox (47.89108pt too wide) in paragraph at lines 73--76
+ []|  [] 
+ []
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 ...unversioned-controller}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 ...unversioned-controller}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 ...unversioned-controller}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 81.
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.111 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.111 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.111 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (144.55194pt too wide) in paragraph at lines 80--113
+ [] 
+ []
+
+[90 <./img/controller-unversioned-architecture.png>]
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...operty-map-controller}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...operty-map-controller}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...operty-map-controller}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.129 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.129 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.129 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (101.3515pt too wide) in paragraph at lines 116--131
+ [] 
+ []
+
+
+LaTeX Warning: Reference `lst:versioned-controller' on page 91 undefined on inp
+ut line 133.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.139 ...-versioned-controller}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.139 ...-versioned-controller}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.139 ...-versioned-controller}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.175 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.175 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.175 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (144.55194pt too wide) in paragraph at lines 138--177
+ [] 
+ []
+
+[91]
+
+LaTeX Warning: Reference `lst:cost-map-dto' on page 92 undefined on input line 
+182.
+
+
+LaTeX Warning: Reference `lst:cost-map-filter' on page 92 undefined on input li
+ne 183.
+
+
+LaTeX Warning: Reference `lst:cost-vap-validator' on page 92 undefined on input
+ line 184.
+
+[92]
+
+LaTeX Warning: Reference `lst:authorization-service' on page 93 undefined on in
+put line 192.
+
+
+! Package glossaries Error: Glossary entry `acls' has not been defined.
+
+See the glossaries package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.194 ... outside of what the resource \gls{acls} 
+                                                  dictate - for example, com...
+
+You need to define a glossary entry before you can use it.
+
+
+Package caption Warning: \label without proper reference on input line 202.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:service-unversioned-architecture' on page 93 unde
+fined on input line 197.
+
+
+Package caption Warning: \label without proper reference on input line 209.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:service-versioned-architecture' on page 93 undefi
+ned on input line 197.
+
+
+LaTeX Warning: File `img/service-unversioned-architecture.png' not found on inp
+ut line 201.
+
+
+! Package pdftex.def Error: File `img/service-unversioned-architecture.png' not
+ found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.201 ...img/service-unversioned-architecture.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 20
+1.
+(/usr/share/texmf-dist/tex/latex/bera/t1fvm.fd
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+)
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 9.30756pt on input line 201.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `fvm' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+
+LaTeX Warning: File `img/service-versioned-architecture.png' not found on input
+ line 208.
+
+
+! Package pdftex.def Error: File `img/service-versioned-architecture.png' not f
+ound: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.208 ...]{img/service-versioned-architecture.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[93]
+
+LaTeX Warning: Reference `lst:cost-map-service' on page 94 undefined on input l
+ine 217.
+
+[94]
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.231 ...lstlisting}[frame=lrbt, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.231 ...lstlisting}[frame=lrbt, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.231 ...lstlisting}[frame=lrbt, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 
+234.
+(/usr/share/texmf-dist/tex/latex/psnfss/ts1pplj.fd
+File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
+)
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.257 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.257 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.257 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.260 ...lstlisting}[frame=lrbt, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.260 ...lstlisting}[frame=lrbt, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.260 ...lstlisting}[frame=lrbt, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.295 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.295 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.295 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.297 \captionof{lstlisting}
+                            {Example calendar cost map in protocol and datab...
+
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.297 \captionof{lstlisting}
+                            {Example calendar cost map in protocol and datab...
+
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.297 \captionof{lstlisting}
+                            {Example calendar cost map in protocol and datab...
+
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 297.
+See the caption package documentation for explanation.
+
+[95]
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.310 ...lstlisting}[frame=lrbt, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.310 ...lstlisting}[frame=lrbt, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.310 ...lstlisting}[frame=lrbt, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.330 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.330 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.330 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.333 ...lstlisting}[frame=lrbt, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.333 ...lstlisting}[frame=lrbt, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.333 ...lstlisting}[frame=lrbt, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.368 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.368 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.368 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.370 \captionof{lstlisting}
+                            {Similar structure in a costmap and endpoint pro...
+
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.370 \captionof{lstlisting}
+                            {Similar structure in a costmap and endpoint pro...
+
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.370 \captionof{lstlisting}
+                            {Similar structure in a costmap and endpoint pro...
+
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 370.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `network-map-repository' on page 96 undefined on input
+ line 374.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.381 ...etwork-map-repository}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.381 ...etwork-map-repository}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.381 ...etwork-map-repository}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.453 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.453 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.453 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: \begin{center} on input line 378 ended by \end{Â¢enter}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.455 \end{Â¢enter}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (160.59215pt too wide) in paragraph at lines 379--456
+[]|  []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--456
+
+ []
+
+[96]
+Overfull \vbox (144.5168pt too high) has occurred while \output is active []
+
+
+[97]
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.466 ...st:exception-handling}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.466 ...st:exception-handling}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.466 ...st:exception-handling}, basicstyle=\tiny]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.505 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.505 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.505 \end{lstlisting}
+                      
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: \begin{center} on input line 463 ended by \end{Â¢enter}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.507 \end{Â¢enter}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.512 ...s{alto} server's managed assets are \alto
+                                                  {resources}, the ones mana...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[98]) (./chapters/experiments.tex
+Chapter 5.
+[99]
+
+LaTeX Warning: Reference `sec:specification' on page 100 undefined on input lin
+e 7.
+
+[100
+
+
+]
+
+Package natbib Warning: Citation `core' on page 101 undefined on input line 19.
+
+
+
+Package natbib Warning: Citation `python' on page 101 undefined on input line 2
+6.
+
+
+Package natbib Warning: Citation `python' on page 101 undefined on input line 2
+6.
+
+[101]
+
+Package natbib Warning: Citation `vnstat' on page 102 undefined on input line 3
+5.
+
+[102]
+<img/topology-experiments-global.png, id=2612, 617.83765pt x 407.40442pt>
+File: img/topology-experiments-global.png Graphic file (type png)
+<use img/topology-experiments-global.png>
+Package pdftex.def Info: img/topology-experiments-global.png  used on input lin
+e 55.
+(pdftex.def)             Requested size: 370.70544pt x 244.44452pt.
+<img/topology-experiments-AS0.png, id=2613, 829.68794pt x 330.88324pt>
+File: img/topology-experiments-AS0.png Graphic file (type png)
+<use img/topology-experiments-AS0.png>
+Package pdftex.def Info: img/topology-experiments-AS0.png  used on input line 5
+6.
+(pdftex.def)             Requested size: 414.84296pt x 165.44121pt.
+<img/topology-experiments-AS1.png, id=2614, 552.65294pt x 402.4447pt>
+File: img/topology-experiments-AS1.png Graphic file (type png)
+<use img/topology-experiments-AS1.png>
+Package pdftex.def Info: img/topology-experiments-AS1.png  used on input line 5
+7.
+(pdftex.def)             Requested size: 276.32579pt x 201.22186pt.
+ [103]
+Overfull \vbox (72.5774pt too high) has occurred while \output is active []
+
+
+[104 <./img/topology-experiments-global.png (PNG copy)> <./img/topology-experim
+ents-AS0.png (PNG copy)> <./img/topology-experiments-AS1.png (PNG copy)>]
+<img/topology-experiments-AS2.png, id=2624, 899.83235pt x 561.15529pt>
+File: img/topology-experiments-AS2.png Graphic file (type png)
+<use img/topology-experiments-AS2.png>
+Package pdftex.def Info: img/topology-experiments-AS2.png  used on input line 6
+2.
+(pdftex.def)             Requested size: 449.91508pt x 280.57695pt.
+
+Overfull \hbox (31.6614pt too wide) in paragraph at lines 62--62
+ [][] 
+ []
+
+<img/topology-experiments-AS3.png, id=2625, 908.3347pt x 562.57236pt>
+File: img/topology-experiments-AS3.png Graphic file (type png)
+<use img/topology-experiments-AS3.png>
+Package pdftex.def Info: img/topology-experiments-AS3.png  used on input line 6
+3.
+(pdftex.def)             Requested size: 454.16623pt x 281.28548pt.
+
+Overfull \hbox (35.91255pt too wide) in paragraph at lines 63--63
+ [][] 
+ []
+
+
+Overfull \vbox (5.33223pt too high) has occurred while \output is active []
+
+
+[105 <./img/topology-experiments-AS2.png (PNG copy)> <./img/topology-experiment
+s-AS3.png (PNG copy)>]
+<img/topology-experiments-AS4.png, id=2631, 841.02441pt x 440.70529pt>
+File: img/topology-experiments-AS4.png Graphic file (type png)
+<use img/topology-experiments-AS4.png>
+Package pdftex.def Info: img/topology-experiments-AS4.png  used on input line 6
+8.
+(pdftex.def)             Requested size: 420.51118pt x 220.3521pt.
+
+Overfull \hbox (2.2575pt too wide) in paragraph at lines 68--68
+ [][] 
+ []
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.80 ...ol channel of a given node, language=bash]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.80 ...ol channel of a given node, language=bash]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.80 ...ol channel of a given node, language=bash]
+                                                  
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+\lst@basicstyle ->\medium 
+                          \ttfamily 
+l.80 ...ol channel of a given node, language=bash]
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! Package caption Error: Undefined format `listing'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.82     \end{lstlisting}
+                         
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.82     \end{lstlisting}
+                         
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package caption Error: `white' undefined in families `caption@font'.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.82     \end{lstlisting}
+                         
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[106 <./img/topology-experiments-AS4.png>]
+Overfull \hbox (9.71646pt too wide) in paragraph at lines 123--132
+ []|  [] 
+ []
+
+[107]
+Overfull \hbox (22.23222pt too wide) in paragraph at lines 141--148
+ []|  [] 
+ []
+
+[108]
+Overfull \hbox (6.6724pt too wide) in paragraph at lines 181--188
+[][] 
+ []
+
+
+Underfull \hbox (badness 3536) in paragraph at lines 200--200
+[]|\T1/pplj/m/n/10.95 Total amount of traf-fic that passed
+ []
+
+[109]
+Overfull \hbox (6.6724pt too wide) in paragraph at lines 249--256
+ [][] 
+ []
+
+
+Underfull \hbox (badness 3536) in paragraph at lines 268--268
+[]|\T1/pplj/m/n/10.95 Total amount of traf-fic that passed
+ []
+
+[110] [111]
+Overfull \vbox (102.0572pt too high) has occurred while \output is active []
+
+
+[112] [113]
+Overfull \vbox (102.0572pt too high) has occurred while \output is active []
+
+
+[114] [115]
+Overfull \vbox (102.0572pt too high) has occurred while \output is active []
+
+
+[116]) (./chapters/conclusion.tex
+Chapter 6.
+[117]) [118
+
+
+] (./dissertation.bbl
 ! Misplaced alignment tab character &.
-l.46 \newblock {\em Communications Surveys &
+l.69 \newblock {\em Communications Surveys &
                                              Tutorials, IEEE}, 7:72-- 93, 04...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3007,133 +4585,150 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-[31
+[119
 
 
 
 
 ]
-Underfull \hbox (badness 1895) in paragraph at lines 88--92
+Underfull \hbox (badness 1895) in paragraph at lines 111--115
 []\T1/pplj/m/n/10.95 Claudio Fian-drino.  P2p sys-tem topol-ogy.  [][]$\T1/fvm/
 m/n/10.95 https : / / texample . net / tikz /
  []
 
-[32] [33]
-Underfull \hbox (badness 10000) in paragraph at lines 238--242
+[120] [121]
+Underfull \hbox (badness 10000) in paragraph at lines 261--265
 []\T1/pplj/m/n/10.95 Why you should switch to a dif-fer-ent linux
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--242
+Underfull \hbox (badness 10000) in paragraph at lines 261--265
 \T1/pplj/m/n/10.95 mint mir-ror to-day!  [][]$\T1/fvm/m/n/10.95 https : / / unl
 ockforus . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--242
+Underfull \hbox (badness 10000) in paragraph at lines 261--265
 \T1/fvm/m/n/10.95 why-[]you-[]should-[]switch-[]to-[]a-[]different-[]linux-[]mi
 nt-[]mirror-[]today/$[][]\T1/pplj/m/n/10.95 .  Ac-
  []
 
-[34] [35]
-Underfull \hbox (badness 10000) in paragraph at lines 413--417
+[122] [123]
+Underfull \hbox (badness 10000) in paragraph at lines 431--435
 []\T1/pplj/m/n/10.95 The stride threat model.  [][]$\T1/fvm/m/n/10.95 https : /
  / docs . microsoft . com / en-[]us /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--417
+Underfull \hbox (badness 10000) in paragraph at lines 431--435
 \T1/fvm/m/n/10.95 previous-[]versions / commerce-[]server / ee823878(v = cs . 2
 0 ) ?redirectedfrom =
  []
 
-
-Underfull \hbox (badness 1515) in paragraph at lines 430--434
+[124]
+Underfull \hbox (badness 1515) in paragraph at lines 448--452
 []\T1/pplj/m/n/10.95 Regulation (eu) 2015/2120 of the eu-ro-pean par-lia-ment a
 nd of the coun-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--434
+Underfull \hbox (badness 10000) in paragraph at lines 448--452
 \T1/pplj/m/n/10.95 cil.  [][]$\T1/fvm/m/n/10.95 https : / / eur-[]lex . europa 
 . eu / legal-[]content / EN / TXT / HTML / ?uri = CELEX :
  []
 
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 441--446
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--464
 []\T1/pplj/m/n/10.95 Nate An-der-son.  Deep packet in-spec-tion meets `net
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 441--446
+Underfull \hbox (badness 10000) in paragraph at lines 459--464
 \T1/pplj/m/n/10.95 neu-tral-ity'.  [][]$\T1/fvm/m/n/10.95 https : / / arstechni
 ca . com / gadgets / 2007 / 07 /
  []
 
 
-Underfull \hbox (badness 4144) in paragraph at lines 453--456
+Underfull \hbox (badness 4144) in paragraph at lines 471--474
 []\T1/pplj/m/n/10.95 Tarifários móveis pós-pagos un-lim-ited.  [][]$\T1/fvm/m/n
 /10.95 https : / / www . meo . pt / telemovel /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--484
+Underfull \hbox (badness 10000) in paragraph at lines 496--502
 []\T1/pplj/m/n/10.95 Lily Hay New-man.  Net neu-tral-ity is al-ready in trou-bl
 e in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--484
+Underfull \hbox (badness 10000) in paragraph at lines 496--502
 \T1/pplj/m/n/10.95 the de-vel-op-ing world.  [][]$\T1/fvm/m/n/10.95 https : / /
  slate . com / technology / 2014 / 01 /
  []
 
 
-Overfull \hbox (38.488pt too wide) in paragraph at lines 478--484
+Overfull \hbox (38.488pt too wide) in paragraph at lines 496--502
 \T1/fvm/m/n/10.95 net-[]neutrality-[]internet-[]access-[]is-[]already-[]in-[]tr
 ouble-[]in-[]the-[]developing-[]world .
  []
 
+[125]
+Underfull \hbox (badness 4752) in paragraph at lines 554--557
+[]\T1/pplj/m/n/10.95 Common open re-search em-u-la-tor.  [][]$\T1/fvm/m/n/10.95
+ https : / / www . nrl . navy . mil / itd / ncs /
+ []
+
 )
 No file dissertation.ind.
-[37] [38
+[126] [127
 
 
 ]
 
 Package natbib Warning: There were undefined citations.
 
-(./dissertation.aux)
+(./dissertation.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+
+Package mparhack Warning: Marginpars may have changed.
+(mparhack)                Rerun to get them right.
+
+)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 59906 strings out of 479383
- 1319300 string characters out of 5875830
- 1987239 words of memory out of 5000000
- 75686 multiletter control sequences out of 15000+600000
- 528186 words of font info for 158 fonts, out of 8000000 for 9000
+ 62029 strings out of 479383
+ 1358724 string characters out of 5875830
+ 2455196 words of memory out of 5000000
+ 77249 multiletter control sequences out of 15000+600000
+ 536672 words of font info for 173 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 136i,21n,141p,10607b,1178s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/share/texmf-d
-ist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}{/usr/share/texmf-dist/fonts/enc/dvip
-s/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+ 136i,21n,141p,10607b,2387s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf-dist/fon
+ts/enc/dvips/iwona/ec-iwona.enc}{/usr/share/texmf-dist/fonts/enc/dvips/iwona/ec
+-iwona-sc.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/
-type1/public/fpl/fplbj8a.pfb></usr/share/texmf-dist/fonts/type1/public/fpl/fplr
-c8a.pfb></usr/share/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/
-texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texmf-dist/fonts/type
-1/nowacki/iwona/iwonab.pfb></usr/share/texmf-dist/fonts/type1/nowacki/iwona/iwo
-nabi.pfb></usr/share/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb></usr/shar
-e/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texmf-dist/fonts/
-type1/urw/helvetic/uhvr8ac.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/
-uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/sha
-re/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on dissertation.pdf (62 pages, 796728 bytes).
+type1/public/fpl/fplbj8a.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo
+/fplmr.pfb></usr/share/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/bera/fvmr8a.pfb></usr/share/texmf-dist/fonts/type1/nowacki/iwona/iw
+onab.pfb></usr/share/texmf-dist/fonts/type1/nowacki/iwona/iwonabi.pfb></usr/sha
+re/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb></usr/share/texmf-dist/fonts
+/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic
+/uhvr8ac.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/s
+hare/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texmf-dist/fon
+ts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatin
+o/uplri8a.pfb>
+Output written on dissertation.pdf (154 pages, 3911522 bytes).
 PDF statistics:
- 1133 PDF objects out of 1200 (max. 8388607)
- 991 compressed objects within 10 object streams
- 250 named destinations out of 1000 (max. 500000)
- 33617 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 3289 PDF objects out of 3580 (max. 8388607)
+ 2993 compressed objects within 30 object streams
+ 749 named destinations out of 1000 (max. 500000)
+ 35677 words of extra memory for PDF output out of 35830 (max. 10000000)
 
