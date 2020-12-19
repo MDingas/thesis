@@ -1,5 +1,7 @@
 \chapter{System Architecture and Developed Mechanisms}
 
+\label{sec:specification}
+
     As the main proposed goal of this work is the implementation of a system that complies with the \gls{alto} working group's devised protocol, this chapter exhibits the planned software specifications needed to implement the system as a whole, with the aforementioned protocol being a crucial part of client-server resource exchange.
     Initial attention is given to the general architecture on Section \ref{sec:arch-general}, with the goal of identifying key entities, their purpose, and how they interact among themselves withing the macro level.
     Following, Section \ref{sec:system-roles} reviews the planned access control methods to ensure the delineation and enforcement of rules about which users can do what actions on the system's resources.
@@ -626,11 +628,11 @@ DELETE    & /resources/endpointcostmaps/\{id\} & Remove an Endpoint Cost Map wit
     Locally-scoped resource IDs are stored in this server with the addresses of the server's that host it, so that a given \gls{alto} server, whenever asked for a resource which he does not posses, can contact this synchronization database and appropriately redirect a client to a server that contains that information.
     In contrast, globally-scoped resource IDs and their owner's addresses are also stored in this server, so that a given server can know who he must query to retrieve the needed information to locally build the resource to be delivered to the client.
 
-    Listing \ref{lst:example-synchronizer-endpoint-property} shows example data of an endpoint property map for inter-server synchronization.
-    Figure \ref{fig:communication-alto-synchronization} shows the required steps taken by a given \gls{alto} server when a client requests for data - in this case an endpoint property map and a cost map - that is globally scoped.
+    % Listing \ref{lst:example-synchronizer-endpoint-property} shows example data of an endpoint property map for inter-server synchronization.
+    % Figure \ref{fig:communication-alto-synchronization} shows the required steps taken by a given \gls{alto} server when a client requests for data - in this case an endpoint property map and a cost map - that is globally scoped.
 
-    The required \gls{api} endpoints that an \gls{alto} server must provide for inter-server sharing of resources is no different from the ones they already must provide for clients.
-    The only difference is that that these resources contain \glspl{acl} that dictate exclusive action access by authenticated \gls{alto} servers.
+    % The required \gls{api} endpoints that an \gls{alto} server must provide for inter-server sharing of resources is no different from the ones they already must provide for clients.
+    % The only difference is that that these resources contain \glspl{acl} that dictate exclusive action access by authenticated \gls{alto} servers.
 
 \subsection{Network State Provider}
 

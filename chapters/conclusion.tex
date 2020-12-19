@@ -1,5 +1,69 @@
 \chapter{Conclusion}
-\todo{finish conclusion}
-\section{Conclusions}
+
+    This chapter aims to give closing remarks.
+    Firstly, Section \ref{sec:conclusion} given an overview on the developed work, which includes the bibliographic research, developed architecture, the experimentation results, and general concluding thoughts on the culmination of
+the project.
+    On Section \ref{sec:future-work}, emphasis is placed on possible future work that could follow.
+
+\section{Developed work}
+
+\label{sec:conclusion}
+
+    The project aimed to implement and extend upon the ALTO working group's developed protocol for exchange of network information between service providers and
+applications that run over the Internet.
+
+    Initial thought is put into discussing the state of the Internet in the 21st century, and how it will be subjected to a massive increase in users,in particular with its wide adoption in some continents, and how the advance of user applications will increase their QoS demands, in such areas like real-time streaming or virtual reality.
+
+    After exposing the main issue, attention was given at state of the art research in the form of a literature review on the topic of traffic optimization at the application level.
+    Firstly, an overview was made on relevant and popular patterns that are used to leverage the underlay network to achieve application-related goals - these include the \gls{p2p} architecture, \glspl{cdn}, and the client-server architecture with its resource optimization strategies, among them load-balancing and server redundancy mechanisms.
+    For each of these, a review is made for core concepts, architectural design, popular use cases, and their associated advantages and disadvantages. Tying to the thesis's theme, research exposes some of the issues that these patterns have classically brought to service providers regarding lack of proper resourcefulness of the network infrastructure.
+    For example, in the \gls{p2p} domain, the use of query flooding for content querying that can easily overwhelm a network, or the lack of locality awareness in overlay networks that would significantly reduce the usage of peering connections, that are known bottlenecks being more expensive to operate due to peering agreements with other service domains.
+    For the \gls{cdn} domain, a similar evaluation was made with how known strategies such as \gls{dns}-based client binning can be dubious, and how \gls{cdn} providers often require the usage of traffic probing and monitor measurements that not only incur in traffic overhead, they also lack the fine-grained information that could be directly provided by \glspl{isp} and their topological knowledge. 
+    Finally, for client-server applications, how the act of load balancing can too suffer from the traffic overhead needed for network probing, and how mirror-selection applications often let the user decide with insufficient measuring metrics, such as \gls{rtt}.
+    With these in mind, further state of the art investigation served to explore existing proposals and implementations in the domain of application-level traffic
+optimization. 
+    These solutions were briefly explained, along with the experimentation results that the creators obtained and how these reflected on real-world advantages for both applications and service providers in regards to application performance and increased infrastructural resourcefulness, respectively.
+    The observed solutions varied widely in how much power is given to each layer - from an application-centric approaches that utilized measurements to better match peers or attribute edge servers to clients, to \gls{isp}-centric approaches that inject nodes or plain content in the overlay, as well as well-known traffic engineering mechanisms, and finally more balanced approaches that focused on voluntary layer-cooperative approaches.
+    Leading from this, a particular layer-cooperative approach created by the \gls{alto} working group is displayed.
+    In particular, an overview is made on the problem it aims to solve, its architecture, devised protocol, possible use cases, as well as a viability evaluation that tackled some of its challenges, namely in the realm of security, privacy, incentivisation, network neutrality, and multi-domain orchestration.
+
+    Following a state of the art research, a chapter is dedicated to the specification work of a system that extends upon the ALTO working group's project.
+    More specifically, this includes the main architecture, which itself consists of system entities and interfaces for their communication. \gls{alto} resources are themselves specified in regards to their structure, i.e., what kinds are contemplated and for each of these what fields are expected. 
+    Additionally, a framework is set for access-control, which enables system
+    users to set access policies which are to be enforced by the \gls{alto} server upon request of other users.
+    Some other server-side mechanisms specified include resource filtering, which enable users to filter and project only a given set of data from a resource,
+and inter-server synchronization, which enables servers to share information among themselves as to increase the individual server's knowledge domain to deliver more fine grained and expansive information to its users.
+    Finally, the task of network information supply and pre-processing are tackled by explaining the role of the specified entities in the overall system.
+
+    The implementation chapter follows the formal specification, and focuses on discussing decisions that were made at the project's stage where the system was implemented. 
+    The choice of which technology and framework was chosen for each functionality, e.g., data storage, back-end logic, or in-transit message encryption, is justified in the scope of the project and what it aims to do, and snippets of code are shown and commented on to display the general code's structure, and how it leverages the language and framework's potential to achieve code that can be easily extended upon and maintained.
+    
+    The project culminates in the experimentation phase, where a simulated environment was setup to test three scenarios where \gls{alto}-aided methods of application-level decisions are compared against some other heuristics which are common in real-world applications.
+    Similarly to the implementation phase, decisions regarding technologies and frameworks are justified, but this time for the tasks of network-related activities, such as network emulating, traffic generation and monitoring, etc. 
+    Each of the scenarios is explained in regards to what the envisioned contextual story is, which variables will be tested, and what measurements will be taken. 
+    Afterwards, the simulation results are plainly presented, giving attention to how the methods compared between each other considering the measurements, and what other kinds of immediate observations can be made. 
+    These results are afterwards commented upon, evaluating how they fared against the main thesis's hypothesis on how layer cooperation can positively benefit both applications and service providers.
+
+    In conclusion, it is possible to state that all the main proposed objectives were successfully achieved.
+    The state of the art research was helpful to get a better grasp at how \glspl{isp} struggle to maintain their service in the face of increased user scale and service standards of experience, specially considering the Internet as a complex web of many independent providers with their own politics and biases on how to route traffic.
+    The vast variety of proposed solutions helped understand some of the means through which better network resourcefulness could be achieved, as well as the inherent advantages and disadvantages to solutions that either unevenly give power to one of the layers, or attempt a full cooperative system.
+    Fully understanding the scope and limitations of the \gls{alto} project, a system specification was provided which maintained support to the original ideas of the working group, whilst expanding upon it in regards to network information supply, security, and inter-server synchronization.
+    The experimental phase concluded in tangible results that help understand how a full win-win scenario is only achievable with a cooperative application, helpful \gls{isp}, and for both a compliance to the implicit contract that states that the relationship only continues so as long as both parties gain more from with than without it.
+
+    Hopefully this work was able to gather more attention at the existing tussle between applications and \glspl{isp} on how to manage the shared infrastructural resources, and presented a good argument for the potential of layer-cooperative solutions.
+    It is also hoped that the \gls{alto} project gained more wide-spread attention as a framework that could better prepare the Internet for the challenges of the future, and the devised extensions help make it an improved tool.
+
 \section{Prospect for future work}
+
+    Concluded the work's goals, many can be pointed at as possible advantageous future goals.
+    It is firstly important to consider how the \gls{alto} project is still an ongoing effort, with \glspl{rfc} being published and Internet drafts being regularly updated.
+    Thus, efforts in further maturing the \gls{alto} protocol are much needed, in regards to standardizing current solutions and expanding upon new ones not yet being considered.
+
+    Future work can too be appointed to the developed system, as it specified much more functionality that it too is subject to improvement.
+    For example, more network state providers could be developed, whose task would be to interface with other data sources, such as some statically defined ones like a database, by dynamically monitoring and retrieving traffic that contains protocol pertaining to network status, or by probing the network and directing that data with the proper meta data.
+    Adjacent to this, as the provider gets support for more types of data, so too can the network information aggregator be improved upon to have validation modules specific to that data, insuring proper data semantic consistency.
+    Additionally, aggregator could also be improved as to include an additional layer of abstraction that made administrator interaction easier.
+    Thus, instead of having the user resort to more low-level tools, a fully-fledged application with an intuitive interface that facilitated the task of network status retrieval and pre-processing, with helpful validation modules and built-in algorithms for resource processing, such as the automatic calculation of the shortest path cost map of a given metric.
+
+\label{sec:future-work}
 

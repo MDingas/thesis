@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{100}
 
 \bibitem{cisco2019}
 Cisco visual networking index: Forecast and trends.
@@ -30,22 +30,22 @@ Jan Seedorf, Sebastian Kiesel, and Martin Stiemerling.
 \bibitem{sandvine}
 Active network intelligence solutions | sandvine.
 \newblock \url{https://www.sandvine.com/}.
-\newblock Accessed: 2020-05-20.
+\newblock Accessed in: 2020-05-20.
 
 \bibitem{bittorrent}
 Bittorrent.org.
 \newblock \url{http://bittirrent.org/beps/bep_0003.html}.
-\newblock Accessed: 2020-05-20.
+\newblock Accessed in: 2020-05-20.
 
 \bibitem{ppstream}
 Ppstream.
 \newblock \url{http://pps.tv/}.
-\newblock Accessed: 2020-05-20.
+\newblock Accessed in: 2020-05-20.
 
 \bibitem{akamai}
 Akamai.
 \newblock \url{https://www.akamai.com/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{akamai-report}
 Erik Nygren, Ramesh Sitaraman, and Jennifer Sun.
@@ -71,24 +71,24 @@ Eng Lua, Jon Crowcroft, Marcelo Pias, Ravi Sharma, and Steven Lim.
 \bibitem{gnutella}
 Regarding gnutella - gnu project - free software foundation.
 \newblock \url{https://www.gnu.org/philosophy/gnutella.en.html}.
-\newblock Accessed: 2020-05-20.
+\newblock Accessed in: 2020-05-20.
 
 \bibitem{gnutella-flood}
 Wikipedia Commons.
 \newblock The gnutella search and retrieval protocol.
 \newblock
   \url{https://en.wikipedia.org/wiki/Gnutella#/media/File:GnutellaQuery.JPG}.
-\newblock Accessed: 2020-05-20.
+\newblock Accessed in: 2020-05-20.
 
 \bibitem{napster}
 Napster.
 \newblock \url{https://www.napster.com/}.
-\newblock Accessed: 2020-05-20.
+\newblock Accessed in: 2020-05-20.
 
 \bibitem{freenet}
 Freenet.
 \newblock \url{https://freenetproject.org/}.
-\newblock Accessed: 2020-05-20.
+\newblock Accessed in: 2020-05-20.
 
 \bibitem{stoica2003}
 I.~{Stoica}, R.~{Morris}, D.~{Liben-Nowell}, D.~R. {Karger}, M.~F. {Kaashoek},
@@ -100,7 +100,7 @@ I.~{Stoica}, R.~{Morris}, D.~{Liben-Nowell}, D.~R. {Karger}, M.~F. {Kaashoek},
 \bibitem{freehaven}
 The free haven project.
 \newblock \url{https://www.freehaven.net/overview.html}.
-\newblock Accessed: 2020-05-20.
+\newblock Accessed in: 2020-05-20.
 
 \bibitem{freeriding-gnutella}
 Eytan Adar and Bernardo~A. Huberman.
@@ -111,7 +111,7 @@ Eytan Adar and Bernardo~A. Huberman.
 Claudio Fiandrino.
 \newblock P2p system topology.
 \newblock \url{https://texample.net/tikz/examples/p2p-topology/}.
-\newblock Accessed: 2020-06-04.
+\newblock Accessed in: 2020-06-04.
 
 \bibitem{liao2014}
 Q.~{Liao}, Z.~{Li}, and A.~{Striegel}.
@@ -174,22 +174,22 @@ Evi Nemeth, Garth Snyder, Trent~R. Hein, Ben Whaley, and Dan Mackin.
 \bibitem{netflix}
 Netflix.
 \newblock \url{https://www.netflix.com}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{youtube}
 Youbtube.
 \newblock \url{https://www.youtube.com/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{cloudflare}
 Cloudflare.
 \newblock \url{https://www.cloudflare.com/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{cloudfront}
 Cloudfront.
 \newblock \url{https://aws.amazon.com/cloudfront/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{wichtlhuber2017}
 M.~{Wichtlhuber}, J.~{Kessler}, S.~{Bücker}, I.~{Poese}, J.~{Blendin},
@@ -212,22 +212,22 @@ Raghunath Deshpande.
 \bibitem{att}
 At\&t.
 \newblock \url{https://www.att.com/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{orange}
 Orange.
 \newblock \url{https://www.orange.com/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{swisscom}
 Swisscom.
 \newblock \url{https://www.swisscom.ch/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{kt}
 Kt.
 \newblock \url{https://corp.kt.com/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{cliserv-p2p}
 Lu~Liu and Nick Antonopoulos.
@@ -237,7 +237,7 @@ Lu~Liu and Nick Antonopoulos.
 \bibitem{linux-mint}
 Linux mint.
 \newblock \url{https://linuxmint.com/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{load-balancing}
 Zahra Elngomi and Khalid Khanfar.
@@ -261,7 +261,7 @@ Xiaohui Yang.
 Why you should switch to a different linux mint mirror today!
 \newblock
   \url{https://unlockforus.com/why-you-should-switch-to-a-different-linux-mint-mirror-today/}.
-\newblock Accessed: 2020-01-03.
+\newblock Accessed in: 2020-01-03.
 
 \bibitem{programmable-trackers}
 Pedro {Sousa}.
@@ -431,7 +431,7 @@ Martin Stiemerling, Sebastian Kiesel, Michael Scharf, Hans Seidel, and Stefano
 The stride threat model.
 \newblock
   \url{https://docs.microsoft.com/en-us/previous-versions/commerce-server/ee823878(v=cs.20)?redirectedfrom=MSDN}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{qos-framework}
 Barbara~Van Schewick.
@@ -442,55 +442,55 @@ Barbara~Van Schewick.
 \bibitem{fcc}
 Federal communications commission.
 \newblock \url{https://www.fcc.gov/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{article-3}
 Regulation (eu) 2015/2120 of the european parliament and of the council.
 \newblock
   \url{https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32015R2120&rid=2#d1e445-1-1}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{plusnet}
 Plusnet.
 \newblock \url{https://www.plus.net/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{arstechnica}
 Nate Anderson.
 \newblock Deep packet inspection meets ‘net neutrality'.
 \newblock
   \url{https://arstechnica.com/gadgets/2007/07/deep-packet-inspection-meets-net-neutrality/2/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{meo}
 Meo.
 \newblock \url{https://www.meo.pt/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{meo-packages}
 Tarifários móveis pós-pagos unlimited.
 \newblock \url{https://www.meo.pt/telemovel/tarifarios/unlimited}.
-\newblock Accessed: 2017-12-14.
+\newblock Accessed in: 2017-12-14.
 
 \bibitem{Facebook}
 Facebook.
 \newblock \url{https://www.facebook.com/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{spotify}
 Spotify.
 \newblock \url{https://www.spotify.com/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{wikipedia-zero}
 Wikipedia zero.
 \newblock \url{https://en.wikipedia.org/wiki/Wikipedia_Zero}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{wikipedia}
 Wikipedia.
 \newblock \url{https://en.wikipedia.org}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{network-neutrality-developing}
 Lily~Hay Newman.
@@ -498,7 +498,7 @@ Lily~Hay Newman.
 \newblock
   \url{https://slate.com/technology/2014/01/net-neutrality-internet-access-is-already-in-trouble-in-the-developing-world.html},
   1 2014.
-\newblock Accessed: 2020-25-10.
+\newblock Accessed in: 2020-25-10.
 
 \bibitem{qos-aware}
 J.~{Domzal}, R.~{Wójcik}, and A.~{Jajszczyk}.
@@ -528,17 +528,17 @@ Kimo Bumanglag and Houssain Kettani.
 \bibitem{java}
 Java.
 \newblock \url{https://www.java.com/en/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{java-spring}
 Java spring.
 \newblock \url{https://spring.io/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{mongodb}
 Mongodb.
 \newblock \url{https://www.mongodb.com/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{http-basic}
 Julian Reschke.
@@ -550,14 +550,24 @@ Rifaat Shekh-Yusef, David Ahrens, and Sophie Bremer.
 \newblock {HTTP Digest Access Authentication}.
 \newblock RFC 7616, September 2015.
 
+\bibitem{http-authentication}
+Prabath Siriwardena.
+\newblock Http basic/digest authentication.
+\newblock In {\em Advanced API Security}, pages 33--46.
+
 \bibitem{core}
 Common open research emulator.
 \newblock \url{https://www.nrl.navy.mil/itd/ncs/products/core}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
 
 \bibitem{python}
 Python.
 \newblock \url{https://www.python.org/}.
-\newblock Accessed: 2020-09-20.
+\newblock Accessed in: 2020-09-20.
+
+\bibitem{vnstat}
+vnstat.
+\newblock \url{https://humdi.net/vnstat/}.
+\newblock Accessed in: 2020-09-20.
 
 \end{thebibliography}

@@ -1,29 +1,35 @@
 \chapter{Experiments}
 
-    The purpose of this chapter is to overview the experiments phase of the project, that contains the work done to deploy and measure how the system performs in a simulated scenario.
-    Whereas the developed unit tests in the implementation stage aim to verify the correct functionality of separate units of code pertaining to the system, the execution of the entire system as a whole to serve a set of hypothetical use cases can help achieve a better grasp on how correct system functionality between all the tested units.
-    Adjacent to the goal of testing the system in deployed scenarios, the experiments phase also aims to embed in the simulated environment a list of application scenarios that could leverage the \gls{alto} system to its advantage, and subsequently observe and measure if and how the \gls{alto} server can help the client with its network resources that guide the client in taking application decisions that aim for a win-win scenario between the overlay and underlay.
-    As comparison, other known application-network interaction strategies will also be observed and their results measured as a means to compare their impact in comparison to one that utilizes the implemented system.
-    Findings on existing application-layer traffic optimization interactions and the proposal of the \gls{alto} protocol made on section \ref{sec:state-of-art}, together with the specified system extensions on \ref{sec:specification} leads one to believe that a theoretical mutually beneficial scenario exists in an \gls{alto} approach that cannot exist with more asymmetrical means of interaction.
-    This chapter, however, puts those theoretical scenarios into a practical environment that could be replicated by those reading this work, and exposing the created scenarios and collected data can corroborate the theoretical conclusions, as well as leaving an opportunity for future discussion on how the system behaved, including its performance, its success in aiding clients, other existing client options that could be a better route, system shortcomings, etc.
-    This discussion benefits the \gls{alto} project and can give more maturity to the system as it was put through a simulated deployment against other common strategies.
+    The purpose of this chapter is to overview the experimentation phase of the project, which contains the work done to deploy and measure how applications behave when using either classic or \gls{alto}-guided solutions when faced with some of the constructed scenarios, that force some decision which impacts the underlying network.
+    Whereas the developed unit tests in the implementation stage aim to verify the correct functionality of separate units of code pertaining to the system, the execution of the entire system as a whole to serve a set of hypothetical use cases can help achieve a better grasp on how correctly the system behaves .
 
-    The first section displays the chosen technologies for tasks pertaining to the experiments.
-    The next section focuses on the required steps taken to setup the testing environment.
-    This includes the design and deployment of a network topology in a simulation, the creation of mock applications to serve as clients for the system, and the design and deployment of application and network status measurement tools.
-    The following section individually overviews the devised scenarios to test in the simulation, and with it experiment specifics such as the initial problem, what strategies will be tested to solve it, how many runs will be made per strategy, and what metrics will be measured.
-    Finished the experiments, the following section will display the obtained results that were collected in the simulated environment, and the section after that will discuss these results and how they fare with the theoretical findings.
+    Adjacent to the goal of testing the system's behavior in an emulated environment, the experimentation phase also aims to embed in such environment a list of case study scenarios where applications could leverage the \gls{alto} system to their advantage, and subsequently observe and measure if and how the \gls{alto} server can help the client with its network insight that guide the client in taking application decisions that aim for a win-win scenario between the overlay and underlay.
+    As comparison, other known application-network interaction strategies will also be observed and their results measured as a means to compare their impact in comparison to one that utilizes the implemented system.
+
+    Findings on existing application-layer traffic optimization interactions and the proposal of the \gls{alto} protocol made on Chapter \ref{sec:state-of-art}, together with the specified system extensions on Chapter \ref{sec:specification} leads one to believe that a theoretical mutually beneficial scenario exists in an \gls{alto} approach that could not exist in one where only one of the layers gets all the input when applying traffic optimization decisions.
+    This chapter, however, puts those theoretical scenarios into a practical environment that could be replicated by those reading this work, and exposing the created scenarios and collected data can corroborate the theoretical conclusions, as well as leaving an opportunity for future discussion on how the system behaved, including its performance, its success in aiding clients, other existing client options that could be a better route, system shortcomings, etc.
+    In general, this discussion benefits the \gls{alto} project and can give more maturity to the system as it was put through multiple test scenarios against other common strategies.
+
+    Section \ref{sec:experiments-technologies} displays the chosen technologies for tasks pertaining to the experiments.
+    Section \ref{sec:experiments-setup} focuses on the required steps taken to setup the testing environment.
+    This includes the design and deployment of a network topology to be emulated, the creation of mock applications to serve as clients for the system, and the design and deployment of application and network status measurement tools.
+    Section \ref{sec:experiments-scenarios} follows with the individual overview of the devised scenarios to be executed, and with it experiment specifics such as the initial problem, what strategies will be tested to solve it, how many runs will be made per strategy, and what metrics will be measured.
+    Finished the experiments, Section \ref{sec:experiments-results} will display the obtained results that were collected emulated environment, and Section \ref{sec:experiments-discussion} after that will discuss these results and how they fare with the theoretical findings.
 
 \section{Technologies Used}
 
-    The \gls{core} \cite{core} was used as a network simulator and represents the backbone of the experiments as a whole as it will serve as the background for the running scenarios.
+\label{sec:experiments-technologies}
+
+    The \gls{core} \cite{core} was used as a network emulator and represents the backbone of the experiments as a whole as it will serve as the background for the running scenarios.
     This tool allows for the creation and emulation of network environments, and with it are included the abilities to construct network topologies and manipulate properties of the member nodes, which can include network routers, switches, and host machines, that will all be used for the designed experiment scenarios.
-    Additionally, link connection properties can themselves be customized, as parameters like max bandwidth, packet loss percentage, or packet delay can be meticulously customized, and in fact will be in the upcoming scenarios as a means to simulate a given circumstance that may occur in a realistic environment, such as link inefficiency that results from peak traffic hours.
+    Additionally, link connection properties can themselves be customized, as parameters like maximum bandwidth, packet loss percentage, or packet delay can be meticulously customized, and in fact will be in the upcoming scenarios as a means to simulate a given circumstance that may occur in a realistic environment, such as link inefficiency that results from peak traffic hours.
     Another property that was of great importance for its selection on this work is that, on top of the virtual network environment, arbitrary code can be run on behalf of a given entity and can be addressed to another, acting as if it were an actual network.
     This will be leveraged to run software pre-packaged in the emulator, such as routing protocols that are essential for the correct expected behavior of a simulated network, but also to schedule software execution that was developed for this work, which includes the \gls{alto} server, network state providers - e.g., probing daemons and application feedback collectors - and system clients for the \gls{p2p} and \gls{http} mock applications that will be devised to play out a particular experiment scenario, and which will have embedded into it an \gls{alto} client to interface with the server for council.
     As the simulation tool runs on Linux and builds a simulated network that behaves very much like a real one, well known real-application tools can be used on top of it in other needed areas, including the deployment and measuring phases, which gives plenty of flexibility on tool selection.
 
-    Python \cite{python} will be utilized to implement all simple software prototypes whose purpose is uniquely to test the application in a real scenario. \cite{python}
+    \todo{vcmd}
+
+    Python \cite{python} will be utilized to implement all simple software prototypes whose purpose is uniquely to test the application in a real scenario.
     This includes the \gls{p2p} file-transfer applications, the \gls{http} servers and clients, and the throughput-intensive activities done by the data servers.
     Appended to this programming language will also be the task of application monitoring, which includes the retrieval of performance statistics - doing so in the application's code itself, instead of using external tools, because more fine grained access exists and individual tasks can be monitored for how long and how well they perform.
     The choice of this language over others is simply that these software prototypes are not intended to be highly optimized, nor are they to be complex.
@@ -39,41 +45,75 @@
 
 \section{Setup}
 
-    Figure \ref{fig:test-topology} displays the topology that will act as the main environment for all the devised experiments.
+\label{sec:experiments-setup}
+
+    Figure \ref{fig:exp-topology} displays the topology that will act as the main environment for all the devised experiments, with partitioned views to be subsequently introduced.
+    Figure \ref{fig:exp-global} presents a simplified global view the network as a collection of \glspl{as}.
     It was designed with the intent of reflecting, at a smaller scale, the structure of the Internet, in particular with it being an aggregation of multiple, heterogeneous, domains, each with their own topological properties and internal policies, with them being administrated by different organizations.
-    As can there be seen, a single backbone network - \gls{as} 0 - provides connectivity between many \glspl{as} and, to do its job correctly, a high degree of path redundancy exists between its routers, and the links have better capabilities that those associated with stub networks.
-    \gls{as} 1 is a simple topological structure consisting of five \glspl{pc} and three dedicated servers, connected with the help of switches and routers, that eventually connect to a single edge router that connects to the backbone.
-    \gls{as} 2 is representative of a data center with two \gls{ospf} areas, both constructed with a hierarchical organization common for data center networks.
+    A single backbone network, shown on Figure \ref{fig:exp-as0}, provides connectivity between many \glspl{as} and, to do its job correctly, a high degree of path redundancy exists between its routers, and the links have better capabilities than those associated with stub networks.
+    Figure \ref{fig:exp-as1} shows \gls{as} 1, a simple topological structure consisting of five \glspl{pc} and three dedicated servers, connected with the help of switches and routers, that eventually connect to a single edge router that links with the backbone.
+    Figure \ref{fig:exp-as2} shows \gls{as} 2, which is representative of a data center with two \gls{ospf} areas, both constructed with a hierarchical organization common for data center networks.
     Links in these regions are also highly capable and high traffic peak times are expected to occur.
-    \gls{as} 3 is a slightly more complex stub network compared to \gls{as} 1, but has the same structure, with the addition of having three \gls{ospf} areas instead of one, and a variety of nodes and links with different properties - for example, the links in area A are generally better, whilst area C has wireless connections in it that are expected to have worse performance and be less reliable.
-    Finally, AS 4 connects directly with AS 3, meaning that the latter acts also as a transit AS, being the only access point towards the rest of the network.
-    Similarly to AS 3, it consists of a stub network accessed by many end users and some servers, and both node and link properties vary accordingly.
+    \gls{as} 3, shown in Figure \ref{fig:exp-as3}, is a slightly more complex stub network compared to \gls{as} 1, but has the same structure, with the addition of having three \gls{ospf} areas instead of one, and a variety of nodes and links with different properties - for example, the links in area A are generally better, whilst area C has wireless connections in it that are expected to have worse performance and be less reliable.
+    Finally, \gls{as} 4, depicted on Figure \ref{fig:exp-as4}, connects directly with \gls{as} 3, meaning that it also acts as a transit \gls{as} to the rest of the network.
+    Similarly to \gls{as} 3, it consists of a stub network accessed by many end users and some servers, and both node and link properties vary accordingly.
 
-
-    \begin{figure}[H]
+    \begin{figure}
     \centering
-    \subfloat[Global topology view]{\label{exp-global}\includegraphics[scale=0.6]{img/topology-experiments-global}} \\
-    \subfloat[View of AS0]{\label{exp-as0}\includegraphics[scale=0.5]{img/topology-experiments-AS0}} \\
-    \subfloat[View of AS1]{\label{exp-as1}\includegraphics[scale=0.5]{img/topology-experiments-AS1}} \\
+    \begin{subfigure}[t]{\textwidth}
+    \centering
+    \includegraphics[scale=0.7]{img/topology-experiments-global.png}
+    \caption{Global view of the network}    
+    \label{fig:exp-global}
+    \end{subfigure}
+
+    \begin{subfigure}[t]{\textwidth}
+    \centering
+    \includegraphics[scale=0.5]{img/topology-experiments-AS0.png}
+    \caption{Detailed view of AS0}    
+    \label{fig:exp-as0}
+    \end{subfigure}
+
+    \begin{subfigure}[t]{\textwidth}
+    \centering
+    \includegraphics[scale=0.5]{img/topology-experiments-AS1.png}
+    \caption{Detailed view of AS1}    
+    \label{fig:exp-as1}
+    \end{subfigure}
     \end{figure}
 
-    \begin{figure}[H]\ContinuedFloat
+    \begin{figure} \ContinuedFloat
+    \begin{subfigure}[t]{\textwidth}
     \centering
-    \subfloat[View of AS2]{\label{exp-as2}\includegraphics[scale=0.5]{img/topology-experiments-AS2}} \\
-    \subfloat[View of AS3]{\label{exp-as3}\includegraphics[scale=0.5]{img/topology-experiments-AS3}} \\
+    \includegraphics[scale=0.5]{img/topology-experiments-AS2.png}
+    \caption{Detailed view of AS2}    
+    \label{fig:exp-as2}
+    \end{subfigure}
+
+    \begin{subfigure}[t]{\textwidth}
+    \centering
+    \includegraphics[scale=0.5]{img/topology-experiments-AS3.png}
+    \caption{Detailed view of AS3}    
+    \label{fig:exp-as3}
+    \end{subfigure}
     \end{figure}
 
-    \begin{figure}[H]\ContinuedFloat
+    \begin{figure} \ContinuedFloat
+    \begin{subfigure}[t]{\textwidth}
     \centering
-    \subfloat[View of AS4]{\label{exp-as4}\includegraphics[scale=0.5]{img/topology-experiments-AS4}} \\
-%    \caption{Global caption that can reference}
-    \caption{values for different arms (cont.)}
-    \label{fig:test-topology}
+    \includegraphics[scale=0.5]{img/topology-experiments-AS4.png}
+    \caption{Detailed view of AS4}    
+    \label{fig:exp-as4}
+    \end{subfigure}
+
+    \caption{Network topology and integrated \glspl{as}}
+    \label{fig:exp-topology}
     \end{figure}
+
 
     Each node on the network has a given purpose that is represented as a node label, and link labels are used to specify connection properties.
     Unless stated otherwise with these labels, all other properties are equal throughout the network.
-    Some pre-packaged \gls{core} services need to be enabled to assure network connectivity - mainly \gls{ospfv3} and \gls{bgp} - and scripting is used to, at the beginning of the simulation, bootstrap programs in specific nodes.
+    Some pre-packaged \gls{core} services need to be enabled to assure network connectivity - mainly \gls{ospfv2} and \gls{bgp} - and scripting is used to, at the beginning of the simulation, bootstrap programs in specific nodes.
     This is done by utilizing the command line utility vcmd that runs specified commands in control channels that are created at runtime by \gls{core} - for example, the following command executes a ping command to address "10.0.0.1" with origins on node "P2P-Cli-1" and on simulation session 12345:
 
     \begin{center}
@@ -84,7 +124,18 @@ $ vcmd -c /tmp/pycore.12345/P2P-Client-1 -- ping 10.0.0.1
 
 \section{Scenarios}
 
+\label{sec:experiments-scenarios}
+
+    This Section describes the three devised scenarios to test the impact to the overlay and underlay that results of applications performing traffic optimization decisions with and without the implemented \gls{alto} solution.
+    Section \ref{ssec:scenario1} focuses on a \gls{p2p} application who needs to decide, whenever a file fragment is served by multiple peers, with whom to establish connection.
+    Section \ref{ssec:scenario2} tackles the issue of an \gls{http} server subjected to periodic load spikes, and how clients can selectively choose the timing to initialize the resource request.
+    Section \ref{ssec:scenario3} deals with the challenge of selecting a given \gls{http} server to retrieve a content from whenever a mirror cluster is available.
+
 \subsection{Scenario 1 - P2P file sharing}
+
+\label{ssec:scenario1}
+
+\subsubsection{Overview}
 
 \textbf{Description:} All "CliN" nodes in the network, with N from 1 to N, actively serve all ten equally sized fragments of a 1GB file to other pers, and the bootstrapping method includes informing the tracker about what file fragments they serve.
     \ref{table:fragment-allocations} shows what endpoints possess what file fragment IDs.
@@ -149,133 +200,7 @@ Table \ref{table:s1-measurements} presents the measurements that will be collect
 \label{table:s1-measurements}
 \end{table}
 
-
-\subsubsection{Scenario 2 - HTTP transfer scheduling}
-
-    \textbf{Description:} "Server1" in "AS1" acts as a server of \gls{http} content.
-    "Cli1" wishes to retrieve a 500MB file from that server in one single session.
-    The server is subjected to variable, random client loads that affect processing and storage power, and subsequently its ability to serve clients, as well as periodic traffic loads within the \gls{as} whenever the server clusters in that system enchange data between themselves for server redundancy and general synchronization.
-    This will be translated in practice as dynamically variable round-trip delay from "Cli1" to "Server1", which is specifically shown in \ref{table:server-delays}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|}
-    \hline
-    \textbf{Simulation time}  & \textbf{Client-Server path delay}  \\ \hline
-    0 seconds                 & 100 ms                             \\ \hline
-    60 seconds                & 50 ms                              \\ \hline
-    120 seconds               & 20 ms                              \\ \hline
-    180 seconds - $\infty$    & 10 ms                              \\ \hline
-\end{tabular}
-\caption{Dynamically applied client-server path delays}
-\label{table:server-delays}
-\end{table}
-
-
-    The data center administrator mantains a cost map calendar where he registers all reserved backup transfers with two purposes: to keep track of all scheduled transfers so further ones can be scheduled as not to clash with pre-reserved ones, and to signal to \gls{alto} clients when \gls{qos} levels to those servers are expected to degrade.
-
-\textbf{Variables: } The variable action to be tested is how the \gls{http} client selects the most appropriate time to retrieve the content from the server.
-Table \ref{table:s2-client-methods} displays the different client algorithms that will be tested for the task of server request scheduling.
-
-\begin{table}[H]
-\begin{tabular}{|l|L|}
-    \hline
-    \textbf{Client Algorithm} & \multicolumn{1}{m{11cm}|}{\textbf{Description}}                                                                     \\ \hline
-    Immediate                 & \multicolumn{1}{m{11cm}|}{Immediatelly request the resource from the server}                                        \\ \hline
-    RTT                       & \multicolumn{1}{m{11cm}|}{Ping the server every 5 seconds and request the resource when the delay is below 20ms}                                                                                                                                                                          \\ \hline
-    ALTO                      & \multicolumn{1}{m{11cm}|}{Retrieve a calendar cost map from the \gls{alto} server in AS2 of expected path delay to the server, and iniciate immediately when the delay is expected to drop below 20ms}                                                                                    \\ \hline
-\end{tabular}
-\caption{Client algorithms to be tested in scenario 2}
-\label{table:s2-client-methods}
-\end{table}
-
-\textbf{Measurements:} Table \ref{table:s2-measurements} presents the measurements that will be collected during the experiment runs.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|l|L|}
-    \hline
-    \textbf{Measurement}        & \textbf{Units}     & \multicolumn{1}{m{7cm}|}{\textbf{Description}}                                                  \\ \hline
-    Transfer Time               & Seconds            & \multicolumn{1}{m{7cm}|}{Total amount of time required to transfer the file}                    \\ \hline
-    Network Traffic             & Megabytes          & \multicolumn{1}{m{7cm}|}{Total amount of traffic that passed through each area network and AS}  \\ \hline
-\end{tabular}
-\caption{Measurements to be taken in scenario 2}
-\label{table:s2-measurements}
-\end{table}
-
-\subsection{Scenario 3 - HTTP mirror selection}
-
-\textbf{Description:} An \gls{http} client wishes to retrieve a 500MB file from a server.
-After querying the public proxy, an index is provided which contains a address lists of the four mirror servers that provide that content.
-The listing is show in table \ref{table:server-mirrors}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|c|}
-    \hline
-    \textbf{Server address} & \textbf{AS} & \textbf{Area} \\ \hline
-    10.0.16.12              & 1           & B             \\ \hline
-    10.0.37.10              & 2           & A             \\ \hline
-    10.0.23.11              & 2           & B             \\ \hline
-    10.0.13.10              & 3           & B             \\ \hline
-\end{tabular}
-\caption{Listed server mirrors}
-\label{table:server-mirrors}
-\end{table}
-
-The mirror servers will be subjected to constant loads at the start of the scenario, that are translated as throughput throttling applied from the client to the servers, specifically the ones shown in \ref{table:mirrors-bandwidth}.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|}
-    \hline
-    \textbf{Server address} & \textbf{Throughput} \\ \hline
-    10.0.16.12              & 3.0  ms             \\ \hline
-    10.0.37.10              & 5.0  ms             \\ \hline
-    10.0.23.11              & 10.0 ms             \\ \hline
-    10.0.13.10              & 5.0  ms             \\ \hline
-\end{tabular}
-\caption{Available path throughput from client to mirror servers}
-\label{table:mirrors-bandwidth}
-\end{table}
-
-The \gls{alto} server local to that client provides a global \gls{alto} endpoint property map that contains \gls{cpu} and \gls{ram} load information about all the mirrors, as well as an endpoint cost map containing information about the expected bandwidth and delay from the client to the mirror.
-
-\textbf{Variables: } The variable action to be tested is how the \gls{http} client selects which mirror server to retrieve the file from.
-Table \ref{table:s3-client-methods} displays the different client algorithms that will be tested for the task of mirror selection.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|L|}
-    \hline
-    \textbf{Client Algorithm} & \multicolumn{1}{m{11cm}|}{\textbf{Description}}                                                                                                               \\ \hline
-    Random                    & \multicolumn{1}{m{11cm}|}{Randomly select a server }                                                                                                          \\ \hline
-    Bandwidth                 & \multicolumn{1}{m{11cm}|}{Probe for available TCP throughput to the mirrors, and select the one with most bandwidth}   \\ \hline
-    ALTO                      & \multicolumn{1}{m{11cm}|}{Retrieve an endpoint property map and endpoint cost map from the local \gls{alto} server, and choose the with most available bandwidth and delay below 2ms, whose memory and processing power is below 30\%} \\ \hline
-\end{tabular}
-\caption{Client algorithms to be tested in scenario 3}
-\label{table:s3-client-methods}
-\end{table}
-
-\textbf{Measurements:} Table \ref{table:s3-measurements} presents the measurements that will be collected during the experiment runs.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|l|L|}
-    \hline
-    \textbf{Measurement}        & \textbf{Units}     & \multicolumn{1}{m{7cm}|}{\textbf{Description}}                                                  \\ \hline
-    Transfer Time               & Seconds            & \multicolumn{1}{m{7cm}|}{Total amount of time required to transfer the file}                    \\ \hline
-    Network Traffic             & Megabytes          & \multicolumn{1}{m{7cm}|}{Total amount of traffic that passed through each area network and AS}  \\ \hline
-\end{tabular}
-\caption{Measurements to be taken in scenario 3}
-\label{table:s3-measurements}
-\end{table}
-
-\section{Results}
-
-This section will show the observed results for each of the simulated scenarios, highlighting how the different variable methods compared to each other.
-
-\subsection{Scenario 1}
+\subsubsection{Analysis of Results}
 
 Figure \ref{fig:graph-execution-scenario1} shows the obtained execution times for each of the variable methods in scenario 1.
 It appears that the method of probing for path delay was the worst, at 1096 seconds of runtime, closely followed by the method of randomly selecting between the available peers.
@@ -378,7 +303,66 @@ The rest of the measurements was negligible in how tiny they were, with small bu
 \label{fig:graph-traffic-scenario1}
 \end{figure}
 
-\subsection{Scenario 2}
+
+
+\subsection{Scenario 2 - HTTP transfer scheduling}
+
+\label{ssec:scenario2}
+
+\subsubsection{Overview}
+
+    \textbf{Description:} "Server1" in "AS1" acts as a server of \gls{http} content.
+    "Cli1" wishes to retrieve a 500MB file from that server in one single session.
+    The server is subjected to variable, random client loads that affect processing and storage power, and subsequently its ability to serve clients, as well as periodic traffic loads within the \gls{as} whenever the server clusters in that system enchange data between themselves for server redundancy and general synchronization.
+    This will be translated in practice as dynamically variable round-trip delay from "Cli1" to "Server1", which is specifically shown in \ref{table:server-delays}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+    \hline
+    \textbf{Simulation time}  & \textbf{Client-Server path delay}  \\ \hline
+    0 seconds                 & 100 ms                             \\ \hline
+    60 seconds                & 50 ms                              \\ \hline
+    120 seconds               & 20 ms                              \\ \hline
+    180 seconds - $\infty$    & 10 ms                              \\ \hline
+\end{tabular}
+\caption{Dynamically applied client-server path delays}
+\label{table:server-delays}
+\end{table}
+
+
+    The data center administrator mantains a cost map calendar where he registers all reserved backup transfers with two purposes: to keep track of all scheduled transfers so further ones can be scheduled as not to clash with pre-reserved ones, and to signal to \gls{alto} clients when \gls{qos} levels to those servers are expected to degrade.
+
+\textbf{Variables: } The variable action to be tested is how the \gls{http} client selects the most appropriate time to retrieve the content from the server.
+Table \ref{table:s2-client-methods} displays the different client algorithms that will be tested for the task of server request scheduling.
+
+\begin{table}[H]
+\begin{tabular}{|l|L|}
+    \hline
+    \textbf{Client Algorithm} & \multicolumn{1}{m{11cm}|}{\textbf{Description}}                                                                     \\ \hline
+    Immediate                 & \multicolumn{1}{m{11cm}|}{Immediatelly request the resource from the server}                                        \\ \hline
+    RTT                       & \multicolumn{1}{m{11cm}|}{Ping the server every 5 seconds and request the resource when the delay is below 20ms}                                                                                                                                                                          \\ \hline
+    ALTO                      & \multicolumn{1}{m{11cm}|}{Retrieve a calendar cost map from the \gls{alto} server in AS2 of expected path delay to the server, and iniciate immediately when the delay is expected to drop below 20ms}                                                                                    \\ \hline
+\end{tabular}
+\caption{Client algorithms to be tested in scenario 2}
+\label{table:s2-client-methods}
+\end{table}
+
+\textbf{Measurements:} Table \ref{table:s2-measurements} presents the measurements that will be collected during the experiment runs.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|L|}
+    \hline
+    \textbf{Measurement}        & \textbf{Units}     & \multicolumn{1}{m{7cm}|}{\textbf{Description}}                                                  \\ \hline
+    Transfer Time               & Seconds            & \multicolumn{1}{m{7cm}|}{Total amount of time required to transfer the file}                    \\ \hline
+    Network Traffic             & Megabytes          & \multicolumn{1}{m{7cm}|}{Total amount of traffic that passed through each area network and AS}  \\ \hline
+\end{tabular}
+\caption{Measurements to be taken in scenario 2}
+\label{table:s2-measurements}
+\end{table}
+
+\subsubsection{Analysis of Results}
 
 Figure \ref{fig:graph-execution-scenario2} shows the obtained execution times for each of the variable methods in scenario 2.
 It appears that the \gls{alto}-aided and delay-probing methods were equally circling a 640 second runtime, and an approach of immediately querying the server was faster, at 457.19 seconds.
@@ -474,7 +458,80 @@ Disregarding negligible measurements from given \glspl{as} and areas, it appears
 \label{fig:graph-traffic-scenario2}
 \end{figure}
 
-\subsection{Scenario 3}
+
+\subsection{Scenario 3 - HTTP mirror selection}
+
+\label{ssec:scenario3}
+
+\subsubsection{Overview}
+
+\textbf{Description:} An \gls{http} client wishes to retrieve a 500MB file from a server.
+After querying the public proxy, an index is provided which contains a address lists of the four mirror servers that provide that content.
+The listing is show in table \ref{table:server-mirrors}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+    \hline
+    \textbf{Server address} & \textbf{AS} & \textbf{Area} \\ \hline
+    10.0.16.12              & 1           & B             \\ \hline
+    10.0.37.10              & 2           & A             \\ \hline
+    10.0.23.11              & 2           & B             \\ \hline
+    10.0.13.10              & 3           & B             \\ \hline
+\end{tabular}
+\caption{Listed server mirrors}
+\label{table:server-mirrors}
+\end{table}
+
+The mirror servers will be subjected to constant loads at the start of the scenario, that are translated as throughput throttling applied from the client to the servers, specifically the ones shown in \ref{table:mirrors-bandwidth}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+    \hline
+    \textbf{Server address} & \textbf{Throughput} \\ \hline
+    10.0.16.12              & 3.0  ms             \\ \hline
+    10.0.37.10              & 5.0  ms             \\ \hline
+    10.0.23.11              & 10.0 ms             \\ \hline
+    10.0.13.10              & 5.0  ms             \\ \hline
+\end{tabular}
+\caption{Available path throughput from client to mirror servers}
+\label{table:mirrors-bandwidth}
+\end{table}
+
+The \gls{alto} server local to that client provides a global \gls{alto} endpoint property map that contains \gls{cpu} and \gls{ram} load information about all the mirrors, as well as an endpoint cost map containing information about the expected bandwidth and delay from the client to the mirror.
+
+\textbf{Variables: } The variable action to be tested is how the \gls{http} client selects which mirror server to retrieve the file from.
+Table \ref{table:s3-client-methods} displays the different client algorithms that will be tested for the task of mirror selection.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|L|}
+    \hline
+    \textbf{Client Algorithm} & \multicolumn{1}{m{11cm}|}{\textbf{Description}}                                                                                                               \\ \hline
+    Random                    & \multicolumn{1}{m{11cm}|}{Randomly select a server }                                                                                                          \\ \hline
+    Bandwidth                 & \multicolumn{1}{m{11cm}|}{Probe for available TCP throughput to the mirrors, and select the one with most bandwidth}   \\ \hline
+    ALTO                      & \multicolumn{1}{m{11cm}|}{Retrieve an endpoint property map and endpoint cost map from the local \gls{alto} server, and choose the with most available bandwidth and delay below 2ms, whose memory and processing power is below 30\%} \\ \hline
+\end{tabular}
+\caption{Client algorithms to be tested in scenario 3}
+\label{table:s3-client-methods}
+\end{table}
+
+\textbf{Measurements:} Table \ref{table:s3-measurements} presents the measurements that will be collected during the experiment runs.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|L|}
+    \hline
+    \textbf{Measurement}        & \textbf{Units}     & \multicolumn{1}{m{7cm}|}{\textbf{Description}}                                                  \\ \hline
+    Transfer Time               & Seconds            & \multicolumn{1}{m{7cm}|}{Total amount of time required to transfer the file}                    \\ \hline
+    Network Traffic             & Megabytes          & \multicolumn{1}{m{7cm}|}{Total amount of traffic that passed through each area network and AS}  \\ \hline
+\end{tabular}
+\caption{Measurements to be taken in scenario 3}
+\label{table:s3-measurements}
+\end{table}
+
+\subsubsection{Analysis of Results}
 
 Figure \ref{fig:graph-execution-scenario3} shows the obtained execution times for each of the variable methods in scenario 3.
 An approach of randomly choosing mirror servers had the worst performance time wise, with 912.39 seconds, and the \gls{tcp} throughput measuring method following with 496.57 seconds.
@@ -571,8 +628,31 @@ It appears that the approach that probed for path bandwidth had a considerable i
 \label{fig:graph-traffic-scenario3}
 \end{figure}
 
+
+\label{sec:experiments-results}
+
+This section will show the observed results for each of the simulated scenarios, highlighting how the different variable methods compared to each other.
+
 \section{Discussion}
-    \textbf{[Notes: The P2P client has no reasonable way to, without ISP cooperation, know that peers reside within network locality. A cited study used RTT heuristics that assumed that high RTT values exist in inter-ISP links, which may not always be the case. Randomly selecting is poor at optimal choice, but at the very least has potential for load balancing, something that the tracker itself can attempt to do on a per-locality basis, joining a best of both worlds. Leveraging only a network map to communicate peer locality is quick and takes little memory, and further experiments will add cost maps on top of it to mix both locality standards and QoS needs.]}
 
-\todo{Finish discussion}
+\label{sec:experiments-discussion}
 
+    The results seem to support the main advantages associated with the \gls{alto} approach.
+
+    Regarding Scenario 1, it seems like a random selection of peers, as was expected, was far from optimal for execution time. 
+    Whilst random selection can be thought of as a good strategy to guarantee an even load distribution between peers, acting purely with this goal in mind is clearly not efficient in regards to network resources, as peers with worst network conditions can be chosen, and traffic can more often escape outside of network regions, as indeed was shown on the measurement of traffic that entered AS1, that meant a considerably amount of peers were selected outside of network regions. 
+    Perhaps surprisingly, a method of peer selection based on probing measurements targeting packet delay performed worse in regards to execution time and traffic locality.
+    It appears that, for this topology and this overlay network, message delay was a bad indicator of application speed performance, and it favored a lot of peers that resided outside of local regions.
+    The \gls{alto} method revealed to be the most efficient at both runtime and traffic localization.
+    A local approach was simple to implement, required input from only one \gls{isp} knowledge domain, and was able to get good time efficiency and very good traffic localization.
+    Its knowledge gaps came from situations where all candidate peers for a given fragment resided externally, and the global approach that united knowledge from multiple \gls{alto} domains helped pick those with a better throughput, additionally optimizing execution time.
+
+    Regarding scenario 2, immediately querying the server resulted in faster time, but this required that the server be queried during heavy load, possibly pushing the server over its capacity and reducing the ability to serve the current users whilst blocking potential candidates.
+    A method of periodically querying the server with ping messages made it so the query initialized when the server load was greatly reduced, but this was done with a slight but noticeable amount of traffic generated.
+    This was due to the fact that ping measurements, while simple in what information can be derived, incur in small traffic overhead, and the more information is attempted to be derived from the network the higher the overhead penalization is to be expected.
+    With no surprise, an \gls{alto} approach was able to, with a single query message to the ALTO server, schedule when its file request should execute, obtaining a runtime similar to the probing approach but without probing traffic overhead.
+
+    Regarding scenario 3, it seems like the random mirror selection had the worst runtime, probably due to the fact that most of the servers were under load, and randomly selecting the best one, over many runs, was unlikely.
+    A throughput probing approach was able to select the most apt mirror server to provide the server, but at the expense of much traffic overhead required to deduce available throughput.
+    Additionally, this approach required from all mirror servers the hosting of a probing server that made these measurements possible, a luxury not possible in much real-case scenarios.
+    The \gls{alto} approach was able to get immediate \gls{isp} input in the form of a combined multi-\gls{alto} domain effort, and quickly query the optimal mirror, resulting in a slightly better runtime than a probing approach.
