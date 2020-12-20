@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.12.6)  19 DEC 2020 00:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.12.6)  20 DEC 2020 05:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1731,7 +1731,9 @@ Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
 \AP@output=\toks52
 \AP@partial=\box87
 \AP@footins=\box88
-))
+)
+\thickarrayrulewidth=\skip136
+)
 (/usr/share/texmf-dist/tex/latex/glossaries/base/glossaries.sty
 Package: glossaries 2020/03/19 v4.46 (NLCT)
 
@@ -1803,7 +1805,7 @@ Package: fp-eval 1995/04/03
 )))
 \@dtl@toks=\toks55
 \@dtl@tmpcount=\count408
-\dtl@tmplength=\skip136
+\dtl@tmplength=\skip137
 \dtl@sortresult=\count409
 \@dtl@numgrpsepcount=\count410
 \@dtl@datatype=\count411
@@ -1816,7 +1818,7 @@ Package: glossaries-compatible-307 2020/03/19 v4.46 (NLCT)
 )
 \gls@level=\count415
 \@gls@tmpb=\toks56
-\gls@tmplen=\skip137
+\gls@tmplen=\skip138
 \glskeylisttok=\toks57
 \glslabeltok=\toks58
 \glsshorttok=\toks59
@@ -1826,17 +1828,17 @@ Package: glossary-hypernav 2020/03/19 v4.46 (NLCT)
 )
 (/usr/share/texmf-dist/tex/latex/glossaries/styles/glossary-list.sty
 Package: glossary-list 2020/03/19 v4.46 (NLCT)
-\glslistdottedwidth=\skip138
+\glslistdottedwidth=\skip139
 )
 (/usr/share/texmf-dist/tex/latex/glossaries/styles/glossary-long.sty
 Package: glossary-long 2020/03/19 v4.46 (NLCT)
 
 (/usr/share/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
-\LTleft=\skip139
-\LTright=\skip140
-\LTpre=\skip141
-\LTpost=\skip142
+\LTleft=\skip140
+\LTright=\skip141
+\LTpre=\skip142
+\LTpost=\skip143
 \LTchunksize=\count416
 \LTcapwidth=\dimen349
 \LT@head=\box89
@@ -1850,8 +1852,8 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LT@p@ftn=\toks61
 )
 Class scrbook Info: longtable captions redefined on input line 43.
-\glsdescwidth=\skip143
-\glspagelistwidth=\skip144
+\glsdescwidth=\skip144
+\glspagelistwidth=\skip145
 )
 (/usr/share/texmf-dist/tex/latex/glossaries/styles/glossary-super.sty
 Package: glossary-super 2020/03/19 v4.46 (NLCT)
@@ -1860,9 +1862,9 @@ Package: glossary-super 2020/03/19 v4.46 (NLCT)
 Package: supertabular 2020/02/02 v4.1g the supertabular environment
 \c@tracingst=\count421
 \ST@wd=\dimen350
-\ST@rightskip=\skip145
-\ST@leftskip=\skip146
-\ST@parfillskip=\skip147
+\ST@rightskip=\skip146
+\ST@leftskip=\skip147
+\ST@parfillskip=\skip148
 \ST@pageleft=\dimen351
 \ST@headht=\dimen352
 \ST@tailht=\dimen353
@@ -1876,7 +1878,7 @@ Package: supertabular 2020/02/02 v4.1g the supertabular environment
 ))
 (/usr/share/texmf-dist/tex/latex/glossaries/styles/glossary-tree.sty
 Package: glossary-tree 2020/03/19 v4.46 (NLCT)
-\glstreeindent=\skip148
+\glstreeindent=\skip149
 ))
 
 Package glossaries Warning: \defglsdisplayfirst is now obsolete.
@@ -2013,7 +2015,7 @@ Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@cmds=\toks66
 \SOUL@buffer=\toks67
 \SOUL@token=\toks68
-\SOUL@spaceskip=\skip149
+\SOUL@spaceskip=\skip150
 \SOUL@ttwidth=\dimen362
 \SOUL@uldp=\dimen363
 \SOUL@ulht=\dimen364
@@ -2225,25 +2227,8 @@ e 143.
 
 
 
-]
-
-Package glossaries Warning: Glossary entry `ospfv3' has not been defined on inp
-ut line 273.
-
-
-Package glossaries Warning: Glossary entry `ospfv3' has not been defined on inp
-ut line 273.
-
-
-Package glossaries Warning: Glossary entry `ospfv3' has not been defined on inp
-ut line 273.
-
-
-Package glossaries Warning: Glossary entry `ospfv3' has not been defined on inp
-ut line 273.
-
-[16]) [17]pdfTeX warning (ext4): destination with the same identifier (name{pag
-e.xvii}) has been already used, duplicate ignored
+] [16]) [17]pdfTeX warning (ext4): destination with the same identifier (name{p
+age.xvii}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.150 \emptypage
@@ -2261,6 +2246,14 @@ LaTeX Warning: Reference `sec:state-of-art' on page 1 undefined on input line 9
 
 LaTeX Warning: Reference `sec:specification' on page 1 undefined on input line 
 9.
+
+
+LaTeX Warning: Reference `sec:experiments-results' on page 1 undefined on input
+ line 17.
+
+
+LaTeX Warning: Reference `sec:experiments-discussion' on page 1 undefined on in
+put line 17.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
@@ -2283,76 +2276,6 @@ been already used, duplicate ignored
                    \relax 
 l.29 
       [2]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 30.
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.60 
-      [3]
-<img/topology-experiments-global.png, id=393, 617.83765pt x 407.40442pt>
-File: img/topology-experiments-global.png Graphic file (type png)
-<use img/topology-experiments-global.png>
-Package pdftex.def Info: img/topology-experiments-global.png  used on input lin
-e 65.
-(pdftex.def)             Requested size: 432.4834pt x 285.18114pt.
-
-Overfull \hbox (14.22972pt too wide) in paragraph at lines 65--66
- [][] 
- []
-
-<img/topology-experiments-AS0.png, id=394, 829.68794pt x 330.88324pt>
-File: img/topology-experiments-AS0.png Graphic file (type png)
-<use img/topology-experiments-AS0.png>
-Package pdftex.def Info: img/topology-experiments-AS0.png  used on input line 7
-2.
-(pdftex.def)             Requested size: 414.84296pt x 165.44121pt.
-<img/topology-experiments-AS1.png, id=395, 552.65294pt x 402.4447pt>
-File: img/topology-experiments-AS1.png Graphic file (type png)
-<use img/topology-experiments-AS1.png>
-Package pdftex.def Info: img/topology-experiments-AS1.png  used on input line 7
-9.
-(pdftex.def)             Requested size: 276.32579pt x 201.22186pt.
-
-LaTeX Warning: Float too large for page by 113.31401pt on input line 83.
-
-<img/topology-experiments-AS2.png, id=396, 899.83235pt x 561.15529pt>
-File: img/topology-experiments-AS2.png Graphic file (type png)
-<use img/topology-experiments-AS2.png>
-Package pdftex.def Info: img/topology-experiments-AS2.png  used on input line 8
-8.
-(pdftex.def)             Requested size: 449.91508pt x 280.57695pt.
-
-Overfull \hbox (31.6614pt too wide) in paragraph at lines 88--89
- [][] 
- []
-
-<img/topology-experiments-AS3.png, id=397, 908.3347pt x 562.57236pt>
-File: img/topology-experiments-AS3.png Graphic file (type png)
-<use img/topology-experiments-AS3.png>
-Package pdftex.def Info: img/topology-experiments-AS3.png  used on input line 9
-5.
-(pdftex.def)             Requested size: 454.16623pt x 281.28548pt.
-
-Overfull \hbox (35.91255pt too wide) in paragraph at lines 95--96
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 5.33223pt on input line 99.
-
-<img/topology-experiments-AS4.png, id=398, 841.02441pt x 440.70529pt>
-File: img/topology-experiments-AS4.png Graphic file (type png)
-<use img/topology-experiments-AS4.png>
-Package pdftex.def Info: img/topology-experiments-AS4.png  used on input line 1
-04.
-(pdftex.def)             Requested size: 420.51118pt x 220.3521pt.
-
-Overfull \hbox (2.2575pt too wide) in paragraph at lines 104--105
- [][] 
- []
-
 
 ! Package caption Error: Undefined format `listing'.
 
@@ -2360,7 +2283,7 @@ See the caption package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.120 ...l channel of a given node, language=bash]
+l.33 ...ol channel of a given node, language=bash]
                                                   
 If you do not understand this error, please take a closer look
 at the documentation of the `caption' package, especially the
@@ -2375,7 +2298,7 @@ See the caption package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.120 ...l channel of a given node, language=bash]
+l.33 ...ol channel of a given node, language=bash]
                                                   
 If you do not understand this error, please take a closer look
 at the documentation of the `caption' package, especially the
@@ -2390,7 +2313,7 @@ See the caption package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.120 ...l channel of a given node, language=bash]
+l.33 ...ol channel of a given node, language=bash]
                                                   
 If you do not understand this error, please take a closer look
 at the documentation of the `caption' package, especially the
@@ -2399,11 +2322,11 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 120.
+nput line 33.
 ! Undefined control sequence.
 \lst@basicstyle ->\medium 
                           \ttfamily 
-l.120 ...l channel of a given node, language=bash]
+l.33 ...ol channel of a given node, language=bash]
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2411,13 +2334,13 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 12
-0.
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 33
+.
 (/usr/share/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 9.30756pt on input line 120.
+(Font)              scaled to size 9.30756pt on input line 33.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `fvm' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
@@ -2430,8 +2353,8 @@ See the caption package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.122     \end{lstlisting}
-                          
+l.35     \end{lstlisting}
+                         
 If you do not understand this error, please take a closer look
 at the documentation of the `caption' package, especially the
 section about errors.
@@ -2445,8 +2368,8 @@ See the caption package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.122     \end{lstlisting}
-                          
+l.35     \end{lstlisting}
+                         
 If you do not understand this error, please take a closer look
 at the documentation of the `caption' package, especially the
 section about errors.
@@ -2460,19 +2383,93 @@ See the caption package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.122     \end{lstlisting}
-                          
+l.35     \end{lstlisting}
+                         
 If you do not understand this error, please take a closer look
 at the documentation of the `caption' package, especially the
 section about errors.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (32.38191pt too wide) in paragraph at lines 46--48
+\T1/pplj/m/n/10.95 pact that a given ap-pli-ca-tion strat-egy had in the in-fra
+s-truc-ture, the Linux file "/proc/net/dev"
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.63 
+      [3]
+<img/topology-experiments-global.png, id=395, 617.83765pt x 407.40442pt>
+File: img/topology-experiments-global.png Graphic file (type png)
+<use img/topology-experiments-global.png>
+Package pdftex.def Info: img/topology-experiments-global.png  used on input lin
+e 68.
+(pdftex.def)             Requested size: 432.4834pt x 285.18114pt.
+
+Overfull \hbox (14.22972pt too wide) in paragraph at lines 68--69
+ [][] 
+ []
+
+<img/topology-experiments-AS0.png, id=396, 829.68794pt x 330.88324pt>
+File: img/topology-experiments-AS0.png Graphic file (type png)
+<use img/topology-experiments-AS0.png>
+Package pdftex.def Info: img/topology-experiments-AS0.png  used on input line 7
+5.
+(pdftex.def)             Requested size: 414.84296pt x 165.44121pt.
+<img/topology-experiments-AS1.png, id=397, 552.65294pt x 402.4447pt>
+File: img/topology-experiments-AS1.png Graphic file (type png)
+<use img/topology-experiments-AS1.png>
+Package pdftex.def Info: img/topology-experiments-AS1.png  used on input line 8
+2.
+(pdftex.def)             Requested size: 276.32579pt x 201.22186pt.
+
+LaTeX Warning: Float too large for page by 113.31401pt on input line 86.
+
+<img/topology-experiments-AS2.png, id=398, 899.83235pt x 561.15529pt>
+File: img/topology-experiments-AS2.png Graphic file (type png)
+<use img/topology-experiments-AS2.png>
+Package pdftex.def Info: img/topology-experiments-AS2.png  used on input line 9
+1.
+(pdftex.def)             Requested size: 449.91508pt x 280.57695pt.
+
+Overfull \hbox (31.6614pt too wide) in paragraph at lines 91--92
+ [][] 
+ []
+
+<img/topology-experiments-AS3.png, id=399, 908.3347pt x 562.57236pt>
+File: img/topology-experiments-AS3.png Graphic file (type png)
+<use img/topology-experiments-AS3.png>
+Package pdftex.def Info: img/topology-experiments-AS3.png  used on input line 9
+8.
+(pdftex.def)             Requested size: 454.16623pt x 281.28548pt.
+
+Overfull \hbox (35.91255pt too wide) in paragraph at lines 98--99
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 5.33223pt on input line 102.
+
+<img/topology-experiments-AS4.png, id=400, 841.02441pt x 440.70529pt>
+File: img/topology-experiments-AS4.png Graphic file (type png)
+<use img/topology-experiments-AS4.png>
+Package pdftex.def Info: img/topology-experiments-AS4.png  used on input line 1
+07.
+(pdftex.def)             Requested size: 420.51118pt x 220.3521pt.
+
+Overfull \hbox (2.2575pt too wide) in paragraph at lines 107--108
+ [][] 
+ []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.133 
+l.129 
        [4] [5 <./img/topology-experiments-global.png (PNG copy)> <./img/topolog
 y-experiments-AS0.png (PNG copy)> <./img/topology-experiments-AS1.png (PNG copy
 )>] [6 <./img/topology-experiments-AS2.png (PNG copy)> <./img/topology-experime
@@ -2480,195 +2477,97 @@ nts-AS3.png (PNG copy)>]
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/iwona/b/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
- [7 <./img/topology-experiments-AS4.png>]
-Overfull \hbox (9.71646pt too wide) in paragraph at lines 174--183
+ [7 <./img/topology-experiments-AS4.png>] [8] [9]
+Overfull \hbox (9.71646pt too wide) in paragraph at lines 205--214
  []|  [] 
  []
 
-[8]
-Overfull \hbox (22.23222pt too wide) in paragraph at lines 192--199
+
+Overfull \hbox (22.23222pt too wide) in paragraph at lines 223--230
  []|  [] 
  []
 
-[9] [10]
+[10] [11]
 Overfull \vbox (102.0572pt too high) has occurred while \output is active []
 
 
-[11]
-Overfull \hbox (6.6724pt too wide) in paragraph at lines 340--347
+[12] [13]
+Overfull \hbox (6.6724pt too wide) in paragraph at lines 380--387
 [][] 
  []
 
 
-Underfull \hbox (badness 3536) in paragraph at lines 359--359
+Underfull \hbox (badness 3536) in paragraph at lines 399--399
 []|\T1/pplj/m/n/10.95 Total amount of traf-fic that passed
  []
 
-[12] [13]
+[14] [15]
 Overfull \vbox (102.0572pt too high) has occurred while \output is active []
 
 
-[14]
-Overfull \hbox (6.6724pt too wide) in paragraph at lines 509--516
+[16] [17]
+Overfull \hbox (6.6724pt too wide) in paragraph at lines 556--563
  [][] 
  []
 
-[15]
-Underfull \hbox (badness 3536) in paragraph at lines 528--528
+
+Underfull \hbox (badness 3536) in paragraph at lines 575--575
 []|\T1/pplj/m/n/10.95 Total amount of traf-fic that passed
  []
 
-[16] [17]
+[18] [19]
 Overfull \vbox (102.0572pt too high) has occurred while \output is active []
 
 
-[18] [19]) [20] (./dissertation.bbl
-! Misplaced alignment tab character &.
-l.69 \newblock {\em Communications Surveys &
-                                             Tutorials, IEEE}, 7:72-- 93, 04...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-[21
-
-
-
-
-]
-Underfull \hbox (badness 1281) in paragraph at lines 111--115
-[]\T1/pplj/m/n/10.95 Claudio Fian-drino.  P2p sys-tem topol-ogy.  [][]$\T1/fvm/
-m/n/10.95 https : / / texample . net / tikz /
- []
-
-[22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 261--265
-[]\T1/pplj/m/n/10.95 Why you should switch to a dif-fer-ent linux
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--265
-\T1/pplj/m/n/10.95 mint mir-ror to-day!  [][]$\T1/fvm/m/n/10.95 https : / / unl
-ockforus . com /
- []
-
-
-Underfull \hbox (badness 4872) in paragraph at lines 261--265
-\T1/fvm/m/n/10.95 why-[]you-[]should-[]switch-[]to-[]a-[]different-[]linux-[]mi
-nt-[]mirror-[]today/$[][]\T1/pplj/m/n/10.95 .  Ac-
- []
-
-[24] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 431--435
-[]\T1/pplj/m/n/10.95 The stride threat model.  [][]$\T1/fvm/m/n/10.95 https : /
- / docs . microsoft . com / en-[]us /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 431--435
-\T1/fvm/m/n/10.95 previous-[]versions / commerce-[]server / ee823878(v = cs . 2
-0 ) ?redirectedfrom =
- []
-
-[26]
-Underfull \hbox (badness 1048) in paragraph at lines 448--452
-[]\T1/pplj/m/n/10.95 Regulation (eu) 2015/2120 of the eu-ro-pean par-lia-ment a
-nd of the coun-
- []
-
-
-Underfull \hbox (badness 4378) in paragraph at lines 448--452
-\T1/pplj/m/n/10.95 cil.  [][]$\T1/fvm/m/n/10.95 https : / / eur-[]lex . europa 
-. eu / legal-[]content / EN / TXT / HTML / ?uri = CELEX :
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 459--464
-[]\T1/pplj/m/n/10.95 Nate An-der-son.  Deep packet in-spec-tion meets `net
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 459--464
-\T1/pplj/m/n/10.95 neu-tral-ity'.  [][]$\T1/fvm/m/n/10.95 https : / / arstechni
-ca . com / gadgets / 2007 / 07 /
- []
-
-
-Underfull \hbox (badness 2635) in paragraph at lines 471--474
-[]\T1/pplj/m/n/10.95 Tarifários móveis pós-pagos un-lim-ited.  [][]$\T1/fvm/m/n
-/10.95 https : / / www . meo . pt / telemovel /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 496--502
-[]\T1/pplj/m/n/10.95 Lily Hay New-man.  Net neu-tral-ity is al-ready in trou-bl
-e in
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 496--502
-\T1/pplj/m/n/10.95 the de-vel-op-ing world.  [][]$\T1/fvm/m/n/10.95 https : / /
- slate . com / technology / 2014 / 01 /
- []
-
-
-Overfull \hbox (43.963pt too wide) in paragraph at lines 496--502
-\T1/fvm/m/n/10.95 net-[]neutrality-[]internet-[]access-[]is-[]already-[]in-[]tr
-ouble-[]in-[]the-[]developing-[]world .
- []
-
-[27]
-Underfull \hbox (badness 3088) in paragraph at lines 559--562
+[20]) [21] (./dissertation.bbl
+Underfull \hbox (badness 6927) in paragraph at lines 4--7
 []\T1/pplj/m/n/10.95 Common open re-search em-u-la-tor.  [][]$\T1/fvm/m/n/10.95
  https : / / www . nrl . navy . mil / itd / ncs /
  []
 
 )
 No file dissertation.ind.
-[28] [29
+[22
 
 
-] (./dissertation.aux
 
-Package mparhack Warning: Marginpars may have changed.
-(mparhack)                Rerun to get them right.
 
-)
+] [23
+
+
+] (./dissertation.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 60780 strings out of 479383
- 1335584 string characters out of 5875830
- 2030894 words of memory out of 5000000
- 76573 multiletter control sequences out of 15000+600000
+ 60330 strings out of 479383
+ 1326856 string characters out of 5875830
+ 2027465 words of memory out of 5000000
+ 76228 multiletter control sequences out of 15000+600000
  523498 words of font info for 154 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  136i,21n,141p,10607b,2387s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{glo:ospfv2} has been referenced but does not exis
-t, replaced by a fixed one
-
-{/usr/share/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/share/texmf-dis
-t/fonts/enc/dvips/iwona/ec-iwona-sc.enc}{/usr/share/texmf-dist/fonts/enc/dvips/
-base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
-usr/share/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/share/texmf-dist/
-fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texmf-dist/fonts/type1/public
-/fpl/fplrc8a.pfb></usr/share/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></u
-sr/share/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texmf-dist/f
-onts/type1/nowacki/iwona/iwonab.pfb></usr/share/texmf-dist/fonts/type1/nowacki/
-iwona/iwonabi.pfb></usr/share/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb><
-/usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texmf-di
-st/fonts/type1/urw/helvetic/uhvr8ac.pfb></usr/share/texmf-dist/fonts/type1/urw/
-palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-</usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on dissertation.pdf (53 pages, 845490 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/share/texmf-d
+ist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}{/usr/share/texmf-dist/fonts/enc/dvip
+s/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/share/texmf-dis
+t/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/fpl/fplrc8a.pfb></usr/share/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb><
+/usr/share/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texmf-dist
+/fonts/type1/nowacki/iwona/iwonab.pfb></usr/share/texmf-dist/fonts/type1/nowack
+i/iwona/iwonabi.pfb></usr/share/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb
+></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texmf-
+dist/fonts/type1/urw/helvetic/uhvr8ac.pfb></usr/share/texmf-dist/fonts/type1/ur
+w/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pf
+b></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on dissertation.pdf (47 pages, 817776 bytes).
 PDF statistics:
- 918 PDF objects out of 1000 (max. 8388607)
- 815 compressed objects within 9 object streams
- 259 named destinations out of 1000 (max. 500000)
- 32568 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 722 PDF objects out of 1000 (max. 8388607)
+ 627 compressed objects within 7 object streams
+ 154 named destinations out of 1000 (max. 500000)
+ 32560 words of extra memory for PDF output out of 35830 (max. 10000000)
 

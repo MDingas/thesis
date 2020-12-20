@@ -594,17 +594,17 @@ showstringspaces=false}
     \newpage
 }
 
-%Tirar isto depois
+\def\thickhline{%
+  \noalign{\ifnum0=`}\fi\hrule \@height \thickarrayrulewidth \futurelet
+   \reserved@a\@xthickhline}
+\def\@xthickhline{\ifx\reserved@a\thickhline
+               \vskip\doublerulesep
+               \vskip-\thickarrayrulewidth
+             \fi
+      \ifnum0=`{\fi}}
+\makeatother
 
-%\usepackage[a4paper,
-%            inner=20mm,
-%            outer=50mm, = marginparsep + marginparwidth
-%                          + 5mm (between marginpar and page border)
-%            top=20mm,
-%            bottom=25mm,
-%            marginparsep=5mm,
-%            marginparwidth=40mm,
-%            showframe% for show your page design, normaly not used
-%           ]{geometry}
-%
+\newlength{\thickarrayrulewidth}
+\setlength{\thickarrayrulewidth}{4\arrayrulewidth}
+
 \makeatother

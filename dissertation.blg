@@ -2,70 +2,50 @@ This is BibTeX, Version 0.99d (TeX Live 2020/Arch Linux)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: dissertation.aux
 The style file: unsrt.bst
-Illegal, another \bibstyle command---line 851 of file dissertation.aux
+Illegal, another \bibstyle command---line 227 of file dissertation.aux
  : \bibstyle
  :          {plain}
 I'm skipping whatever remains of this command
 Database file #1: dissertation.bib
-Warning--entry type for "akamai-report" isn't style-file defined
---line 1 of file dissertation.bib
-Warning--entry type for "gnutella-flood" isn't style-file defined
---line 297 of file dissertation.bib
-Warning--empty author in cisco2019
-Warning--empty institution in cisco2019
-Warning--empty author in sandvine2019
-Warning--empty institution in sandvine2019
-Warning--empty booktitle in seedorf2009
-Warning--empty booktitle in karagiannis
-Warning--empty booktitle in estimating-gnutella
-Warning--empty booktitle in cdn-survey
-Warning--empty journal in cdn-isp-cooperations
-Warning--empty journal in dns-load-balancing
-Warning--empty publisher in programmable-trackers
-Warning--empty author in alto-about
-Warning--empty institution in alto-about
-Warning--empty institution in qos-framework
-Warning--empty booktitle in dns-https
-Warning--empty year in http-authentication
-You've used 100 entries,
+You've used 4 entries,
             1791 wiz_defined-function locations,
-            888 strings with 16951 characters,
-and the built_in function-call counts, 17336 in all, are:
-= -- 1389
-> -- 785
-< -- 20
-+ -- 312
-- -- 212
-* -- 860
-:= -- 2567
-add.period$ -- 307
-call.type$ -- 100
-change.case$ -- 102
+            455 strings with 3799 characters,
+and the built_in function-call counts, 456 in all, are:
+= -- 40
+> -- 4
+< -- 0
++ -- 4
+- -- 0
+* -- 2
+:= -- 53
+add.period$ -- 12
+call.type$ -- 4
+change.case$ -- 4
 chr.to.int$ -- 0
-cite$ -- 116
-duplicate$ -- 814
-empty$ -- 1989
-format.name$ -- 212
-if$ -- 4052
+cite$ -- 4
+duplicate$ -- 20
+empty$ -- 73
+format.name$ -- 0
+if$ -- 117
 int.to.chr$ -- 0
-int.to.str$ -- 100
-missing$ -- 47
-newline$ -- 509
-num.names$ -- 63
-pop$ -- 557
+int.to.str$ -- 4
+missing$ -- 0
+newline$ -- 23
+num.names$ -- 0
+pop$ -- 32
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 400
+skip$ -- 12
 stack$ -- 0
-substring$ -- 398
-swap$ -- 185
-text.length$ -- 20
+substring$ -- 0
+swap$ -- 4
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 16
-while$ -- 90
-width$ -- 103
-write$ -- 1010
+warning$ -- 0
+while$ -- 0
+width$ -- 5
+write$ -- 38
 (There was 1 error message)

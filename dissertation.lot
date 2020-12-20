@@ -8,15 +8,15 @@
 \ttl@tocsep 
 \ttl@tocsep 
 \ttl@tocsep 
-\contentsline {table}{\numberline {1.1}{\ignorespaces Tracker mappings of file fragments to available endpoints\relax }}{8}{table.caption.12}%
-\contentsline {table}{\numberline {1.2}{\ignorespaces Tracker algorithms to be tested in scenario 1\relax }}{9}{table.caption.13}%
-\contentsline {table}{\numberline {1.3}{\ignorespaces Measurements to be taken in scenario 1\relax }}{9}{table.caption.14}%
-\contentsline {table}{\numberline {1.4}{\ignorespaces Dynamically applied client-server path delays\relax }}{12}{table.caption.17}%
-\contentsline {table}{\numberline {1.5}{\ignorespaces Client algorithms to be tested in scenario 2\relax }}{12}{table.caption.18}%
-\contentsline {table}{\numberline {1.6}{\ignorespaces Measurements to be taken in scenario 2\relax }}{13}{table.caption.19}%
-\contentsline {table}{\numberline {1.7}{\ignorespaces Listed server mirrors\relax }}{15}{table.caption.22}%
-\contentsline {table}{\numberline {1.8}{\ignorespaces Available path throughput from client to mirror servers\relax }}{15}{table.caption.23}%
-\contentsline {table}{\numberline {1.9}{\ignorespaces Client algorithms to be tested in scenario 3\relax }}{16}{table.caption.24}%
-\contentsline {table}{\numberline {1.10}{\ignorespaces Measurements to be taken in scenario 3\relax }}{16}{table.caption.25}%
+\contentsline {table}{\numberline {1.1}{\ignorespaces Description of each fragment to be requested\relax }}{9}{table.caption.11}%
+\contentsline {table}{\numberline {1.2}{\ignorespaces Peer selection algorithms to be tested in scenario 1\relax }}{10}{table.caption.12}%
+\contentsline {table}{\numberline {1.3}{\ignorespaces Measurements to be taken in scenario 1\relax }}{10}{table.caption.13}%
+\contentsline {table}{\numberline {1.4}{\ignorespaces Dynamically applied client-server path delays in scenario 2\relax }}{14}{table.caption.16}%
+\contentsline {table}{\numberline {1.5}{\ignorespaces Client algorithms to be tested in scenario 2\relax }}{14}{table.caption.17}%
+\contentsline {table}{\numberline {1.6}{\ignorespaces Measurements to be taken in scenario 2\relax }}{14}{table.caption.18}%
+\contentsline {table}{\numberline {1.7}{\ignorespaces Available server mirrors in scenario 3\relax }}{17}{table.caption.21}%
+\contentsline {table}{\numberline {1.8}{\ignorespaces Available path throughput from client to mirror servers in scenario 3j\relax }}{18}{table.caption.22}%
+\contentsline {table}{\numberline {1.9}{\ignorespaces Client algorithms to be tested in scenario 3\relax }}{18}{table.caption.23}%
+\contentsline {table}{\numberline {1.10}{\ignorespaces Measurements to be taken in scenario 3\relax }}{18}{table.caption.24}%
 \ttl@tocsep 
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
