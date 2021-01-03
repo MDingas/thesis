@@ -54,12 +54,12 @@ $ vcmd -c /tmp/pycore.12345/P2P-Client-1 -- ping 10.0.0.1
     Figure \ref{fig:exp-global} presents a simplified global view the network as a collection of \glspl{as}.
     It was designed with the intent of reflecting, at a smaller scale, the structure of the Internet, in particular with it being an aggregation of multiple, heterogeneous, domains, each with their own topological properties and internal policies, with them being administrated by different organizations.
     A single backbone network, shown on Figure \ref{fig:exp-as0}, provides connectivity between many \glspl{as} and, to do its job correctly, a high degree of path redundancy exists between its routers, and the links have better capabilities than those associated with stub networks.
-    Figure \ref{fig:exp-as1} shows \gls{as} 1, a simple topological structure consisting of five \glspl{pc} and three dedicated servers, connected with the help of switches and routers, that eventually connect to a single edge router that links with the backbone.
-    Figure \ref{fig:exp-as2} shows \gls{as} 2, which is representative of a data center with two \gls{ospf} areas, both constructed with a hierarchical organization common for data center networks.
+    Figure \ref{fig:exp-as1} shows AS1, a simple topological structure consisting of five computers and three dedicated servers, connected with the help of switches and routers, that eventually connect to a single edge router that links with the backbone.
+    Figure \ref{fig:exp-as2} shows AS2, which is representative of a data center with two \gls{ospf} areas, both constructed with a hierarchical organization common for data center networks.
     Links in these regions are also highly capable and high traffic peak times are expected to occur.
-    \gls{as} 3, shown in Figure \ref{fig:exp-as3}, is a slightly more complex stub network compared to \gls{as} 1, but has the same structure, with the addition of having three \gls{ospf} areas instead of one, and a variety of nodes and links with different properties - for example, the links in area A are generally better, whilst area C has wireless connections in it that are expected to have worse performance and be less reliable.
-    Finally, \gls{as} 4, depicted on Figure \ref{fig:exp-as4}, connects directly with \gls{as} 3, meaning that it also acts as a transit \gls{as} to the rest of the network.
-    Similarly to \gls{as} 3, it consists of a stub network accessed by many end users and some servers, and both node and link properties vary accordingly.
+    AS3, shown in Figure \ref{fig:exp-as3}, is a slightly more complex stub network compared to AS1, but has the same structure, with the addition of having three \gls{ospf} areas instead of one, and a variety of nodes and links with different properties - for example, the links in area A are generally better, whilst area C has wireless connections in it that are expected to have worse performance and be less reliable.
+    Finally, AS4, depicted on Figure \ref{fig:exp-as4}, connects directly with AS3, meaning that it also acts as a transit \gls{as} to the rest of the network.
+    Similarly to AS3, it consists of a stub network accessed by many end users and some servers, and both node and link properties vary accordingly.
 
     \begin{figure}
     \centering
@@ -122,10 +122,10 @@ $ vcmd -c /tmp/pycore.12345/P2P-Client-1 -- ping 10.0.0.1
 
 \label{sec:experiments-scenarios}
 
-    This Section describes the three devised scenarios to test the impact to the overlay and underlay that results of applications performing traffic optimization decisions with and without the implemented \gls{alto} solution.
+    This section describes the three devised scenarios to test the impact to the overlay and underlay that results of applications performing traffic optimization decisions with and without the implemented \gls{alto} solution.
     Section \ref{ssec:scenario1} focuses on a \gls{p2p} application who needs to decide, whenever a file fragment is served by multiple peers, with whom to establish connection.
     Section \ref{ssec:scenario2} tackles the issue of an \gls{http} server subjected to periodic load spikes, and how clients can selectively choose the timing to initialize the resource request.
-    Section \ref{ssec:scenario3} deals with the challenge of selecting a given \gls{http} server to retrieve a content from whenever a mirror cluster is available.
+    Section \ref{ssec:scenario3} deals with the challenge of selecting a given \gls{http} server to retrieve a content from, whenever a mirror cluster is available.
 
 \subsection{Peer Selection in P2P File Transfer}
 
@@ -133,14 +133,16 @@ $ vcmd -c /tmp/pycore.12345/P2P-Client-1 -- ping 10.0.0.1
 
 \subsubsection{Overview}
 
-    All nodes in the network labeled as "CliN", with N from 1 to 32, actively serve all ten equally sized fragments of a one gigabyte file to other peers, and the overlay bootstrapping method includes informing the tracker, labeled as "Tracker", about what file fragments they serve.
+    All nodes in the network labeled as "CliN", with N from 1 to 32, actively serve some of the ten equally sized fragments of a one gigabyte file to other peers.
+    The overlay bootstrapping method for each of these peers includes informing the tracker, labeled as "Tracker" on the network, about what file fragments they serve.
 
-    "Cli2" wishes to retrieve the file, and to do so he firstly contacts the tracker for tracking information, which is given in the form of a file containing a mapping between each fragment \gls{id} and the available peers, alongside with the file's checksum for validation.
+    "Cli2" wishes to retrieve the file, and to do so it firstly contacts the tracker for tracking information, which is given in the form of a file containing a mapping between each fragment \gls{id} and the peers providing it, alongside with the file's checksum for validation.
+    Being an application to be used for media streaming, its \gls{qos} standards would favour high throughput and low message delay, imposing for the former a preference for connections whose one way delay don't cross 5 milliseconds.
 
-    Table \ref{table:fragment-allocations} shows what endpoints possess what file fragment IDs.
+    Table \ref{table:fragment-allocations} shows what endpoints possess what file fragments.
     For comparative reference, information is given about each fragment's location, i.e., the area and \gls{as} of the host serving it.
-    Aditionally, the connection is also described with metrics from the perspective of the querying peer.
-    These metrics include the maximum theoretical bandwidth as the minimum link bandwidth in the optimal path from Cli2 to each peer regarding this metric, and the sample \gls{rtt} measurement the client obtained after 10 sequential ping commands prior to the scenario's start.
+    Additionally, the connection is also described with metrics from the perspective of the querying peer.
+    These metrics include the maximum theoretical bandwidth as the minimum link bandwidth in the optimal path from "Cli2" to each peer regarding this metric, and the sample \gls{rtt} measurement the client obtained after 10 sequential ping commands prior to the scenario's start.
 
 \begin{table}[H]
 \centering
@@ -188,16 +190,19 @@ $ vcmd -c /tmp/pycore.12345/P2P-Client-1 -- ping 10.0.0.1
    x09   & 10.0.26.21   & 3  &  A  & 5                & 1.236  \\ \hline
    x09   & 10.0.31.20   & 3  &  C  & 5                & 1.456  \\ \thickhline
 \end{tabular}
-\caption{Description of each fragment to be requested}
+\caption{Description of each fragment that can be requested}
 \label{table:fragment-allocations}
 \end{table}
 
-    After retrieveing the mapping, the client will sequencially request each fragment from its selected peer, finalizing with the merge all the fragments into a single file and the calculation of the checksum that will be compared with the one previously provided.
+    After retrieving the mapping, the client will select a candidate peer per fragment, and sequentially request all the fragments composing the file.
+    Finally, the client merges all the fragments into a single file, and calculates its checksum to be validated against the one previously provided by the tracker.
 
-    An \gls{alto} server resides in the same \gls{as} and maintains resources - specifically, a local network map that groups peers within locality as "Area A" of "AS1", "Area B" of "AS2", or externally to "AS1".
-    It also maintains global resources - specifically, an endpoint cost map indicating expected bandwidth and delay between all the peers participating in the overlay \gls{p2p} network.
+    An \gls{alto} server resides in the same \gls{as} and maintains resources.
+    Specifically, a local network map is available for request which groups endpoints into certain domains, which can be categorized as peers within area A of AS1, peers within area B of AS1, and peers external to AS1.
+    Additional to this local resource, the server also provides ones with global reach.
+    Specifically, these resources are an endpoint cost map indicating expected bandwidth and one-way delay between all the endpoints participating in the overlay \gls{p2p} network.
 
-    The variable actions to be tested are how the client selects which candidate peer, from the available pool, will be selected to serve a given file fragment.
+    The variable actions to be tested are how the client selects which candidate peer, from the available pool, will be selected to serve each given file fragment.
     Table \ref{table:s1-tracker-methods} displays the different algorithms to be used.
 
 \begin{table}[H]
@@ -206,10 +211,10 @@ $ vcmd -c /tmp/pycore.12345/P2P-Client-1 -- ping 10.0.0.1
 \begin{tabular}{|l|L|}
     \hline
     \textbf{Tracker Algorithm} & \multicolumn{1}{m{11cm}|}{\textbf{Description}}                                                                         \\ \hline
-    Random                     & \multicolumn{1}{m{11cm}|}{Randomly elect among all available peers}                                                     \\ \hline
-    RTT                        & \multicolumn{1}{m{11cm}|}{Select the peer with the smallest probe packet \gls{rtt} measurement average in 10 pings}     \\ \hline
-    ALTO - Local               & \multicolumn{1}{m{11cm}|}{Retrieve the local network map from the requesting peer's \gls{alto} server and discover the peers whose \gls{pid} matches the requesting peer, choosing randomly if multiple options exist within that group}                                                                                                           \\ \hline
-    ALTO - Global              & \multicolumn{1}{m{11cm}|}{Retrieve the global multicost endpoint cost map from the requesting peer's \gls{alto} server by selecting the \gls{tcp} throughput and one way delay metrics, and selecting the peer that maximizes throughput with a delay no bigger than 5 milliseconds.}                                                  \\ \hline
+    Random                     & \multicolumn{1}{m{11cm}|}{Randomly select among all available peers}                                                     \\ \hline
+    RTT                        & \multicolumn{1}{m{11cm}|}{Select the peer with the smallest average \gls{rtt} measurement in 10 ping commands}     \\ \hline
+    ALTO - Local               & \multicolumn{1}{m{11cm}|}{Retrieve the local network map from the local \gls{alto} server and select the peer whose \gls{pid} matches the requesting peer, choosing randomly if multiple matches exist within that group}                                                                                                           \\ \hline
+    ALTO - Global              & \multicolumn{1}{m{11cm}|}{Retrieve the global multi-cost endpoint cost map from the local \gls{alto} server by querying for the throughput and one way delay metrics, and selecting the peer that maximizes throughput with a delay no bigger than 5 milliseconds.}                                                  \\ \hline
 \end{tabular}
 \caption{Peer selection algorithms to be tested in scenario 1}
 \label{table:s1-tracker-methods}
@@ -224,8 +229,8 @@ $ vcmd -c /tmp/pycore.12345/P2P-Client-1 -- ping 10.0.0.1
 \begin{tabular}{|l|l|L|}
     \hline
     \textbf{Measurement}     & \textbf{Units}     & \multicolumn{1}{m{10cm}|}{\textbf{Description}}  \\ \hline
-    Execution Time            & Seconds            & \multicolumn{1}{m{10cm}|}{Total amount of time required to select and retrieve all file fragments} \\ \hline
-    Network Traffic          & Megabytes          & \multicolumn{1}{m{10cm}|}{Total amount inbound traffic to each network AS and area} \\ \hline
+    Transfer time            & Seconds            & \multicolumn{1}{m{10cm}|}{Total amount of time required to retrieve all the file fragments} \\ \hline
+    Network traffic          & Megabytes          & \multicolumn{1}{m{10cm}|}{Total amount inbound traffic to each network AS and area} \\ \hline
 \end{tabular}
 \caption{Measurements to be taken in scenario 1}
 \label{table:s1-measurements}
@@ -233,17 +238,17 @@ $ vcmd -c /tmp/pycore.12345/P2P-Client-1 -- ping 10.0.0.1
 
 \subsubsection{Analysis of Results}
 
-Figure \ref{fig:graph-execution-scenario1} shows the execution times for each of the variable methods in this scenario.
-It appears that the method of probing for path delay was the worst, at 1096 seconds of runtime, closely followed by the method of randomly selecting between the available peers.
-Considerably faster are the \gls{alto}-related options.
-The one considering a local server with its own information aided the application in achieving a 913.19 seconds execution time, whereas a global approach was able to considerably shave more time, at around 821.92 total seconds.
+    Figure \ref{fig:graph-execution-scenario1} shows the transfer times for each of the variable methods in this scenario.
+    It appears that the method of probing for path delay was the worst, at 1096 seconds of runtime, closely followed by the method of randomly selecting between the available peers.
+    Considerably faster are the \gls{alto}-related options.
+    The method guided by an \gls{alto} server with a local network map aided the application in achieving a 913.19 seconds of transfer time, whereas an approach using a global cost map with throughput and delay values was able to considerably shave more time, at around 821.92 total seconds.
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
     \begin{axis}[ 
         xbar,xmin=0,xmax=1500,
-        xlabel={Execution times (s)},
+        xlabel={Transfer times (s)},
         symbolic y coords={{ALTO-Global},{ALTO-Local},{RTT},{Random}},
         xtick={0, 500, 1000, 1500},
         ytick=data,
@@ -253,12 +258,12 @@ The one considering a local server with its own information aided the applicatio
     \addplot[fill=lightblue] coordinates {(1096.314,{RTT}) (913.194,{ALTO-Local}) (821.915,{ALTO-Global}) (1052.820,{Random})};
     \end{axis}
 \end{tikzpicture} %width=6cm,height=7.59cm
-\caption{Execution times measured in scenario 1}
+\caption{Transfer times measured in scenario 1}
 \label{fig:graph-execution-scenario1}
 \end{figure}
 
     Figure \ref{fig:graph-traffic-scenario1} show the measured traffic influx into the network's \glspl{as} and their areas.
-    It can be immediatelly identified that the delay probing method incurred in considerable amount of inbound traffic being generated, in all \glspl{as}.
+    It can be immediately identified that the delay probing method incurred in considerable amount of inbound traffic being generated, in all \glspl{as}.
     A random approach reduced that value significantly, in particular the amount of traffic that entered AS1 and its areas which were almost reduced in half, but the \gls{alto} approaches were both equally proficient and had the lowest amount of incoming traffic into AS1.
  
 \begin{figure}[H]
@@ -271,7 +276,7 @@ The one considering a local server with its own information aided the applicatio
     \begin{axis}[
         xbar,xmin=0,xmax=2500,
         bar width=8,
-        xlabel={Traffic influx by region (bytes)},
+        xlabel={Traffic influx by region (megabytes)},
         symbolic y coords={{ALTO-Global},{ALTO-Local},{RTT},{Random}},
         xtick={0, 500, 1000, 1500, 2000, 2500},
         enlarge y limits  = 0.2,
@@ -333,16 +338,23 @@ The one considering a local server with its own information aided the applicatio
 \label{fig:graph-traffic-scenario1}
 \end{figure}
 
-    It seems like a random selection of peers, as was expected, was far from optimal for execution time. 
-    Whilst random selection can be thought of as a good strategy to guarantee an even load distribution between peers, acting purely with this goal in mind is clearly not efficient in regards to network resources, as peers with worst network conditions can be chosen, and traffic can more often escape outside of network regions, as indeed was shown on the measurement of traffic that entered AS1, which meant a considerable amount of peers were selected outside of network regions. 
-    Perhaps surprisingly, a method of peer selection based on probing measurements targeting packet delay performed worse in regards to execution time and traffic locality.
-    It appears that, for this topology and this overlay network, message delay was a bad indicator of application speed performance, and it favored a lot of peers that resided outside of local regions.
-    The \gls{alto} method revealed to be the most efficient at both runtime and traffic localization.
-    A local approach was simple to implement, required input from only one \gls{isp} knowledge domain, and was able to get good time efficiency and very good traffic localization.
-    The client had a prioritization mechanisms that favored area locality, followed by \gls{as} locality, and finally random choice if the prior criteria could not be fulfilled.
-    The global approach had concrete information regarding available throughput and one way delay, but no strategy to localize traffic, instead maximizing throughput with delay that did not compromise its \gls{qos} levels.
-    It appears, however, that there was a correlation between higher throughput and locality, and by focusing only on the former, the latter was automatically achieved. 
-    This can be seen because the global approach managed to generate the same amount of inbound traffic to AS1 while simultaneously reducing execution time.
+    It seems like a random selection of peers, as was expected, was far from optimal for transfer time. 
+    Whilst random selection can be thought of as a good strategy to guarantee an even load distribution between peers within the overlay, acting purely with this goal in mind is clearly not efficient in regards to network resources, as peers with worse network conditions can be chosen, and traffic can more often escape outside of local regions, as indeed was shown on the measurement of traffic that entered AS1, which meant that a considerable amount of non-local peers were selected. 
+
+    Perhaps surprisingly, a method of peer selection based on probing measurements targeting packet delay performed worse in regards to transfer time and traffic locality.
+    It appears that, for this topology, message delay was a bad indicator of application speed performance, and it favored a lot of peers that resided outside of local regions.
+
+    Both \gls{alto} methods revealed to be the most efficient at both runtime and traffic localization.
+    Considering the approach using the local network map, the client had a prioritization mechanism that favored area locality, followed by \gls{as} locality, and finally random choice if the prior criteria could not be fulfilled.
+    This approach was simple to implement, required input from only one \gls{isp} knowledge domain which required few resources to generate, and was able to get good application efficiency and very good traffic localization.
+
+    The approach using global \gls{alto} resources had concrete information regarding expected path throughput and one way delay, but no strategy to localize traffic, instead favoring connections that maximize throughput with delay that did not compromise its \gls{qos} standards.
+    It appears, however, that there was a correlation between higher throughput and peer locality, and by focusing only on the former, the latter was automatically achieved. 
+    This can be seen because the global approach managed to generate the same amount of inbound traffic to AS1 while simultaneously reducing transfer time.
+    Using as a heuristic the assumption that peering links usually have comparatively lower bandwidth to bin peers within locality allowed the application using this method to maintain a win-win scenario, very much like the local resource method, but leveraged the additional network information exterior to its \gls{alto} domain to select peers that more efficiently provided their fragments.
+    This was a similar assumption to the one used by the algorithm in \cite{qin2009}, which was discussed in Section \ref{ssec:approaches-p2p}, that took into consideration that inter-\gls{as} links were subjected to higher latency, and thus path delay could correlate locality.
+    Being assumptions, however, means that this correlation could not be guaranteed. 
+    Instead, since the two \gls{alto} approaches work with different sets of data, an ideal cooperative solution could work with both datasets - one focused on locality information, and another on network connection metrics - and attempt to achieve a balance between optimal network resourcefulness and application performance.
 
 \subsection{HTTP resource request scheduling}
 
@@ -351,10 +363,12 @@ The one considering a local server with its own information aided the applicatio
 \subsubsection{Overview}
 
     "Server1" acts as a server of \gls{http} content.
-    "Cli1" wishes to retrieve a 500MB file from that server in one single session.
-    The server is subjected to variable, random client loads that affect processing and storage power, and subsequently its ability to serve clients, as well as periodic traffic loads within the \gls{as} whenever the server clusters in that system enchange data between themselves for server redundancy and general synchronization.
-    This will be translated in practice as the dynamic variation of the available bandwidth of the link directly connected to the server.
-    This has direct impact on the theoretical maximum available bandwidth from "Cli1" to the server, whose chronological values are specified in \ref{table:server-delays}:
+    "Cli1" wishes to retrieve a 500 megabyte file from that server in one single session.
+    As they wish to present the file in a browser, and since the file is constructed in such a way that it enables the client to render data as it is sent, a minimum bandwidth of 10 Mbps is set for an appropriate client experience.
+    The server is subjected to random client loads that affect processing and storage power, as well as periodic traffic loads within its \gls{as} whenever the server clusters in that system exchange data between themselves for server redundancy and general synchronization.
+    These two actions are then expected to penalize the server's ability to deal with client requests.
+    For experimentation purposes, this will be translated in practice as the dynamic variation of the available bandwidth of the single link which is directly connected to the server.
+    This has direct impact on the theoretical maximum available bandwidth from "Cli1" to the server, whose chronological values are specified in Table \ref{table:server-delays}:
 
 \begin{table}[H]
 \centering
@@ -366,29 +380,30 @@ The one considering a local server with its own information aided the applicatio
     360 - 540          & 5                                         \\ \hline
     540 - $\infty$     & 10                                        \\ \hline
 \end{tabular}
-\caption{Dynamically applied client-server path delays in scenario 2}
+\caption{Possible available bandwidth from client to server considering dynamic link capacity variation}
 \label{table:server-delays}
 \end{table}
 
-    The server administrator is aware of the request loads that the server is subjected to and has maintained historical observations that existed in the past, which allowed him to reasonably predict how these will impact the server's performance in the future by detecting peak usage times.
+    The server administrator is aware of the request loads that the server is subjected to, as well as the routine data transfers that exist within the \gls{as}, and identifies a pattern of behavior where server conditions have periods of higher and lower ability to operate.
+    As an attempt to optimize application decisions, he previously monitored server and network conditions, which allowed him to reasonably predict how these will impact the server's performance in the future.
     The \gls{alto} server local to "Cli1" maintains a calendar cost map displaying the information mentioned in Table \ref{table:server-delays}, i.e., it informs the client about the expected available bandwidth in the present and future.
 
     The variable action to be tested is how the \gls{http} client selects when to initialize its content request with the server.
-Table \ref{table:s2-client-methods} displays the different client algorithms that will be tested for the task of server request scheduling.
+    Table \ref{table:s2-client-methods} displays the different client algorithms that will be tested for the task of server request scheduling.
 
 \begin{table}[H]
 \begin{tabular}{|l|L|}
     \hline
     \textbf{Client Algorithm} & \multicolumn{1}{m{11cm}|}{\textbf{Description}}                                                                     \\ \hline
     Immediate                 & \multicolumn{1}{m{11cm}|}{Immediatelly request the resource from the server}                                        \\ \hline
-    RTT                       & \multicolumn{1}{m{11cm}|}{Continuously probe the network to measure the existing maximum available bandwidth until that value reaches above 10 Mbps}                                                                                                                                                                          \\ \hline
-    ALTO                      & \multicolumn{1}{m{11cm}|}{Retrieve a calendar cost map from the \gls{alto} server in AS2 of expected path delay to the server, and iniciate immediately when the available bandwidth is expected to be 10 Mbps}                                                                                    \\ \hline
+    Bandwidth                 & \multicolumn{1}{m{11cm}|}{Request the file using wget and, after five seconds, which is sufficient to get a view of the transfer performance, restart the transfer unless a value of 10 Mbps or higher was reported}                                                                                                                                                                          \\ \hline
+    ALTO                      & \multicolumn{1}{m{11cm}|}{Retrieve a calendar cost map from the local \gls{alto} server of expected path delay from itself to the server, and initiate immediately when the available bandwidth is expected to be 10 Mbps or higher}                                                                                    \\ \hline
 \end{tabular}
 \caption{Client algorithms to be tested in scenario 2}
 \label{table:s2-client-methods}
 \end{table}
 
-\textbf{Measurements:} Table \ref{table:s2-measurements} presents the measurements that will be collected during the experiment runs.
+    Table \ref{table:s2-measurements} presents the measurements that will be collected during the experiment runs.
 
 \begin{table}[H]
 \centering
@@ -405,24 +420,24 @@ Table \ref{table:s2-client-methods} displays the different client algorithms tha
 \subsubsection{Analysis of Results}
 
 Figure \ref{fig:graph-execution-scenario2} shows the obtained transfer times for each of the variable methods in scenario 2.
-It appears that the \gls{alto}-aided and delay-probing methods were equally circling a 640 second runtime, and an approach of immediately querying the server was faster, at 457.19 seconds.
+It appears that the \gls{alto}-aided and delay-probing methods were equally circling a 640 second runtime, and an approach of immediately querying the server was the slowest, at 457.19 seconds.
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
     \begin{axis}[ 
         xbar,xmin=0,xmax=1500,
-        xlabel={Execution times (s)},
-        symbolic y coords={{ALTO-Global},{RTT},{Immediate}},
+        xlabel={Transfer times (s)},
+        symbolic y coords={{ALTO-Global},{Bandwidth},{Immediate}},
         xtick={0, 500, 1000, 1500},
         ytick=data,
         nodes near coords, nodes near coords align={horizontal},
         ytick=data,
     ]
-    \addplot[fill=lightblue] coordinates {(641.998,{RTT}) (457.186,{Immediate}) (636.456,{ALTO-Global})};
+    \addplot[fill=lightblue] coordinates {(641.998,{Bandwidth}) (457.186,{Immediate}) (636.456,{ALTO})};
     \end{axis}
 \end{tikzpicture} %width=6cm,height=7.59cm
-\caption{Execution times measured in scenario 2}
+\caption{Transfer times measured in scenario 2}
 \label{fig:graph-execution-scenario2}
 \end{figure}
 
@@ -438,7 +453,7 @@ It appears that the method that used bandwidth probing mechanisms took a conside
     }
     \begin{axis}[
         xbar,xmin=0,xmax=700,
-        xlabel={Traffic influx by region (bytes)},
+        xlabel={Traffic influx by region (megabytes)},
         symbolic y coords={{ALTO-Global},{RTT},{Immediate}},
         xtick={0, 100, 200, 300, 400, 500, 600, 650, 700},
         enlarge y limits  = 0.2,
@@ -498,12 +513,11 @@ It appears that the method that used bandwidth probing mechanisms took a conside
 \label{fig:graph-traffic-scenario2}
 \end{figure}
 
-    It seems to be that, unsurprisingly, query timing had a big impact on total file transfer time, as these would set the available bandwidth during file transfer.
+    It seems to be that, unsurprisingly, query timing had a big impact on total file transfer time, as it would relate to the available bandwidth during file transfer.
     Both the probing and \gls{alto}-aided strategies were able to correctly identify when the server was least overwhelmed by other clients, which justified their improved time results in comparison to immediately querying the server.
     However, these do not have similar network impacts.
-    Firstly, the maximum bandwidth measuring approach required that the server hosted a measuring tool that the client could query to deduce network behavior, and this is a luxury that does not exist in most real-case scenarios.
-    Secondly, deducing that information without \gls{isp} input required that a massive amount of overhead data be generated on a network, that not only used network resources in a sub-optimal manner, but it also added to the increase of the server's already overloaded capacity, which would, in a real-case scenario, further decrease the server's ability to handle client requests. 
-    One could note that, in alternative to continuously probing the network, the client could use some exponential backoff strategy as to space out consecutive probing measurements, but that would, at the very least, generate an undesirable amount of overhead traffic, and could never be more quick than retrieving historical server pattern information from a reliable source.
+    Deducing that information without \gls{isp} input required that a massive amount of overhead data be generated into the network, that not only used network resources in a sub-optimal manner, but also added to the increase of the server's already overloaded capacity, which would, in a real-case scenario, further decrease the server's ability to handle client requests. 
+    One could note that, in alternative to continuously probing the network, the client could use some exponential backoff strategy to space out consecutive probing measurements, but that would, at the very least, generate an undesirable amount of overhead traffic and server load, and could never be more quick than retrieving historical server pattern information from a reliable source.
     This last method was exactly what the \gls{alto} approach did, which was able to nullify any need to generate overhead traffic besides a very small request for the \gls{alto} resource, and simply waited to retrieve the content when the server was most available to, benefiting both sides and improving to a more sustainable server-client architecture and the health of the entire network.
 
 \subsection{HTTP mirror selection}
@@ -513,43 +527,44 @@ It appears that the method that used bandwidth probing mechanisms took a conside
 \subsubsection{Overview}
 
     "Cli2" wishes to retrieve a 500 megabyte file from a server.
-    After querying the public proxy, an index is provided which contains a address lists of the four mirror servers that provide that content.
-    The listing is show in table \ref{table:server-mirrors}.
+    After querying for the public index, a file is provided which contains an address lists of the four mirror servers that provide that content.
+    Since the client goal is to retrieve a static file and no real-time requisite exists, the application mostly favors throughput and accepts delays which aren't excessive, meaning more than 100 milliseconds for this case.
+    The listing is shown in Table \ref{table:server-mirrors}.
     For comparative reference, information is given about each mirror's location, i.e., the area and \gls{as} where they reside.
     Additionally, the connection is also described with metrics from the perspective of the querying client. 
-These metrics include the maximum theoretical bandwidth as the minimum link bandwidth in the optimal path from "Cli2" to each server regarding this metric, and the sample \gls{rtt} measurement the client obtained after 10 sequential ping commands prior to the scenario's start.
+    These metrics include the maximum theoretical bandwidth as the minimum link bandwidth in the optimal path from "Cli2" to each server regarding this metric, and the sample \gls{rtt} measurement the client obtained after 10 sequential ping commands prior to the scenario's start.
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|c|c|}
+\begin{tabular}{|c|c|c|c|c|}
     \hline
-    \textbf{Server address} & \textbf{AS} & \textbf{Area} & \textbf{Max bandwidth(Mbps) & Sample RTT (ms) } \\ \hline
-    10.0.16.12              & 1           & B   &   &     \\ \hline
-    10.0.37.10              & 2           & A   &   &     \\ \hline
-    10.0.23.11              & 2           & B   &   &     \\ \hline
-    10.0.13.10              & 3           & B   &   &     \\ \hline
+    \textbf{Server address} & \textbf{AS} & \textbf{Area} & \textbf{Max bandwidth(Mbps)} & \textbf{Sample RTT (ms)}  \\ \hline
+    10.0.16.12              & 1           & B   & 10  & 0.807 \\ \hline
+    10.0.37.10              & 2           & A   & 10  & 1.013 \\ \hline
+    10.0.23.11              & 2           & B   & 10  & 1.060 \\ \hline
+    10.0.13.10              & 3           & B   & 5   & 1.475 \\ \hline
 \end{tabular}
-\caption{Available server mirrors in scenario 3}
+\caption{Description of the available server mirrors in scenario 3}
 \label{table:server-mirrors}
 \end{table}
 
-The mirror servers will be subjected to constant loads at the start of the scenario, which are translated as throughput throttling applied from the client to the servers, which are specifically the ones shown in \ref{table:mirrors-bandwidth}.
+The mirror servers will be subjected to constant loads at the start of the scenario, representative of the quantity of users they would be serving at the time, which are translated as throughput throttling applied from the client to the servers when the file transfer begins, that specifically are the ones shown in \ref{table:mirrors-bandwidth}.
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|c|}
+\begin{tabular}{|c|c|c|}
     \hline
-    \textbf{Server address} & \textbf{Throughput (Mbps)} \\ \hline
-    10.0.16.12              & 3.0  Mbps                  \\ \hline
-    10.0.37.10              & 5.0  Mbps                  \\ \hline
-    10.0.23.11              & 10.0 Mbps                  \\ \hline
-    10.0.13.10              & 5.0  Mbps                  \\ \hline
+    \textbf{Server address} & \textbf{CPU Load (\%)} & \textbf{Throughput throttle (Mbps)} \\ \hline
+    10.0.16.12              & 95 & 3.0                        \\ \hline
+    10.0.37.10              & 80 & 5.0                        \\ \hline
+    10.0.23.11              & 40 & 10.0                       \\ \hline
+    10.0.13.10              & 80 & 5.0                        \\ \hline
 \end{tabular}
-\caption{Client transference throttling to be applied if he chooses each given mirror server in scenario 3}
+\caption{Client transfer throughput throttling to be applied if it chooses each given mirror server in scenario 3}
 \label{table:mirrors-bandwidth}
 \end{table}
 
-    The \gls{alto} server local to that client provides a global \gls{alto} endpoint property map that contains \gls{cpu} and \gls{ram} load information about all the mirrors, as well as an endpoint cost map containing information about the expected bandwidth and delay from the client to the mirror.
+    The \gls{alto} server local to that client provides global \gls{alto} resources, including an endpoint property map that contains \gls{cpu} load information about all the mirrors, as well as an endpoint cost map containing information about the expected bandwidth and delay from the client to the mirror.
 
     The variable action to be tested is how the \gls{http} client selects which mirror server to retrieve the file from.
     Table \ref{table:s3-client-methods} displays the different client algorithms that will be tested for the task of mirror selection.
@@ -560,14 +575,14 @@ The mirror servers will be subjected to constant loads at the start of the scena
     \hline
     \textbf{Client Algorithm} & \multicolumn{1}{m{11cm}|}{\textbf{Description}}                                                                                                               \\ \hline
     Random                    & \multicolumn{1}{m{11cm}|}{Randomly select a server }                                                                                                          \\ \hline
-    Bandwidth                 & \multicolumn{1}{m{11cm}|}{Probe the mirrors for available TCP throughput and existing \gls{rtt}, and select the one with most bandwidth whose delay doesn't cross 2ms}   \\ \hline
-    ALTO                      & \multicolumn{1}{m{11cm}|}{Retrieve an endpoint property map and endpoint cost map from the local \gls{alto} server, and choose the one with most available bandwidth and delay below 2ms, whose memory and processing power is below 30\%} \\ \hline
+    Bandwidth                 & \multicolumn{1}{m{11cm}|}{Probe the mirrors for maximum path bandwidth using iperf3 and average \gls{rtt} using 10 ping commands, and select the one with most bandwidth whose delay doesn't cross 100 ms, choosing randomly if multiple servers fulfill the criteria.}   \\ \hline
+    ALTO                      & \multicolumn{1}{m{11cm}|}{Retrieve the global endpoint property maps and endpoint cost maps by querying for the CPU load property, and both throughput and one way delay cost metrics, respectively, and choose the one which maximizes throughput, assuming that it has delay below 100 milliseconds and processing load is below 50, so not to overload the server \%.} \\ \hline
 \end{tabular}
 \caption{Client algorithms to be tested in scenario 3}
 \label{table:s3-client-methods}
 \end{table}
 
-\textbf{Measurements:} Table \ref{table:s3-measurements} presents the measurements that will be collected during the experiment runs.
+    Table \ref{table:s3-measurements} presents the measurements that will be collected during the experiment runs.
 
 \begin{table}[H]
 \centering
@@ -583,16 +598,16 @@ The mirror servers will be subjected to constant loads at the start of the scena
 
 \subsubsection{Analysis of Results}
 
-Figure \ref{fig:graph-execution-scenario3} shows the obtained execution times for each of the variable methods in scenario 3.
-An approach of randomly choosing mirror servers had the worst performance time wise, with 912.39 seconds, and the \gls{tcp} throughput measuring method following with 496.57 seconds.
-Finally, the \gls{alto}-aided approach was the quickest with 456.21 seconds of runtime.
+    Figure \ref{fig:graph-execution-scenario3} shows the obtained transfer times for each of the variable methods in scenario 3.
+    An approach of randomly choosing mirror servers had the worst performance time wise, with 912.39 seconds, and the \gls{tcp} throughput measuring method following with 496.57 seconds.
+    Finally, the \gls{alto}-aided approach was the quickest with 456.21 seconds of runtime.
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
     \begin{axis}[ 
         xbar,xmin=0,xmax=1200,
-        xlabel={Execution times (s)},
+        xlabel={Transfer times (s)},
         symbolic y coords={{ALTO-Global},{Bandwidth},{Random}},
         xtick={0, 500, 1000, 1200},
         ytick=data,
@@ -602,12 +617,12 @@ Finally, the \gls{alto}-aided approach was the quickest with 456.21 seconds of r
     \addplot[fill=lightblue] coordinates {(456.212,{ALTO-Global}) (496.567,{Bandwidth}) (912.394,{Random})};
     \end{axis}
 \end{tikzpicture} %width=6cm,height=7.59cm
-\caption{Execution times measured in scenario 3}
+\caption{Transfer times measured in scenario 3}
 \label{fig:graph-execution-scenario3}
 \end{figure}
 
-Figure \ref{fig:graph-traffic-scenario3} shows the measured traffic influx into the network's \glspl{as} and their areas.
-It appears that the approach that probed for path bandwidth had a considerable impacts on the generated traffic influx, and the spikes of traffic in the random and \gls{alto} approach give clues into the selected mirrors - those residing in AS3-B and AS2-B, most specifically.
+    Figure \ref{fig:graph-traffic-scenario3} shows the measured traffic influx into the network's \glspl{as} and their areas.
+    It appears that the approach that probed for path bandwidth had considerable impact on the generated traffic influx, and the remaining approaches had a negligible amount of overhead traffic in comparison.
 
 \begin{figure}[H]
 \centering
@@ -620,7 +635,7 @@ It appears that the approach that probed for path bandwidth had a considerable i
         xbar,xmin=0,xmax=700,
         enlarge y limits  = 0.2,
         enlarge x limits  = 0.01,
-        xlabel={Traffic influx by region (bytes)},
+        xlabel={Traffic influx by region (megabytes)},
         symbolic y coords={{ALTO-Global},{Bandwidth},{Random}},
         xtick={0, 100, 200, 300, 400, 500, 600, 650, 700},
         typeset ticklabels with strut,
@@ -678,7 +693,21 @@ It appears that the approach that probed for path bandwidth had a considerable i
 \label{fig:graph-traffic-scenario3}
 \end{figure}
 
-    Regarding scenario 3, it seems like the random mirror selection had the worst runtime, probably due to the fact that most of the servers were under load, and randomly selecting the best one, over many runs, was unlikely.
-    A throughput probing approach was able to select the most apt mirror server to provide the server, but at the expense of much traffic overhead required to deduce available throughput.
-    Additionally, this approach required from all mirror servers the hosting of a probing server that made these measurements possible, a luxury not possible in much real-case scenarios.
-    The \gls{alto} approach was able to get immediate \gls{isp} input in the form of a combined multi-\gls{alto} domain effort, and quickly query the optimal mirror, resulting in a slightly better runtime than a probing approach.
+    It seems like the random mirror selection had the worst runtime, probably due to the fact that most of the servers were under load, and randomly selecting the best one, over many runs, was unlikely.
+    Note that a random selection can be seen as an approach with advantages over what happens in current applications utilizing mirrors that give the user the chance to select it himself.
+    In these, it is common for the first choice to be picked, and mirror servers often aren't properly used, whilst the main server becomes increasingly overworked, as was discussed in Section \ref{ssec:p2p-effects}.
+    Thus, a random mirror selection strategy can at the very least distribute query loads throughout the mirror cluster.
+    In this situation, however, this did not contribute to better application performance, but had every client in this scenario decided for load-distributing strategies, perhaps the cluster could increase its ability to better serve clients.
+
+    A throughput probing approach was able to correctly identify which servers possess the highest possible path throughput.
+    This, however, did not take into account the server's current load, something which had direct impact on the application's performance.
+    Even worse, this approach took increased traffic overhead since an already expensive throughput approximation measurement had to be performed for all mirror servers.
+    Additionally, to allow the usage of the iperf3 tool to deduce available network throughput, it assumed that the servers hosted a tool that made these measurements possible, and this could not always be assumed for real-case situations.
+
+    The \gls{alto} approach was able to get immediate \gls{isp} input in the form of a combined multi-\gls{alto} domain effort.
+    The data contained information regarding connection properties, but also included very critical data about the server's current load.
+    This information was crucial to give the client the ability to pinpoint the server that would optimize its request performance, and such information was impossible to deduce without third-party influence.
+    The only way to mimic this without \gls{alto} would be if the servers themselves provided an \gls{api} for server status querying, which does not seem to be common in real-case scenarios.
+    If it were, however, it would be very much useful since, much like the \gls{alto} system, it would leverage privileged network information to achieve better performance and network infrastructure resourcefulness.
+    Another advantage of this \gls{alto} scenario is that, by selecting servers which are less overloaded, they contribute to a better load distribution, and, like the random selection strategy, this too could massively improve the entire cluster's ability to serve were every client to follow the same goal, which benefits both the overlay and underlay.
+

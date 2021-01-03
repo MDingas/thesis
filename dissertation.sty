@@ -333,8 +333,13 @@ showstringspaces=false}
 %\usetikzlibrary{shapes,arrows}
 
 % Better looking bibliography references
-\usepackage[square,numbers]{natbib}
-\bibliographystyle{unsrt}
+\usepackage[<language options>]{babel}% Recommended
+\usepackage{csquotes}% Recommended
+\usepackage[backend=bibtex,style=numeric,sorting=none,giveninits=true]{biblatex}
+\DeclareLanguageMapping{english}{UKenglish}
+\DeclareFieldFormat[article]{volume}{Vol. #1}
+\DeclareFieldFormat[article]{number}{No. #1}
+\addbibresource{dissertation.bib}
 
 % Better list handling
 \usepackage{enumitem}

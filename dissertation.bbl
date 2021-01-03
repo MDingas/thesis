@@ -1,23 +1,2759 @@
-\begin{thebibliography}{1}
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
-\bibitem{core}
-Common open research emulator.
-\newblock \url{https://www.nrl.navy.mil/itd/ncs/products/core}.
-\newblock Accessed in: 2020-09-20.
+\datalist[entry]{none/global//global/global}
+  \entry{cisco2019}{report}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Cisco Visual Networking Index: Forecast and Trends}
+    \verb{url}
+    \verb https://www.cisco.com/c/en/us/solutions/collateral/service-provider/v
+    \verb isual-networking-index-vni/white-paper-c11-741490.html
+    \endverb
+    \field{type}{techreport}
+    \field{month}{02}
+    \field{year}{2019}
+    \field{urlday}{01}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
 
-\bibitem{vcmd}
-vcmd.
-\newblock \url{http://manpages.ubuntu.com/manpages/trusty/man1/vcmd.1.html}.
-\newblock Accessed in: 2020-09-20.
+  \entry{rev1}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=PV}{%
+         family={Pereira},
+         familyi={P\bibinitperiod},
+         given={Vitor},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=RM}{%
+         family={Rocha},
+         familyi={R\bibinitperiod},
+         given={Miguel},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CP}{%
+         family={Cortez},
+         familyi={C\bibinitperiod},
+         given={Paulo},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=RM}{%
+         family={Rio},
+         familyi={R\bibinitperiod},
+         given={Miguel},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SP}{%
+         family={Sousa},
+         familyi={S\bibinitperiod},
+         given={Pedro},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PV+1}
+    \strng{fullhash}{PVRMCPRMSP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{7th International Conference on Autonomous
+  Infrastructure, Management and Security (AIMS 2013)}
+    \field{pages}{2\bibrangedash 13}
+    \field{title}{A Framework for Robust Traffic Engineering Using Evolutionary
+  Computation}
+  \endentry
 
-\bibitem{python}
-Python.
-\newblock \url{https://www.python.org/}.
-\newblock Accessed in: 2020-09-20.
+  \entry{rev2}{article}{}
+    \name{author}{3}{}{%
+      {{hash=PV}{%
+         family={{Pereira}},
+         familyi={P\bibinitperiod},
+         given={V.},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=RM}{%
+         family={{Rocha}},
+         familyi={R\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SP}{%
+         family={{Sousa}},
+         familyi={S\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PVRMSP1}
+    \strng{fullhash}{PVRMSP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{3}
+    \field{pages}{1896\bibrangedash 1909}
+    \field{title}{Traffic Engineering With Three-Segments Routing}
+    \field{volume}{17}
+    \field{journaltitle}{IEEE Transactions on Network and Service Management}
+    \field{month}{09}
+    \field{year}{2020}
+  \endentry
 
-\bibitem{awk}
-awk.
-\newblock \url{https://www.gnu.org/software/gawk/manual/gawk.html}.
-\newblock Accessed in: 2020-09-20.
+  \entry{sandvine2019}{report}{}
+    \field{labeltitlesource}{title}
+    \field{title}{The global Internet Phenomena report}
+    \verb{url}
+    \verb https://www.sandvine.com/phenomena
+    \endverb
+    \field{type}{techreport}
+    \field{month}{09}
+    \field{year}{2019}
+    \field{urlday}{01}
+    \field{urlmonth}{09}
+    \field{urlyear}{2019}
+  \endentry
 
-\end{thebibliography}
+  \entry{seedorf2009}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=SJ}{%
+         family={{Seedorf}},
+         familyi={S\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={{Kiesel}},
+         familyi={K\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={{Stiemerling}},
+         familyi={S\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SJKSSM1}
+    \strng{fullhash}{SJKSSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2009 IEEE Ninth International Conference on Peer-to-Peer
+  Computing}
+    \field{pages}{171\bibrangedash 177}
+    \field{title}{Traffic localization for P2P-applications: The ALTO approach}
+    \field{year}{2009}
+  \endentry
+
+  \entry{sandvine}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Active Network Intelligence Solutions | Sandvine}
+    \verb{url}
+    \verb https://www.sandvine.com/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{05}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{bittorrent}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{BitTorrent}
+    \verb{url}
+    \verb http://bittirrent.org/beps/bep_0003.html
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{05}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{ppstream}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{PPStream}
+    \verb{url}
+    \verb http://pps.tv/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{05}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{akamai}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Akamai}
+    \verb{url}
+    \verb https://www.akamai.com/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{akamai-report}{article}{}
+    \name{author}{3}{}{%
+      {{hash=NE}{%
+         family={Nygren},
+         familyi={N\bibinitperiod},
+         given={Erik},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=SRK}{%
+         family={Sitaraman},
+         familyi={S\bibinitperiod},
+         given={Ramesh\bibnamedelima K.},
+         giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Sun},
+         familyi={S\bibinitperiod},
+         given={Jennifer},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computing Machinery}%
+    }
+    \strng{namehash}{NESRKSJ1}
+    \strng{fullhash}{NESRKSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{3}
+    \field{pages}{2–19}
+    \field{title}{The Akamai Network: A Platform for High-Performance Internet
+  Applications}
+    \field{volume}{44}
+    \field{journaltitle}{SIGOPS Operating Systems Review}
+    \field{month}{08}
+    \field{year}{2010}
+  \endentry
+
+  \entry{jiangchuanliu2008}{article}{}
+    \name{author}{4}{}{%
+      {{hash=LJ}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Jiangchuan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RS}{%
+         family={Rao},
+         familyi={R\bibinitperiod},
+         given={Sanjay},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=LB}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Bo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=ZH}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Hui},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LJ+1}
+    \strng{fullhash}{LJRSLBZH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{11 \bibrangedash  24}
+    \field{title}{Opportunities and Challenges of Peer-to-Peer Internet Video
+  Broadcast}
+    \field{volume}{96}
+    \field{journaltitle}{Proceedings of the IEEE}
+    \field{month}{02}
+    \field{year}{2008}
+  \endentry
+
+  \entry{p2p-survey-1}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SD}{%
+         family={Spinellis},
+         familyi={S\bibinitperiod},
+         given={Diomidis},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SD1}
+    \strng{fullhash}{SD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{A survey of peer-to-peer content distribution technologies}
+    \field{volume}{36}
+    \field{journaltitle}{ACM Computing Surveys (CSUR)}
+    \field{month}{12}
+    \field{year}{2004}
+  \endentry
+
+  \entry{p2p-survey-2}{article}{}
+    \name{author}{5}{}{%
+      {{hash=LE}{%
+         family={Lua},
+         familyi={L\bibinitperiod},
+         given={Eng},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=CJ}{%
+         family={Crowcroft},
+         familyi={C\bibinitperiod},
+         given={Jon},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Pias},
+         familyi={P\bibinitperiod},
+         given={Marcelo},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Sharma},
+         familyi={S\bibinitperiod},
+         given={Ravi},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Lim},
+         familyi={L\bibinitperiod},
+         given={Steven},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LE+1}
+    \strng{fullhash}{LECJPMSRLS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{72\bibrangedash  93}
+    \field{title}{A Survey and Comparison of Peer-to-Peer Overlay Network
+  Schemes}
+    \field{volume}{7}
+    \field{journaltitle}{Communications Surveys & Tutorials, IEEE}
+    \field{month}{04}
+    \field{year}{2006}
+  \endentry
+
+  \entry{gnutella}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Gnutella}
+    \verb{url}
+    \verb https://www.gnu.org/philosophy/gnutella.en.html
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{05}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{gnutella-flood}{online}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={{Wikipedia Commons}},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{The gnutella search and retrieval protocol}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/Gnutella#/media/File:GnutellaQuery.JPG
+    \endverb
+  \endentry
+
+  \entry{napster}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Napster}
+    \verb{url}
+    \verb https://www.napster.com/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{05}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{freenet}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Freenet}
+    \verb{url}
+    \verb https://freenetproject.org/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{05}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{stoica2003}{article}{}
+    \name{author}{7}{}{%
+      {{hash=SI}{%
+         family={Stoica},
+         familyi={S\bibinitperiod},
+         given={Ion},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Morris},
+         familyi={M\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=LND}{%
+         family={Liben-Nowell},
+         familyi={L\bibinithyphendelim N\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=KDR}{%
+         family={Karger},
+         familyi={K\bibinitperiod},
+         given={David\bibnamedelima R.},
+         giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=KMF}{%
+         family={Kaashoek},
+         familyi={K\bibinitperiod},
+         given={M.\bibnamedelima Frans},
+         giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=DF}{%
+         family={Dabek},
+         familyi={D\bibinitperiod},
+         given={Frank},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=BH}{%
+         family={Balakrishnan},
+         familyi={B\bibinitperiod},
+         given={Hari},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE Press}%
+    }
+    \strng{namehash}{SI+1}
+    \strng{fullhash}{SIMRLNDKDRKMFDFBH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{17–32}
+    \field{title}{Chord: A Scalable Peer-to-Peer Lookup Protocol for Internet
+  Applications}
+    \field{volume}{11}
+    \field{journaltitle}{IEEE/ACM Transactions on Networking}
+    \field{month}{02}
+    \field{year}{2003}
+  \endentry
+
+  \entry{freehaven}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{The Free Haven Project}
+    \verb{url}
+    \verb https://www.freehaven.net/overview.html
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{05}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{freeriding-gnutella}{article}{}
+    \name{author}{2}{}{%
+      {{hash=AE}{%
+         family={Adar},
+         familyi={A\bibinitperiod},
+         given={Eytan},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=HBA}{%
+         family={Huberman},
+         familyi={H\bibinitperiod},
+         given={Bernardo\bibnamedelima A.},
+         giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AEHBA1}
+    \strng{fullhash}{AEHBA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Free Riding on Gnutella}
+    \field{volume}{5}
+    \field{journaltitle}{First Monday}
+    \field{year}{2000}
+  \endentry
+
+  \entry{overlay-vs-underlay}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=FC}{%
+         family={Fiandrino},
+         familyi={F\bibinitperiod},
+         given={Claudio},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FC1}
+    \strng{fullhash}{FC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{P2P System Topology}
+    \verb{url}
+    \verb https://texample.net/tikz/examples/p2p-topology/
+    \endverb
+    \warn{\item Invalid format of field 'urldate'}
+  \endentry
+
+  \entry{liao2014}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=LQ}{%
+         family={{Liao}},
+         familyi={L\bibinitperiod},
+         given={Q.},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=LZ}{%
+         family={{Li}},
+         familyi={L\bibinitperiod},
+         given={Z.},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={{Striegel}},
+         familyi={S\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LQLZSA1}
+    \strng{fullhash}{LQLZSA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2014 23rd International Conference on Computer
+  Communication and Networks (ICCCN)}
+    \field{title}{Is more P2P always bad for ISPs? An analysis of P2P and ISP
+  business models}
+    \field{month}{08}
+    \field{year}{2014}
+  \endentry
+
+  \entry{akella}{article}{}
+    \name{author}{3}{}{%
+      {{hash=AA}{%
+         family={Akella},
+         familyi={A\bibinitperiod},
+         given={Aditya},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Seshan},
+         familyi={S\bibinitperiod},
+         given={Srinivasan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Shaikh},
+         familyi={S\bibinitperiod},
+         given={Anees},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AASSSA1}
+    \strng{fullhash}{AASSSA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{An Empirical Evaluation of Wide-Area Internet Bottlenecks}
+    \field{volume}{31}
+    \field{journaltitle}{ACM SIGMETRICS Performance Evaluation Review}
+    \field{month}{05}
+    \field{year}{2003}
+  \endentry
+
+  \entry{bittorrent-details}{article}{}
+    \name{author}{1}{}{%
+      {{hash=CB}{%
+         family={Cohen},
+         familyi={C\bibinitperiod},
+         given={Bram},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CB1}
+    \strng{fullhash}{CB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{68\bibrangedash 72}
+    \field{title}{Incentives build robustness in BitTorrent}
+    \field{volume}{6}
+    \field{journaltitle}{Workshop on Economics of Peer-to-Peer systems}
+    \field{month}{06}
+    \field{year}{2003}
+  \endentry
+
+  \entry{qin2009}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=QF}{%
+         family={{Qin}},
+         familyi={Q\bibinitperiod},
+         given={F.},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={{Liu}},
+         familyi={L\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=ZL}{%
+         family={{Zheng}},
+         familyi={Z\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=GL}{%
+         family={{Ge}},
+         familyi={G\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{QF+1}
+    \strng{fullhash}{QFLJZLGL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2009 Fifth International Conference on Intelligent
+  Information Hiding and Multimedia Signal Processing}
+    \field{title}{An Effective Network-Aware Peer Selection Algorithm in
+  BitTorrent}
+    \field{month}{09}
+    \field{year}{2009}
+  \endentry
+
+  \entry{isp-p2p-tussle}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=WJH}{%
+         family={{Wang}},
+         familyi={W\bibinitperiod},
+         given={J.\bibnamedelima H.},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=CDM}{%
+         family={{Chiu}},
+         familyi={C\bibinitperiod},
+         given={D.\bibnamedelima M.},
+         giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=sLJC}{%
+         prefix={s.},
+         prefixi={s\bibinitperiod},
+         family={{Lui}},
+         familyi={L\bibinitperiod},
+         given={J.\bibnamedelima C.},
+         giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WJHCDMLJCs1}
+    \strng{fullhash}{WJHCDMLJCs1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{200614th IEEE International Workshop on Quality of
+  Service}
+    \field{title}{Modeling the Peering and Routing Tussle between ISPs and P2P
+  Applications}
+    \field{year}{2006}
+  \endentry
+
+  \entry{karagiannis}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=KT}{%
+         family={Karagiannis},
+         familyi={K\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=RP}{%
+         family={Rodriguez},
+         familyi={R\bibinitperiod},
+         given={Pablo},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=PK}{%
+         family={Papagiannaki},
+         familyi={P\bibinitperiod},
+         given={Konstantina},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {USENIX Association}%
+    }
+    \strng{namehash}{KTRPPK1}
+    \strng{fullhash}{KTRPPK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Proceedings of the 5th ACM SIGCOMM Conference on Internet
+  Measurement}
+    \field{pages}{63\bibrangedash 76}
+    \field{title}{Should Internet Service Providers Fear Peer-Assisted Content
+  Distribution?}
+    \field{year}{2005}
+  \endentry
+
+  \entry{estimating-gnutella}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=AV}{%
+         family={Aggarwal},
+         familyi={A\bibinitperiod},
+         given={Vinay},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Bender},
+         familyi={B\bibinitperiod},
+         given={Stefan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={Feldmann},
+         familyi={F\bibinitperiod},
+         given={Anja},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=WA}{%
+         family={Wichmann},
+         familyi={W\bibinitperiod},
+         given={Arne},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AV+1}
+    \strng{fullhash}{AVBSFAWA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Methodology for Estimating Network Distances of Gnutella
+  Neighbors.}
+    \field{month}{01}
+    \field{year}{2004}
+  \endentry
+
+  \entry{dan-Commag10}{article}{}
+    \name{author}{7}{}{%
+      {{hash=DG}{%
+         family={Dán},
+         familyi={D\bibinitperiod},
+         given={György},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=HT}{%
+         family={Hossfeld},
+         familyi={H\bibinitperiod},
+         given={Tobias},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=OS}{%
+         family={Oechsner},
+         familyi={O\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=CP}{%
+         family={Cholda},
+         familyi={C\bibinitperiod},
+         given={Piotr},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Stankiewicz},
+         familyi={S\bibinitperiod},
+         given={Rafal},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={Papafili},
+         familyi={P\bibinitperiod},
+         given={Ioanna},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={Stamoulis},
+         familyi={S\bibinitperiod},
+         given={George},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DG+1}
+    \strng{fullhash}{DGHTOSCPSRPISG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{222\bibrangedash 230}
+    \field{title}{Interaction Patterns between P2P Content Distribution Systems
+  and ISPs}
+    \field{volume}{49}
+    \field{journaltitle}{IEEE Communications Magazine}
+    \field{month}{05}
+    \field{year}{2011}
+  \endentry
+
+  \entry{cdn-survey}{report}{}
+    \name{author}{2}{}{%
+      {{hash=PA}{%
+         family={Pathan},
+         familyi={P\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BR}{%
+         family={Buyya},
+         familyi={B\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PABR1}
+    \strng{fullhash}{PABR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{A taxonomy and survey of content delivery networks}
+    \list{institution}{2}{%
+      {Grid Computing}%
+      {Distributed Systems Laboratory, The University of Melbourne}%
+    }
+    \field{type}{techreport}
+    \field{month}{02}
+    \field{year}{2007}
+  \endentry
+
+  \entry{cookbook}{book}{}
+    \name{author}{5}{}{%
+      {{hash=NE}{%
+         family={Nemeth},
+         familyi={N\bibinitperiod},
+         given={Evi},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={Snyder},
+         familyi={S\bibinitperiod},
+         given={Garth},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=HTR}{%
+         family={Hein},
+         familyi={H\bibinitperiod},
+         given={Trent\bibnamedelima R.},
+         giveni={T\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=WB}{%
+         family={Whaley},
+         familyi={W\bibinitperiod},
+         given={Ben},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Mackin},
+         familyi={M\bibinitperiod},
+         given={Dan},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Addison-Wesley Professional}%
+    }
+    \strng{namehash}{NE+1}
+    \strng{fullhash}{NESGHTRWBMD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{edition}{5th}
+    \field{isbn}{0134277554}
+    \field{title}{UNIX and Linux System Administration Handbook (5th Edition)}
+    \field{year}{2017}
+  \endentry
+
+  \entry{cloudflare}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Cloudflare}
+    \verb{url}
+    \verb https://www.cloudflare.com/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{cloudfront}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{CloudFront}
+    \verb{url}
+    \verb https://aws.amazon.com/cloudfront/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{wichtlhuber2017}{inproceedings}{}
+    \name{author}{7}{}{%
+      {{hash=WM}{%
+         family={{Wichtlhuber}},
+         familyi={W\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={{Kessler}},
+         familyi={K\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={{Bücker}},
+         familyi={B\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={{Poese}},
+         familyi={P\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=BJ}{%
+         family={{Blendin}},
+         familyi={B\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={{Koch}},
+         familyi={K\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=HD}{%
+         family={{Hausheer}},
+         familyi={H\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WM+1}
+    \strng{fullhash}{WMKJBSPIBJKCHD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2017 IFIP Networking Conference (IFIP Networking) and
+  Workshops}
+    \field{title}{SoDA: Enabling CDN-ISP collaboration with software defined
+  anycast}
+    \field{month}{06}
+    \field{year}{2017}
+  \endentry
+
+  \entry{pushing-cdn-isp-collaboration}{article}{}
+    \name{author}{9}{}{%
+      {{hash=FB}{%
+         family={Frank},
+         familyi={F\bibinitperiod},
+         given={Benjamin},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={Poese},
+         familyi={P\bibinitperiod},
+         given={Ingmar},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Lin},
+         familyi={L\bibinitperiod},
+         given={Yin},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={Smaragdakis},
+         familyi={S\bibinitperiod},
+         given={Georgios},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={Feldmann},
+         familyi={F\bibinitperiod},
+         given={Anja},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MB}{%
+         family={Maggs},
+         familyi={M\bibinitperiod},
+         given={Bruce},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=RJ}{%
+         family={Rake},
+         familyi={R\bibinitperiod},
+         given={Jannis},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=US}{%
+         family={Uhlig},
+         familyi={U\bibinitperiod},
+         given={Steve},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=WR}{%
+         family={Weber},
+         familyi={W\bibinitperiod},
+         given={Rick},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FB+1}
+    \strng{fullhash}{FBPILYSGFAMBRJUSWR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{3}
+    \field{pages}{34–44}
+    \field{title}{Pushing CDN-ISP Collaboration to the Limit}
+    \field{volume}{43}
+    \field{journaltitle}{SIGCOMM Comput. Commun. Rev.}
+    \field{month}{07}
+    \field{year}{2013}
+  \endentry
+
+  \entry{cdn-isp-cooperations}{article}{}
+    \name{author}{1}{}{%
+      {{hash=DR}{%
+         family={Deshpande},
+         familyi={D\bibinitperiod},
+         given={Raghunath},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DR1}
+    \strng{fullhash}{DR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Overview of CDN-ISP Collaboration Strategies}
+    \field{journaltitle}{SDN Seminar SoSe}
+    \field{month}{07}
+    \field{year}{2014}
+  \endentry
+
+  \entry{att}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{AT\&T}
+    \verb{url}
+    \verb https://www.att.com/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{orange}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Orange}
+    \verb{url}
+    \verb https://www.orange.com/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{swisscom}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Swisscom}
+    \verb{url}
+    \verb https://www.swisscom.ch/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{kt}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{KT}
+    \verb{url}
+    \verb https://corp.kt.com/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{cliserv-p2p}{incollection}{}
+    \name{author}{2}{}{%
+      {{hash=LL}{%
+         family={{Liu}},
+         familyi={L\bibinitperiod},
+         given={Lu},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=AN}{%
+         family={{Antonopoulos}},
+         familyi={A\bibinitperiod},
+         given={Nick},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LLAN1}
+    \strng{fullhash}{LLAN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Handbook of Peer-to-Peer Networking}
+    \field{pages}{71\bibrangedash 89}
+    \field{title}{From Client-Server to P2P Networking}
+    \field{year}{2010}
+  \endentry
+
+  \entry{linux-mint}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Linux Mint}
+    \verb{url}
+    \verb https://linuxmint.com/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{load-balancing}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=EZ}{%
+         family={Elngomi},
+         familyi={E\bibinitperiod},
+         given={Zahra},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=KK}{%
+         family={Khanfar},
+         familyi={K\bibinitperiod},
+         given={Khalid},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{EZKK1}
+    \strng{fullhash}{EZKK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{International Journal of Computer Science and Mobile
+  Computing}
+    \field{pages}{448\bibrangedash 458}
+    \field{title}{A Comparative Study of Load Balancing Algorithms: A Review
+  Paper}
+    \field{month}{06}
+    \field{year}{2016}
+  \endentry
+
+  \entry{dns-load-balancing}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=CM}{%
+         family={Chin},
+         familyi={C\bibinitperiod},
+         given={Mei},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=TC}{%
+         family={Tan},
+         familyi={T\bibinitperiod},
+         given={Chong},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Bandan},
+         familyi={B\bibinitperiod},
+         given={Mohamad},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CMTCBM1}
+    \strng{fullhash}{CMTCBM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{8th Asia-Pacific Symposium on Information and
+  Telecommunication Technologies}
+    \field{pages}{1\bibrangedash 4}
+    \field{title}{Efficient load balancing for bursty demand in web based
+  application services via domain name services}
+    \field{year}{2010}
+  \endentry
+
+  \entry{sdn-load-balancing}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WXYL}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Xiaohui Yang\bibnamedelima Lei},
+         giveni={X\bibinitperiod\bibinitdelim Y\bibinitperiod\bibinitdelim
+  L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WXYL1}
+    \strng{fullhash}{WXYL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{709}
+    \field{title}{SDN Load Balancing Method based on K-Dijkstra}
+    \field{volume}{14}
+    \field{journaltitle}{International Journal of Performability Engineering}
+    \field{year}{2018}
+  \endentry
+
+  \entry{mint-article}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Why you should switch to a different Linux Mint Mirror
+  today!}
+    \verb{url}
+    \verb https://unlockforus.com/why-you-should-switch-to-a-different-linux-mi
+    \verb nt-mirror-today/
+    \endverb
+    \field{urlday}{03}
+    \field{urlmonth}{01}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{programmable-trackers}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=SP}{%
+         family={{Sousa}},
+         familyi={S\bibinitperiod},
+         given={Pedro},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SP2}
+    \strng{fullhash}{SP2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Lecture Notes in Computer Science}
+    \field{pages}{78}
+    \field{title}{{Context Aware Programmable Trackers for the Next Generation
+  Internet}}
+    \field{volume}{5733}
+    \field{year}{2009}
+  \endentry
+
+  \entry{configurable-trackers}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SP}{%
+         family={Sousa},
+         familyi={S\bibinitperiod},
+         given={Pedro},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Croatian Communications}%
+      {Information Society}%
+    }
+    \strng{namehash}{SP3}
+    \strng{fullhash}{SP3}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{4}
+    \field{pages}{236}
+    \field{title}{A Framework for Highly Reconfigurable P2P Trackers}
+    \field{volume}{9}
+    \field{journaltitle}{Journal of Communications Software and Systems}
+    \field{month}{12}
+    \field{year}{2013}
+  \endentry
+
+  \entry{rev3}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SP}{%
+         family={Sousa},
+         familyi={S\bibinitperiod},
+         given={Pedro},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SP3}
+    \strng{fullhash}{SP3}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{37\bibrangedash 47}
+    \field{title}{Towards Effective Control of P2P Traffic Aggregates in
+  Network Infrastructures}
+    \field{volume}{11}
+    \field{journaltitle}{Journal of Communications Software and Systems}
+    \field{month}{04}
+    \field{year}{2015}
+  \endentry
+
+  \entry{altruistic-gnutella}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=HD}{%
+         family={{Hughes}},
+         familyi={H\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=WI}{%
+         family={{Warren}},
+         familyi={W\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=CG}{%
+         family={{Coulson}},
+         familyi={C\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HDWICG1}
+    \strng{fullhash}{HDWICG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Proceedings of the 3rd International Conference on
+  Peer-to-Peer Computing (P2P2003)}
+    \field{title}{AGnuS: the altruistic Gnutella server}
+    \field{year}{2003}
+  \endentry
+
+  \entry{kim2011}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=KTN}{%
+         family={{Kim}},
+         familyi={K\bibinitperiod},
+         given={T.\bibnamedelima N.},
+         giveni={T\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=JS}{%
+         family={{Jeon}},
+         familyi={J\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KY}{%
+         family={{Kim}},
+         familyi={K\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KTNJSKY1}
+    \strng{fullhash}{KTNJSKY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2011 IEEE 15th International Symposium on Consumer
+  Electronics (ISCE)}
+    \field{title}{A CDN-P2P hybrid architecture with content/location awareness
+  for live streaming service networks}
+    \field{month}{06}
+    \field{year}{2011}
+  \endentry
+
+  \entry{topology-aware-p2p-server-selection}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=RS}{%
+         family={{Ratnasamy}},
+         familyi={R\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={{Handley}},
+         familyi={H\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={{Karp}},
+         familyi={K\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={{Shenker}},
+         familyi={S\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RS+2}
+    \strng{fullhash}{RSHMKRSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Twenty-First Annual Joint Conference of the IEEE Computer
+  and Communications Societies}
+    \field{pages}{1190\bibrangedash 1199}
+    \field{title}{Topologically-aware overlay construction and server
+  selection}
+    \field{volume}{3}
+    \field{year}{2002}
+  \endentry
+
+  \entry{locality-aware-p2p}{article}{}
+    \name{author}{2}{}{%
+      {{hash=AV}{%
+         family={Aggarwal},
+         familyi={A\bibinitperiod},
+         given={Vinay},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={Feldmann},
+         familyi={F\bibinitperiod},
+         given={Anja},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AVFA1}
+    \strng{fullhash}{AVFA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Locality-aware P2P query search with ISP collaboration}
+    \field{volume}{3}
+    \field{journaltitle}{Networks and Heterogeneous Media}
+    \field{month}{06}
+    \field{year}{2008}
+  \endentry
+
+  \entry{han2009}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=HK}{%
+         family={{Han}},
+         familyi={H\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=GQ}{%
+         family={{Guo}},
+         familyi={G\bibinitperiod},
+         given={Q.},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={{Luo}},
+         familyi={L\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HKGQLJ1}
+    \strng{fullhash}{HKGQLJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2009 First International Workshop on Education Technology
+  and Computer Science}
+    \field{title}{Optimal Peer Selection, Task Assignment and Rate Allocation
+  for P2P Downloading}
+    \field{volume}{1}
+    \field{month}{03}
+    \field{year}{2009}
+  \endentry
+
+  \entry{gromov2014}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=GML}{%
+         family={{Gromov}},
+         familyi={G\bibinitperiod},
+         given={M.\bibnamedelima L.},
+         giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=CYP}{%
+         family={{Chebotareva}},
+         familyi={C\bibinitperiod},
+         given={Y.\bibnamedelima P.},
+         giveni={Y\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GMLCYP1}
+    \strng{fullhash}{GMLCYP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2014 15th International Conference of Young Specialists
+  on Micro/Nanotechnologies and Electron Devices (EDM)}
+    \field{title}{On optimal CDN node selection}
+    \field{month}{06}
+    \field{year}{2014}
+  \endentry
+
+  \entry{cdni-problem-statement}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=NJB}{%
+         family={Niven-Jenkins},
+         familyi={N\bibinithyphendelim J\bibinitperiod},
+         given={Ben},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=FFL}{%
+         family={Faucheur},
+         familyi={F\bibinitperiod},
+         given={François\bibnamedelima Le},
+         giveni={F\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=BDNN}{%
+         family={Bitar},
+         familyi={B\bibinitperiod},
+         given={Dr. Nabil\bibnamedelima N.},
+         giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim
+  N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {RFC Editor}%
+    }
+    \strng{namehash}{NJBFFLBDNN1}
+    \strng{fullhash}{NJBFFLBDNN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{RFC 6707}
+    \field{number}{6707}
+    \field{pagetotal}{32}
+    \field{series}{Request for Comments}
+    \field{title}{{Content Distribution Network Interconnection (CDNI) Problem
+  Statement}}
+    \verb{url}
+    \verb https://rfc-editor.org/rfc/rfc6707.txt
+    \endverb
+    \field{month}{09}
+    \field{year}{2012}
+  \endentry
+
+  \entry{idmaps}{article}{}
+    \name{author}{7}{}{%
+      {{hash=FP}{%
+         family={{Francis}},
+         familyi={F\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=JS}{%
+         family={{Jamin}},
+         familyi={J\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=C}{%
+         family={{Cheng Jin}},
+         familyi={C\bibinitperiod},
+      }}%
+      {{hash=Y}{%
+         family={{Yixin Jin}},
+         familyi={Y\bibinitperiod},
+      }}%
+      {{hash=RD}{%
+         family={{Raz}},
+         familyi={R\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SY}{%
+         family={{Shavitt}},
+         familyi={S\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=ZL}{%
+         family={{Zhang}},
+         familyi={Z\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FP+1}
+    \strng{fullhash}{FPJSCYRDSYZL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{5}
+    \field{pages}{525\bibrangedash 540}
+    \field{title}{IDMaps: a global Internet host distance estimation service}
+    \field{volume}{9}
+    \field{journaltitle}{IEEE/ACM Transactions on Networking}
+    \field{year}{2001}
+  \endentry
+
+  \entry{gnp}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=NTSE}{%
+         family={{Ng}},
+         familyi={N\bibinitperiod},
+         given={T.\bibnamedelima S.\bibnamedelima E.},
+         giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
+  E\bibinitperiod},
+      }}%
+      {{hash=H}{%
+         family={{Hui Zhang}},
+         familyi={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NTSEH1}
+    \strng{fullhash}{NTSEH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Proceedings.Twenty-First Annual Joint Conference of the
+  IEEE Computer and Communications Societies}
+    \field{pages}{170\bibrangedash 179 vol.1}
+    \field{title}{Predicting Internet network distance with coordinates-based
+  approaches}
+    \field{volume}{1}
+    \field{year}{2002}
+  \endentry
+
+  \entry{pfa-10}{article}{}
+    \name{author}{6}{}{%
+      {{hash=PI}{%
+         family={{Poese}},
+         familyi={P\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=FB}{%
+         family={{Frank}},
+         familyi={F\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=AB}{%
+         family={{Ager}},
+         familyi={A\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={{Smaragdakis}},
+         familyi={S\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=US}{%
+         family={{Uhlig}},
+         familyi={U\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={{Feldmann}},
+         familyi={F\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PI+1}
+    \strng{fullhash}{PIFBABSGUSFA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{3}
+    \field{pages}{46\bibrangedash 52}
+    \field{title}{Improving Content Delivery with PaDIS}
+    \field{volume}{16}
+    \field{journaltitle}{IEEE Internet Computing}
+    \field{year}{2012}
+  \endentry
+
+  \entry{fps-12}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=FB}{%
+         family={Frank},
+         familyi={F\bibinitperiod},
+         given={Benjamin},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={Poese},
+         familyi={P\bibinitperiod},
+         given={Ingmar},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={Smaragdakis},
+         familyi={S\bibinitperiod},
+         given={Georgios},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=US}{%
+         family={Uhlig},
+         familyi={U\bibinitperiod},
+         given={Steve},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={Feldmann},
+         familyi={F\bibinitperiod},
+         given={Anja},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FB+1}
+    \strng{fullhash}{FBPISGUSFA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Proceedings of ACM SIGMETRICS 2012}
+    \field{title}{{Content-aware Traffic Engineering}}
+    \field{month}{06}
+    \field{year}{2012}
+  \endentry
+
+  \entry{kenichi}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=MK}{%
+         family={{Mase}},
+         familyi={M\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=TA}{%
+         family={{Tsuno}},
+         familyi={T\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=TY}{%
+         family={{Toyama}},
+         familyi={T\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=KN}{%
+         family={{Karasawa}},
+         familyi={K\bibinitperiod},
+         given={N.},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MK+1}
+    \strng{fullhash}{MKTATYKN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{ICC 2001. IEEE International Conference on
+  Communications. Conference Record (Cat. No.01CH37240)}
+    \field{title}{A Web server selection algorithm using QoS measurement}
+    \field{volume}{8}
+    \field{month}{06}
+    \field{year}{2001}
+  \endentry
+
+  \entry{swain}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=SM}{%
+         family={{Swain}},
+         familyi={S\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=Y}{%
+         family={{Young-Gyun Kim}},
+         familyi={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SMY1}
+    \strng{fullhash}{SMY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Proceedings of IEEE SoutheastCon, 2005.}
+    \field{title}{Finding an optimal mirror site}
+    \field{month}{04}
+    \field{year}{2005}
+  \endentry
+
+  \entry{adaptable-overlay}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SA}{%
+         family={Sampaio},
+         familyi={S\bibinitperiod},
+         given={Andr{\'{e}}},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SP}{%
+         family={Sousa},
+         familyi={S\bibinitperiod},
+         given={Pedro},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media {LLC}}%
+    }
+    \strng{namehash}{SASP1}
+    \strng{fullhash}{SASP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{4}
+    \field{pages}{809\bibrangedash 829}
+    \field{title}{An adaptable and {ISP}-friendly multicast overlay network}
+    \field{volume}{12}
+    \field{journaltitle}{Peer-to-Peer Networking and Applications}
+    \field{month}{09}
+    \field{year}{2018}
+  \endentry
+
+  \entry{alto-about}{report}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Application-Layer Traffic Optimization (ALTO)}
+    \verb{url}
+    \verb https://datatracker.ietf.org/wg/alto/about/
+    \endverb
+    \field{type}{techreport}
+    \field{month}{11}
+    \field{year}{2019}
+  \endentry
+
+  \entry{alto-cdni}{report}{}
+    \name{author}{6}{}{%
+      {{hash=SJ}{%
+         family={Seedorf},
+         familyi={S\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=YYR}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Y.\bibnamedelima Richard},
+         giveni={Y\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=MKJ}{%
+         family={Ma},
+         familyi={M\bibinitperiod},
+         given={Kevin\bibnamedelima J.},
+         giveni={K\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=PJ}{%
+         family={Peterson},
+         familyi={P\bibinitperiod},
+         given={Jon},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LXS}{%
+         family={Lin},
+         familyi={L\bibinitperiod},
+         given={Xiao\bibnamedelima Shawn},
+         giveni={X\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=ZJJ}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Jingxuan\bibnamedelima Jensen},
+         giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Internet Engineering Task Force}%
+    }
+    \strng{namehash}{SJ+1}
+    \strng{fullhash}{SJYYRMKJPJLXSZJJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Work in Progress}
+    \field{number}{draft-ietf-alto-cdni-request-routing-alto-08}
+    \field{pagetotal}{38}
+    \field{title}{{Content Delivery Network Interconnection (CDNI) Request
+  Routing: CDNI Footprint and Capabilities Advertisement using ALTO}}
+    \verb{url}
+    \verb https://datatracker.ietf.org/doc/html/draft-ietf-alto-cdni-request-ro
+    \verb uting-alto-08
+    \endverb
+    \list{institution}{1}{%
+      {Internet Engineering Task Force}%
+    }
+    \field{type}{Internet-Draft}
+    \field{month}{11}
+    \field{year}{2019}
+  \endentry
+
+  \entry{alto-determining-service-edge}{report}{}
+    \name{author}{3}{}{%
+      {{hash=CLM}{%
+         family={Contreras},
+         familyi={C\bibinitperiod},
+         given={Luis\bibnamedelima M.},
+         giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=PDAL}{%
+         family={Perez},
+         familyi={P\bibinitperiod},
+         given={Danny Alex\bibnamedelima Lachos},
+         giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim
+  L\bibinitperiod},
+      }}%
+      {{hash=RCE}{%
+         family={Rothenberg},
+         familyi={R\bibinitperiod},
+         given={Christian\bibnamedelima Esteve},
+         giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Internet Engineering Task Force}%
+    }
+    \strng{namehash}{CLMPDALRCE1}
+    \strng{fullhash}{CLMPDALRCE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Work in Progress}
+    \field{number}{draft-contreras-alto-service-edge-01}
+    \field{title}{{Use of ALTO for Determining Service Edge}}
+    \verb{url}
+    \verb https://datatracker.ietf.org/doc/html/draft-contreras-alto-service-ed
+    \verb ge-01
+    \endverb
+    \list{institution}{1}{%
+      {Internet Engineering Task Force}%
+    }
+    \field{type}{Internet-Draft}
+    \field{month}{07}
+    \field{year}{2020}
+  \endentry
+
+  \entry{alto-path-vector}{report}{}
+    \name{author}{5}{}{%
+      {{hash=GK}{%
+         family={Gao},
+         familyi={G\bibinitperiod},
+         given={Kai},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Young},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=RS}{%
+         family={Randriamasy},
+         familyi={R\bibinitperiod},
+         given={Sabine},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=YYR}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Y.\bibnamedelima Richard},
+         giveni={Y\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=ZJJ}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={J.\bibnamedelima (Jensen)},
+         giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Internet Engineering Task Force}%
+    }
+    \strng{namehash}{GK+1}
+    \strng{fullhash}{GKLYRSYYRZJJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Work in Progress}
+    \field{number}{draft-ietf-alto-path-vector-11}
+    \field{title}{{ALTO Extension: Path Vector}}
+    \verb{url}
+    \verb https://datatracker.ietf.org/doc/html/draft-ietf-alto-path-vector-11
+    \endverb
+    \list{institution}{1}{%
+      {Internet Engineering Task Force}%
+    }
+    \field{type}{Internet-Draft}
+    \field{month}{07}
+    \field{year}{2020}
+  \endentry
+
+  \entry{alto-calendar-cost-map}{report}{}
+    \name{author}{5}{}{%
+      {{hash=RS}{%
+         family={Randriamasy},
+         familyi={R\bibinitperiod},
+         given={Sabine},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=YYR}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Y.\bibnamedelima Richard},
+         giveni={Y\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=WQ}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Qin},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=LD}{%
+         family={Lingli},
+         familyi={L\bibinitperiod},
+         given={Deng},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Schwan},
+         familyi={S\bibinitperiod},
+         given={Nico},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Internet Engineering Task Force}%
+    }
+    \strng{namehash}{RS+1}
+    \strng{fullhash}{RSYYRWQLDSN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Work in Progress}
+    \field{number}{draft-ietf-alto-cost-calendar-21}
+    \field{title}{{Application-Layer Traffic Optimization (ALTO) Cost
+  Calendar}}
+    \verb{url}
+    \verb https://datatracker.ietf.org/doc/html/draft-ietf-alto-cost-calendar-2
+    \verb 1
+    \endverb
+    \list{institution}{1}{%
+      {Internet Engineering Task Force}%
+    }
+    \field{type}{Internet-Draft}
+    \field{month}{03}
+    \field{year}{2020}
+  \endentry
+
+  \entry{alto-protocol}{misc}{}
+    \name{author}{8}{}{%
+      {{hash=KS}{%
+         family={Kiesel},
+         familyi={K\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=RW}{%
+         family={Roome},
+         familyi={R\bibinitperiod},
+         given={Wendy},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=WR}{%
+         family={Woundy},
+         familyi={W\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=PS}{%
+         family={Previdi},
+         familyi={P\bibinitperiod},
+         given={Stefano},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Shalunov},
+         familyi={S\bibinitperiod},
+         given={Stanislav},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=AR}{%
+         family={Alimi},
+         familyi={A\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=PR}{%
+         family={Penno},
+         familyi={P\bibinitperiod},
+         given={Reinaldo},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=YYR}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Y.\bibnamedelima Richard},
+         giveni={Y\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {RFC Editor}%
+    }
+    \strng{namehash}{KS+1}
+    \strng{fullhash}{KSRWWRPSSSARPRYYR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{RFC 7285}
+    \field{number}{7285}
+    \field{pagetotal}{91}
+    \field{series}{Request for Comments}
+    \field{title}{{Application-Layer Traffic Optimization (ALTO) Protocol}}
+    \verb{url}
+    \verb https://rfc-editor.org/rfc/rfc7285.txt
+    \endverb
+    \field{month}{09}
+    \field{year}{2014}
+  \endentry
+
+  \entry{alto-cost-metrics}{report}{}
+    \name{author}{5}{}{%
+      {{hash=WQ}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Qin},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=YYR}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Y.\bibnamedelima Richard},
+         giveni={Y\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Young},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=DD}{%
+         family={Dhody},
+         familyi={D\bibinitperiod},
+         given={Dhruv},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=RS}{%
+         family={Randriamasy},
+         familyi={R\bibinitperiod},
+         given={Sabine},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Internet Engineering Task Force}%
+    }
+    \strng{namehash}{WQ+1}
+    \strng{fullhash}{WQYYRLYDDRS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Work in Progress}
+    \field{number}{draft-ietf-alto-performance-metrics-08}
+    \field{pagetotal}{29}
+    \field{title}{{ALTO Performance Cost Metrics}}
+    \verb{url}
+    \verb https://datatracker.ietf.org/doc/html/draft-ietf-alto-performance-met
+    \verb rics-08
+    \endverb
+    \list{institution}{1}{%
+      {Internet Engineering Task Force}%
+    }
+    \field{type}{Internet-Draft}
+    \field{month}{11}
+    \field{year}{2019}
+  \endentry
+
+  \entry{alto-problem-statement}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=SJ}{%
+         family={Seedorf},
+         familyi={S\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BE}{%
+         family={Burger},
+         familyi={B\bibinitperiod},
+         given={Eric},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {RFC Editor}%
+    }
+    \strng{namehash}{SJBE1}
+    \strng{fullhash}{SJBE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{RFC 5693}
+    \field{number}{5693}
+    \field{pagetotal}{14}
+    \field{series}{Request for Comments}
+    \field{title}{{Application-Layer Traffic Optimization (ALTO) Problem
+  Statement}}
+    \verb{url}
+    \verb https://rfc-editor.org/rfc/rfc5693.txt
+    \endverb
+    \field{month}{10}
+    \field{year}{2009}
+  \endentry
+
+  \entry{alto-deployment-considerations}{misc}{}
+    \name{author}{5}{}{%
+      {{hash=SM}{%
+         family={Stiemerling},
+         familyi={S\bibinitperiod},
+         given={Martin},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={Kiesel},
+         familyi={K\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Scharf},
+         familyi={S\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SH}{%
+         family={Seidel},
+         familyi={S\bibinitperiod},
+         given={Hans},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=PS}{%
+         family={Previdi},
+         familyi={P\bibinitperiod},
+         given={Stefano},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {RFC Editor}%
+    }
+    \strng{namehash}{SM+1}
+    \strng{fullhash}{SMKSSMSHPS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{RFC 7971}
+    \field{number}{7971}
+    \field{series}{Request for Comments}
+    \field{title}{{Application-Layer Traffic Optimization (ALTO) Deployment
+  Considerations}}
+    \verb{url}
+    \verb https://rfc-editor.org/rfc/rfc7971.txt
+    \endverb
+    \field{month}{10}
+    \field{year}{2016}
+  \endentry
+
+  \entry{stride}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{The STRIDE Threat model}
+    \verb{url}
+    \verb https://docs.microsoft.com/en-us/previous-versions/commerce-server/ee
+    \verb 823878(v=cs.20)?redirectedfrom=MSDN
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{qos-framework}{report}{}
+    \name{author}{1}{}{%
+      {{hash=SBV}{%
+         family={Schewick},
+         familyi={S\bibinitperiod},
+         given={Barbara\bibnamedelima Van},
+         giveni={B\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SBV1}
+    \strng{fullhash}{SBV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{1}
+    \field{title}{Network Neutrality and Quality of Service: What a
+  non-discrimination Rule Should Look Like}
+    \field{volume}{67}
+    \field{type}{techreport}
+    \field{journaltitle}{Stan. L. Rev}
+    \field{month}{06}
+    \field{year}{2012}
+  \endentry
+
+  \entry{fcc}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Federal Communications Commission}
+    \verb{url}
+    \verb https://www.fcc.gov/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{article-3}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Regulation (eu) 2015/2120 of the European Parliament and of
+  the Council}
+    \verb{url}
+    \verb https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32015R
+    \verb 2120&rid=2#d1e445-1-1
+    \endverb
+    \field{journaltitle}{Official journal of the European Union}
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{plusnet}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Plusnet}
+    \verb{url}
+    \verb https://www.plus.net/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{arstechnica}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=AN}{%
+         family={Anderson},
+         familyi={A\bibinitperiod},
+         given={Nate},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AN1}
+    \strng{fullhash}{AN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Deep packet inspection meets ‘Net neutrality'}
+    \verb{url}
+    \verb https://arstechnica.com/gadgets/2007/07/deep-packet-inspection-meets-
+    \verb net-neutrality/2/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{meo}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Meo}
+    \verb{url}
+    \verb https://www.meo.pt/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{meo-packages}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Tarifários Móveis Pós-pagos Unlimited}
+    \verb{url}
+    \verb https://www.meo.pt/telemovel/tarifarios/unlimited
+    \endverb
+    \field{urlday}{14}
+    \field{urlmonth}{12}
+    \field{urlyear}{2017}
+  \endentry
+
+  \entry{Facebook}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Facebook}
+    \verb{url}
+    \verb https://www.facebook.com/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{spotify}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Spotify}
+    \verb{url}
+    \verb https://www.spotify.com/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{wikipedia-zero}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Wikipedia Zero}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/Wikipedia_Zero
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{wikipedia}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Wikipedia}
+    \verb{url}
+    \verb https://en.wikipedia.org
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{network-neutrality-developing}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=NLH}{%
+         family={Newman},
+         familyi={N\bibinitperiod},
+         given={Lily\bibnamedelima Hay},
+         giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NLH1}
+    \strng{fullhash}{NLH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Net Neutrality Is Already in Trouble in the Developing World}
+    \verb{url}
+    \verb https://slate.com/technology/2014/01/net-neutrality-internet-access-i
+    \verb s-already-in-trouble-in-the-developing-world.html
+    \endverb
+    \field{month}{01}
+    \field{year}{2014}
+    \warn{\item Invalid format of field 'urldate'}
+  \endentry
+
+  \entry{qos-aware}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=DJ}{%
+         family={{Domzal}},
+         familyi={D\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=WR}{%
+         family={{Wójcik}},
+         familyi={W\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=JA}{%
+         family={{Jajszczyk}},
+         familyi={J\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DJWRJA1}
+    \strng{fullhash}{DJWRJA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2009 First International Conference on Evolving Internet}
+    \field{pages}{147\bibrangedash 152}
+    \field{title}{QoS-Aware Net Neutrality}
+    \field{year}{2009}
+  \endentry
+
+  \entry{alto-multi-domain-use-cases}{report}{}
+    \name{author}{10}{}{%
+      {{hash=PDAL}{%
+         family={Perez},
+         familyi={P\bibinitperiod},
+         given={Danny Alex\bibnamedelima Lachos},
+         giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim
+  L\bibinitperiod},
+      }}%
+      {{hash=RCE}{%
+         family={Rothenberg},
+         familyi={R\bibinitperiod},
+         given={Christian\bibnamedelima Esteve},
+         giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=XQ}{%
+         family={Xiang},
+         familyi={X\bibinitperiod},
+         given={Qiao},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=YYR}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Y.\bibnamedelima Richard},
+         giveni={Y\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=OB}{%
+         family={Ohlman},
+         familyi={O\bibinitperiod},
+         given={Börje},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=RS}{%
+         family={Randriamasy},
+         familyi={R\bibinitperiod},
+         given={Sabine},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=BF}{%
+         family={Boten},
+         familyi={B\bibinitperiod},
+         given={Farni},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=CLM}{%
+         family={Contreras},
+         familyi={C\bibinitperiod},
+         given={Luis\bibnamedelima M.},
+         giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=ZJJ}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={J.\bibnamedelima (Jensen)},
+         giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=GK}{%
+         family={Gao},
+         familyi={G\bibinitperiod},
+         given={Kai},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Internet Engineering Task Force}%
+    }
+    \strng{namehash}{PDAL+1}
+    \strng{fullhash}{PDALRCEXQYYROBRSBFCLMZJJGK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Work in Progress}
+    \field{number}{draft-lachos-alto-multi-domain-use-cases-01}
+    \field{title}{{Supporting Multi-domain Use Cases with ALTO}}
+    \verb{url}
+    \verb https://datatracker.ietf.org/doc/html/draft-lachos-alto-multi-domain-
+    \verb use-cases-01
+    \endverb
+    \list{institution}{1}{%
+      {Internet Engineering Task Force}%
+    }
+    \field{type}{Internet-Draft}
+    \field{month}{07}
+    \field{year}{2020}
+  \endentry
+
+  \entry{alto-multi-cost}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=RS}{%
+         family={Randriamasy},
+         familyi={R\bibinitperiod},
+         given={Sabine},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=RW}{%
+         family={Roome},
+         familyi={R\bibinitperiod},
+         given={Wendy},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Schwan},
+         familyi={S\bibinitperiod},
+         given={Nico},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {RFC Editor}%
+    }
+    \strng{namehash}{RSRWSN1}
+    \strng{fullhash}{RSRWSN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{RFC 8189}
+    \field{number}{8189}
+    \field{series}{Request for Comments}
+    \field{title}{{Multi-Cost Application-Layer Traffic Optimization (ALTO)}}
+    \verb{url}
+    \verb https://rfc-editor.org/rfc/rfc8189.txt
+    \endverb
+    \field{month}{10}
+    \field{year}{2017}
+  \endentry
+
+  \entry{dns-https}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=BK}{%
+         family={{Bumanglag}},
+         familyi={B\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=KH}{%
+         family={{Kettani}},
+         familyi={K\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BKKH1}
+    \strng{fullhash}{BKKH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{3rd International Conference on Information and Computer
+  Technologies (ICICT)}
+    \field{pages}{494\bibrangedash 499}
+    \field{title}{On the Impact of DNS Over HTTPS Paradigm on Cyber Systems}
+    \field{year}{2020}
+  \endentry
+
+  \entry{java}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Java}
+    \verb{url}
+    \verb https://www.java.com/en/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{java-spring}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Java Spring}
+    \verb{url}
+    \verb https://spring.io/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{mongodb}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{MongoDB}
+    \verb{url}
+    \verb https://www.mongodb.com/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{http-basic}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=RJ}{%
+         family={Reschke},
+         familyi={R\bibinitperiod},
+         given={Julian},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {RFC Editor}%
+    }
+    \strng{namehash}{RJ1}
+    \strng{fullhash}{RJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{RFC 7617}
+    \field{number}{7617}
+    \field{series}{Request for Comments}
+    \field{title}{The 'Basic' HTTP Authentication Scheme}
+    \verb{url}
+    \verb https://rfc-editor.org/rfc/rfc7617.txt
+    \endverb
+    \field{month}{09}
+    \field{year}{2015}
+  \endentry
+
+  \entry{http-digest}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=SYR}{%
+         family={Shekh-Yusef},
+         familyi={S\bibinithyphendelim Y\bibinitperiod},
+         given={Rifaat},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=AD}{%
+         family={Ahrens},
+         familyi={A\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Bremer},
+         familyi={B\bibinitperiod},
+         given={Sophie},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {RFC Editor}%
+    }
+    \strng{namehash}{SYRADBS1}
+    \strng{fullhash}{SYRADBS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{RFC 7616}
+    \field{number}{7616}
+    \field{series}{Request for Comments}
+    \field{title}{{HTTP Digest Access Authentication}}
+    \verb{url}
+    \verb https://rfc-editor.org/rfc/rfc7616.txt
+    \endverb
+    \field{month}{09}
+    \field{year}{2015}
+  \endentry
+
+  \entry{http-authentication}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=SP}{%
+         family={Siriwardena},
+         familyi={S\bibinitperiod},
+         given={Prabath},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SP1}
+    \strng{fullhash}{SP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Advanced API Security}
+    \field{pages}{33\bibrangedash 46}
+    \field{title}{HTTP Basic/Digest Authentication}
+    \field{year}{2014}
+  \endentry
+
+  \entry{core}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Common Open Research Emulator}
+    \verb{url}
+    \verb https://www.nrl.navy.mil/itd/ncs/products/core
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{vcmd}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{vcmd}
+    \verb{url}
+    \verb http://manpages.ubuntu.com/manpages/trusty/man1/vcmd.1.html
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{python}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Python}
+    \verb{url}
+    \verb https://www.python.org/
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{awk}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{awk}
+    \verb{url}
+    \verb https://www.gnu.org/software/gawk/manual/gawk.html
+    \endverb
+    \field{urlday}{20}
+    \field{urlmonth}{09}
+    \field{urlyear}{2020}
+  \endentry
+\enddatalist
+\endinput
