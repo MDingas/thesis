@@ -11,4 +11,18 @@
 \ttl@tocsep 
 \ttl@tocsep 
 \ttl@tocsep 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Demonstration of Gnutella's file searching mechanism \cite {gnutella-flood}\relax }}{11}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Examples of structured P2P query mechanisms that utilize DHTs\relax }}{13}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Examples of \gls {p2p} query mechanisms with application optimizations\relax }}{15}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Example demonstration of an overlay network and corresponding physical layer \cite {overlay-vs-underlay}\relax }}{15}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Conceptual architecture of a \gls {cdn} \cite {cdn-survey}\relax }}{20}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Request routing functionality of a \gls {cdn} \cite {cdn-survey}\relax }}{20}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Client-Server architecture \cite {cliserv-p2p}\relax }}{25}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Linux Mint prompt to select a software repository mirror\relax }}{27}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Approaches to decrease tension between \gls {p2p} applications and \glspl {isp} grouped by their involvement \cite {dan-Commag10}\relax }}{30}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces ALTO scenario of achieving traffic locality \cite {seedorf2009}\relax }}{38}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces ALTO architecture (adapted from \cite {alto-protocol})\relax }}{42}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces ALTO services (adapted from \cite {alto-protocol}) \relax }}{42}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Conceptual representation of ISP diversity on the Internet\relax }}{53}{figure.caption.21}%
+\ttl@tocsep 
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.12.6)  3 JAN 2021 19:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.12.6)  18 JAN 2021 21:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2375,6 +2375,11 @@ Package biblatex Warning: BibTeX reported the following issues
 
 
 Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'akamai-retail-report':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                with 'network-neutrality-developing':
 (biblatex)                - Invalid format of field 'urldate'.
 
@@ -2510,12 +2515,12 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 12
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/pplj/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-)
-\tf@toc=\write10
  [11
 
 
-] [12
+])
+\tf@toc=\write10
+ [12] [13
 
 
 
@@ -2525,7 +2530,7 @@ Package tocbasic Info: character protrusion at lof deactivated on input line 13
 
 (./dissertation.lof)
 \tf@lof=\write11
- [13
+ [14
 
 
 ]
@@ -2533,35 +2538,35 @@ Package tocbasic Info: character protrusion at lot deactivated on input line 14
 0.
  (./dissertation.lot)
 \tf@lot=\write12
- [14
+ [15
 
 
 
 
 
-]pdfTeX warning (ext4): destination with the same identifier (name{page.xiv}) h
-as been already used, duplicate ignored
+]pdfTeX warning (ext4): destination with the same identifier (name{page.xv}) ha
+s been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.143 \emptypage
-                 [14
+                 [15
 
 
 
 ]
 Package marginnote Info: Using workaround for absolute page number on input lin
 e 143.
- (./dissertation.acr [15
+ (./dissertation.acr [16
 
 
 
 
-] [16]) [17]pdfTeX warning (ext4): destination with the same identifier (name{p
-age.xvii}) has been already used, duplicate ignored
+] [17]) [18]pdfTeX warning (ext4): destination with the same identifier (name{p
+age.xviii}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.150 \emptypage
-                 [17
+                 [18
 
 ]
 Package marginnote Info: Using workaround for absolute page number on input lin
@@ -2575,37 +2580,211 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.25 
+l.20 
       [1
 
 
 
-]
-Package marginnote Info: Using workaround for absolute page number on input lin
-e 25.
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
-been already used, duplicate ignored
+]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
+ been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 
+l.33 
       [2]pdfTeX warning (ext4): destination with the same identifier (name{page
 .3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.42 
-      [3]pdfTeX warning (ext4): destination with the same identifier (name{page
-.4}) has been already used, duplicate ignored
+l.43 
+      [3]
+Overfull \hbox (10.72289pt too wide) in paragraph at lines 44--45
+[]\T1/pplj/m/n/10.95 With this in mind, this work fo-cuses on tack-ling the the
+me of application-infrastructure
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.56     \item F
-                amiliarization with the existing system to be worked on and ...
+l.58     \item C
+                omplete overview of the \gls{alto} working group's current w...
 [4] [5]
-Overfull \hbox (4.40482pt too wide) in paragraph at lines 74--75
+Overfull \hbox (4.40482pt too wide) in paragraph at lines 78--79
 \T1/pplj/m/n/10.95 func-tional and non-functional re-quire-ments, as well as an
  overview of the planned
  []
 
-) [6]
+) (./chapters/state-of-art.tex
+Chapter 2.
+[6]
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/iwona/b/sc/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+ [7
+
+
+] [8] [9] [10]
+<img/gnutella-flood.png, id=561, 230.66174pt x 200.54926pt>
+File: img/gnutella-flood.png Graphic file (type png)
+<use img/gnutella-flood.png>
+Package pdftex.def Info: img/gnutella-flood.png  used on input line 92.
+(pdftex.def)             Requested size: 345.99174pt x 300.82312pt.
+ [11 <./img/gnutella-flood.png>]
+<img/chord-lookup.png, id=583, 350.05782pt x 298.86656pt>
+File: img/chord-lookup.png Graphic file (type png)
+<use img/chord-lookup.png>
+Package pdftex.def Info: img/chord-lookup.png  used on input line 120.
+(pdftex.def)             Requested size: 142.26378pt x 121.45984pt.
+<img/can-lookup.png, id=586, 231.11343pt x 222.8325pt>
+File: img/can-lookup.png Graphic file (type png)
+<use img/can-lookup.png>
+Package pdftex.def Info: img/can-lookup.png  used on input line 127.
+(pdftex.def)             Requested size: 142.26378pt x 137.16527pt.
+ [12] [13 <./img/chord-lookup.png (PNG copy)> <./img/can-lookup.png (PNG copy)>
+]
+<img/chord-lookup-efficient.png, id=619, 321.45094pt x 282.30469pt>
+File: img/chord-lookup-efficient.png Graphic file (type png)
+<use img/chord-lookup-efficient.png>
+Package pdftex.def Info: img/chord-lookup-efficient.png  used on input line 165
+.
+(pdftex.def)             Requested size: 170.71652pt x 149.93091pt.
+
+Overfull \hbox (3.41762pt too wide) in paragraph at lines 165--166
+ [][] 
+ []
+
+
+Underfull \hbox (badness 2556) in paragraph at lines 166--166
+[][]|\T1/pplj/m/n/9 Chord file query mech-a-nism with
+ []
+
+
+! Package xkeyval Error: `witdh' undefined in families `Gin'.
+
+See the xkeyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 ...dh=6cm]{img/gnutella-flood-efficient.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<img/gnutella-flood-efficient.png, id=622, 230.66174pt x 200.54926pt>
+File: img/gnutella-flood-efficient.png Graphic file (type png)
+<use img/gnutella-flood-efficient.png>
+Package pdftex.def Info: img/gnutella-flood-efficient.png  used on input line 1
+72.
+(pdftex.def)             Requested size: 230.66116pt x 200.54875pt.
+
+Overfull \hbox (63.36226pt too wide) in paragraph at lines 172--173
+ [][] 
+ []
+
+<img/p2p-topology.png, id=630, 120.45pt x 56.6115pt>
+File: img/p2p-topology.png Graphic file (type png)
+<use img/p2p-topology.png>
+Package pdftex.def Info: img/p2p-topology.png  used on input line 186.
+(pdftex.def)             Requested size: 361.34908pt x 169.83403pt.
+[14] [15 <./img/chord-lookup-efficient.png (PNG copy)> <./img/gnutella-flood-ef
+ficient.png> <./img/p2p-topology.png (PNG copy)>] [16] [17] [18]
+Overfull \hbox (0.87885pt too wide) in paragraph at lines 254--258
+[]\T1/pplj/m/n/10.95 It should then come as no sur-prise that stream-ing ser-vi
+ces such as Net-flix or Youtube,
+ []
+
+<img/cdn-architecture.png, id=726, 654.19406pt x 385.44pt>
+File: img/cdn-architecture.png Graphic file (type png)
+<use img/cdn-architecture.png>
+Package pdftex.def Info: img/cdn-architecture.png  used on input line 272.
+(pdftex.def)             Requested size: 327.09622pt x 192.71953pt.
+[19]
+<img/cdn-request-routing.png, id=740, 716.6775pt x 369.63094pt>
+File: img/cdn-request-routing.png Graphic file (type png)
+<use img/cdn-request-routing.png>
+Package pdftex.def Info: img/cdn-request-routing.png  used on input line 283.
+(pdftex.def)             Requested size: 358.33788pt x 184.815pt.
+ [20 <./img/cdn-architecture.png (PNG copy)> <./img/cdn-request-routing.png (PN
+G copy)>] [21] [22] [23] [24]
+Overfull \hbox (6.19684pt too wide) in paragraph at lines 370--375
+[]\T1/pplj/m/n/10.95 The Client-Server model is a clas-si-cal way of at-tribut-
+ing roles in the net-work. Whereas
+ []
+
+<img//cli-serv-architecture.png, id=847, 563.10374pt x 155.07938pt>
+File: img//cli-serv-architecture.png Graphic file (type png)
+<use img//cli-serv-architecture.png>
+Package pdftex.def Info: img//cli-serv-architecture.png  used on input line 378
+.
+(pdftex.def)             Requested size: 309.70801pt x 85.2939pt.
+[25 <./img//cli-serv-architecture.png (PNG copy)>]
+<img//mint-mirror.png, id=863, 406.51875pt x 297.11pt>
+File: img//mint-mirror.png Graphic file (type png)
+<use img//mint-mirror.png>
+Package pdftex.def Info: img//mint-mirror.png  used on input line 399.
+(pdftex.def)             Requested size: 325.21542pt x 237.68831pt.
+ [26] [27 <./img//mint-mirror.png>] [28]
+Overfull \hbox (49.34058pt too wide) in paragraph at lines 447--447
+|[]\T1/iwona/m/sc/14.4/80ls traffic op-ti-miza-tion by ap-pli-ca-tions and laye
+r-cooperative 
+ []
+
+[29]
+<img/approaches-isp-p2p.png, id=906, 609.77812pt x 362.85562pt>
+File: img/approaches-isp-p2p.png Graphic file (type png)
+<use img/approaches-isp-p2p.png>
+Package pdftex.def Info: img/approaches-isp-p2p.png  used on input line 465.
+(pdftex.def)             Requested size: 396.35107pt x 235.85336pt.
+ [30 <./img/approaches-isp-p2p.png (PNG copy)>] [31] [32] [33] [34]
+[35] [36] [37]
+<img//alto-design.png, id=1128, 439.6425pt x 253.69781pt>
+File: img//alto-design.png Graphic file (type png)
+<use img//alto-design.png>
+Package pdftex.def Info: img//alto-design.png  used on input line 599.
+(pdftex.def)             Requested size: 329.73106pt x 190.27289pt.
+ [38 <./img//alto-design.png (PNG copy)>] [39] [40]
+<img//alto-architecture.jpeg, id=1209, 775.89874pt x 383.4325pt>
+File: img//alto-architecture.jpeg Graphic file (type jpg)
+<use img//alto-architecture.jpeg>
+Package pdftex.def Info: img//alto-architecture.jpeg  used on input line 646.
+(pdftex.def)             Requested size: 465.54283pt x 230.06126pt.
+
+Overfull \hbox (47.28915pt too wide) in paragraph at lines 646--647
+ [][] 
+ []
+
+[41]
+<img//alto-services.jpeg, id=1218, 424.58624pt x 252.945pt>
+File: img//alto-services.jpeg Graphic file (type jpg)
+<use img//alto-services.jpeg>
+Package pdftex.def Info: img//alto-services.jpeg  used on input line 655.
+(pdftex.def)             Requested size: 233.52315pt x 139.12018pt.
+ [42 <./img//alto-architecture.jpeg> <./img//alto-services.jpeg>] [43]
+[44] [45]
+
+! Package glossaries Error: Glossary entry `ISP' has not been defined.
+
+See the glossaries package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.736 ... albeit limited - insight into \gls{ISP} 
+                                                  bias.
+You need to define a glossary entry before you can use it.
+
+[46] [47] [48] [49] [50] [51]
+<img//network-connectivity-globe.png, id=1421, 1284.8pt x 749.80125pt>
+File: img//network-connectivity-globe.png Graphic file (type png)
+<use img//network-connectivity-globe.png>
+Package pdftex.def Info: img//network-connectivity-globe.png  used on input lin
+e 819.
+(pdftex.def)             Requested size: 385.44298pt x 224.94211pt.
+ [52] [53 <./img//network-connectivity-globe.png>]
+Overfull \hbox (4.02075pt too wide) in paragraph at lines 835--836
+[]\T1/pplj/b/n/10.95 Inter-server Syn-chro-niza-tion\T1/pplj/m/n/10.95 : Dif-fe
+r-ent [][][]ALTO[][] servers com-mu-ni-cate among them-
+ []
+
+) [54]
 ! Misplaced alignment tab character &.
 <argument> Communications Surveys &
                                     Tutorials, IEEE
@@ -2624,13 +2803,20 @@ Overfull \hbox (13.37883pt too wide) in paragraph at lines 171--171
 Peer Over-lay Net-work Schemes^^Q.
  []
 
-[7
+[55
 
 
-] [8] [9] [10]
+] [56] [57] [58]
 Overfull \hbox (8.23543pt too wide) in paragraph at lines 171--171
 []\T1/pplj/m/n/10.95 T. S. E. Ng and Hui Zhang. ^^P  Pre-dict-ing In-ter-net ne
 t-work dis-tance with coordinates-
+ []
+
+
+Overfull \hbox (10.03894pt too wide) in paragraph at lines 171--171
+[]\T1/pplj/m/it/10.95 Application-Layer Traf-fic Op-ti-miza-tion (ALTO)\T1/pplj
+/m/n/10.95 . Nov. 2019. \T1/pplj/m/sc/10.95 url\T1/pplj/m/n/10.95 : [][]$\T1/fv
+m/m/n/10.95 https : / / datatracker .
  []
 
 
@@ -2645,7 +2831,7 @@ Overfull \hbox (3.4554pt too wide) in paragraph at lines 171--171
 ec-tor\T1/pplj/m/n/10.95 . Internet-Draft draft-ietf-alto-path-vector-
  []
 
-[11]
+[59]
 Overfull \hbox (21.74915pt too wide) in paragraph at lines 171--171
 []\T1/pplj/m/n/10.95 Q. Wu et al. \T1/pplj/m/it/10.95 ALTO Per-for-mance Cost M
 et-rics\T1/pplj/m/n/10.95 . Internet-Draft draft-ietf-alto-performance-
@@ -2665,7 +2851,7 @@ n meets `Net neu-tral-ity'\T1/pplj/m/n/10.95 . \T1/pplj/m/sc/10.95 url\T1/pplj/
 m/n/10.95 : [][]$\T1/fvm/m/n/10.95 https : / / arstechnica .
  []
 
-[12]
+[60]
 Overfull \hbox (1.9064pt too wide) in paragraph at lines 171--171
 \T1/pplj/m/n/10.95 2014. \T1/pplj/m/sc/10.95 url\T1/pplj/m/n/10.95 : [][]$\T1/f
 vm/m/n/10.95 https : / / slate . com / technology / 2014 / 01 / net -[] neutral
@@ -2678,37 +2864,38 @@ Overfull \hbox (3.71307pt too wide) in paragraph at lines 171--171
 s. In-ter-net En-gi-neer-
  []
 
-[13]
 No file dissertation.ind.
-[14] [15
+[61] [62
 
 
 ] (./dissertation.aux)
 Package logreq Info: Writing requests to 'dissertation.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 66684 strings out of 479383
- 1461509 string characters out of 5875830
- 2472606 words of memory out of 5000000
- 82483 multiletter control sequences out of 15000+600000
- 492900 words of font info for 136 fonts, out of 8000000 for 9000
+ 67036 strings out of 479383
+ 1467057 string characters out of 5875830
+ 2478004 words of memory out of 5000000
+ 82718 multiletter control sequences out of 15000+600000
+ 527434 words of font info for 160 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 136i,21n,141p,10607b,2327s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf-dist/fon
-ts/enc/dvips/iwona/ec-iwona-sc.enc}{/usr/share/texmf-dist/fonts/enc/dvips/iwona
-/ec-iwona.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+ 136i,21n,141p,10607b,3046s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/share/texmf-d
+ist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}{/usr/share/texmf-dist/fonts/enc/dvip
+s/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 </usr/share/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/share/texmf-dis
 t/fonts/type1/public/fpl/fplrc8a.pfb></usr/share/texmf-dist/fonts/type1/public/
 fpl/fplrij8a.pfb></usr/share/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></us
-r/share/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb></usr/share/texmf-dist/
-fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texmf-dist/fonts/type1/urw/hel
-vetic/uhvr8ac.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></
-usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist
-/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on dissertation.pdf (39 pages, 288023 bytes).
+r/share/texmf-dist/fonts/type1/nowacki/iwona/iwonab.pfb></usr/share/texmf-dist/
+fonts/type1/nowacki/iwona/iwonabi.pfb></usr/share/texmf-dist/fonts/type1/nowack
+i/iwona/iwonar.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb>
+</usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8ac.pfb></usr/share/texmf-d
+ist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/
+palatino/uplbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb
+></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on dissertation.pdf (87 pages, 1596592 bytes).
 PDF statistics:
- 662 PDF objects out of 1000 (max. 8388607)
- 586 compressed objects within 6 object streams
- 212 named destinations out of 1000 (max. 500000)
- 27850 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 1792 PDF objects out of 2073 (max. 8388607)
+ 1618 compressed objects within 17 object streams
+ 290 named destinations out of 1000 (max. 500000)
+ 33261 words of extra memory for PDF output out of 35830 (max. 10000000)
 

@@ -17,7 +17,27 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
+  \entry{cisco}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Cisco}
+    \verb{url}
+    \verb https://www.cisco.com/
+    \endverb
+    \field{urlday}{01}
+    \field{urlmonth}{12}
+    \field{urlyear}{2020}
+  \endentry
+
   \entry{cisco2019}{report}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={Cisco},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{C1}
+    \strng{fullhash}{C1}
+    \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{title}{Cisco Visual Networking Index: Forecast and Trends}
     \verb{url}
@@ -111,6 +131,15 @@
   \endentry
 
   \entry{sandvine2019}{report}{}
+    \name{author}{1}{}{%
+      {{hash=S}{%
+         family={Sandvine},
+         familyi={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{S1}
+    \strng{fullhash}{S1}
+    \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{title}{The global Internet Phenomena report}
     \verb{url}
@@ -158,20 +187,9 @@
 
   \entry{sandvine}{misc}{}
     \field{labeltitlesource}{title}
-    \field{title}{Active Network Intelligence Solutions | Sandvine}
+    \field{title}{Sandvine}
     \verb{url}
     \verb https://www.sandvine.com/
-    \endverb
-    \field{urlday}{20}
-    \field{urlmonth}{05}
-    \field{urlyear}{2020}
-  \endentry
-
-  \entry{bittorrent}{misc}{}
-    \field{labeltitlesource}{title}
-    \field{title}{BitTorrent}
-    \verb{url}
-    \verb http://bittirrent.org/beps/bep_0003.html
     \endverb
     \field{urlday}{20}
     \field{urlmonth}{05}
@@ -737,9 +755,12 @@
     \strng{fullhash}{AVBSFAWA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{booktitle}{34. Jahrestagung der Gesellschaft f{\"{u}}r Informatik,
+  Informatik verbindet}
+    \field{pages}{219\bibrangedash 223}
     \field{title}{Methodology for Estimating Network Distances of Gnutella
-  Neighbors.}
-    \field{month}{01}
+  Neighbors}
+    \field{volume}{{P-51}}
     \field{year}{2004}
   \endentry
 
@@ -871,9 +892,25 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{edition}{5th}
-    \field{isbn}{0134277554}
     \field{title}{UNIX and Linux System Administration Handbook (5th Edition)}
     \field{year}{2017}
+  \endentry
+
+  \entry{akamai-retail-report}{report}{}
+    \name{author}{1}{}{%
+      {{hash=A}{%
+         family={Akamai},
+         familyi={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{A1}
+    \strng{fullhash}{A1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{The State of Online Retail Performance}
+    \field{type}{techreport}
+    \field{year}{2017}
+    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{cloudflare}{misc}{}
@@ -1228,8 +1265,8 @@
          giveni={P\bibinitperiod},
       }}%
     }
-    \strng{namehash}{SP2}
-    \strng{fullhash}{SP2}
+    \strng{namehash}{SP1}
+    \strng{fullhash}{SP1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{booktitle}{Lecture Notes in Computer Science}
@@ -1253,8 +1290,8 @@
       {Croatian Communications}%
       {Information Society}%
     }
-    \strng{namehash}{SP3}
-    \strng{fullhash}{SP3}
+    \strng{namehash}{SP2}
+    \strng{fullhash}{SP2}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{number}{4}
@@ -1275,8 +1312,8 @@
          giveni={P\bibinitperiod},
       }}%
     }
-    \strng{namehash}{SP3}
-    \strng{fullhash}{SP3}
+    \strng{namehash}{SP2}
+    \strng{fullhash}{SP2}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{pages}{37\bibrangedash 47}
@@ -1788,13 +1825,12 @@
     \field{year}{2018}
   \endentry
 
-  \entry{alto-about}{report}{}
+  \entry{alto-about}{misc}{}
     \field{labeltitlesource}{title}
     \field{title}{Application-Layer Traffic Optimization (ALTO)}
     \verb{url}
     \verb https://datatracker.ietf.org/wg/alto/about/
     \endverb
-    \field{type}{techreport}
     \field{month}{11}
     \field{year}{2019}
   \endentry
@@ -2527,233 +2563,6 @@
     \field{type}{Internet-Draft}
     \field{month}{07}
     \field{year}{2020}
-  \endentry
-
-  \entry{alto-multi-cost}{misc}{}
-    \name{author}{3}{}{%
-      {{hash=RS}{%
-         family={Randriamasy},
-         familyi={R\bibinitperiod},
-         given={Sabine},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=RW}{%
-         family={Roome},
-         familyi={R\bibinitperiod},
-         given={Wendy},
-         giveni={W\bibinitperiod},
-      }}%
-      {{hash=SN}{%
-         family={Schwan},
-         familyi={S\bibinitperiod},
-         given={Nico},
-         giveni={N\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {RFC Editor}%
-    }
-    \strng{namehash}{RSRWSN1}
-    \strng{fullhash}{RSRWSN1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{howpublished}{RFC 8189}
-    \field{number}{8189}
-    \field{series}{Request for Comments}
-    \field{title}{{Multi-Cost Application-Layer Traffic Optimization (ALTO)}}
-    \verb{url}
-    \verb https://rfc-editor.org/rfc/rfc8189.txt
-    \endverb
-    \field{month}{10}
-    \field{year}{2017}
-  \endentry
-
-  \entry{dns-https}{inproceedings}{}
-    \name{author}{2}{}{%
-      {{hash=BK}{%
-         family={{Bumanglag}},
-         familyi={B\bibinitperiod},
-         given={K.},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=KH}{%
-         family={{Kettani}},
-         familyi={K\bibinitperiod},
-         given={H.},
-         giveni={H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{BKKH1}
-    \strng{fullhash}{BKKH1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{booktitle}{3rd International Conference on Information and Computer
-  Technologies (ICICT)}
-    \field{pages}{494\bibrangedash 499}
-    \field{title}{On the Impact of DNS Over HTTPS Paradigm on Cyber Systems}
-    \field{year}{2020}
-  \endentry
-
-  \entry{java}{misc}{}
-    \field{labeltitlesource}{title}
-    \field{title}{Java}
-    \verb{url}
-    \verb https://www.java.com/en/
-    \endverb
-    \field{urlday}{20}
-    \field{urlmonth}{09}
-    \field{urlyear}{2020}
-  \endentry
-
-  \entry{java-spring}{misc}{}
-    \field{labeltitlesource}{title}
-    \field{title}{Java Spring}
-    \verb{url}
-    \verb https://spring.io/
-    \endverb
-    \field{urlday}{20}
-    \field{urlmonth}{09}
-    \field{urlyear}{2020}
-  \endentry
-
-  \entry{mongodb}{misc}{}
-    \field{labeltitlesource}{title}
-    \field{title}{MongoDB}
-    \verb{url}
-    \verb https://www.mongodb.com/
-    \endverb
-    \field{urlday}{20}
-    \field{urlmonth}{09}
-    \field{urlyear}{2020}
-  \endentry
-
-  \entry{http-basic}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=RJ}{%
-         family={Reschke},
-         familyi={R\bibinitperiod},
-         given={Julian},
-         giveni={J\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {RFC Editor}%
-    }
-    \strng{namehash}{RJ1}
-    \strng{fullhash}{RJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{howpublished}{RFC 7617}
-    \field{number}{7617}
-    \field{series}{Request for Comments}
-    \field{title}{The 'Basic' HTTP Authentication Scheme}
-    \verb{url}
-    \verb https://rfc-editor.org/rfc/rfc7617.txt
-    \endverb
-    \field{month}{09}
-    \field{year}{2015}
-  \endentry
-
-  \entry{http-digest}{misc}{}
-    \name{author}{3}{}{%
-      {{hash=SYR}{%
-         family={Shekh-Yusef},
-         familyi={S\bibinithyphendelim Y\bibinitperiod},
-         given={Rifaat},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=AD}{%
-         family={Ahrens},
-         familyi={A\bibinitperiod},
-         given={David},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=BS}{%
-         family={Bremer},
-         familyi={B\bibinitperiod},
-         given={Sophie},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {RFC Editor}%
-    }
-    \strng{namehash}{SYRADBS1}
-    \strng{fullhash}{SYRADBS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{howpublished}{RFC 7616}
-    \field{number}{7616}
-    \field{series}{Request for Comments}
-    \field{title}{{HTTP Digest Access Authentication}}
-    \verb{url}
-    \verb https://rfc-editor.org/rfc/rfc7616.txt
-    \endverb
-    \field{month}{09}
-    \field{year}{2015}
-  \endentry
-
-  \entry{http-authentication}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=SP}{%
-         family={Siriwardena},
-         familyi={S\bibinitperiod},
-         given={Prabath},
-         giveni={P\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{SP1}
-    \strng{fullhash}{SP1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{booktitle}{Advanced API Security}
-    \field{pages}{33\bibrangedash 46}
-    \field{title}{HTTP Basic/Digest Authentication}
-    \field{year}{2014}
-  \endentry
-
-  \entry{core}{misc}{}
-    \field{labeltitlesource}{title}
-    \field{title}{Common Open Research Emulator}
-    \verb{url}
-    \verb https://www.nrl.navy.mil/itd/ncs/products/core
-    \endverb
-    \field{urlday}{20}
-    \field{urlmonth}{09}
-    \field{urlyear}{2020}
-  \endentry
-
-  \entry{vcmd}{misc}{}
-    \field{labeltitlesource}{title}
-    \field{title}{vcmd}
-    \verb{url}
-    \verb http://manpages.ubuntu.com/manpages/trusty/man1/vcmd.1.html
-    \endverb
-    \field{urlday}{20}
-    \field{urlmonth}{09}
-    \field{urlyear}{2020}
-  \endentry
-
-  \entry{python}{misc}{}
-    \field{labeltitlesource}{title}
-    \field{title}{Python}
-    \verb{url}
-    \verb https://www.python.org/
-    \endverb
-    \field{urlday}{20}
-    \field{urlmonth}{09}
-    \field{urlyear}{2020}
-  \endentry
-
-  \entry{awk}{misc}{}
-    \field{labeltitlesource}{title}
-    \field{title}{awk}
-    \verb{url}
-    \verb https://www.gnu.org/software/gawk/manual/gawk.html
-    \endverb
-    \field{urlday}{20}
-    \field{urlmonth}{09}
-    \field{urlyear}{2020}
   \endentry
 \enddatalist
 \endinput
