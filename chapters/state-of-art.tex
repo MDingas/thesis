@@ -2,7 +2,6 @@
 
 \label{sec:state-of-art}
 
-
     This chapter aims to provide a literature overview of the topics that relate to the main problem that this thesis aims to help solve, which is the lack of cooperation between applications and the service providers of the infrastructure where such applications reside.
     As such, focus is given on discussing structural network patterns utilized by applications to give them particular properties which are helpful to achieve their use case.
     Among these patterns, particular interest will be given to three of them for the following reasons: firstly, due to their popularity in the current network paradigm; secondly, due to their potential to optimize traffic that is generated at the application level.
@@ -25,11 +24,11 @@
 
 \begin{itemize}
     \item \textbf{Dynamic scaling}: As all member nodes can share their computing resources with the network, the system increases its capacity with an increase in its users.
-        Since the peers also act as clients to the network, scaling the service becomes less of a challenge as each new client will also act as a server.
+        As a new peer acts as client to the network, scaling the service becomes less of a challenge as each new client will also act as a server.
         This then removes the necessity to manage how many service resources are needed - the amount of existing resources is linked to the number of existing clients, and thus there's no need to purchase and manage central resources, as the network dynamically allocates them by nature.
     \item \textbf{Resilience to failure}: Whereas centralized solutions are much more vulnerable to node and link failures, a decentralized one can more easily work around such threats - as all peers can encompass the same server functionality, network services and resources are not provided on a limited set on nodes, but instead can be redundantly deployed throughout as needed.
     \item \textbf{Power decentralization}: As a consequence to sharing server roles and resources, no single peer has direct control of the network, and the information is not centralized.
-        As such, this considerably deters any attempts to overpower the network, e.g., via means of censorship or biased node favouring.
+        As such, this considerably deters any attempts to overpower the network, e.g., via means of censorship or biased node favoring.
 \end{itemize}
 
     These, however, are not without their nuances - since many \gls{p2p} hybrids exist, these properties are not immutable.
@@ -43,14 +42,15 @@
 \end{itemize}
 
     \gls{p2p} applications have had, in the past decades, a mainstream image that is plagued with legality and security issues.
-    Nonetheless, its design possesses many interesting properties - some of them displayed above - that make it fitting for varied use cases, e.g., file sharing, media streaming, social networking, and problem solving with distributed and cooperative algorithms.
+    Nonetheless, its design possesses many interesting properties - some of them displayed above - that make it fitting for varied use cases, e.g., file sharing, media streaming, social networking, and computation with distributed and cooperative algorithms.
 
-    Either way, the influence of \gls{p2p} applications is undeniable: Sandvine \cite{sandvine} published a global Internet phenomena report concluded that BitTorrent \cite{bittorrent} alone had in 2019 a global application total traffic share of 2.4\%, and perhaps most importantly over 27\% of total upstream volume of traffic, and over 44\% in \gls{emea} alone \cite{sandvine2019}.
-    Beyond file sharing purposes alone, \gls{p2p} applications have been recently considered a fitting solution for low-cost content delivery systems in high demand scenarios - for example, in applications such as PPStream \cite{ppstream} in China, which provide television content over IP to large audiences.
+    Despite their reputation, the influence of \gls{p2p} applications is undeniable: Sandvine \cite{sandvine} published a global Internet phenomena report concluding that BitTorrent alone had, in 2019, a global application total traffic share of 2.4\%, but perhaps most importantly over 27\% of total upstream volume of traffic, with that value being 44\% for \gls{emea} alone \cite{sandvine2019}.
+
+    Beyond file sharing purposes, \gls{p2p} applications have been recently considered a fitting solution for low-cost content delivery systems in high demand scenarios - for example, in applications such as PPStream \cite{ppstream} in China, which provide television content over IP to large audiences.
     Similarly, Akamai \cite{akamai} recognizes the potential of \gls{p2p} technologies to provide a highly distributed option for serving static content over the network, although it being currently lacking in management and control features \cite{akamai-report}.
-    Indeed, \gls{p2p} Internet video broadcast services - and world-wide static content delivery services for that matter - seem attractive as they are cost-effective and easy to deploy, and are fitting to large scale demands, and thus have the potential to become a more mainstream solution \cite{jiangchuanliu2008}.
+    Indeed, \gls{p2p} Internet video broadcast services - and world-wide static content delivery services for that matter - seem attractive as they are cost-effective and easy to deploy, and are fitting for large scale demands, and thus have the potential to become a more mainstream solution \cite{jiangchuanliu2008}.
 
-    Concluding, the \gls{p2p} network architecture has many fitting use cases, and their rather different strategy, compared to the client-server architecture, to achieve its goals gives it many potentially interesting properties for users and \glspl{isp}.
+    Concluding, the \gls{p2p} network architecture has many appropriate use cases, and their rather different strategy, compared to the client-server architecture, gives it many potentially interesting properties for users and \glspl{isp}.
     Considering its large global traffic share, particularly in upstream traffic, and its potential adoption towards the large scale demands of the future, \gls{p2p} applications are likely to persist and will be in the minds of \gls{isp} administrators for the near future.
 
 \subsection{Architecture}
@@ -59,7 +59,7 @@
     Thus, this section focuses not on giving an overview of a single conceptual architecture of what defines a \gls{p2p} network, but instead of the many existing variations and how they differ among themselves.
     All \gls{p2p} networks are characterized by consisting of peers that know one another as to form a so-called overlay network on top of its supporting underlay network.
     How peers are organized in these \gls{p2p} networks and how they operate is what distinguishes the many sub-types.
-    Table \ref{table:p2p-structures} groups known \gls{p2p} systems in regards to their centralization and structure, similarly to the groupings of \cite{p2p-survey-1} and \cite{p2p-survey-2}, with the latter further distinguishing the protocols in regards to other parameters, e.g., security, reliability, and performance.
+    Table \ref{table:p2p-structures} groups known \gls{p2p} systems in regards to their centralization and structure, similar to the groupings of \cite{p2p-survey-1} and \cite{p2p-survey-2}, with the latter further distinguishing the protocols in regards to other parameters, e.g., security, reliability, and performance.
     The rest of this section follows the survey made by the former.
 
     One would expect that all \gls{p2p} applications would have no centralization at all, since the \gls{p2p} design ponders functionality spread throughout the network.
@@ -75,9 +75,9 @@
                                                  &                                        &                                                                                 &                                                                                                                 &                                                                                                                          &  &  \\ \cline{3-5}
                                                  & \multicolumn{1}{l|}{}                  & \multicolumn{3}{c|}{\textbf{Centralization}}                                                                                                                                                                                                                                                                                          &  &  \\ \cline{3-5}
                                                  & \multicolumn{1}{l|}{}                  & \multicolumn{1}{l|}{Hybrid}                                                     & \multicolumn{1}{l|}{Partial}                                                                                    & \multicolumn{1}{l|}{None}                                                                                                &  &  \\ \cline{1-5}
-    \multicolumn{1}{|c|}{\multirow{9}{*}{\textbf{Structure}}} & \multicolumn{1}{l|}{None}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Bittorrent, Napster,\\ Publius\end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Kazaa,\\ Morpheus,\\ Gnutella (extension proposals),\\ Edutella\end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Gnutella,\\ FreeHaven\end{tabular}}                            &  &  \\ \cline{2-5}
+    \multicolumn{1}{|c|}{\multirow{9}{*}{\textbf{Structure}}} & \multicolumn{1}{l|}{None}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}BitTorrent, Napster,\\ Publius\end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Kazaa,\\ Morpheus,\\ Gnutella (extension proposals),\\ Edutella\end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Gnutella,\\ FreeHaven\end{tabular}}                            &  &  \\ \cline{2-5}
 \multicolumn{1}{|c|}{}                           & \multicolumn{1}{l|}{In Infrastructure} & \multicolumn{1}{l|}{}                                                           & \multicolumn{1}{l|}{}                                                                                           & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Chord,\\ CAN,\\ Tapestry,\\ Pastry\end{tabular}}                          &  &  \\ \cline{2-5}
-\multicolumn{1}{|c|}{}                           & \multicolumn{1}{l|}{In System}         & \multicolumn{1}{l|}{}                                                           & \multicolumn{1}{l|}{}                                                                                           & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Bittorrent (DHT/Trackerless), \\OceanStore,\\ Mnemosyne,\\ Scan, \\ PAST,\\ Kademlia,\\ Tarzan\end{tabular}} &  &  \\ \cline{1-5}
+\multicolumn{1}{|c|}{}                           & \multicolumn{1}{l|}{In System}         & \multicolumn{1}{l|}{}                                                           & \multicolumn{1}{l|}{}                                                                                           & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}BitTorrent (DHT/Trackerless), \\OceanStore,\\ Mnemosyne,\\ Scan, \\ PAST,\\ Kademlia,\\ Tarzan\end{tabular}} &  &  \\ \cline{1-5}
                                                  &                                        &                                                                                 &                                                                                                                 &                                                                                                                          &  &
 \end{tabular}
 \end{adjustbox}
@@ -96,7 +96,7 @@
 
     Partially centralized architectures were defined as similar to those which are decentralized, but with the added caveat that some peers are chosen to service a portion of the network.
     This is done to take use from the fact that not all network peers are alike in terms of memory, computational power, or other relevant resources.
-    As such, more capable peers are elected as "supernodes" and are delegated with more responsibilities, noting that the network self-configures in situations where such elected nodes either fail or willingly leave the network, and as such there is no single point of failure as there would be on a true centralized architecture.
+    As such, more capable peers are elected as "super nodes" and are delegated with more responsibilities, noting that the network self-configures in situations where such elected nodes either fail or willingly leave the network, and as such there is no single point of failure as there would be on a true centralized architecture.
 
     A hybrid architecture approach in a \gls{p2p} network employs some elements from the client-server architecture.
     With Napster \cite{napster} as an example, whilst peers still operate as servers or clients, they must contact an intermediary and central server when querying for content, which will in turn redirect them to one or many peers that contain it - a similar concept applies for BitTorrent, where such intermediary servers are called trackers.
@@ -125,7 +125,7 @@
     \begin{subfigure}[t]{0.4\textwidth}
     \centering
     \includegraphics[width=5cm]{img/can-lookup.png}
-    \caption{CAN file query mechanisms \cite{p2p-survey-1}}
+    \caption{CAN file query mechanism \cite{p2p-survey-1}}
     \label{fig:can} 
     \end{subfigure}
 
@@ -146,7 +146,7 @@
     The lack of systematic means to efficiently locate content by these \gls{p2p} architectures means that more ad-hoc methods have to be used, which are less efficient and thus incur in bigger workloads for \glspl{isp} - the usage of query flooding by Gnutella and message broadcasting by FreeHaven are examples of this.
 
     The usage of structure by \gls{p2p} networks can, as stated before, result in more efficient content and peer location algorithms.
-    However, maintaining such structure also requires a chunk of \gls{isp} resources, as peers need to periodically update other neighbouring peers, as well as react them abruptly entering and leaving the overlay.
+    However, maintaining such structure also requires a chunk of \gls{isp} resources, as peers need to periodically update other neighbouring peers, as well as react to them abruptly entering and leaving the overlay.
     The usage of key-value mappings with \glspl{dht} can also have the potential to be \gls{isp} unfriendly, as the hash function can be designed to evenly distribute resources over the peer pool, and thus over the network - whilst such property is certainly advantageous in certain use cases, doing so removes any application context that exists in the content - for example, grouping resources which belong to the same web page with such a method isn't efficient, as they will be individually hashed and spread throughout the network, despite the fact that they'll likely be requested together for each page access.
 
     A first point of improvement is optimizations made in the applications themselves to less degrade network resources.
@@ -154,7 +154,7 @@
     Specifically, regarding Figure \ref{fig:chord2}, a point of optimization in the Chord system would try to reduce the number of query messages per resource by increasing the number of successors a given node knows.
     That way, the querying node can instead query not for the single successor it knows, but instead by querying for the one who's ID immediately precedes the content's, thus insuring a reduced number of hops to retrieve the message.
     This consequentially also reduces the total amount of traffic on the network, and improves application times.
-    Regarding Gnutella in Figure \ref{fig:gnutella2}, a point of optimization would try to tackle the usage of query flooding to locate data, as such flooding grows exponentially and thus intakes a massive toll on network resources.
+    Regarding Gnutella in Figure \ref{fig:gnutella2}, a point of optimization would try to tackle the usage of query flooding to locate data, since such flooding grows exponentially and thus intakes a massive toll on network resources.
     A query flooding system would not be as prejudicial if content was equally scattered throughout the overlay and each given content was a minimal amount of hops away.
     However, as concluded by extensive analysis of user traffic on Gnutella during its heightened use, nearly 70\% of users shared no files and nearly 50\% of all responses were returned by the top 1\% of sharing hosts \cite{freeriding-gnutella}.
 
@@ -174,7 +174,7 @@
     \label{fig:gnutella2}
     \end{subfigure}
     
-\caption{Examples of \gls{p2p} query mechanisms when application optimizations are in place}
+\caption{Examples of \gls{p2p} query mechanisms with application optimizations}
 \label{fig:p2p-optimization}
 \end{figure}
 
@@ -188,32 +188,32 @@
 \label{fig:overlay-underlay}
 \end{figure}
 
-    The inability of \gls{p2p} applications to localize traffic is seen as a big problem - as concluded by \cite{liao2014}, \glspl{isp} face bottleneck bandwidth pressure in the large scale Internet of the future, with it being in particular from \gls{p2p} applications.
+    The inability of \gls{p2p} applications to localize traffic is seen as a big problem - as concluded by \cite{liao2014}, \glspl{isp} face bottleneck bandwidth pressure in the large scale Internet of the future, with it being in particular due to \gls{p2p} applications.
     However, an argument is made that an increase in users from such applications is not necessarily harmful, and perhaps helpful, if traffic locality can be boosted.
-    Thus, there is a necessity to ensuring that peers prefer to generate traffic within network locality over traffic that crosses network borders.
+    Thus, there is value in ensuring that peers prefer to generate traffic within network locality over traffic that crosses network borders.
 
     A first step towards more traffic locality would be increasing the availability of content inside network boundaries, through means such as cache injections or peer content serving incentives.
     Given that content resides locally, a second step would be that \gls{p2p} applications have a network-aware vision of the overlay, which does not happen with classic \gls{p2p} protocols.
-    This issue is particularly damaging in \gls{p2p} applications whenever neighbours are selected, and whenever a service exists redundantly in the network and a decision must be made in regards to what peer or collection of peers to consume the service from.
+    This issue is particularly damaging in \gls{p2p} applications whenever neighbours are selected, and when deciding what peer or collection of peers to consume a given service from.
 
     If it is the case that \gls{p2p} applications are not locality aware, it can easily be seen how this can be an issue. In one hand, for the applications, choosing peers which are not local to the querying peer may result in more time to retrieve the requested contents. 
     In the other hand, for the \glspl{isp}, bad network resource utilization can incur in higher operational costs, and may degrade overall network performance in many cases, e.g., by not being able to stop applications from overusing inter-AS links, which usually are network bottlenecks (a conventional wisdom demonstrated in \cite{akella}) and which, due to peering agreements with other \glspl{isp}, are less desirable to be overused due to peering costs.
-    If the \gls{p2p} application were to attempt to choose the peers that would most effectively serve the querying peer, it could depend on privileged information that the ISP has on the network's properties and current status, such as the inherent network topology, link properties, or scheduled server maintenance.
+    If the \gls{p2p} application were to attempt to choose the peers that would most effectively serve the querying peer, it could depend on privileged information that the ISP has on the network's properties and current status, such as the inherent network topology, link properties, or scheduled server maintenances.
 
-    Attempting to optimize peer selection without a co-operational channel with \glspl{isp} would be sub-optimal, as not enough information can be derived with proving alone, and could perhaps even be more damaging with the wrong techniques - consider a peer selection algorithm that chooses the peers with lowest \gls{rtt} of a probing ping message, whilst having no indication on available end-to-end bandwidth, existing network bottlenecks, or peak traffic hours.
+    Attempting to optimize peer selection without a co-operational channel with \glspl{isp} would be sub-optimal, as not enough information can be derived with network probing alone, and could perhaps even be more damaging with the wrong techniques - consider a peer selection algorithm that chooses the peers with lowest \gls{rtt} of a probing ping message, whilst having no indication on available end-to-end bandwidth, existing network bottlenecks, or peak traffic hours.
     Likewise, attributing neighbour pairings via geographical proximity, whilst initially seems like a good step in location awareness, may also not be optimal - \glspl{isp} may not always prefer geographical proximity in connections, as peers could be very geographically close but residing in different \glspl{as} and thus separated by costly links.
     Other peer-selection techniques focus on randomly selecting nodes, such as the means through which a BitTorrent tracker selects between redundant peers serving the same file chunk \cite{bittorrent-details}, which is simple and resilient to peer churn \cite{qin2009}, but as a consequence is sub-optimal on network resource usage as no network consideration exists.
     It is reasonable to assert that no \gls{p2p} application can act with full \gls{isp} consideration without directly cooperating with it, and simple heuristics should be, whenever possible, traded for methods where full cooperation with the underlay is done - that is, if the needs of both layers are being met.
 
     Indeed, it is the case that current \gls{p2p} solutions are \gls{isp}-unfriendly.
-    More concretely, \cite{isp-p2p-tussle} shares the view that \gls{p2p} applications and \glspl{isp} are in a tussle, since \gls{p2p} applications generate traffic which favours the application's needs whilst ignoring the \gls{isp}'s, which in turn upsets the latter's business model.
+    More concretely, \cite{isp-p2p-tussle} shares the view that \gls{p2p} applications and \glspl{isp} are in a tussle, since \gls{p2p} applications generate traffic which favours the application's needs while ignoring those of the \gls{isp}, which in turn upsets the latter's business model.
     To name a few examples, BitTorrent seems to employ peer selection algorithms which do not consider the underlay network, which can result in degraded download performance and increased load on \glspl{isp} \cite{qin2009}.
-    \cite{karagiannis} found that since this protocol is locality unaware, 70-90\% of existing local content was found to be downloaded from external peers, and suggests that locality-aware content distribution algorithms could significantly reduce the total amount of traffic generated.
+    \cite{karagiannis} found that since this protocol is locality unaware, 70-90\% of content existing locally was found to be downloaded from external peers, and suggests that locality-aware content distribution algorithms could significantly reduce the total amount of traffic generated.
     Likewise, Gnutella generates traffic which is not ideal, as it may have to cross ISP network boundaries multiple times \cite{estimating-gnutella} due to the same fundamental issue stated before - an application layer that operates in disregard to the network underlay it runs on.
 
     As \cite{dan-Commag10} describes, the ongoing friction between the overlay and underlay layers has made it to the point where \glspl{isp} have chosen to throttle the bandwidth of \gls{p2p} traffic, or even outright block it.
     In return, \gls{p2p} applications have tried to mask their presence to bypass such restrictions via tunnelling or using non-standard and random port numbers.
-    This is an unsustainable system that is bound to hurt both \gls{isp} profit and application functionality, and a strategy of cooperation between the overlay and underlay layers is crucial to guarantee that the requirements of both parties are met, specially in the face of the increased technical and scale-related challenges of the future.
+    This is an unsustainable system that is bound to hurt both \gls{isp} profit and application functionality, and a strategy of cooperation between the overlay and underlay layers is crucial to guarantee that the requirements of both parties are met, specially in the face of the increased challenges contained in the Internet of the future.
 
 \section{Content Distribution Networks (CDNs)}
 
@@ -224,63 +224,63 @@
 \label{ssec:cdn-concepts}
 
    A \gls{cdn}, as the name implies, is a network specifically designed with its main focus on distributing content to a set of end users.
-   Its design allows for the alleviation of performance bottlenecks on the Internet generated by client requests, and has been recently been considered a powerful tool as a response to the existing high demand for media content, which has a huge share of the global Internet traffic of today.
+   Its design allows for the alleviation of performance bottlenecks on the Internet generated by client requests, and has been recently considered a powerful tool as a response to the existing high demand for media content, which has a huge share of the global Internet traffic of today.
 
    Functionalities of \glspl{cdn} include \cite{cdn-survey}:
 
     \begin{itemize}
-        \item \textbf{Content outsourcing and distribution:} Replicate content throughout the network into edge servers, which are deployed nearby end users.
-            This allows \gls{cdn} clients to pay for their content to be hosted on these edge servers, and in doing so guaranteeing that it is quickly accessible by end users.
+        \item \textbf{Content outsourcing and distribution:} Replicate content throughout the network into edge servers nearby end users.
+            This allows \gls{cdn} clients to pay for their content to be hosted on these edge servers, and in doing so guaranteeing that it is quickly accessible by their own content clients.
         \item \textbf{Request redirection:} Direct a content request to the most appropriate edge server at a given time.
-            This redirection is done considering relevant network properties, such as geographical locations and current server loads.
-        \item \textbf{Content negotiation} Manage the network's properties to fit the needs of its clients through negotiation.
+            This redirection is done considering relevant network properties, such as client and server geographical locations, as well as current server loads.
+        \item \textbf{Content negotiation:} Manage the network's properties and allocate resources to fit the needs of its clients through negotiation.
         \item \textbf{Management:} Manage the distribution network, which includes accounting, monitoring, statistical analysis on content consumption, etc.
             A close management of the distribution network is important for its business model, as, besides being needed for a billing system, allows for a better understanding of the networks' usage patterns, which is helpful information for better engineering the system to most optimally serve content with increased revenue and decreased costs.
     \end{itemize}
 
     The current focus of \glspl{cdn} is thus to provide content, e.g., web pages, documents, photos, videos, or media-related streams, with high availability and performance.
-    The strategy used by them to guarantee a satisfying \gls{qoe} on a global scale is the deployment of content close to the end-user - a \gls{cdn} contains many nodes which are geographically spread throughout the globe and close to the users they wish to serve, and whenever such users request for content, they are routed to the node which is closest to them (\cite{cookbook}).
+    The strategy used by them to guarantee a satisfying \gls{qoe} on a global scale is the deployment of content close to the end-user - a \gls{cdn} contains many nodes which are geographically spread throughout the globe and close to the users they wish to serve, and whenever such users request for content, they are routed to the node which is closest to them \cite{cookbook}.
+
     Data replication to servers which are strategically placed closest to end-users, coupled with good means to properly redirect such users to the most attractive edge server, is what allows content to be available more often and more quickly.
-    These are undoubtedly attractive features in the world of e-commerce, where user \gls{qoe} can dictate much of the profit - for example, Akamai, one of the leaders in \gls{cdn}-related services, ran a research concluding, among other things (\cite{akamai}):
+    These are undoubtedly attractive features in the world of e-commerce, where user \gls{qoe} can dictate much of the profit - for example, Akamai, one of the leaders in \gls{cdn}-related services, ran a research concluding, among other things \cite{akamai-retail-report}:
 
 \begin{itemize}
-    \item A 100 millisecond slower web page loading speed can result with a 7\% drop in sales
+    \item A 100 millisecond slower web page loading speed can result in a 7\% drop in sales
     \item A 2 seconds slower web page loading speed can almost double the number of visitors who end up abandoning their carts
     \item 53\% of users who use smartphones to visit web stores won't make the sale if the web page takes more than 3 seconds to fully load
     \item 28\% of users won't return to the same web store if they think it takes too long to load
-    \item A 250 millisecond faster loading time proved to keep users from visiting a competitor web store
 \end{itemize}{}
 
-    It should then come as no surprise that streaming services such as Netflix and Youtube, who now reach a global scale and whose utility is highly dependant on their high availability and low transmission delay, routinely use \gls{cdn} solutions.
+    It should then come as no surprise that streaming services such as Netflix or Youtube, who now reach a global scale and whose utility is highly dependant on their high availability and low transmission delay, routinely use \gls{cdn} solutions.
     More broadly, typical \gls{cdn} customers include media and Internet advertisement companies, data centers, \glspl{isp}, online music retailers, mobile operators, etc \cite{cdn-survey}.
     Indeed, companies that wish to provide a given service in the web at scale routinely partner with companies whose focus is providing content delivery services, with popular examples being Akamai, CloudFlare \cite{cloudflare}, or Amazon Cloudfront \cite{cloudfront}.
     Coupled with the promise of highly available and quick content retrieval, these companies also provide other attractive services, such as firewalls and \gls{dos} protection.
 
-    The Internet's currently most targeted use being media consumption has made it so \glspl{cdn} and their providers have an important role in dictating a very considerable percentage of flow of traffic in \gls{isp}-owned infrastructures, and as such their study and improvement is quite important.
-    With their great influence over global traffic, active efforts should exist to increase harmonious behaviours between applications that utilize their services and the \glspl{isp}, with the goal in mind being network resource efficiency to guarantee that the infrastructure can remain operational and applications can provide a satisfiable user experience.
+    The Internet's currently most targeted use being media consumption has made it so \glspl{cdn} and their providers have an important role in dictating a very considerable percentage of traffic flow in \gls{isp}-owned infrastructures, and as such their study and improvement is quite important.
+    With their great influence over global traffic, active efforts should exist to increase harmonious behaviours between applications that utilize their services and the \glspl{isp} that support it, with the goal in mind being network resource efficiency to guarantee that the infrastructure can remain operational and applications can provide a satisfiable user experience.
 
 \subsection{Architecture}
 
 \label{ssec:cdn-architecture}
 
     Figure \ref{fig:cdn-conceptual-architecture} represents a high-level conceptual architecture of a \gls{cdn}.
-    The true power of a \gls{cdn} comes from its strategically deployed cluster of replicated servers - at a global scale, this implies having them geographically dispersed and located inside or nearby networks with large content demand.
-    The origin server possesses the content that is to be served, and the bootstrapping process has it uploaded into the network, which is afterwards replicated into these edge servers.
+    The true power of these kinds of networks comes from their strategically deployed cluster of replicated servers - at a global scale, this implies having them geographically dispersed and located inside or nearby networks with large content demands.
+    The origin server possesses the content that is to be served, and the bootstrapping process has the content uploaded into the network, which is afterwards replicated to these edge servers.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[scale=0.65]{img/cdn-architecture.png}
+\includegraphics[scale=0.50]{img/cdn-architecture.png}
 \caption{Conceptual architecture of a \gls{cdn} \cite{cdn-survey}}
 \label{fig:cdn-conceptual-architecture}
 \end{figure}
 
-    Figure \ref{fig:cdn-request-routing} displays how, conceptually, the request routing functionality of a \gls{cdn}.
-    As can be seen, the request is firstly directed to the origin server, and serves only light, basic content.
+    Figure \ref{fig:cdn-request-routing} displays how, conceptually, the request routing functionality of a \gls{cdn} works.
+    As can be seen, the request is firstly directed to the origin server, which serves only light and basic content.
     In the situation where large static content is requested, the origin server redirects the request to the \gls{cdn} provider, which utilizes a selection algorithm to elect the most appropriate edge server to serve the content to the end user.
 
-\begin{figure}[ht]
+\begin{figure}[!h]
 \centering
-\includegraphics[scale=0.5]{img/cdn-request-routing.png}
+\includegraphics[scale=0.50]{img/cdn-request-routing.png}
 \caption{Request routing functionality of a \gls{cdn} \cite{cdn-survey}}
 \label{fig:cdn-request-routing}
 \end{figure}
@@ -289,7 +289,7 @@
     The prevalent approaches are, according to \cite{wichtlhuber2017}, the following:
 
 \begin{itemize}
-    \item \textbf{\gls{dns} request routing}: The user must first resolve a domain name to retrieve a content. The \gls{cdn}'s \gls{dns} processes the request and, utilizing the user's \gls{ip} address, historical measurement information and current server loads, responds with the address of the edge server that seems most fitting to provide such content.
+    \item \textbf{\gls{dns} request routing}: The user must first resolve a domain name to retrieve a piece of content. The \gls{cdn}'s \gls{dns} server processes the request and, utilizing the user's \gls{ip} address, historical measurement information and current server loads, responds with the address of the edge server that seems most fitting to provide such content.
     \item \textbf{\gls{http} request routing}: Content is firstly requested to a nearby proxy server, which in turn answers with an \gls{http} redirect to be resolved by the client in order to find the content.
         The \gls{http} requests can occur in subsequent rounds and can also use \gls{dns} knowledge when the redirection domain must be resolved.
     \item \textbf{Anycast request routing}: The \gls{cdn} provider announces an anycast prefix to the network.
@@ -330,23 +330,22 @@
 \label{ssec:cdn-effects}
 
     As previously discussed, \glspl{cdn} came as a tool to strategically position content on the network in such a way that it can more quickly and more reliably be retrieved by an end-user.
-    These \gls{cdn} systems are then inherently a means of optimizing network resource utilization in the application layer, and thus are of great interest for \glspl{isp} and, if done properly, can be very appealing not only to them but also to end-users that use applications leveraging these networks.
+    These \gls{cdn} systems are then inherently a mean of optimizing network resource utilization in the application layer, and thus are of great interest for \glspl{isp} and, if done properly, can be very appealing not only to them but also to end-users that use applications leveraging these networks.
 
     The usage of a single content-providing server - or a limited set of them - which is far away from the content demand, that in turn has a large geographical distribution, is prone to server overloading and path congestion problems if a big enough scale is achieved.
-    The usage of data caches is a classic solution to network inefficiency problems, which is used by \glspl{cdn} as a means to replicate content to strategic locations to better serve users, with the added benefit for \glspl{isp} that their network resources are efficiently used, with the ability of reducing the total amount of used bandwidth needed for a service to operate - as data travels a shortened total amount of network hops from data source to points of data demand - and reducing congestion of inter-domain links - as data caches will reside locally and redistribute traffic away from highly shared network links.
+    Data caches are a classic solution to network inefficiency problems, and are used by \glspl{cdn} as a means to replicate content to strategic locations to better serve users, with the added benefit for \glspl{isp} that their network resources are efficiently used, with the ability of reducing the total amount of used bandwidth needed for a service to operate - as data travels a shortened total amount of network hops from data source to points of data demand - and reducing congestion of inter-domain links - as data caches will reside locally and redistribute traffic away from highly shared network links.
     It can thus be stated that the relationship between \glspl{cdn} and \glspl{isp} allows for a win-win scenario because efficient network usage has consequentially better service quality, benefiting service providers and applications, respectively.
 
     However, \glspl{cdn} seem to lack cohesion with the underlying network infrastructure during normal application operations.
     As stated by Akamai, a leader in \gls{cdn} services, in their report \cite{akamai-report}, the large scale and complexity of the Internet, where it takes well over 650 networks to reach 90\% of all access traffic, adds to it many challenges to the \gls{cdn}'s role of content delivery.
-    In particular, whilst good investment seems to exist at the first and last mile of Internet access (website hosting and end users, respectively), there seems to be little economic incentive to invest in the middle mile, composed of peering points shared among networks.
-    These peering then become network bottlenecks that are susceptible to increased traffic packet loss and latency, making inter-network communications unreliable, and loose coordination between autonomous networks with internal biases is pointed as a main cause.
-    Due to this, even a well provisioned data center will be at the mercy of the various inter-network bottlenecks that may arrive, and performance takes a hit.
-    In fact, the paper suggests a clean-slate redesign of the Internet as a potential solution to its many problems - besides the peering point congestion mentioned above, inefficient routing protocols, unreliable networks, inefficient communications protocols, and application limitations also add to the problematic - but such a redesign to a massive and highly invested global infrastructure doesn't seem plausible.
+    In particular, whilst good investment seems to exist at the first and last mile of Internet access (server and end user placements, respectively), there seems to be little economic incentive to invest in the middle mile, composed of peering points shared among networks.
+    These peering points then become network bottlenecks that are susceptible to increased traffic packet loss and latency, making inter-network communications unreliable, and loose coordination between autonomous networks with internal biases is pointed as a main cause.
+    Due to this, even a well provisioned data center will be at the mercy of the various inter-network bottlenecks that may arrive, and performance is susceptible to degradation.
+    In fact, the paper suggests a clean-slate redesign of the Internet as a potential solution to its many problems - besides the peering point congestion mentioned above, inefficient routing protocols, unreliable networks, inefficient communications protocols, and application limitations also add to the problematic - but such a redesign to a massive and highly critical global infrastructure doesn't seem feasible.
 
     In alternative to proper network infrastructural insight, \glspl{cdn} have to rely on network probing, traffic monitoring, and server feedback, as discussed on Section \ref{ssec:cdn-architecture}.
     Even assuming that these are sufficient, the usage of probing techniques will incur in overhead traffic on the network, with this overhead being exacerbated if many other overlay networks or applications also apply this technique.
     Similarly, traffic monitoring to extract end-to-end path metrics to end users requires resources and takes time, and may also incur in redundant operations being applied on the network.
-Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay-residing application that wants to utilize network probing to be more underlay-aware.
 
     Advantageous as network probing and traffic monitoring mechanisms can be for \glspl{cdn} to properly conduct request routing and caching decisions, a case must be made for proper application-infrastructure synergy during decision making in the overlay.
     Much like \gls{p2p} systems, to infer on network status by measuring it is insufficient when compared to receiving input from trustworthy and authoritative entities that possess privileged network information, such as \gls{isp} administrators.
@@ -354,10 +353,10 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
     Again, much like in the scenario of peer selection in \gls{p2p} systems, the usage of network measurements made by the \gls{cdn} itself to better pick the appropriate end-server, while potentially beneficial, can certainly be improved upon if it used additional, hard to retrieve data that only \glspl{isp} or other privileged infrastructural entities could possess, and which are at position to guide applications in the infrastructure they deeply possess knowledge on.
 
     There indeed seems to be a consequential coupling between overlay decisions in the \gls{cdn} systems and the underlying infrastructure.
-    If the \glspl{cdn} were not to take \gls{isp} input when redirecting clients, suboptimal choices would be made that would be prone for bottleneck congestion, and if, in the other hand, \glspl{isp} were to employ only their own biases in content request redirection, user-level application \gls{qos} agreements might not be met.
+    If the \glspl{cdn} were not to take \gls{isp} input when redirecting clients, suboptimal choices would be made that would be prone to bottleneck congestion, and if, in the other hand, \glspl{isp} were to employ only their own biases in content request redirection, user-level application \gls{qos} agreements might not be met.
         \cite{pushing-cdn-isp-collaboration} states that this lack of awareness to network status is indeed problematic for \gls{cdn} systems, listing end-user mismatching to edge servers based on dubious \gls{dns}-based location binning and resource consuming, non exact methods to detect bottlenecks, as well as lack of agility in server deployment in ideal locations.
         This is a view shared by \cite{cdn-isp-cooperations}, which adds that these problems reside in a shared medium that raises the opportunity for cooperative behavior that would enable better application performance and optimized \gls{isp} resource utilization.
-    In fact, Akamai themselves have formed content delivery strategic alliances with major \glspl{isp}, with AT\&T \cite{att}, Orange \cite{orange}, Swisscom \cite{swisscom} and KT \cite {kt} among them \cite{pushing-cdn-isp-collaboration}, which hints at this type of partnership being the norm for content distribution technologies.
+    In fact, Akamai themselves have formed content delivery strategic alliances with major \glspl{isp}, with AT\&T \cite{att}, Orange \cite{orange}, Swisscom \cite{swisscom} and KT \cite {kt} among them \cite{pushing-cdn-isp-collaboration}, which hints at this type of partnership being the norm for content distribution technologies of the future.
 
         \gls{isp} input permits applications to act in a more network-aware fashion than without it - whereas pairing overlay nodes or deploying edge servers in terms of geographic distance, \gls{rtt} distance, or any other metric, may give further decision power than a purely network-agnostic overlay system, proper guidance by \glspl{isp} could help pairing based on more complex metrics that, besides the aforementioned ones, also consider ISP objectives, e.g., to minimize network distance, avoid bottlenecks, locate content caches, etc.
         A more efficient Internet can be obtained if many other overlays coordinate their efforts with the \gls{isp}, which in turn can now orchestrate its traffic in a way that would previously be generated with no prior guidance, and that can now be engineered to maximize network resource utilization and, consequently, application performance.
@@ -370,8 +369,8 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
 
     The Client-Server model is a classical way of attributing roles in the network.
     Whereas the \gls{p2p} architecture blends server and client roles into each node, this architecture delineates two distinct ones - the client and server - and their purpose on the network, as Figure \ref{fig:cli-serv-architecture} shows.
-    With it, the service layer is centralized onto the server nodes and the only role expected of client nodes is to request services from them.
-    Operating with opposite philosophies from the \gls{p2p} architecture, it is to be expected that the advantages and disadvantages should too be contrasting - by centralizing the services, maintenance and general administration of serving nodes become attainable, and by limiting the number of servers to a select and trustworthy few, instead of scattering that functionality to all nodes in the network, greatly minimizes security risks.
+    With it, the service layer is centralized onto the server nodes, and the only role expected of client nodes is to request services from them.
+    Operating with philosophies which are opposite to the \gls{p2p} architecture, it is to be expected that the advantages and disadvantages should too be contrasting - by centralizing the services, maintenance and general administration of serving nodes are much facilitated, and limiting the number of servers to a select and trustworthy few, instead of scattering that functionality to all nodes in the network, greatly minimizes security risks.
     On the other hand, the drawbacks are also apparent and mirror a distributed solution - issues of scalability, resilience to failure, and resilience to monopolization of power arise from the decision to engineer an application that creates clear boundaries between client and server.
 
     \begin{figure}[!h]
@@ -385,8 +384,8 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
     Adding to this, the client-server approach also serves as a direct alternative to the \gls{p2p} one in many fields, e.g., file transfer or media streaming, with their respective advantages and disadvantages needing to be weighted out for a proper choice to be made.
 
     As an attempt by service providers to still operate a client-server model whilst reducing its associated downsides, given techniques were created and employed.
-    One of which, by the name of \gls{cdn}, is of particular importance in this work and as such has its specific overview in Section \ref{ssec:cdns}.
-    Some others will be discussed below.
+    One of which, by the name of \gls{cdn}, is of particular importance in this work and as such has its specific overview in Section \ref{sec:state-cdn}.
+    Some other methods will be discussed below.
 
     Server mirroring, one famous technique, is the act of continuously synchronizing a server into its replica, or mirror, essentially creating an exact copy of it that is now accessible as if it were the original.
     Whilst \glspl{cdn} aim at replicating chunks of contents wherever it may be necessary, the act of server mirroring performs an integral copy of a server which is self sufficient at servicing a given client, as long as it periodically checks up with the primary server for synchronization.
@@ -402,51 +401,55 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
     \label{fig:mint-mirrors}
     \end{figure}
 
-    Server load balancing is another popular technique to reduce server-client downsides, and it refers to the act of distributing tasks over a set of computing nodes as a means to make the service more efficient, since a server with little processing load is bound to respond quicker than one with more, and situations of overloading become less common as it is now spread out over multiple processing units.
+    Server load balancing is another popular technique to solve scalability issues, and it refers to the act of distributing tasks over a set of computing nodes as a means to make the service more efficient, since a server with little processing load is bound to respond quicker than one with more, and situations of overloading become less common as it is now spread out over multiple processing units.
     Load balancing algorithms can be categorized, according to \cite{load-balancing}, in two categories:
 
     \begin{itemize}
         \item \textbf{Static}: Does not take current system status into account, instead acting upon static rules that define the load type, in regards to, for example, processing power and memory requirements.
-            A round-robin or random approach of load attribution are part of a static approach.
+            A round-robin or random selection of load attribution are part of a static approach.
         \item \textbf{Dynamic}: Load is distributed at run time, considering dynamic information about the system that is continuously being collected.
     \end{itemize}
 
     A static approach can be compelling due to its simple nature that makes it easy to implement and much faster in comparison to run.
     On the other hand, a dynamic approach is more complex by definition as it requires the additional infrastructure required to collect and compute upon the system statistics.
-    As it might be expected though, a load balancing scheme that attempts to optimize resource utilization considering real-time information about system status and performance is bound to have bigger potential at effectively selecting which server should handle a given request since more factors are known to better aid the decision, including the current server loads in the server cluster, their available resources, network conditions, etc.
+    As it might be expected though, a load balancing scheme that attempts to optimize resource utilization considering real-time information about system status and performance is bound to have bigger potential at effectively selecting which server should handle a given request, since more factors are known to better aid the decision, including the current server loads in the server cluster, their available resources, network conditions, etc.
 
     Several methods exist through which to implement load balancing.
-    For example, \gls{dns}-based approaches perform the load balancing at the name resolving stage, where the IP address response is given after selecting an optimal server, such as the proposal in \cite{dns-load-balancing}.
-    \gls{sdn} solutions, as another example, leverage a control pane that is responsible for intercepting server access calls and activate the load balancing mechanisms that redirect to the selected server, as happens in the proposal in \cite{sdn-load-balancing}.
+    For example, \gls{dns}-based approaches perform the load balancing at the domain name resolving stage, where the IP address response is given after selecting an optimal server, such as the proposal in \cite{dns-load-balancing}.
+    \gls{sdn} solutions, as another example, leverage a control pane that is responsible for intercepting server access calls and activate the load balancing mechanisms that redirect that call to the selected server, as happens in the proposal in \cite{sdn-load-balancing}.
 
 
 \subsection{Effects to network infrastructure}
 
-\label{ssec:p2p-effects}
+\label{ssec:client-server-effects}
 
     As a base method, the utilization of the client-server architecture is not at all recent to \glspl{isp}.
-    Quite the contrary, it is the norm throughout the decades to provide a service by using a set of single-purpose server machines.
-    Intuitively, using a limited number of servers to respond to clients needs will have problem scaling, as increased demand will overload servers and create path congestion, hence the need to employ some of the strategies discussed above.
+    Quite the contrary, it was the norm throughout the decades to provide a service by using a set of single-purpose server machines.
+    Intuitively, using a limited number of servers to respond to client needs will have problems scaling, as increased demand is prone to service overload and path congestion, hence the need to employ some of the strategies discussed on the previous section.
     These strategies come from the necessity to fulfill both application and \gls{isp} requirements, i.e., to achieve proper \gls{qos} levels and infrastructure resourcefulness that helps the general good function of the network, respectively.
 
     Much like the content replication utilized in \glspl{cdn}, an integral replication of a main server proves itself as an advantageous tool capable of delivering services more closely to users, and as such allows the reduction of total amount of bandwidth used to serve all clients.
-    Optimizing application traffic is crucial to guarantee good network resource usage, and in case of server mirroring it comes down to good strategical deployment and dynamic, intelligent algorithms to properly attribute mirrors to requesting end-users.
+    Optimizing application traffic is crucial to guarantee good network resource usage, and in case of server mirroring it comes down to good strategic deployment and dynamic, intelligent algorithms to properly attribute mirrors to requesting end-users.
+
     Giving end-users the choice to manually select the serving mirror, as commonly happens when downloading software, for example, seems problematic, as application-generated traffic is not optimized.
-    In fact, when considering the Linux Mint software package distribution discussed above, despite there currently existing seventy mirrors deployed throughout the globe to fit this role, a large number of these remains mostly unused whilst the main and default server is constantly prone to overworking \cite{mint-article}.
+    In fact, when considering the Linux Mint software package distribution discussed in the previous section, despite there currently existing seventy mirrors deployed throughout the globe to fit this role, a large number of these remains mostly unused whilst the main and default server is constantly prone to overworking \cite{mint-article}.
+
     It can be stated that end-users both don't care enough to optimize traffic nor do they have enough information to properly do so even if they did.
     Deployment of server mirrors is a great tool that brings with it the issue of optimizing server selection, and much like all examples given so far, traffic generated by applications can be firstly optimized by the applications themselves if they consider static and dynamic information of the network they operate on.
 
     Load balancing is too a point of great interest in the task of application-layer traffic optimization.
-    The task of attributing a current request to a pool of available redundancy workers is a common strategy to help scalability, and how it is done has concrete network consequences as it has the power to shape great amounts of traffic in ways that can be more or less preferable for \glspl{isp}.
+    The task of attributing a current request to a pool of available redundancy workers is a common strategy to help scalability, and the means through which to do so have concrete network consequences, since it has the power to shape great amounts of traffic in ways that can be more or less preferable for \glspl{isp}.
     It could then be deduced that a load balancing strategy has better chances of being efficient if it fully aware of both server status and network conditions.
-    Doing so with \gls{isp} cooperation would reveal insight in some network status information and preferences that could not be retrieved otherwise, and, much like what was argued for in section \ref{ssec:cdn-effects}, could severely reduce overhead traffic created by probing and measurement strategies if such data was centralized in an entity with full network knowledge.
+    Doing so with \gls{isp} cooperation would reveal insight into some network status information and administrative preferences.
+    For the section of data that could be retrieved utilizing probing and measurement strategies, a bank of centralized data possessed by an entity with full network knowledge would greatly reduce overhead probing traffic and monitoring computation cycles.
+    For the section of data that could only be retrieved with proper \gls{isp} insight, more efficient and network-cognizant decisions would now be possible, in contrast to the limited one-sided attempt at optimizing application decisions that generate traffic.
 
 \section{Traffic optimization by applications and layer-cooperative approaches}
 
 \label{sec:state-solutions}
 
     This section serves to display proposed solutions and existing implementations that have been made in the attempt to optimize application traffic utilizing network information.
-    Given the increasing scale of the Internet as a near ubiquitous system, and the increasing tension between applications and service providers, it comes with no surprise that the area of layer cooperation has been through exhaustive work.
+    Given the increasing scale of the Internet as a near ubiquitous system, and the increasing tension between applications and service providers, it comes as no surprise that the area of layer cooperation has been through exhaustive work.
     Many solutions have been devised for specific use cases, with varying degrees of power given to each one of the layers, and different levels of cooperation.
     Along with their description, their review is made in regards to what the proposals state their impact is to applications and the infrastructure, as well as the accompanied advantages and disadvantages.
 
@@ -475,25 +478,30 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
             These classes of methods do not fix the underlying application behaviour, but are instead used to control preexisting traffic.
             As such, the peers' routing decisions are not affected and \gls{p2p} traffic still remains non localized.
         \item \textbf{Class 2}:
-            There is \gls{isp} intervention in the overlay in such a way that peers continue normal operation without realizing that such interventions occur.
+            There is \gls{isp} intervention in the overlay in such a way that peers continue normal operations without realizing that such interventions occurred.
             This can be reached via the use of proxies that can affect the control plane with the redirection of content requests to local peers, or at the data plane with content caches which act as normal peers and are strategically placed in the network.
-            These methods are advantageous because they do not require any changes to the \gls{p2p} protocols, because the \gls{isp} has an active role in molding to the overlay, intercept traffic, and either help or guide it in a way that favours them.
-            Indeed, these techniques haven been proven to work , as concluded in \cite{dan-Commag10}, and put into practice, for example, in \cite{programmable-trackers}, \cite{configurable-trackers}, and \cite{rev3}, via the specification of a BitTorrent tracker that is programmable to allow for \gls{p2p} qualitative differentiation and \gls{isp}-cooperative traffic engineering that could help reduce inter-domain traffic significantly.
+            These methods are advantageous because they do not require any changes to the \gls{p2p} protocols, since the \gls{isp} has an active role in molding to the overlay, intercept traffic, and either help or guide it in a way that favours them.
+
+            Class 2 techniques haven been proven to work , as concluded in \cite{dan-Commag10}, and put into practice, for example, in \cite{programmable-trackers}, \cite{configurable-trackers}, and \cite{rev3}, via the specification of a BitTorrent tracker that is programmable to allow for \gls{p2p} qualitative differentiation and \gls{isp}-cooperative traffic engineering that could help reduce inter-domain traffic significantly.
             Additionally, in \cite{altruistic-gnutella}, with the injection of special nodes on the Gnutella overlay which interface with the base protocol nodes but with the added caching and load-balancing mechanisms, in the attempts to alleviate the great amount of "free riding" that exists in Gnutella applications - as discussed in Section \ref{ssec:p2p-effects} - by minimizing the total amount of query floods and more evenly distributing content throughout the network for increased infrastructure resourcefulness.
-            However, this class of mechanisms is not without its challenges - firstly, it involves much effort by \glspl{isp}, as it requires structural upgrades and constant adaptiveness to new and changing \gls{p2p} protocols.
-            Perhaps worse, even when considering proper budget and maintenance, such methods can prove themselves to be not possible at all - for legal reasons, as data caches could possibly contain illegal content; and for technical reasons, since the packet inspection required by \glspl{isp} to detect and steer \gls{p2p} traffic may be blocked due to the peer's attempts to mask its traffic.
+
+            Despite their proven results in many areas, this class of mechanisms is not without its challenges - firstly, it involves much effort by \glspl{isp}, as it requires structural upgrades and constant adaptiveness to new and changing \gls{p2p} protocols.
+            Perhaps worse, even when considering proper budget and maintenance, such methods can prove themselves to not be possible at all - for legal reasons, as data caches could possibly contain illegal content; and for technical reasons, since the packet inspection required by \glspl{isp} to detect and steer \gls{p2p} traffic may be blocked due to the peer's attempts to mask its traffic.
             It's also important to note that since no application-layer input exists, this approach could be one-sided in the sense that only \gls{isp} needs are favored without directly considering application needs.
 
         \item \textbf{Class 3}:
-            Relative to previous classes, the active role is switched and it is the \gls{p2p} system itself that acts in regards to the underlay it operates on, but without \gls{isp} involvement.
+            Relative to a class 2 approach, the active role is switched and it is the \gls{p2p} system itself that acts in regards to the underlay it operates on, but without \gls{isp} involvement.
             Peers probe the neighboring network elements as a way to get more familiar with connection properties, and act on these probings during operation, e.g., when choosing neighbours to construct the overlay network with, or when choosing from whom to request a given resource.
+
             Whilst these methods can be advantageous for both applications and \glspl{isp}, it can't be assumed that to always be the case - as peers have no \gls{isp} input, they cannot have a full knowledge scope of the network and its needs, and as such these application optimizations can end up being more hurtful than helpful.
-            For example, consider a scenario where a peer uses \gls{rtt} measurements to choose between two candidate peers, but the one that is geographically closest to it belongs to another \gls{as}, and his preference for it to supply the service would incur in more infrastructural costs.
+            For example, consider a scenario where a peer uses \gls{rtt} measurements to choose between two candidate peers, but the one that is the least round-trip time away from him belongs to another \gls{as}, and his preference for it to supply the service would incur in more infrastructural costs.
+
             The paper describes this class as a "win-not-lose" situation, meaning that while the \gls{p2p} system can, in the right circumstances, improve their performance via measurement-oriented strategies, the ability to act in a way that positively affects the underlay, without any feedback from \glspl{isp}, cannot be guaranteed.
+
             Such an example of class 3 mechanisms could be seen in \cite{qin2009}, which improved BitTorrent's download performance and even managed to reduce \glspl{isp}' backbone and cross-\gls{isp} traffic.
             The technique consisted of having peers send traceroute measurements to the tracker, which in turn grouped the peers into local, intra-\gls{isp} and inter-\gls{isp} groups, with the assumption that inter-\gls{isp} links generally have much more latency than the rest.
             As peers would later query the tracker for content, the returned peer list would be biased in such a way that promotes traffic locality.
-            Another example of this is \cite{kim2011}, which devised a \gls{cdn}-\gls{p2p} hybrid where peers utilize \gls{rtt} measurements to group themselves by separate orders of geographical proximity with the same intent of the previous example, which is to localize traffic whenever possible.
+            Another example of this is found in \cite{kim2011}, which devised a \gls{cdn}-\gls{p2p} hybrid where peers utilize \gls{rtt} measurements to group themselves by separate orders of geographical proximity with the same intent of the previous example, which is to localize traffic whenever possible.
             This technique also proved itself to be advantageous, as the solution was more efficient in terms of reduced total service disruption time when compared to a previous iteration of the hybrid architecture which used random peer selection to look up available target peers.
             As a final example, \cite{topology-aware-p2p-server-selection} proposed a node binning scheme that groups nodes of similar orders of magnitude of \gls{rtt} values to pre-defined landmarks, and utilized such scheme for topology-aware overlay construction mechanisms in some unstructured and structured \gls{p2p} overlays.
             Results allowed to conclude that even surface-levels topological information is advantageous and can significantly improve application performance.
@@ -502,13 +510,14 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
             Full and active cooperation exists between the \glspl{isp} and \gls{p2p} systems.
             The role of the \glspl{isp} is to provide information and guidance, and \gls{p2p} systems let themselves be influenced during operation.
             It is the methodology that most comes close to a mutually advantageous scenario for both parties, given that they both keep the entire group's needs in mind.
+
             For example, \cite{locality-aware-p2p} proposes an oracle that receives as input a list of candidate peers that the querying peer is considering connecting to, and ranks them by client connection proximity.
             Such method was tested in a simulated environment and proven to decrease negotiation traffic and improve scalability of \gls{p2p} networks.
-            Similarly, \cite{configurable-trackers} proposes a framework for programmable trackers in a BitTorrent scenario, providing an interface to directly define tracker behavior which, given ISP input, can provide a collaborative environment between infrastructure administrators and the BitTorrent users in an attempt to, among other things, localize traffic.
             The functional intent of the oracle pattern is that he possesses privileged network information and acts on it to provide guidance to querying applications, and thus has the power to impose policies and optimizations unto applications, e.g., pair peers which are the least number of network hops apart via a Dijkstra algorithm using link costs derived from network-related ISP insight.
-            Another approach that could be used by the oracle proposed in \cite{han2009} contains algorithms to dictate peer selection, task assignment and rate allocation.
+            Another approach that is the oracle proposed in \cite{han2009}, containing algorithms to dictate peer selection, task assignment and rate allocation.
             The method requires the full network topology as input - including link capacities and peer service costs - to minimize file downloading time and cost.
-            The oracle would also be free to enforce \gls{isp} biases as its preferences by modifying such algorithms to, for example, minimize usage of costly links (such as inter-\gls{as} ones, and subject to peering agreements).
+            The oracle would also be free to enforce \gls{isp} biases as preferential by modifying such algorithms to, for example, minimize usage of costly links (such as inter-\gls{as} ones, and subject to peering agreements).
+
             The \gls{alto} working group - whose work this thesis attempts to materialize into a working system and further extend its features - was formed to standardize the oracle-user scenario so it could be properly used in many situations at the scale of the Internet.
 
     \end{itemize}
@@ -517,7 +526,7 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
 
 \label{ssec:cdns}
 
-    Given the current share that \glspl{cdn} have on global Internet traffic of today, coupled with the demand for a good \gls{qoe} by end-users, it should come as no surprise that this application domain has also been through efforts to optimize its traffic.
+    Given the current share that \glspl{cdn} have on the global Internet traffic of today, coupled with the demand for a good \gls{qoe} by end-users, this application domain has also been through efforts to optimize its traffic.
     One such way to do so is to optimize client query redirection, i.e., better choose which edge server should be attributed to an end-user when a name resolution is requested for some content.
 
     \cite{gromov2014} considers a \gls{cdn} built to deliver video data where some given set of content exists redundantly in many edge-servers, and presents an algorithm where the choice is made to optimize client download time, which in turn has to consider the network parameters at time of request, as well as current server load.
@@ -528,13 +537,14 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
     The four devised interfaces - \gls{cdni} Control interface, \gls{cdni} Request Routing interface, \gls{cdni} Metadata interface, and \gls{cdni} Logging interface - are all to be operated at the application layer, and the group states that no new application protocol needs to be devised.
     Instead, existing protocols could be leveraged, e.g., \gls{http}, Atom publishing protocol, \gls{xmpp}, and in particular to the \gls{cdni} Request Routing interface, the \gls{alto} protocol could enable \gls{cdn} server footprint retrieval.
 
-    Centralized network measurement repositories for wide consumption were tackled in project such as \gls{idmaps} \cite{idmaps} and \gls{gnp} \cite{gnp}, that describe architectures for a global distance estimation service, leveraging measurements made by specialized nodes that retrieve raw network data, and heuristic provide scalable and functionally reliable path costs in metric such as bandwidth and latency.
+    Centralized network measurement repositories for wide consumption were tackled in projects such as \gls{idmaps} \cite{idmaps} and \gls{gnp} \cite{gnp}, that describe architectures for a global distance estimation service, leveraging measurements made by specialized nodes that retrieve raw network data, and heuristics provide scalable and functionally reliable path costs in metric such as bandwidth and latency.
     These consist of systems that centralize and share network probing results to querying entities, thus minimizing overhead traffic on the network.
-    Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay-residing application that wants to utilize network probing to be more underlay-aware for application optimization.
+    Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay-residing application that wants to utilize network probing to be more underlay-aware for application optimizations.
 
     \cite{cdn-isp-cooperations} argues for the advantage of \gls{cdn}-\gls{isp} cooperative interactions and overviews three possible strategies that will be now discussed briefly: \gls{padis} \cite{pfa-10} is a system deployed and controlled by \glspl{isp} that monitors the network by listening to \gls{egp} and \gls{igp} messages and contains a privileged view of the topology and its status.
-    It provides a service that ranks host-client pairs in regards to, for example, delay, bandwidth, or hop count, and experimental testings concluded that the download times of content provided by \glspl{cdn} that utilize \gls{padis} could be improved up to a factor of four, and generally gives much flexibility for \glspl{isp} to engineer traffic; \gls{cate}  \cite{fps-12} is designed in a similar manner to \gls{padis} but requires no client-side configuration, and experimental results concluded that network wide traffic was reduced by 15\%, link utilization was reduced by 40\%, and user-server performance generally increased; \gls{netpaas} \cite{pushing-cdn-isp-collaboration} was devised to fulfill two key enablers in a fruitful \gls{cdn}-\gls{isp} collaboration - user-server assignment, as it was tackled in the previous two examples, and server allocation, i.e., where should a \gls{cdn} deploy its servers and its contents.
-    This service, besides having the advantages of increased application performance and better \gls{isp} traffic control that were also mentioned in the previous two solutions, also facilitates the task of server allocation for \glspl{cdn}, reinforcing the discussed advantages and optimizing \gls{cdn} operations.
+    It provides a service that ranks host-client pairs in regards to, for example, delay, bandwidth, or hop count, and experimental testings concluded that the download times of content provided by \glspl{cdn} that utilize \gls{padis} could be improved up to a factor of four, and generally gives much flexibility for \glspl{isp} to engineer traffic; \gls{cate}  \cite{fps-12} is designed in a similar manner to \gls{padis} but requires no client-side configuration, and experimental results concluded that network wide traffic was reduced by 15\%, link utilization was reduced by 40\%, and user-server performance generally increased; \gls{netpaas} \cite{pushing-cdn-isp-collaboration} was devised to fulfill two key enablers in a fruitful \gls{cdn}-\gls{isp} collaboration - user-server assignment, as it was tackled in the previous two examples, and server allocation, i.e., where should a \gls{cdn} deploy its servers their contents.
+    This service, besides having the advantages of increased application performance and better \gls{isp} traffic control that were also mentioned in the previous two solutions, also facilitates the task of server allocation for \glspl{cdn}, reinforcing the discussed advantages and further optimizing \gls{cdn} operations.
+
     Still in the topic of \gls{cdn}'s edge server selection, \cite{wichtlhuber2017} suggests an \gls{sdn}-oriented solution that combines the performance of \gls{dns} load balancing with the low management overhead of \gls{ip} anycast.
     Load balancing is performed at the \gls{sdn} control layer by applying collaborative efforts between the \gls{cdn} and the \gls{isp}.
     This example of layer cooperation can allow for many optimization opportunities that leverage an existing and low-maintenance mean of request routing with the flexibility of \gls{sdn} solutions.
@@ -554,12 +564,15 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
 
 \subsection{Summary}
 
-    Concluding, application traffic optimization does indeed to be a common concern for \gls{p2p}, \gls{cdn}, and Server-Client systems, as it improves application performance.
-    Indeed, potential to improve exists if attempts are made to better comprehend current network status to aid application decisions, and so is made by realizing more about the underlay, whether by probing it, or retrieving that information from - or delegating decisions to - authoritative and generally trustworthy sources that keep both interests in mind.
+    Concluding, application traffic optimization does indeed seem to be a common concern for \gls{p2p}, \gls{cdn}, and Server-Client systems, as it improves application performance.
+
+    Indeed, potential to optimize traffic at the application layer exists if attempts are made to better comprehend current network status to aid application decisions, and so is made by realizing more about the underlay, whether by probing it, or retrieving that information from - or delegating decisions to - authoritative and generally trustworthy sources that keep both interests in mind.
+
     A fully mutual cooperative scenario seems much more efficient than one sided approaches.
     Considering \glspl{isp}, the ability to directly impact application behavior lets them engineer traffic at a more fine-grained level, that would be impossible without it.
-    Considering applications, at worst, resorting to \gls{isp} guidance would help minimize the amount of redundant network overhead generated from all kinds of applications monitoring the underlay for their status, and at best will allow better insight that only the \gls{isp} itself could provide, with its privileged intimate knowledge of the infrastructure and centralized monitoring structure that gives information about historical traffic patterns.
-    Thus, a win-win scenario is theoretically possible, a result much valuable assuming an existing cooperative infrastructure and voluntary participation from both layers.
+    Considering applications, one of the following could happen: one possibility is that the application can start using network data to optimize its decisions, another possibility is that an application already leveraging only probing data can  swap it's own deduced knowledge with the \gls{isp}'s, minimizing the amount of redundant network overhead generated from all kinds of applications monitoring the underlay for their status, and another possibility is that, besides using the oracle's probing data, the application further improves its decisions with the better insight that only the \gls{isp} itself could provide, with its privileged and intimate knowledge of the infrastructure and how to more efficiently run it, and in possession of a centralized monitoring structure that gives information about historical traffic patterns over long stretches of time.
+
+    Summarizing, a win-win scenario between layers is theoretically possible, and an argument was made stating that, assuming an existing cooperative infrastructure and voluntary participation from both parties, there are ample benefits to be gained.
 
 \section{Application-Layer Traffic Optimization (ALTO) working group}
 
@@ -567,48 +580,52 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
 
 \subsection{Context and Motivation}
 
-    Acting on research indications that improved peer selection algorithms based on \gls{isp}-provided information could help reduce infrastructural costs and increase \gls{p2p} application performance, the \gls{ietf} devised working groups to explore possible standardization in the area of layer-cooperation \cite{seedorf2009}.
-    Among them is the \gls{alto} working group, whose domain is traffic localization.
+    Acting on research indications informing that improved peer selection algorithms based on \gls{isp}-provided information could help reduce infrastructural costs and increase \gls{p2p} application performance, the \gls{ietf} devised working groups to explore possible standardization in the area of layer-cooperation \cite{seedorf2009}.
+    Among those groups is the \gls{alto} working group, whose domain is traffic localization.
 
     The \gls{alto} \cite{alto-about} working group designed an \gls{http}-based protocol whose function is to allow hosts to query privileged servers on network information.
-    The \gls{ietf}-devised working group's project has gathered much academic interest, e.g., \cite{seedorf2009}, \cite{pfa-10}, \cite{adaptable-overlay}, \cite{liao2014}, and \cite{dan-Commag10}, as well being suggested as an appropriate framework to help fix various problems, e.g., \cite{fps-12}, \cite{pfa-10}, \cite{wichtlhuber2017}, and \cite{cdni-problem-statement}, and these form a subset of a larger current preoccupation with the underlay-overlay tussle and the attempt to find means of collaborative layer effort.
+    The \gls{ietf}-devised working group's project has gathered much academic interest, e.g., \cite{seedorf2009}, \cite{pfa-10}, \cite{adaptable-overlay}, \cite{liao2014}, and \cite{dan-Commag10}, as well as being suggested as an appropriate framework to help fix various problems, e.g., \cite{fps-12}, \cite{pfa-10}, \cite{wichtlhuber2017}, and \cite{cdni-problem-statement}, and these form a subset of a larger preoccupation with the underlay-overlay tussle and the attempt to find layer collaboration mechanisms.
+
     The envisioned scenario of the service provided by the \gls{alto} architecture, as can be seen in Figure \ref{fig:alto-design}, considers both the physical and application domains - the underlay and overlay, respectively.
     The \gls{alto} service is provided by some oracle, which in turn needs to be supplied with network information that can take many forms - topological structure, routing costs, static policies, etc. - and, most importantly, such data is to be fed by an \gls{isp} or such other authoritative entity that contains truthful and relevant network information that the oracle could deem useful in aiding its clients.
-    Using Figure \ref{fig:alto-design} as an example, consider that "Peer 2" wishes to retrieve a given resource with the application, and after probing the overlay network - via querying a tracker, using a flood of peer pings, or some of the means utilized by structured \gls{p2p} networks - the peer locates "Peer 1" and "Peer 3" as possible candidates to serve the content it wants to retrieve.
-    Aware of the fact that choosing whom to consume a service from has impacts on both application performance and network resource utilization, "Peer 2" is to use the \gls{alto} service, querying the oracle on information pertaining to the candidate peers, and in regards to metrics that better fit the needs of the application - because different applications could have different \gls{qos} metric priorities in mind, like a media stream with low delay needs or a file sharing application with focus on high bandwidth availability.
-    The \gls{isp} is then be in full control of engineering how the traffic from this resource transfer will flow, and can steer "Peer 2" in favoring "Peer 3" - since they reside in the same physical network domain, this would improve infrastructure resourcefulness and there would be no need to make use of peering links that interface with external regions.
-    As could be deduced from this and similar scenarios, an architecture containing one or more servers that are knowledgeable on the network they reside on could be an important tool to make \gls{p2p} applications locality-aware, a common goal for the underlay and overlay parties since it is a win-win scenario.
+
+    Using Figure \ref{fig:alto-design} as an example, consider that "Peer 2" wishes to retrieve a given resource, and after probing the overlay network - by querying a tracker, using a flood of peer pings, or some of the means utilized by structured \gls{p2p} networks - the peer locates "Peer 1" and "Peer 3" as possible candidates to serve the content it wants to retrieve.
+    Aware of the fact that choosing whom to consume a service from has impacts on both application performance and network resource utilization, "Peer 2" uses the \gls{alto} service, querying the oracle on information pertaining to the candidate peers, and in regards to metrics that better fit the needs of the application - because different applications could have different \gls{qos} metric priorities in mind, like a media stream with low delay needs or a file sharing application with focus on high bandwidth availability.
+    The \gls{isp} is then in full control of engineering how the traffic from this resource transfer will flow, and can steer "Peer 2" in favoring "Peer 3" - since they reside in the same physical network domain, this would improve infrastructure resourcefulness and there would be no need to make use of peering links that interface with external regions.
+    As could be deduced from this and similar scenarios, an architecture containing one or more servers that are knowledgeable of the network they reside on could be an important tool to make \gls{p2p} applications locality-aware, a common goal for the underlay and overlay parties since it is a win-win scenario.
 
     \begin{figure}[H]
     \centering
     \includegraphics[scale=0.75]{alto-design.png}
-    \caption{ALTO scenario \cite{seedorf2009}}
+    \caption{ALTO scenario of achieving traffic locality \cite{seedorf2009}}
     \label{fig:alto-design}
     \end{figure}
 
     Despite its origins lying in the efforts to localize traffic in \gls{p2p} applications, the \gls{alto} protocol and its encompassing system is now being considered in other fields, to be now further discussed.
 
-    A first area of interest is \glspl{cdn}, most specifically the on-going works in extending the base protocol to implement the \gls{cdni} Request Routing Footprint \& Capabilities Advertisement interface \cite{alto-cdni}, which is a subset of the \gls{cdni} standard \cite{cdni-problem-statement} that aims to allow upstream \glspl{cdn} to query known downstream \gnspl{cdn} for their willingness to accept content requests on their behalf.
-    In particular, one of the main functionalities of the \gls{cdni} request routing interface is the ability for upstream \glspl{cdn} to retrieve static or dynamic information on download \glspl{cdn} (resources, footprint, load), which they provide themselves, and that allow the upstream \glspl{cdn} to better choose the appropriate edge server that could serve a given end-user.
+    A first area of interest is \glspl{cdn}, most specifically the on-going works in extending the base protocol to implement the \gls{cdni} Request Routing Footprint \& Capabilities Advertisement interface \cite{alto-cdni}, which is a subset of the \gls{cdni} standard \cite{cdni-problem-statement} that aims to allow upstream \glspl{cdn} to query known downstream \glspl{cdn} for their willingness to accept content requests on their behalf.
+    In particular, one of the main functionalities of the \gls{cdni} request routing interface is the ability for upstream \glspl{cdn} to retrieve static or dynamic information on download \glspl{cdn} (available resources, usage loads, etc.), which they provide themselves, and that allow the upstream \glspl{cdn} to better choose the appropriate edge server that could serve a given end-user.
     \gls{alto} serves as a good protocol to implement such functionality because it fits its use-case: some node wishes to improve its routing decisions to better decide on which other node to select, by using information that is hard, or nearly impossible, to independently retrieve. 
     Regarding \glspl{cdn}, the querying node is an upstream \gls{cdn} server that wishes to resolve their content requests by attributing the client to the most optimal downstream \gls{cdn} servers, where the content resides.
-    At a more abstract level, this is similar to the use case discussed above where \gls{p2p} required assistance to more optimally select peer connections.
+    At a more abstract level, this is similar to the use case already discussed, which is shown on Figure \ref{fig:alto-design}, where overlay peers required assistance to more optimally select peer connections.
 
     Edge computing, similarly to \glspl{cdn}, uses a paradigm of flexible service distribution that enables deployment closer to the end user for better performance, and thus is inherently effected by network status.
-    Current work is being made on how \gls{alto} can be leveraged to aid the task of deployment of functions or applications in the network edge \cite{alto-determining-service-edge}.
-    Much like the previous example, \gls{alto} is being used to guide an application in a decision with impacts on both layers - by querying the \gls{alto} server, the client can retrieve information that regards to \gls{pop} where functions/applications can be deployed, such as cloud computing provider's available resources, e.g., \gls{cpu}, \gls{ram}, or storage, but also network information that pertains to the outside of the \gls{pop}, mainly network connectivity metrics, e.g., end-to-end bandwidth and delay, and routing costs.
+    Current work is being made on how \gls{alto} can be leveraged to aid the deployment of functions or applications in the network edge \cite{alto-determining-service-edge}.
+    Much like the previous example, \gls{alto} is being used to guide an application in a decision that impacts both layers.
+    By querying the \gls{alto} server, the client can retrieve information that regards to \gls{pop} where functions/applications can be deployed, such as cloud computing provider's available resources, e.g., \gls{cpu}, \gls{ram}, or storage, but also network information that pertains to the outside of the \gls{pop}, mainly network connectivity metrics, e.g., end-to-end bandwidth and delay, and routing costs.
     The utilization of the \gls{alto} protocol in this context would allow edge service clients and providers, as well as \glspl{isp}, the ability to combine efforts as a means to optimize edge computing deployment that considers the current network status, and doing so would thus result in benefits for both end-users and infrastructure maintainers.
 
-        More broadly, current work is also being done in specifying abstract network entities path arrays between points \cite{alto-path-vector} and time-sensitive cost values \cite{alto-calendar-cost-map}, both of which share higher insight of the network, at the discretion of the \gls{isp}, as a means to provide even more context to applications about the infrastructure, such as identifying potential path bottlenecks and high traffic time peaks, respectively, and thus improve the ability of applications to optimally generate application traffic on the network.
+    More broadly, current work is also being done in specifying \gls{ane} path arrays between points \cite{alto-path-vector} and time-specific cost values \cite{alto-calendar-cost-map}, both of which share higher insight into the network, at the discretion of the \gls{isp}, as a means to provide even more context to applications about the infrastructure, such as identifying potential path bottlenecks and times of traffic peaks, and thus improve the application's ability to optimally generate traffic.
 
-    A mode of operation where applications no longer operate in disregard of the network infrastructure they run on, but instead in deep consideration of it, could help significantly alleviate the issues emerging from the tension between the underlay and overlay, and is of mutual interest - improving application performance and reducing infrastructural costs.
+    A mode of operation where applications no longer act in disregard of the network infrastructure they run on, but instead in deep consideration of it, could help significantly alleviate the issues emerging from the tension between the underlay and overlay, and is of mutual interest - improving application performance and reducing infrastructural costs.
     Enabling a communication channel can thus allow for many different co-operational use cases besides the aforementioned ones.
     For example, redirecting users to nearby data caches or warning them of server maintenance ahead of time.
-    The existence of an all-encompassing oracle could also prove beneficial for applications which utilize periodic network probing to guide their choices, as such information could be measured by a select few nodes in the network and applicable to all nodes which are close-by to such node in ways that the \gls{isp} deems advantageous, such as belonging to the same \gls{as} or geographically close by, thus minimizing the amount of otherwise redundant probing required by all application entities that wanted some network status information.
-    \gls{isp}-guided counseling, however, does more than centralize measurements that could be done by the application itself.
-    Besides containing measurements that could only be retrieved by the \gls{isp} itself due to its privileged access to the network, such as \gls{igp} packet inspections or secure \gls{snmp} queries, by handing over the decision-making process to the service provider entity, it is given power to better steer traffic in a way that favors internal policies and strategies, such as peering agreements, current traffic flow of other applications, known bottlenecks, etc., that could not be deduced by the applications alone.
+
+    The existence of an all-encompassing oracle could also prove beneficial for applications which utilize periodic network probing to guide their choices, as such information could be measured by a select few nodes in the network and applicable to all nodes which are close-by in ways that the \gls{isp} deems advantageous, such as belonging to the same \gls{as} or geographically near, thus minimizing the amount of otherwise redundant probing required by all application entities that wanted some network status information.
+
+    The oracle, besides containing measurements that could only be retrieved by the \gls{isp} itself due to its privileged access to the network, such as \gls{igp} packet inspections or secure \gls{snmp} queries, by handing over the decision-making process to the service provider entity, it is given power to better steer traffic in a way that favors internal policies and strategies, regarding, for example, peering agreements, current traffic flow of other applications, known bottlenecks, etc., that could not be deduced by the applications alone.
     Thus, in the decision of how to generate application traffic, the responsibility should reside in both the application and the infrastructure as a way to benefit all relevant parties, i.e., the end users, the application stakeholders, and the service providers.
-    \gls{alto} protocol serves an enabler of a mutually cooperative layer interaction system that, by becoming the standard, would aid towards a sustainable life-cycle of the Internet.
+    The \gls{alto} protocol serves as an enabler of a mutually cooperative layer interaction system that, by becoming the standard, would aid towards a sustainable life-cycle of the Internet.
 
     Finally, standardizing an architecture and related protocols for a clear problem domain could help a large subset of similar issues, since a well defined and tested specification would exist, thus allowing many applications to leverage the \gls{alto} protocol's functionalities to their needs, not requiring further cycles of development for a specification when one already exists.
     Also, the attempt to standardize the oracle pattern is helpful as it joins forces from many different domains which share common problems - many of which were exemplified previously - into a single specification.
@@ -618,7 +635,7 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
 
     The high-level conceptual \gls{alto} architecture can be seen in Figure \ref{fig:alto-architecture}.
         Central to the operation is the \gls{alto} server, which stores network information and provides it to querying clients.
-        Such network information is provided by trustworthy and relevant entities, as could be derived by routing protocols, \gls{isp}-specific policies, historic measurements, and feedback provided by third parties regarding application performance on the network.
+        Such network information is provided by trustworthy and relevant entities, and could be derived by routing protocols, \gls{isp}-specific policies, historic measurements, and feedback provided by third parties regarding application performance on the network.
         Two protocols can be seen as part of the general architecture: the provisioning protocol, which is not currently contemplated by the \gls{alto} working group, should specify how information is provided to the \gls{alto} server; the \gls{alto} protocol, which is the main focus of the working group with the same name, specifies server-client interactions as a request-response interface for retrieval of network attributes.
         The \gls{alto} client is the main consumer of the \gls{alto} service, and it queries the \gls{alto} server on network information whenever it deems such data as necessary to what it's doing at a given moment, with some potential use cases discussed previously.
         An \gls{alto} client could be seen as any entity which is able to interface with the \gls{alto} protocol with the role of a client, and as such is not tied to a specific implementation - in the example of \gls{p2p} file sharing, a peer can act as an \gls{alto} client (like the example scenario in Figure \ref{fig:alto-design}), but a tracker could instead take that role, enhancing its ability of assisting peer communication by having an embedded \gls{alto} client that would then act on behalf of peers when querying for \gls{isp} insight as to provide an optimal peer pairing.
@@ -643,17 +660,17 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
     The \gls{alto} server stores and provides special mappings in the form of network and cost maps.
 
     A network map provides network location grouping identifiers and the corresponding aggregated endpoints.
-    It utilizes \glspl{pid} as a key, and the mapping itself is left to the responsibility of the providers - it is a way of indicating that many endpoints should be handled similarly.
-    A provider can then aggregate endpoints by geographical proximity, one or many subnets, one or many \glspl{as}, etc., and attribute properties to the aggregate, instead of the endpoint.
+    It utilizes \glspl{pid} as keys, and the mapping itself is left to the responsibility of the providers.
+    A provider is free to organize endpoints with the criteria he pleases, such as geographical proximity, one or many subnets, one or many \glspl{as}, etc., and attribute properties to the aggregate, instead of the endpoint.
     This is advantageous not only for scalability reasons - since it can compress information - but also because it allows \glspl{isp} to abstract network endpoints into groups, thus ensuring privacy of network topology details whilst maintaining useful network guidance, as the \gls{isp} has full control of how endpoints are aggregated, and consequentially how traffic is engineered since this changes how clients interpret resources.
 
-    A second resource type provided is a cost map, which can be defined as a matrix M, where $M_{ij}$ - with i and j being the source and destination \glspl{pid}, respectively - is the associated path cost between the two indexes.
+    A second resource type provided is the cost map, which can be defined as a matrix M, where $M_{ij}$ - with i and j being the source and destination \glspl{pid}, respectively - is the associated path cost between the two indexes.
     The cost has two components: its metric and mode.
     The \gls{alto} base protocol only defines a single, generic, cost metric called "routingcost".
     However, \cite{alto-cost-metrics} is currently specifying more concrete metrics, with many associated with \gls{qos} evaluation, e.g., one way and round trip delay, packet loss and throughput.
     The other cost property, cost mode, can either specify that the metric is to be interpreted as a numerical value or as an ordinal ranking among all other costs in that cost map - this is useful in cases where too much network information is not deemed reasonable to share, and a simple order of preference that doesn't expose excessive infrastructural details can suffice.
     The decision to separate network and cost map information into two types of resources comes from the reasoning that network mappings are unlikely to change, whereas cost mappings could be periodically updated.
-    As such, it alleviates client applications from the need to retrieve redundant information, and the ability to only retrieve a subset of it - this ability is further expanded in the map filtering service, which allows an \gls{alto} client to further specify which regions of the requesting maps it wishes to retrieve (much like a "SELECT" statement from an \gls{sql} database), and only these are transmitted.
+    As such, it alleviates client applications from the need to retrieve redundant information, and gives the ability to only retrieve a subset of it - this ability is further expanded in the map filtering service, which allows an \gls{alto} client to further specify which regions of the requesting maps it wishes to retrieve (much like a "SELECT" statement from an \gls{sql} database), and only these are transmitted.
 
     Finally, the last two services focus on mappings that regard to specific endpoints, instead of abstract mappings that utilize \glspl{pid}.
     An endpoint is currently identified by one of the following: \gls{ip} address, \gls{mac} address, or generic overlay ID.
@@ -664,7 +681,7 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
     It also attempts to standardize such interactions in the form of data structures with well defined attributes which are then to be manipulated for each use case.
     This could then serve as a useful service for any application that wishes to retrieve network information as a means to improve its decision making at the application level.
     It is important to note that there are restrictions to what kinds of information are contemplated by the \gls{alto} protocol - for example, transport-level congestion is beyond its scope, and thus should not replace conventional mechanisms.
-    The type of data which is valid to consider, according to \cite{alto-problem-statement}, should not be easily obtainable by the clients themselves - such as immediate end-to-end delay - and should be variable on a longer timescale than the instantaneous kinds that are seen on, for example, congestion control mechanisms, as the frequently resulting querying traffic would be counterproductive to the task of traffic optimization.
+    The type of data which is valid to consider, according to the group's problem statement \cite{alto-problem-statement}, should not be easily obtainable by the clients themselves - such as immediate end-to-end delay - and should be variable on a longer timescale than the instantaneous kinds that are seen on, for example, congestion control mechanisms, as the frequently resulting querying traffic would be counterproductive to the task of traffic optimization.
     Potentially valuable information that is in the \gls{alto} scope would then have to be harder to obtain without aid of this service, and not highly mutable through time - for example, routing costs, geographical locations, network proximity, operator's policies, scheduled down-times, historical application feedback, etc.
 
     This project is, at time of writing, still on-working, with many drafts being created and updated as the \gls{alto} project matures and increases its domain applicability.
@@ -685,22 +702,22 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
         Spoofing of the clients themselves can also occur, and could allow a malicious party to retrieve sensitive network data outside their permission.
         Finally, spoofing of a provider of network status that could feed information into the server to be spread to applications, possibly misleading them in the same way an \gls{alto} server spoofing could, but by proxy.
     \item Tampering of data to mislead either \gls{alto} servers or clients.
-        If some unauthorized and malicious party can retrieve data that is in transit or storage and tamper with it, clients would act on information that they assume is trustworthy but in fact has been modified.
+        If some unauthorized and malicious party can retrieve data that is in transit or storage and tampers with it, clients would act on information that they assume is trustworthy but in fact has been modified.
         As such, clients could be redirected to wrong addresses, or receive incomplete or incorrect data that results in bad decision making.
         On the other hand, data tampering that occurs between data providers and the \gls{alto} server would give the latter, from a seemingly trustworthy party, untrustworthy data.
         This would result in the same issues that could arrive from spoofing threats.
         Tampering could also occur in input forms in the server-client or server-provider interface with potential to inject malicious code execution.
     \item Repudiation of being the source of some network information, whether it be by a third party that volunteered the data or the \gls{alto} server itself, which would make it difficult to neutralize and attribute culpability to incorrect or malicious sources, jeopardizing the legitimacy of the provided network information.
     \item Information disclosure in the form of \gls{alto} resources being made available to entities that were not contemplated to access it.
-            These resources could give malicious parties insight on network topology status as well as the ability to derive clients' network usage patterns by observing what kinds of resources they attempted to retrieve at a given moment.
-    \item \gls{dos} of the \gls{alto} server through request flooding beyond its capability, which would severely hinder - or even negate - its ability to serve legitimate users.
+            These resources could give malicious parties insight of network topology status as well as the ability to derive the client's network usage patterns by observing what kinds of resources they attempted to retrieve at a given moment.
+    \item Denial of service of the \gls{alto} server through request flooding beyond its capability, which would severely hinder - or even negate - its ability to serve legitimate users.
         By proxy, service denial of external entities can also happen through the manipulation of \gls{alto} resources themselves - leveraging the system's potential to guide traffic, if a given resource is manipulated in such a way that unreasonably favors the preference of a specific subset of servers, these could be selected by clients in a disproportionate matter, and highly affect these servers' availability.
-    \item Elevation of privileges that lead to obtaining or modifying more information than initially permitted, resulting in the previous threats being heightened.
+    \item Elevation of privileges that enable a user to obtain or modify more information than initially permitted, resulting in the previous threats being heightened.
 \end{itemize}
 
     Many of these threats are standard preoccupations for most computing systems and could be solved with state of the art solutions which are well proven and tested, as indeed states \cite{alto-protocol}.
-    However, regarding threats of information disclosure - whilst they can be negated with in-transit encryption, what is done with this information the moment it reaches the client is hard to control - situations may arise when a client with proper resource permissions shares, intentionally or not, sensitive network information with other users who may or may not have proper clearance, in interactions outside the \gls{alto} architecture.
-    Furthermore, many authenticated clients with different permissions could share information among themselves which they retrieved legitimately, to get a illegitimate complete view of the network structure.
+    However, regarding threats of information disclosure, whilst they can be negated with in-transit encryption, what is done with this information the moment it reaches the client is hard to control - situations may arise when a client with proper resource permissions shares, intentionally or not, sensitive network information with other users who may or may not have proper clearance, in interactions outside the \gls{alto} architecture.
+    Furthermore, many authenticated clients with different permissions could share information, which they retrieved legitimately, among themselves, to get an illegitimate complete view of the network structure.
     Thus, individual clients could internally collaborate outside the system to bypass access control measures applied inside it.
     As such, it is firstly important for the \gls{isp} or third parties to carefully plan on what information they are comfortable with sharing, knowing that it may be susceptible to future disclosure outside the secure domain.
     Possible solutions to minimize these threats include:
@@ -708,21 +725,23 @@ Such advantage goes outside of the \gls{cdn} realm, being useful for any overlay
 \begin{itemize}
     \item Reduce the granularity of the provided data.
         Intuitively, the less granular and precise the shared information by the \gls{alto} server is, the less valuable the resulting application guidance will be, and thus a balance would have to be found between layer cooperation and \gls{isp} privacy.
-        One example is the usage of network groupings by \glspl{pid} instead of mapping information to concrete endpoints, working with network status around abstract entities.
-        Another possible mean to reduce information granularity would be to utilize ordinal cost values, which instead of specifying a concrete metric, e.g., bandwidth in bits per second or packet loss in percentage, the server would give a relative preference rating with lower costs meaning lower preference.
+        One example is the usage of network groupings by \glspl{pid} instead of mapping information to concrete endpoints, working with network status about abstract entities.
+        Another possible mean to reduce information granularity would be to utilize ordinal cost values, which instead of specifying a concrete metric, e.g., bandwidth in bits per second or packet loss in percentages, the server would give a relative preference rating with lower costs meaning lower preference.
         In both examples, the granularity of network information transmitted to the client is several levels higher in abstraction than the actual physical layer, and this could reduce the flexibility of applications to optimize traffic.
-        However, they can still provide acceptable flexibility without impacting \gls{isp} privacy, acting as a much needed compromise.
+        However, the oracle service can still provide acceptable flexibility without considerably impacting \gls{isp} privacy, acting as a much needed compromise.
 
     \item Work only with a small set of trustworthy \gls{alto} clients that are to act on behalf of a larger subset of less trustworthy clients.
         For example, network status resources could only be provided to authorized cooperation-oriented trackers in the BitTorrent protocol, which would in turn use this information to provide customized replies to clients without the need to change the base protocol.
         Similarly, information relevant for user-server assignment could only be provided to authenticated \gls{cdn} control nodes, who'd use among themselves a private virtual domain to share information about user-server connectivity and server status that would otherwise be inappropriate for any other type of user to retrieve.
-        This is still, however, worthy of further threat analysis as restricted information could still leak outside of the system - beyond the means of spoofing discussed previously, seeing how a system behaves with \gls{alto} guidance can give - albeit limited - insight into SP bias.
-        To see this, consider how a BitTorrent peer could continuously query a tracker with carefully crafted parameters - such as source address and candidate peers - and attempt to derive information from the resulting action, or similarly how a end-user could utilize similar parameter modification to observe the edge server selection mechanism in action.
+        This is still, however, worthy of further threat analysis as restricted information could still leak outside of the system - beyond the means of spoofing discussed previously, seeing how a system behaves with \gls{alto} guidance can give - albeit limited - insight into \gls{ISP} bias.
+        To see this, consider how a BitTorrent peer could continuously query a tracker with carefully crafted parameters - such as source address and candidate peers - and attempt to derive information from the resulting action, or similarly how a end-user could utilize similar parameter modifications to observe the edge server selection mechanism in action.
 
-    \item Utilize terms of agreements that are to be enforced on every querying client, stating that network status information does not get used beyond its original purpose, prohibiting sharing.
+    \item Utilize terms of agreement that are to be enforced on every querying client, stating that network status information does not get used beyond its original purpose, prohibiting sharing.
         Although a potentially helpful mechanism to dissuade malicious users, it can be deemed impractical to apply, especially considering the scale at which this information could be shared.
-        Thus, utilizing such means should be applied at a case-by-case situation and it should not replace \gls{isp} discretion and server resource maintenance to ensure a given standard.
+        Thus, such means should be applied at a case-by-case situation and it should not replace \gls{isp} discretion and server resource maintenance to ensure a given standard.
 \end{itemize}
+
+<BOOKMARK 18/01/21>
 
 \subsubsection{Privacy}%
 
